@@ -49,20 +49,43 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Create account')),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(controller: _emailController, decoration: const InputDecoration(labelText: 'Email')),
-            TextField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: const InputDecoration(labelText: 'Password')),
-            if (_error != null) Text(_error!, style: const TextStyle(color: Colors.red)),
-            if (_info != null)
-              Text(_info!, key: const Key('signup_info'), style: const TextStyle(color: Colors.green)),
-            FilledButton(onPressed: _loading ? null : _signUp, child: const Text('Sign up')),
-          ],
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 400),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    controller: _emailController,
+                    decoration: const InputDecoration(labelText: 'Email'),
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: _passwordController,
+                    obscureText: true,
+                    decoration: const InputDecoration(labelText: 'Password'),
+                  ),
+                  if (_error != null) ...[
+                    const SizedBox(height: 8),
+                    Text(_error!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
+                  ],
+                  if (_info != null) ...[
+                    const SizedBox(height: 8),
+                    Text(
+                      _info!,
+                      key: const Key('signup_info'),
+                      style: const TextStyle(color: Color(0xFF7A8C6B)),
+                    ),
+                  ],
+                  const SizedBox(height: 20),
+                  FilledButton(onPressed: _loading ? null : _signUp, child: const Text('Sign up')),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

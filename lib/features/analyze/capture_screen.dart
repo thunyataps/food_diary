@@ -64,27 +64,66 @@ class _CaptureScreenState extends State<CaptureScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Add meal')),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            if (_photo != null) Image.file(_photo!, height: 200),
-            Row(
-              children: [
-                TextButton(onPressed: () => _pickPhoto(ImageSource.camera), child: const Text('Camera')),
-                TextButton(onPressed: () => _pickPhoto(ImageSource.gallery), child: const Text('Gallery')),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: _photo != null
+                    ? Image.file(_photo!, height: 220, fit: BoxFit.cover)
+                    : Container(
+                        height: 220,
+                        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                        alignment: Alignment.center,
+                        child: Icon(
+                          Icons.restaurant_outlined,
+                          size: 48,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+              ),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      onPressed: () => _pickPhoto(ImageSource.camera),
+                      icon: const Icon(Icons.camera_alt_outlined),
+                      label: const Text('Camera'),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      onPressed: () => _pickPhoto(ImageSource.gallery),
+                      icon: const Icon(Icons.photo_library_outlined),
+                      label: const Text('Gallery'),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              TextField(
+                controller: _noteController,
+                decoration: const InputDecoration(
+                  labelText: 'Note (optional)',
+                  hintText: 'e.g. "Thai green curry"',
+                ),
+              ),
+              if (_error != null) ...[
+                const SizedBox(height: 8),
+                Text(_error!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
               ],
-            ),
-            TextField(
-              controller: _noteController,
-              decoration: const InputDecoration(labelText: 'Note (optional) - e.g. "Thai green curry"'),
-            ),
-            if (_error != null) Text(_error!, style: const TextStyle(color: Colors.red)),
-            FilledButton(
-              onPressed: _photo == null || _analyzing ? null : _analyze,
-              child: Text(_analyzing ? 'Analyzing...' : 'Analyze'),
-            ),
-          ],
+              const SizedBox(height: 16),
+              FilledButton(
+                onPressed: _photo == null || _analyzing ? null : _analyze,
+                child: Text(_analyzing ? 'Analyzing...' : 'Analyze'),
+              ),
+            ],
+          ),
         ),
       ),
     );

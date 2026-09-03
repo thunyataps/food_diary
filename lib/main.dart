@@ -8,6 +8,52 @@ import 'features/diary/diary_repository.dart';
 import 'features/diary/diary_screen.dart';
 import 'features/settings/goals_repository.dart';
 
+final _colorScheme = ColorScheme.fromSeed(
+  seedColor: const Color(0xFFC1652F),
+  brightness: Brightness.light,
+).copyWith(surface: const Color(0xFFFAF6F0));
+
+final appTheme = ThemeData(
+  useMaterial3: true,
+  colorScheme: _colorScheme,
+  scaffoldBackgroundColor: _colorScheme.surface,
+  appBarTheme: AppBarTheme(
+    backgroundColor: _colorScheme.surface,
+    foregroundColor: const Color(0xFF2B2620),
+    elevation: 0,
+    scrolledUnderElevation: 1,
+  ),
+  cardTheme: CardThemeData(
+    elevation: 0,
+    color: Colors.white,
+    surfaceTintColor: Colors.transparent,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+  ),
+  inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: Colors.white,
+    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+  ),
+  filledButtonTheme: FilledButtonThemeData(
+    style: FilledButton.styleFrom(
+      padding: const EdgeInsets.symmetric(vertical: 14),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    ),
+  ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      padding: const EdgeInsets.symmetric(vertical: 14),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    ),
+  ),
+  navigationBarTheme: NavigationBarThemeData(
+    backgroundColor: Colors.white,
+    indicatorColor: _colorScheme.primary.withValues(alpha: 0.15),
+    surfaceTintColor: Colors.transparent,
+  ),
+);
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Supabase.initialize(
@@ -35,6 +81,7 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Food Diary',
+      theme: appTheme,
       home: StreamBuilder<AuthState>(
         stream: _authRepository.onAuthStateChange,
         builder: (context, snapshot) {
