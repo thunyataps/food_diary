@@ -6,6 +6,7 @@ import 'features/analyze/analyze_repository.dart';
 import 'features/analyze/capture_screen.dart';
 import 'features/diary/diary_repository.dart';
 import 'features/diary/diary_screen.dart';
+import 'features/settings/goals_repository.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,7 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
   late final _authRepository = AuthRepository(_client);
   late final _analyzeRepository = AnalyzeRepository(_client);
   late final _diaryRepository = DiaryRepository(_client);
+  late final _goalsRepository = GoalsRepository(_client);
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
             authRepository: _authRepository,
             analyzeRepository: _analyzeRepository,
             diaryRepository: _diaryRepository,
+            goalsRepository: _goalsRepository,
           );
         },
       ),
@@ -56,10 +59,12 @@ class _HomeShell extends StatefulWidget {
     required this.authRepository,
     required this.analyzeRepository,
     required this.diaryRepository,
+    required this.goalsRepository,
   });
   final AuthRepository authRepository;
   final AnalyzeRepository analyzeRepository;
   final DiaryRepository diaryRepository;
+  final GoalsRepository goalsRepository;
 
   @override
   State<_HomeShell> createState() => _HomeShellState();
@@ -73,6 +78,7 @@ class _HomeShellState extends State<_HomeShell> {
     final screens = [
       DiaryScreen(
         repository: widget.diaryRepository,
+        goalsRepository: widget.goalsRepository,
         onSignOut: widget.authRepository.signOut,
       ),
       CaptureScreen(
