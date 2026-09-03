@@ -3,8 +3,12 @@ import '../../models/meal_entry.dart';
 import 'diary_repository.dart';
 
 class DiaryScreen extends StatefulWidget {
-  const DiaryScreen({super.key, required this.repository});
+  const DiaryScreen({super.key, required this.repository, this.onSignOut});
   final DiaryRepository repository;
+
+  /// Signs the current user out. When null the sign-out action is hidden
+  /// (used by tests that don't wire an auth repository).
+  final Future<void> Function()? onSignOut;
 
   @override
   State<DiaryScreen> createState() => _DiaryScreenState();
@@ -18,6 +22,17 @@ class _DiaryScreenState extends State<DiaryScreen> {
   void initState() {
     super.initState();
     _entriesFuture = widget.repository.entriesForDay(_day);
+  }
+
+  Future<void> _signOut() async {
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      await widget.onSignOut!();
+    } catch (_) {
+      if (mounted) {
+        messenger.showSnackBar(const SnackBar(content: Text('Could not sign out. Please try again.')));
+      }
+    }
   }
 
   void _changeDay(int deltaDays) {
@@ -34,7 +49,16 @@ class _DiaryScreenState extends State<DiaryScreen> {
         title: Text(
             '${_day.year}-${_day.month.toString().padLeft(2, '0')}-${_day.day.toString().padLeft(2, '0')}'),
         leading: IconButton(icon: const Icon(Icons.chevron_left), onPressed: () => _changeDay(-1)),
-        actions: [IconButton(icon: const Icon(Icons.chevron_right), onPressed: () => _changeDay(1))],
+        actions: [
+          IconButton(icon: const Icon(Icons.chevron_right), onPressed: () => _changeDay(1)),
+          if (widget.onSignOut != null)
+            IconButton(
+              key: const Key('sign_out_button'),
+              tooltip: 'Sign out',
+              icon: const Icon(Icons.logout),
+              onPressed: _signOut,
+            ),
+        ],
       ),
       body: FutureBuilder<List<MealEntry>>(
         future: _entriesFuture,

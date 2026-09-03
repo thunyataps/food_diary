@@ -1,4 +1,4 @@
-import 'dart:typed_data';
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../models/food_item.dart';
 import '../../models/meal_entry.dart';
@@ -20,6 +20,19 @@ Totals computeTotals(List<FoodItem> items) {
   );
 }
 
+/// The half-open `[start, end)` bounds of the *local* calendar day containing
+/// [day], serialized as UTC ISO-8601 (`...Z`).
+///
+/// `eaten_at` is a `timestamptz` and is written as UTC (see [DiaryRepository.saveMealEntry]),
+/// so the day filter has to be expressed in UTC too — otherwise a naive local
+/// string is interpreted as UTC by Postgres and every row is off by the
+/// device's offset.
+({String start, String end}) dayRangeUtc(DateTime day) {
+  final start = DateTime(day.year, day.month, day.day);
+  final end = start.add(const Duration(days: 1));
+  return (start: start.toUtc().toIso8601String(), end: end.toUtc().toIso8601String());
+}
+
 class DiaryRepository {
   DiaryRepository(this._client);
   final SupabaseClient _client;
@@ -35,12 +48,19 @@ class DiaryRepository {
 
     if (photoBytes != null) {
       final path = '$userId/${DateTime.now().millisecondsSinceEpoch}.jpg';
-      await _client.storage.from('meal-photos').uploadBinary(
-            path,
-            photoBytes,
-            fileOptions: const FileOptions(contentType: 'image/jpeg'),
-          );
-      photoUrl = path;
+      try {
+        await _client.storage.from('meal-photos').uploadBinary(
+              path,
+              photoBytes,
+              fileOptions: const FileOptions(contentType: 'image/jpeg'),
+            );
+        photoUrl = path;
+      } catch (error) {
+        // Per spec: a failed photo upload must not block the save. Keep
+        // photoUrl null and store the nutrition data anyway.
+        debugPrint('meal photo upload failed, saving entry without a photo: $error');
+        photoUrl = null;
+      }
     }
 
     final totals = computeTotals(items);
@@ -50,7 +70,7 @@ class DiaryRepository {
           'user_id': userId,
           'photo_url': photoUrl,
           'note': note,
-          'eaten_at': eatenAt.toIso8601String(),
+          'eaten_at': eatenAt.toUtc().toIso8601String(),
           'total_calories': totals.calories,
           'total_protein': totals.protein,
           'total_carb': totals.carb,
@@ -66,14 +86,13 @@ class DiaryRepository {
   }
 
   Future<List<MealEntry>> entriesForDay(DateTime day) async {
-    final start = DateTime(day.year, day.month, day.day);
-    final end = start.add(const Duration(days: 1));
+    final range = dayRangeUtc(day);
 
     final rows = await _client
         .from('meal_entries')
         .select('*, food_items(*)')
-        .gte('eaten_at', start.toIso8601String())
-        .lt('eaten_at', end.toIso8601String())
+        .gte('eaten_at', range.start)
+        .lt('eaten_at', range.end)
         .order('eaten_at');
 
     return (rows as List).map((row) {

@@ -40,7 +40,11 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
           if (!signedIn) {
             return LoginScreen(authRepository: _authRepository, onSignedIn: () => setState(() {}));
           }
-          return _HomeShell(analyzeRepository: _analyzeRepository, diaryRepository: _diaryRepository);
+          return _HomeShell(
+            authRepository: _authRepository,
+            analyzeRepository: _analyzeRepository,
+            diaryRepository: _diaryRepository,
+          );
         },
       ),
     );
@@ -48,7 +52,12 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
 }
 
 class _HomeShell extends StatefulWidget {
-  const _HomeShell({required this.analyzeRepository, required this.diaryRepository});
+  const _HomeShell({
+    required this.authRepository,
+    required this.analyzeRepository,
+    required this.diaryRepository,
+  });
+  final AuthRepository authRepository;
   final AnalyzeRepository analyzeRepository;
   final DiaryRepository diaryRepository;
 
@@ -62,7 +71,10 @@ class _HomeShellState extends State<_HomeShell> {
   @override
   Widget build(BuildContext context) {
     final screens = [
-      DiaryScreen(repository: widget.diaryRepository),
+      DiaryScreen(
+        repository: widget.diaryRepository,
+        onSignOut: widget.authRepository.signOut,
+      ),
       CaptureScreen(
         analyzeRepository: widget.analyzeRepository,
         onSave: (items, photoFile, note) async {

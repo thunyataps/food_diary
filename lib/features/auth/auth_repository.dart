@@ -7,8 +7,14 @@ class AuthRepository {
   Session? get currentSession => _client.auth.currentSession;
   Stream<AuthState> get onAuthStateChange => _client.auth.onAuthStateChange;
 
-  Future<void> signUpWithEmail(String email, String password) async {
-    await _client.auth.signUp(email: email, password: password);
+  /// Signs a new user up and returns the session that was created.
+  ///
+  /// Returns `null` when the project requires email confirmation (the hosted
+  /// Supabase default): the sign-up succeeded, but no session exists until the
+  /// user clicks the link in the confirmation email.
+  Future<Session?> signUpWithEmail(String email, String password) async {
+    final response = await _client.auth.signUp(email: email, password: password);
+    return response.session;
   }
 
   Future<void> signInWithEmail(String email, String password) async {
