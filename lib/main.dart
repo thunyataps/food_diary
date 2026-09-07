@@ -6,7 +6,13 @@ import 'features/analyze/analyze_repository.dart';
 import 'features/analyze/capture_screen.dart';
 import 'features/diary/diary_repository.dart';
 import 'features/diary/diary_screen.dart';
+import 'features/diary/weight_repository.dart';
+import 'features/profile/profile_repository.dart';
+import 'features/profile/profile_screen.dart';
 import 'features/settings/goals_repository.dart';
+import 'features/settings/settings_screen.dart';
+import 'models/user_profile.dart';
+import 'models/weight_log.dart';
 
 final _colorScheme = ColorScheme.fromSeed(
   seedColor: const Color(0xFFC1652F),
@@ -76,6 +82,8 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
   late final _analyzeRepository = AnalyzeRepository(_client);
   late final _diaryRepository = DiaryRepository(_client);
   late final _goalsRepository = GoalsRepository(_client);
+  late final _weightRepository = WeightRepository(_client);
+  late final _profileRepository = ProfileRepository(_client);
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +102,8 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
             analyzeRepository: _analyzeRepository,
             diaryRepository: _diaryRepository,
             goalsRepository: _goalsRepository,
+            weightRepository: _weightRepository,
+            profileRepository: _profileRepository,
           );
         },
       ),
@@ -107,11 +117,15 @@ class _HomeShell extends StatefulWidget {
     required this.analyzeRepository,
     required this.diaryRepository,
     required this.goalsRepository,
+    required this.weightRepository,
+    required this.profileRepository,
   });
   final AuthRepository authRepository;
   final AnalyzeRepository analyzeRepository;
   final DiaryRepository diaryRepository;
   final GoalsRepository goalsRepository;
+  final WeightRepository weightRepository;
+  final ProfileRepository profileRepository;
 
   @override
   State<_HomeShell> createState() => _HomeShellState();
@@ -119,6 +133,29 @@ class _HomeShell extends StatefulWidget {
 
 class _HomeShellState extends State<_HomeShell> {
   int _tab = 0;
+  late Future<UserProfile?> _profileFuture;
+  late Future<WeightLog?> _latestWeightFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _profileFuture = widget.profileRepository.fetchProfile();
+    _latestWeightFuture = widget.weightRepository.fetchLatestWeight();
+  }
+
+  Future<void> _openGoals() async {
+    final currentGoals = await widget.goalsRepository.fetchGoals();
+    if (!mounted) return;
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => SettingsScreen(
+          initialGoals: currentGoals,
+          onSave: widget.goalsRepository.saveGoals,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +163,7 @@ class _HomeShellState extends State<_HomeShell> {
       DiaryScreen(
         repository: widget.diaryRepository,
         goalsRepository: widget.goalsRepository,
-        onSignOut: widget.authRepository.signOut,
+        weightRepository: widget.weightRepository,
       ),
       CaptureScreen(
         analyzeRepository: widget.analyzeRepository,
@@ -140,6 +177,29 @@ class _HomeShellState extends State<_HomeShell> {
           if (mounted) setState(() => _tab = 0);
         },
       ),
+      FutureBuilder<UserProfile?>(
+        future: _profileFuture,
+        builder: (context, profileSnapshot) {
+          return FutureBuilder<WeightLog?>(
+            future: _latestWeightFuture,
+            builder: (context, weightSnapshot) {
+              return ProfileScreen(
+                email: widget.authRepository.currentSession?.user.email ?? '',
+                latestWeightKg: weightSnapshot.data?.weightKg,
+                initialProfile: profileSnapshot.data,
+                onSaveProfile: (profile) async {
+                  await widget.profileRepository.saveProfile(profile);
+                  if (mounted) {
+                    setState(() => _profileFuture = widget.profileRepository.fetchProfile());
+                  }
+                },
+                onOpenGoals: _openGoals,
+                onSignOut: widget.authRepository.signOut,
+              );
+            },
+          );
+        },
+      ),
     ];
     return Scaffold(
       body: screens[_tab],
@@ -149,6 +209,7 @@ class _HomeShellState extends State<_HomeShell> {
         destinations: const [
           NavigationDestination(icon: Icon(Icons.book), label: 'Diary'),
           NavigationDestination(icon: Icon(Icons.camera_alt), label: 'Add meal'),
+          NavigationDestination(icon: Icon(Icons.person_outline), label: 'Profile'),
         ],
       ),
     );
