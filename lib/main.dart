@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'features/auth/auth_repository.dart';
 import 'features/auth/login_screen.dart';
@@ -11,6 +12,8 @@ import 'features/profile/profile_repository.dart';
 import 'features/profile/profile_screen.dart';
 import 'features/settings/goals_repository.dart';
 import 'features/settings/settings_screen.dart';
+import 'features/update/update_checker.dart';
+import 'features/update/update_downloader.dart';
 import 'models/user_profile.dart';
 import 'models/weight_log.dart';
 
@@ -84,6 +87,8 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
   late final _goalsRepository = GoalsRepository(_client);
   late final _weightRepository = WeightRepository(_client);
   late final _profileRepository = ProfileRepository(_client);
+  final _updateChecker = UpdateChecker();
+  final _updateDownloader = UpdateDownloader();
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +109,8 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
             goalsRepository: _goalsRepository,
             weightRepository: _weightRepository,
             profileRepository: _profileRepository,
+            updateChecker: _updateChecker,
+            updateDownloader: _updateDownloader,
           );
         },
       ),
@@ -119,6 +126,8 @@ class _HomeShell extends StatefulWidget {
     required this.goalsRepository,
     required this.weightRepository,
     required this.profileRepository,
+    required this.updateChecker,
+    required this.updateDownloader,
   });
   final AuthRepository authRepository;
   final AnalyzeRepository analyzeRepository;
@@ -126,6 +135,8 @@ class _HomeShell extends StatefulWidget {
   final GoalsRepository goalsRepository;
   final WeightRepository weightRepository;
   final ProfileRepository profileRepository;
+  final UpdateChecker updateChecker;
+  final UpdateDownloader updateDownloader;
 
   @override
   State<_HomeShell> createState() => _HomeShellState();
@@ -135,12 +146,14 @@ class _HomeShellState extends State<_HomeShell> {
   int _tab = 0;
   late Future<UserProfile?> _profileFuture;
   late Future<WeightLog?> _latestWeightFuture;
+  late Future<String> _versionFuture;
 
   @override
   void initState() {
     super.initState();
     _profileFuture = widget.profileRepository.fetchProfile();
     _latestWeightFuture = widget.weightRepository.fetchLatestWeight();
+    _versionFuture = PackageInfo.fromPlatform().then((info) => info.version);
   }
 
   Future<void> _openGoals() async {
@@ -183,18 +196,26 @@ class _HomeShellState extends State<_HomeShell> {
           return FutureBuilder<WeightLog?>(
             future: _latestWeightFuture,
             builder: (context, weightSnapshot) {
-              return ProfileScreen(
-                email: widget.authRepository.currentSession?.user.email ?? '',
-                latestWeightKg: weightSnapshot.data?.weightKg,
-                initialProfile: profileSnapshot.data,
-                onSaveProfile: (profile) async {
-                  await widget.profileRepository.saveProfile(profile);
-                  if (mounted) {
-                    setState(() => _profileFuture = widget.profileRepository.fetchProfile());
-                  }
+              return FutureBuilder<String>(
+                future: _versionFuture,
+                builder: (context, versionSnapshot) {
+                  return ProfileScreen(
+                    email: widget.authRepository.currentSession?.user.email ?? '',
+                    latestWeightKg: weightSnapshot.data?.weightKg,
+                    initialProfile: profileSnapshot.data,
+                    onSaveProfile: (profile) async {
+                      await widget.profileRepository.saveProfile(profile);
+                      if (mounted) {
+                        setState(() => _profileFuture = widget.profileRepository.fetchProfile());
+                      }
+                    },
+                    onOpenGoals: _openGoals,
+                    onSignOut: widget.authRepository.signOut,
+                    currentVersion: versionSnapshot.data ?? '0.0.0',
+                    onCheckForUpdate: widget.updateChecker.checkForUpdate,
+                    onDownloadAndInstall: widget.updateDownloader.downloadAndInstall,
+                  );
                 },
-                onOpenGoals: _openGoals,
-                onSignOut: widget.authRepository.signOut,
               );
             },
           );

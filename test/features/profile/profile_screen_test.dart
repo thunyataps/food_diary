@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/profile/profile_screen.dart';
+import 'package:food_diary/features/update/update_checker.dart';
 import 'package:food_diary/models/user_profile.dart';
 
 void main() {
@@ -22,6 +23,9 @@ void main() {
         onSaveProfile: (p) async => saved = p,
         onOpenGoals: () {},
         onSignOut: () async {},
+        currentVersion: '1.0.0',
+        onCheckForUpdate: (v) async => null,
+        onDownloadAndInstall: (url) async {},
       ),
     ));
 
@@ -49,6 +53,9 @@ void main() {
         onSaveProfile: (p) async => saved = p,
         onOpenGoals: () {},
         onSignOut: () async {},
+        currentVersion: '1.0.0',
+        onCheckForUpdate: (v) async => null,
+        onDownloadAndInstall: (url) async {},
       ),
     ));
 
@@ -72,6 +79,9 @@ void main() {
         onSaveProfile: (p) async {},
         onOpenGoals: () => opened++,
         onSignOut: () async {},
+        currentVersion: '1.0.0',
+        onCheckForUpdate: (v) async => null,
+        onDownloadAndInstall: (url) async {},
       ),
     ));
 
@@ -90,6 +100,9 @@ void main() {
         onSaveProfile: (p) async {},
         onOpenGoals: () {},
         onSignOut: () async => signOutCalls++,
+        currentVersion: '1.0.0',
+        onCheckForUpdate: (v) async => null,
+        onDownloadAndInstall: (url) async {},
       ),
     ));
 
@@ -98,5 +111,79 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(signOutCalls, 1);
+  });
+
+  testWidgets('shows "up to date" when no update is available', (tester) async {
+    await tester.pumpWidget(MaterialApp(
+      home: ProfileScreen(
+        email: 'alex@example.com',
+        latestWeightKg: null,
+        initialProfile: null,
+        onSaveProfile: (p) async {},
+        onOpenGoals: () {},
+        onSignOut: () async {},
+        currentVersion: '1.0.0',
+        onCheckForUpdate: (v) async => null,
+        onDownloadAndInstall: (url) async {},
+      ),
+    ));
+
+    await tester.ensureVisible(find.text('Check for updates'));
+    await tester.tap(find.text('Check for updates'));
+    await tester.pumpAndSettle();
+
+    expect(find.text("You're on the latest version."), findsOneWidget);
+  });
+
+  testWidgets('prompts to install and downloads on confirm when an update is available',
+      (tester) async {
+    String? downloadedUrl;
+    await tester.pumpWidget(MaterialApp(
+      home: ProfileScreen(
+        email: 'alex@example.com',
+        latestWeightKg: null,
+        initialProfile: null,
+        onSaveProfile: (p) async {},
+        onOpenGoals: () {},
+        onSignOut: () async {},
+        currentVersion: '1.0.0',
+        onCheckForUpdate: (v) async =>
+            ReleaseInfo(version: '2.0.0', apkDownloadUrl: 'https://example.com/app.apk'),
+        onDownloadAndInstall: (url) async => downloadedUrl = url,
+      ),
+    ));
+
+    await tester.ensureVisible(find.text('Check for updates'));
+    await tester.tap(find.text('Check for updates'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Version 2.0.0 is available.'), findsOneWidget);
+
+    await tester.tap(find.text('Download & install'));
+    await tester.pumpAndSettle();
+
+    expect(downloadedUrl, 'https://example.com/app.apk');
+  });
+
+  testWidgets('shows an error message when checking for updates fails', (tester) async {
+    await tester.pumpWidget(MaterialApp(
+      home: ProfileScreen(
+        email: 'alex@example.com',
+        latestWeightKg: null,
+        initialProfile: null,
+        onSaveProfile: (p) async {},
+        onOpenGoals: () {},
+        onSignOut: () async {},
+        currentVersion: '1.0.0',
+        onCheckForUpdate: (v) async => throw Exception('network error'),
+        onDownloadAndInstall: (url) async {},
+      ),
+    ));
+
+    await tester.ensureVisible(find.text('Check for updates'));
+    await tester.tap(find.text('Check for updates'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Could not check for updates. Try again.'), findsOneWidget);
   });
 }
