@@ -202,4 +202,75 @@ void main() {
     expect(find.byIcon(Icons.restaurant_outlined), findsOneWidget);
     expect(find.byType(Image), findsNothing);
   });
+
+  testWidgets('meal photo thumbnail refetches when the day changes (regression: was stale)',
+      (tester) async {
+    final repository = _FakeDiaryRepository();
+    repository.signedUrlResponder = (path) => null;
+    repository.entries = [
+      MealEntry(
+        id: '1',
+        photoUrl: 'day-a.jpg',
+        eatenAt: DateTime.now(),
+        items: [
+          FoodItem(
+            name: 'Toast',
+            quantity: '1 slice',
+            calories: 100,
+            protein: 3,
+            carb: 15,
+            fat: 2,
+            source: 'user_edited',
+          ),
+        ],
+      ),
+    ];
+
+    await tester.pumpWidget(MaterialApp(
+      home: DiaryScreen(
+        repository: repository,
+        goalsRepository: _FakeGoalsRepository(),
+        weightRepository: _FakeWeightRepository(),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    expect(repository.signedPhotoUrlCalls, ['day-a.jpg']);
+
+    // Simulate a different day's meal (same list position) before the
+    // screen refetches entries for the newly-selected day.
+    repository.entries = [
+      MealEntry(
+        id: '2',
+        photoUrl: 'day-b.jpg',
+        eatenAt: DateTime.now(),
+        items: [
+          FoodItem(
+            name: 'Eggs',
+            quantity: '2',
+            calories: 150,
+            protein: 12,
+            carb: 1,
+            fat: 10,
+            source: 'user_edited',
+          ),
+        ],
+      ),
+    ];
+
+    final yesterday = DateTime.now().subtract(const Duration(days: 1));
+    final tileKey = Key('day_tile_${yesterday.year}-${yesterday.month}-${yesterday.day}');
+    // The scroller starts pinned near "today" (the rightmost tile), and at
+    // the default test viewport width yesterday's tile already falls
+    // within view — no drag needed. If this ever needs scrolling, prefer
+    // `tester.ensureVisible` over a blind drag offset.
+    await tester.ensureVisible(find.byKey(tileKey));
+    await tester.tap(find.byKey(tileKey));
+    await tester.pumpAndSettle();
+
+    // Without a key on the meal Card, the previous _MealPhotoThumbnail
+    // State would be reused for the new entry and never refetch — this
+    // asserts the new entry's photo path was actually requested.
+    expect(repository.signedPhotoUrlCalls, ['day-a.jpg', 'day-b.jpg']);
+  });
 }

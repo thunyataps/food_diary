@@ -92,7 +92,8 @@ class DiaryRepository {
   Future<String?> signedPhotoUrl(String path) async {
     try {
       return await _client.storage.from('meal-photos').createSignedUrl(path, 3600);
-    } catch (_) {
+    } catch (error) {
+      debugPrint('signed photo URL failed for $path: $error');
       return null;
     }
   }

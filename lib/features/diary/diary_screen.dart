@@ -99,6 +99,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                             else
                               for (final e in entries)
                                 Card(
+                                  key: ValueKey(e.id ?? e.photoUrl ?? e.eatenAt.toIso8601String()),
                                   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                                   child: ListTile(
                                     leading: e.photoUrl == null
