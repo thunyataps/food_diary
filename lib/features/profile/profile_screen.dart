@@ -237,6 +237,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             _fieldRow('Name', profile?.name ?? '-'),
             _fieldRow('Age', profile?.age?.toString() ?? '-'),
+            _fieldRow('Weight (kg)', _formatOrDash(widget.latestWeightKg)),
             _fieldRow('Height (cm)', _formatOrDash(profile?.heightCm)),
             _fieldRow('Body fat (%)', _formatOrDash(profile?.bodyFatPct)),
             _fieldRow('Muscle mass (kg)', _formatOrDash(profile?.muscleMassKg)),
@@ -329,19 +330,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(widget.email, style: Theme.of(context).textTheme.titleMedium),
-                      const SizedBox(height: 8),
-                      Text(
-                        widget.latestWeightKg != null
-                            ? '${_formatNumber(widget.latestWeightKg!)} kg'
-                            : 'No weight logged yet',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ],
-                  ),
+                  child: Text(widget.email, style: Theme.of(context).textTheme.titleMedium),
                 ),
               ),
               const SizedBox(height: 16),

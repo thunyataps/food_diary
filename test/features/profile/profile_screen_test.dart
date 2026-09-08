@@ -40,8 +40,8 @@ void main() {
     expect(find.text('Alex'), findsOneWidget);
     expect(find.text('30'), findsOneWidget);
     expect(find.text('170'), findsOneWidget);
-    // Two unset fields (body fat, muscle mass) both render as "-".
-    expect(find.text('-'), findsNWidgets(2));
+    // Three unset fields (weight, body fat, muscle mass) all render as "-".
+    expect(find.text('-'), findsNWidgets(3));
 
     // No editable fields or Save/Cancel buttons in view mode.
     expect(find.byKey(const Key('name_field')), findsNothing);
@@ -49,10 +49,20 @@ void main() {
     expect(find.text('Cancel'), findsNothing);
   });
 
-  testWidgets('view mode shows all dashes when there is no profile yet', (tester) async {
-    await tester.pumpWidget(buildScreen(initialProfile: null));
+  testWidgets('view mode shows all dashes when there is no profile or weight yet', (tester) async {
+    await tester.pumpWidget(buildScreen(initialProfile: null, latestWeightKg: null));
 
-    expect(find.text('-'), findsNWidgets(5));
+    // Name, Age, Weight, Height, Body fat, Muscle mass.
+    expect(find.text('-'), findsNWidgets(6));
+  });
+
+  testWidgets('view mode shows the latest logged weight alongside personal info', (tester) async {
+    await tester.pumpWidget(buildScreen(
+      initialProfile: UserProfile(name: 'Alex', age: 30, heightCm: 170, bodyFatPct: 20, muscleMassKg: 55),
+      latestWeightKg: 68.5,
+    ));
+
+    expect(find.text('68.5'), findsOneWidget);
   });
 
   testWidgets('shows fields once initialProfile arrives after the first build (async fetch via FutureBuilder)',
@@ -140,8 +150,6 @@ void main() {
   testWidgets('all profile fields are optional and can be left blank', (tester) async {
     UserProfile? saved;
     await tester.pumpWidget(buildScreen(onSaveProfile: (p) async => saved = p));
-
-    expect(find.text('No weight logged yet'), findsOneWidget);
 
     await tester.tap(find.byKey(const Key('edit_profile_button')));
     await tester.pumpAndSettle();
