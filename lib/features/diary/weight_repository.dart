@@ -31,6 +31,18 @@ class WeightRepository {
     return WeightLog.fromRow(list.first as Map<String, dynamic>);
   }
 
+  Future<List<WeightLog>> fetchRecentWeights({int days = 30}) async {
+    final userId = _client.auth.currentUser!.id;
+    final since = DateTime.now().subtract(Duration(days: days - 1));
+    final rows = await _client
+        .from('weight_logs')
+        .select()
+        .eq('user_id', userId)
+        .gte('logged_date', formatLoggedDate(since))
+        .order('logged_date');
+    return (rows as List).map((r) => WeightLog.fromRow(r as Map<String, dynamic>)).toList();
+  }
+
   Future<void> saveWeightForDate(DateTime date, double weightKg) async {
     final userId = _client.auth.currentUser!.id;
     await _client.from('weight_logs').upsert(

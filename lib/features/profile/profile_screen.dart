@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import '../../models/user_profile.dart';
+import '../../models/weight_log.dart';
 import '../update/update_checker.dart';
+import 'weight_trend_card.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({
     super.key,
     required this.email,
     required this.latestWeightKg,
+    required this.recentWeights,
     required this.initialProfile,
     required this.onSaveProfile,
     required this.onOpenGoals,
@@ -18,6 +21,10 @@ class ProfileScreen extends StatefulWidget {
 
   final String email;
   final double? latestWeightKg;
+
+  /// Weight history for the trend chart (e.g. the last 30 days), already
+  /// fetched by the caller. Defaults to empty while loading.
+  final List<WeightLog> recentWeights;
   final UserProfile? initialProfile;
   final Future<void> Function(UserProfile profile) onSaveProfile;
   final VoidCallback onOpenGoals;
@@ -335,6 +342,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               const SizedBox(height: 16),
               _editing ? _buildEditMode() : _buildViewMode(),
+              const SizedBox(height: 16),
+              WeightTrendCard(weights: widget.recentWeights),
               const SizedBox(height: 24),
               OutlinedButton(
                 onPressed: widget.onOpenGoals,

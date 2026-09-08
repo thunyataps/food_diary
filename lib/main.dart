@@ -146,6 +146,7 @@ class _HomeShellState extends State<_HomeShell> {
   int _tab = 0;
   late Future<UserProfile?> _profileFuture;
   late Future<WeightLog?> _latestWeightFuture;
+  late Future<List<WeightLog>> _recentWeightsFuture;
   late Future<String> _versionFuture;
 
   @override
@@ -153,6 +154,7 @@ class _HomeShellState extends State<_HomeShell> {
     super.initState();
     _profileFuture = widget.profileRepository.fetchProfile();
     _latestWeightFuture = widget.weightRepository.fetchLatestWeight();
+    _recentWeightsFuture = widget.weightRepository.fetchRecentWeights();
     _versionFuture = PackageInfo.fromPlatform().then((info) => info.version);
   }
 
@@ -196,26 +198,32 @@ class _HomeShellState extends State<_HomeShell> {
           return FutureBuilder<WeightLog?>(
             future: _latestWeightFuture,
             builder: (context, weightSnapshot) {
-              return FutureBuilder<String>(
-                future: _versionFuture,
-                builder: (context, versionSnapshot) {
-                  return ProfileScreen(
-                    email: widget.authRepository.currentSession?.user.email ?? '',
-                    latestWeightKg: weightSnapshot.data?.weightKg,
-                    initialProfile: profileSnapshot.data,
-                    onSaveProfile: (profile) async {
-                      await widget.profileRepository.saveProfile(profile);
-                      if (mounted) {
-                        setState(() {
-                          _profileFuture = widget.profileRepository.fetchProfile();
-                        });
-                      }
+              return FutureBuilder<List<WeightLog>>(
+                future: _recentWeightsFuture,
+                builder: (context, recentWeightsSnapshot) {
+                  return FutureBuilder<String>(
+                    future: _versionFuture,
+                    builder: (context, versionSnapshot) {
+                      return ProfileScreen(
+                        email: widget.authRepository.currentSession?.user.email ?? '',
+                        latestWeightKg: weightSnapshot.data?.weightKg,
+                        recentWeights: recentWeightsSnapshot.data ?? [],
+                        initialProfile: profileSnapshot.data,
+                        onSaveProfile: (profile) async {
+                          await widget.profileRepository.saveProfile(profile);
+                          if (mounted) {
+                            setState(() {
+                              _profileFuture = widget.profileRepository.fetchProfile();
+                            });
+                          }
+                        },
+                        onOpenGoals: _openGoals,
+                        onSignOut: widget.authRepository.signOut,
+                        currentVersion: versionSnapshot.data ?? '0.0.0',
+                        onCheckForUpdate: widget.updateChecker.checkForUpdate,
+                        onDownloadAndInstall: widget.updateDownloader.downloadAndInstall,
+                      );
                     },
-                    onOpenGoals: _openGoals,
-                    onSignOut: widget.authRepository.signOut,
-                    currentVersion: versionSnapshot.data ?? '0.0.0',
-                    onCheckForUpdate: widget.updateChecker.checkForUpdate,
-                    onDownloadAndInstall: widget.updateDownloader.downloadAndInstall,
                   );
                 },
               );

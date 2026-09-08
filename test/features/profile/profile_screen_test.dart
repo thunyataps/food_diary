@@ -3,11 +3,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/profile/profile_screen.dart';
 import 'package:food_diary/features/update/update_checker.dart';
 import 'package:food_diary/models/user_profile.dart';
+import 'package:food_diary/models/weight_log.dart';
 
 void main() {
   Widget buildScreen({
     String email = 'alex@example.com',
     double? latestWeightKg,
+    List<WeightLog> recentWeights = const [],
     UserProfile? initialProfile,
     Future<void> Function(UserProfile)? onSaveProfile,
     VoidCallback? onOpenGoals,
@@ -20,6 +22,7 @@ void main() {
       home: ProfileScreen(
         email: email,
         latestWeightKg: latestWeightKg,
+        recentWeights: recentWeights,
         initialProfile: initialProfile,
         onSaveProfile: onSaveProfile ?? (p) async {},
         onOpenGoals: onOpenGoals ?? () {},
