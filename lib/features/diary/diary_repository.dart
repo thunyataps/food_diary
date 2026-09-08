@@ -85,6 +85,18 @@ class DiaryRepository {
     return mealEntryId;
   }
 
+  /// Returns a temporary signed URL (1 hour expiry) for the given
+  /// `meal-photos` storage [path], or `null` if the request fails for any
+  /// reason. The bucket is private, so [MealEntry.photoUrl] (really just an
+  /// object path) can't be loaded directly as an image URL.
+  Future<String?> signedPhotoUrl(String path) async {
+    try {
+      return await _client.storage.from('meal-photos').createSignedUrl(path, 3600);
+    } catch (_) {
+      return null;
+    }
+  }
+
   Future<List<MealEntry>> entriesForDay(DateTime day) async {
     final range = dayRangeUtc(day);
 
