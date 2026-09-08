@@ -206,7 +206,9 @@ class _HomeShellState extends State<_HomeShell> {
                     onSaveProfile: (profile) async {
                       await widget.profileRepository.saveProfile(profile);
                       if (mounted) {
-                        setState(() => _profileFuture = widget.profileRepository.fetchProfile());
+                        setState(() {
+                          _profileFuture = widget.profileRepository.fetchProfile();
+                        });
                       }
                     },
                     onOpenGoals: _openGoals,

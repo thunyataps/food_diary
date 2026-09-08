@@ -62,20 +62,35 @@ MealEntry _entry({String id = 'entry-1', String? photoUrl, String? note}) => Mea
       ],
     );
 
+/// Captures whatever `Navigator.pop` value the pushed [MealDetailScreen]
+/// returns, so tests can assert on it — not just that a pop happened.
+class _PopResult {
+  bool called = false;
+  bool? value;
+}
+
 /// Pushes [MealDetailScreen] onto a route so `Navigator.pop` behaves as it
-/// does in the app (the screen is always pushed from `DiaryScreen`).
+/// does in the app (the screen is always pushed from `DiaryScreen`), and
+/// records the popped value into [popResult] when the route returns.
 Future<void> _pushScreen(
   WidgetTester tester, {
   required MealEntry entry,
   required DiaryRepository repository,
+  _PopResult? popResult,
 }) async {
   await tester.pumpWidget(MaterialApp(
     home: Builder(
       builder: (context) => Scaffold(
         body: TextButton(
-          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => MealDetailScreen(entry: entry, repository: repository),
-          )),
+          onPressed: () async {
+            final result = await Navigator.of(context).push<bool>(MaterialPageRoute(
+              builder: (_) => MealDetailScreen(entry: entry, repository: repository),
+            ));
+            if (popResult != null) {
+              popResult.called = true;
+              popResult.value = result;
+            }
+          },
           child: const Text('open detail'),
         ),
       ),
@@ -146,11 +161,13 @@ void main() {
     expect(repository.deleteMealEntryCalls, isEmpty);
   });
 
-  testWidgets('confirming delete calls the repository and pops the screen', (tester) async {
+  testWidgets('confirming delete calls the repository and pops true (not a bare pop)',
+      (tester) async {
     final repository = _FakeDiaryRepository();
     final entry = _entry(id: 'entry-42');
+    final popResult = _PopResult();
 
-    await _pushScreen(tester, entry: entry, repository: repository);
+    await _pushScreen(tester, entry: entry, repository: repository, popResult: popResult);
     expect(find.text('Meal details'), findsOneWidget);
 
     await tester.tap(find.byIcon(Icons.delete_outline));
@@ -163,11 +180,17 @@ void main() {
     // The detail screen is gone; we're back on the launcher page.
     expect(find.text('open detail'), findsOneWidget);
     expect(find.text('Meal details'), findsNothing);
+    // The exact popped value matters: DiaryScreen only refetches its list
+    // when the pop value is `true` — a regression to a bare `pop()` (value
+    // `null`) would leave a deleted meal showing without this assertion.
+    expect(popResult.called, isTrue);
+    expect(popResult.value, isTrue);
   });
 
   testWidgets('cancelling the delete dialog does not delete or pop', (tester) async {
     final repository = _FakeDiaryRepository();
-    await _pushScreen(tester, entry: _entry(), repository: repository);
+    final popResult = _PopResult();
+    await _pushScreen(tester, entry: _entry(), repository: repository, popResult: popResult);
 
     await tester.tap(find.byIcon(Icons.delete_outline));
     await tester.pumpAndSettle();
@@ -178,6 +201,7 @@ void main() {
     expect(repository.deleteMealEntryCalls, isEmpty);
     // Still on the detail screen.
     expect(find.text('Meal details'), findsOneWidget);
+    expect(popResult.called, isFalse);
   });
 
   testWidgets('a failed delete shows an error and stays on the screen', (tester) async {

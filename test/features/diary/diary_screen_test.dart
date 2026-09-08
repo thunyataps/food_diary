@@ -317,4 +317,55 @@ void main() {
     expect(find.byType(MealDetailScreen), findsOneWidget);
     expect(find.text('Meal details'), findsOneWidget);
   });
+
+  testWidgets('deleting a meal from the detail screen refreshes the diary list',
+      (tester) async {
+    final repository = _FakeDiaryRepository()
+      ..entries = [
+        MealEntry(
+          id: '1',
+          eatenAt: DateTime(2024, 1, 1),
+          items: [
+            FoodItem(
+              name: 'Toast',
+              quantity: '1 slice',
+              calories: 100,
+              protein: 3,
+              carb: 15,
+              fat: 2,
+              source: 'user_edited',
+            ),
+          ],
+        ),
+      ];
+    await tester.pumpWidget(MaterialApp(
+      home: DiaryScreen(
+        repository: repository,
+        goalsRepository: _FakeGoalsRepository(),
+        weightRepository: _FakeWeightRepository(),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byType(ListTile));
+    await tester.pumpAndSettle();
+    expect(find.byType(MealDetailScreen), findsOneWidget);
+
+    // Simulate the backend no longer having this entry once it's deleted —
+    // DiaryScreen must actually re-fetch (not just pop back showing stale
+    // data) to see this.
+    repository.entries = [];
+
+    await tester.tap(find.byIcon(Icons.delete_outline));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Delete'));
+    await tester.pumpAndSettle();
+
+    expect(repository.deleteMealEntryCalls, ['1']);
+    // Back on the Diary screen, showing the refetched (now empty) list —
+    // not the stale "Toast" entry that was on screen before the delete.
+    expect(find.byType(MealDetailScreen), findsNothing);
+    expect(find.text('Toast'), findsNothing);
+    expect(find.text('No meals logged yet'), findsOneWidget);
+  });
 }
