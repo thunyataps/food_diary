@@ -41,14 +41,10 @@ class TodaySummaryCard extends StatelessWidget {
           children: [
             Text("Today's summary", style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 12),
-            _MacroRow(
-              rowKey: 'calories',
-              label: 'Calories',
-              value: calories,
+            _CaloriesRing(
+              calories: calories,
               goal: goals?.dailyCalories,
-              unit: 'kcal',
               color: _caloriesColor,
-              big: true,
             ),
             const SizedBox(height: 8),
             _MacroRow(
@@ -82,6 +78,87 @@ class TodaySummaryCard extends StatelessWidget {
   }
 }
 
+class _CaloriesRing extends StatelessWidget {
+  const _CaloriesRing({
+    required this.calories,
+    required this.goal,
+    required this.color,
+  });
+
+  final double calories;
+  final double? goal;
+  final Color color;
+
+  static const _diameter = 132.0;
+
+  @override
+  Widget build(BuildContext context) {
+    final goal = this.goal;
+    if (goal == null) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Calories', style: Theme.of(context).textTheme.titleMedium),
+            Text(
+              '${calories.toStringAsFixed(0)} kcal',
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium
+                  ?.copyWith(color: color, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Center(
+        child: SizedBox(
+          width: _diameter,
+          height: _diameter,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              SizedBox(
+                width: _diameter,
+                height: _diameter,
+                child: CircularProgressIndicator(
+                  key: const Key('calories_progress_ring'),
+                  value: progressRatio(calories, goal),
+                  strokeWidth: 11,
+                  backgroundColor: color.withValues(alpha: 0.15),
+                  valueColor: AlwaysStoppedAnimation(color),
+                ),
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    calories.toStringAsFixed(0),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          color: color,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  Text(
+                    '/ ${goal.toStringAsFixed(0)} kcal',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Theme.of(context).textTheme.bodySmall?.color?.withValues(alpha: 0.6),
+                        ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _MacroRow extends StatelessWidget {
   const _MacroRow({
     required this.rowKey,
@@ -90,7 +167,6 @@ class _MacroRow extends StatelessWidget {
     required this.goal,
     required this.unit,
     required this.color,
-    this.big = false,
   });
 
   final String rowKey;
@@ -99,7 +175,6 @@ class _MacroRow extends StatelessWidget {
   final double? goal;
   final String unit;
   final Color color;
-  final bool big;
 
   @override
   Widget build(BuildContext context) {
@@ -107,10 +182,11 @@ class _MacroRow extends StatelessWidget {
     final text = goal != null
         ? '${value.toStringAsFixed(0)} / ${goal.toStringAsFixed(0)} $unit'
         : '${value.toStringAsFixed(0)} $unit';
-    final labelStyle =
-        big ? Theme.of(context).textTheme.titleMedium : Theme.of(context).textTheme.bodyMedium;
-    final valueStyle = (big ? Theme.of(context).textTheme.titleMedium : Theme.of(context).textTheme.bodyMedium)
-        ?.copyWith(color: color, fontWeight: big ? FontWeight.bold : FontWeight.w600);
+    final labelStyle = Theme.of(context).textTheme.bodyMedium;
+    final valueStyle = Theme.of(context)
+        .textTheme
+        .bodyMedium
+        ?.copyWith(color: color, fontWeight: FontWeight.w600);
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
@@ -131,7 +207,7 @@ class _MacroRow extends StatelessWidget {
               child: LinearProgressIndicator(
                 key: Key('${rowKey}_progress_bar'),
                 value: progressRatio(value, goal),
-                minHeight: big ? 10 : 6,
+                minHeight: 6,
                 backgroundColor: color.withValues(alpha: 0.15),
                 valueColor: AlwaysStoppedAnimation(color),
               ),

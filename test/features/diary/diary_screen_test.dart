@@ -86,7 +86,8 @@ void main() {
     ));
     await tester.pumpAndSettle();
 
-    expect(find.byType(LinearProgressIndicator), findsNWidgets(4));
+    expect(find.byType(LinearProgressIndicator), findsNWidgets(3));
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
   });
 
   testWidgets('shows an empty state when no meals are logged for the day', (tester) async {

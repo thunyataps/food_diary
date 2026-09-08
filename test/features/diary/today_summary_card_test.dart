@@ -34,6 +34,7 @@ void main() {
       expect(find.text('450 kcal'), findsOneWidget);
       expect(find.text('20 g'), findsOneWidget);
       expect(find.byType(LinearProgressIndicator), findsNothing);
+      expect(find.byType(CircularProgressIndicator), findsNothing);
     });
 
     testWidgets('shows current/goal text and a progress bar per macro when goals are set', (tester) async {
@@ -44,14 +45,16 @@ void main() {
         ),
       ));
 
-      expect(find.text('500 / 2000 kcal'), findsOneWidget);
+      expect(find.text('500'), findsOneWidget);
+      expect(find.text('/ 2000 kcal'), findsOneWidget);
       expect(find.text('25 / 100 g'), findsOneWidget);
-      expect(find.byType(LinearProgressIndicator), findsNWidgets(4));
+      expect(find.byType(LinearProgressIndicator), findsNWidgets(3));
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
-      final bar = tester.widget<LinearProgressIndicator>(
-        find.byKey(const Key('calories_progress_bar')),
+      final ring = tester.widget<CircularProgressIndicator>(
+        find.byKey(const Key('calories_progress_ring')),
       );
-      expect(bar.value, closeTo(0.25, 0.001));
+      expect(ring.value, closeTo(0.25, 0.001));
     });
   });
 }
