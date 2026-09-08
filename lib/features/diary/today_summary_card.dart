@@ -149,6 +149,13 @@ class _CaloriesRing extends StatelessWidget {
                           color: Theme.of(context).textTheme.bodySmall?.color?.withValues(alpha: 0.6),
                         ),
                   ),
+                  const SizedBox(height: 2),
+                  Text(
+                    'Calories',
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: Theme.of(context).textTheme.bodySmall?.color?.withValues(alpha: 0.6),
+                        ),
+                  ),
                 ],
               ),
             ],
