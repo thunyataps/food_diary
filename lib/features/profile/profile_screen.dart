@@ -32,47 +32,20 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  late final _nameController = TextEditingController(text: widget.initialProfile?.name ?? '');
-  late final _ageController =
-      TextEditingController(text: widget.initialProfile?.age?.toString() ?? '');
-  late final _heightController =
-      TextEditingController(text: _formatOrEmpty(widget.initialProfile?.heightCm));
-  late final _bodyFatController =
-      TextEditingController(text: _formatOrEmpty(widget.initialProfile?.bodyFatPct));
-  late final _muscleMassController =
-      TextEditingController(text: _formatOrEmpty(widget.initialProfile?.muscleMassKg));
+  // What view mode displays. Starts from widget.initialProfile, but the
+  // caller typically wraps this screen in a FutureBuilder while it fetches
+  // the profile, so initialProfile is often still null on the very first
+  // build — adopt it once it arrives (see didUpdateWidget), and update it
+  // locally on a successful save so the view reflects the edit immediately
+  // rather than waiting on the caller's own refetch.
+  UserProfile? _displayProfile;
 
-  // The caller typically wraps this screen in a FutureBuilder while it
-  // fetches the profile, so `initialProfile` is often still null on the
-  // very first build. Sync the fields once real data arrives, but only
-  // the first time — after that, further rebuilds must not clobber
-  // whatever the user is actively typing.
-  //
-  // Set in initState (not a `late` initializer): `late` fields evaluate
-  // lazily on first read, and the first read here would happen inside
-  // didUpdateWidget — by which point `widget` already points at the new,
-  // non-null-profile widget, making the guard always true.
-  bool _syncedFromProfile = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _syncedFromProfile = widget.initialProfile != null;
-  }
-
-  @override
-  void didUpdateWidget(covariant ProfileScreen oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    final profile = widget.initialProfile;
-    if (!_syncedFromProfile && profile != null) {
-      _nameController.text = profile.name ?? '';
-      _ageController.text = profile.age?.toString() ?? '';
-      _heightController.text = _formatOrEmpty(profile.heightCm);
-      _bodyFatController.text = _formatOrEmpty(profile.bodyFatPct);
-      _muscleMassController.text = _formatOrEmpty(profile.muscleMassKg);
-      _syncedFromProfile = true;
-    }
-  }
+  bool _editing = false;
+  TextEditingController? _nameController;
+  TextEditingController? _ageController;
+  TextEditingController? _heightController;
+  TextEditingController? _bodyFatController;
+  TextEditingController? _muscleMassController;
 
   bool _savingProfile = false;
   bool _signingOut = false;
@@ -80,20 +53,66 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String? _error;
   String? _updateStatus;
 
-  static String _formatOrEmpty(double? value) => value == null ? '' : _formatNumber(value);
+  static String _formatOrDash(double? value) => value == null ? '-' : _formatNumber(value);
 
   static String _formatNumber(double value) {
     return value == value.roundToDouble() ? value.toStringAsFixed(0) : value.toString();
   }
 
   @override
+  void initState() {
+    super.initState();
+    _displayProfile = widget.initialProfile;
+  }
+
+  @override
+  void didUpdateWidget(covariant ProfileScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (_displayProfile == null && widget.initialProfile != null) {
+      setState(() => _displayProfile = widget.initialProfile);
+    }
+  }
+
+  @override
   void dispose() {
-    _nameController.dispose();
-    _ageController.dispose();
-    _heightController.dispose();
-    _bodyFatController.dispose();
-    _muscleMassController.dispose();
+    _nameController?.dispose();
+    _ageController?.dispose();
+    _heightController?.dispose();
+    _bodyFatController?.dispose();
+    _muscleMassController?.dispose();
     super.dispose();
+  }
+
+  void _startEditing() {
+    final profile = _displayProfile;
+    setState(() {
+      _nameController = TextEditingController(text: profile?.name ?? '');
+      _ageController = TextEditingController(text: profile?.age?.toString() ?? '');
+      _heightController = TextEditingController(text: _formatOrEmpty(profile?.heightCm));
+      _bodyFatController = TextEditingController(text: _formatOrEmpty(profile?.bodyFatPct));
+      _muscleMassController = TextEditingController(text: _formatOrEmpty(profile?.muscleMassKg));
+      _error = null;
+      _editing = true;
+    });
+  }
+
+  static String _formatOrEmpty(double? value) => value == null ? '' : _formatNumber(value);
+
+  void _cancelEditing() {
+    setState(() {
+      _nameController?.dispose();
+      _ageController?.dispose();
+      _heightController?.dispose();
+      _bodyFatController?.dispose();
+      _muscleMassController?.dispose();
+      _nameController = null;
+      _ageController = null;
+      _heightController = null;
+      _bodyFatController = null;
+      _muscleMassController = null;
+      _error = null;
+      _editing = false;
+    });
   }
 
   Future<void> _saveProfile() async {
@@ -101,14 +120,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
       _savingProfile = true;
       _error = null;
     });
+    final edited = UserProfile(
+      name: _nameController!.text.trim().isEmpty ? null : _nameController!.text.trim(),
+      age: int.tryParse(_ageController!.text),
+      heightCm: double.tryParse(_heightController!.text),
+      bodyFatPct: double.tryParse(_bodyFatController!.text),
+      muscleMassKg: double.tryParse(_muscleMassController!.text),
+    );
     try {
-      await widget.onSaveProfile(UserProfile(
-        name: _nameController.text.trim().isEmpty ? null : _nameController.text.trim(),
-        age: int.tryParse(_ageController.text),
-        heightCm: double.tryParse(_heightController.text),
-        bodyFatPct: double.tryParse(_bodyFatController.text),
-        muscleMassKg: double.tryParse(_muscleMassController.text),
-      ));
+      await widget.onSaveProfile(edited);
+      if (mounted) {
+        _nameController?.dispose();
+        _ageController?.dispose();
+        _heightController?.dispose();
+        _bodyFatController?.dispose();
+        _muscleMassController?.dispose();
+        setState(() {
+          _displayProfile = edited;
+          _nameController = null;
+          _ageController = null;
+          _heightController = null;
+          _bodyFatController = null;
+          _muscleMassController = null;
+          _editing = false;
+        });
+      }
     } catch (_) {
       if (mounted) setState(() => _error = 'Could not save profile. Try again.');
     } finally {
@@ -166,6 +202,120 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
+  Widget _fieldRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(label),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.w600)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildViewMode() {
+    final profile = _displayProfile;
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Personal info', style: Theme.of(context).textTheme.titleMedium),
+                IconButton(
+                  key: const Key('edit_profile_button'),
+                  tooltip: 'Edit',
+                  icon: const Icon(Icons.edit_outlined),
+                  onPressed: _startEditing,
+                ),
+              ],
+            ),
+            _fieldRow('Name', profile?.name ?? '-'),
+            _fieldRow('Age', profile?.age?.toString() ?? '-'),
+            _fieldRow('Height (cm)', _formatOrDash(profile?.heightCm)),
+            _fieldRow('Body fat (%)', _formatOrDash(profile?.bodyFatPct)),
+            _fieldRow('Muscle mass (kg)', _formatOrDash(profile?.muscleMassKg)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildEditMode() {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text('Edit personal info', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 12),
+            TextField(
+              key: const Key('name_field'),
+              controller: _nameController,
+              decoration: const InputDecoration(labelText: 'Name'),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              key: const Key('age_field'),
+              controller: _ageController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(labelText: 'Age'),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              key: const Key('height_field'),
+              controller: _heightController,
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              decoration: const InputDecoration(labelText: 'Height (cm)'),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              key: const Key('body_fat_field'),
+              controller: _bodyFatController,
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              decoration: const InputDecoration(labelText: 'Body fat (%)'),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              key: const Key('muscle_mass_field'),
+              controller: _muscleMassController,
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              decoration: const InputDecoration(labelText: 'Muscle mass (kg)'),
+            ),
+            if (_error != null) ...[
+              const SizedBox(height: 8),
+              Text(_error!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
+            ],
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: _savingProfile ? null : _cancelEditing,
+                    child: const Text('Cancel'),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: FilledButton(
+                    onPressed: _savingProfile ? null : _saveProfile,
+                    child: Text(_savingProfile ? 'Saving...' : 'Save profile'),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -195,48 +345,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              TextField(
-                key: const Key('name_field'),
-                controller: _nameController,
-                decoration: const InputDecoration(labelText: 'Name'),
-              ),
-              const SizedBox(height: 12),
-              TextField(
-                key: const Key('age_field'),
-                controller: _ageController,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(labelText: 'Age'),
-              ),
-              const SizedBox(height: 12),
-              TextField(
-                key: const Key('height_field'),
-                controller: _heightController,
-                keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                decoration: const InputDecoration(labelText: 'Height (cm)'),
-              ),
-              const SizedBox(height: 12),
-              TextField(
-                key: const Key('body_fat_field'),
-                controller: _bodyFatController,
-                keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                decoration: const InputDecoration(labelText: 'Body fat (%)'),
-              ),
-              const SizedBox(height: 12),
-              TextField(
-                key: const Key('muscle_mass_field'),
-                controller: _muscleMassController,
-                keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                decoration: const InputDecoration(labelText: 'Muscle mass (kg)'),
-              ),
-              if (_error != null) ...[
-                const SizedBox(height: 8),
-                Text(_error!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
-              ],
-              const SizedBox(height: 16),
-              FilledButton(
-                onPressed: _savingProfile ? null : _saveProfile,
-                child: Text(_savingProfile ? 'Saving...' : 'Save profile'),
-              ),
+              _editing ? _buildEditMode() : _buildViewMode(),
               const SizedBox(height: 24),
               OutlinedButton(
                 onPressed: widget.onOpenGoals,
