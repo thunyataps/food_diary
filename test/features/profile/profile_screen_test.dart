@@ -5,6 +5,39 @@ import 'package:food_diary/features/update/update_checker.dart';
 import 'package:food_diary/models/user_profile.dart';
 
 void main() {
+  testWidgets(
+      'shows fields once initialProfile arrives after the first build (async fetch via FutureBuilder)',
+      (tester) async {
+    Widget build(UserProfile? profile) => MaterialApp(
+          home: ProfileScreen(
+            email: 'alex@example.com',
+            latestWeightKg: null,
+            initialProfile: profile,
+            onSaveProfile: (p) async {},
+            onOpenGoals: () {},
+            onSignOut: () async {},
+            currentVersion: '1.0.0',
+            onCheckForUpdate: (v) async => null,
+            onDownloadAndInstall: (url) async {},
+          ),
+        );
+
+    // First build: the caller's fetch hasn't resolved yet (FutureBuilder's
+    // "waiting" state), so initialProfile is null — matches production.
+    await tester.pumpWidget(build(null));
+    expect(find.text('Alex'), findsNothing);
+
+    // The fetch resolves: caller rebuilds the same ProfileScreen with the
+    // real profile now available.
+    await tester.pumpWidget(build(
+      UserProfile(name: 'Alex', age: 30, heightCm: 170, bodyFatPct: 20, muscleMassKg: 55),
+    ));
+    await tester.pump();
+
+    expect(find.text('Alex'), findsOneWidget);
+    expect(find.text('30'), findsOneWidget);
+  });
+
   testWidgets('prefills fields from initialProfile and saves edited values', (tester) async {
     UserProfile? saved;
     final profile = UserProfile(

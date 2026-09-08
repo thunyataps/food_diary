@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../models/user_profile.dart';
+import '../update/update_checker.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({
@@ -10,6 +11,9 @@ class ProfileScreen extends StatefulWidget {
     required this.onSaveProfile,
     required this.onOpenGoals,
     required this.onSignOut,
+    required this.currentVersion,
+    required this.onCheckForUpdate,
+    required this.onDownloadAndInstall,
   });
 
   final String email;
@@ -18,6 +22,10 @@ class ProfileScreen extends StatefulWidget {
   final Future<void> Function(UserProfile profile) onSaveProfile;
   final VoidCallback onOpenGoals;
   final Future<void> Function() onSignOut;
+
+  final String currentVersion;
+  final Future<ReleaseInfo?> Function(String currentVersion) onCheckForUpdate;
+  final Future<void> Function(String apkDownloadUrl) onDownloadAndInstall;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -34,9 +42,43 @@ class _ProfileScreenState extends State<ProfileScreen> {
   late final _muscleMassController =
       TextEditingController(text: _formatOrEmpty(widget.initialProfile?.muscleMassKg));
 
+  // The caller typically wraps this screen in a FutureBuilder while it
+  // fetches the profile, so `initialProfile` is often still null on the
+  // very first build. Sync the fields once real data arrives, but only
+  // the first time — after that, further rebuilds must not clobber
+  // whatever the user is actively typing.
+  //
+  // Set in initState (not a `late` initializer): `late` fields evaluate
+  // lazily on first read, and the first read here would happen inside
+  // didUpdateWidget — by which point `widget` already points at the new,
+  // non-null-profile widget, making the guard always true.
+  bool _syncedFromProfile = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _syncedFromProfile = widget.initialProfile != null;
+  }
+
+  @override
+  void didUpdateWidget(covariant ProfileScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final profile = widget.initialProfile;
+    if (!_syncedFromProfile && profile != null) {
+      _nameController.text = profile.name ?? '';
+      _ageController.text = profile.age?.toString() ?? '';
+      _heightController.text = _formatOrEmpty(profile.heightCm);
+      _bodyFatController.text = _formatOrEmpty(profile.bodyFatPct);
+      _muscleMassController.text = _formatOrEmpty(profile.muscleMassKg);
+      _syncedFromProfile = true;
+    }
+  }
+
   bool _savingProfile = false;
   bool _signingOut = false;
+  bool _checkingForUpdate = false;
   String? _error;
+  String? _updateStatus;
 
   static String _formatOrEmpty(double? value) => value == null ? '' : _formatNumber(value);
 
@@ -85,6 +127,42 @@ class _ProfileScreenState extends State<ProfileScreen> {
       }
     } finally {
       if (mounted) setState(() => _signingOut = false);
+    }
+  }
+
+  Future<void> _checkForUpdate() async {
+    setState(() {
+      _checkingForUpdate = true;
+      _updateStatus = null;
+    });
+    try {
+      final release = await widget.onCheckForUpdate(widget.currentVersion);
+      if (!mounted) return;
+      if (release == null) {
+        setState(() => _updateStatus = "You're on the latest version.");
+        return;
+      }
+      setState(() => _updateStatus = 'Version ${release.version} is available.');
+      final confirmed = await showDialog<bool>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Update available'),
+          content: Text(
+              'Version ${release.version} is available (you have ${widget.currentVersion}). Download and install it now?'),
+          actions: [
+            TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Not now')),
+            FilledButton(
+                onPressed: () => Navigator.pop(context, true), child: const Text('Download & install')),
+          ],
+        ),
+      );
+      if (confirmed == true) {
+        await widget.onDownloadAndInstall(release.apkDownloadUrl);
+      }
+    } catch (_) {
+      if (mounted) setState(() => _updateStatus = 'Could not check for updates. Try again.');
+    } finally {
+      if (mounted) setState(() => _checkingForUpdate = false);
     }
   }
 
@@ -169,6 +247,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 key: const Key('sign_out_button'),
                 onPressed: _signingOut ? null : _signOut,
                 child: Text(_signingOut ? 'Signing out...' : 'Sign out'),
+              ),
+              const SizedBox(height: 24),
+              OutlinedButton(
+                onPressed: _checkingForUpdate ? null : _checkForUpdate,
+                child: Text(_checkingForUpdate ? 'Checking...' : 'Check for updates'),
+              ),
+              if (_updateStatus != null) ...[
+                const SizedBox(height: 8),
+                Text(_updateStatus!, textAlign: TextAlign.center),
+              ],
+              const SizedBox(height: 8),
+              Text(
+                'v${widget.currentVersion}',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
             ],
           ),
