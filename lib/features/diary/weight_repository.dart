@@ -39,7 +39,7 @@ class WeightRepository {
         .select()
         .eq('user_id', userId)
         .gte('logged_date', formatLoggedDate(since))
-        .order('logged_date');
+        .order('logged_date', ascending: true);
     return (rows as List).map((r) => WeightLog.fromRow(r as Map<String, dynamic>)).toList();
   }
 

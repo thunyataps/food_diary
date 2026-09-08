@@ -115,7 +115,14 @@ class WeightTrendCard extends StatelessWidget {
     final maxY = ((rawMax + pad) / yStep).ceil() * yStep;
 
     final maxX = spots.last.x == 0 ? 1.0 : spots.last.x;
-    final xStep = _niceStep(maxX / 4);
+    // Guard against a sub-1-day step (e.g. maxX of 1-3 days rounds down to
+    // 0.5): a fractional day step lands ticks between calendar days, which
+    // then round onto the same or a neighbouring date and render as
+    // duplicated labels.
+    final xStep = math.max(1.0, _niceStep(maxX / 4));
+    // Y-axis labels need enough decimals to distinguish ticks a fractional
+    // yStep apart (e.g. step 0.5 -> "69, 70, 70" without this).
+    final yLabelDecimals = yStep < 1 ? 1 : 0;
 
     return Semantics(
       label: 'Weight trend chart. Latest reading ${_formatWeight(latest.weightKg)} kilograms '
@@ -131,7 +138,10 @@ class WeightTrendCard extends StatelessWidget {
                 const TextSpan(text: 'Latest: '),
                 TextSpan(
                   text: '${_formatWeight(latest.weightKg)} kg',
-                  style: const TextStyle(fontWeight: FontWeight.w700, color: _seriesColor),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
                 TextSpan(text: ' on ${_shortDate(latest.loggedDate)}'),
               ],
@@ -166,7 +176,7 @@ class WeightTrendCard extends StatelessWidget {
                       interval: yStep,
                       reservedSize: 40,
                       getTitlesWidget: (value, meta) => Text(
-                        value.toStringAsFixed(0),
+                        value.toStringAsFixed(yLabelDecimals),
                         style: const TextStyle(color: _mutedTextColor, fontSize: 11),
                       ),
                     ),
@@ -198,7 +208,10 @@ class WeightTrendCard extends StatelessWidget {
                         final date = firstDate.add(Duration(days: spot.x.round()));
                         return LineTooltipItem(
                           '${_formatWeight(spot.y)} kg\n',
-                          const TextStyle(color: _seriesColor, fontWeight: FontWeight.w700),
+                          TextStyle(
+                            color: Theme.of(context).colorScheme.onSurface,
+                            fontWeight: FontWeight.w700,
+                          ),
                           children: [
                             TextSpan(
                               text: _shortDate(date),
