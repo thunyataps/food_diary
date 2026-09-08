@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/diary/diary_repository.dart';
 import 'package:food_diary/features/diary/diary_screen.dart';
+import 'package:food_diary/features/diary/meal_detail_screen.dart';
 import 'package:food_diary/features/diary/weight_repository.dart';
 import 'package:food_diary/features/settings/goals_repository.dart';
 import 'package:food_diary/models/food_item.dart';
@@ -23,6 +24,7 @@ class _FakeDiaryRepository extends DiaryRepository {
   List<MealEntry> entries = [];
   String? Function(String path)? signedUrlResponder;
   final List<String> signedPhotoUrlCalls = [];
+  final List<String> deleteMealEntryCalls = [];
 
   @override
   Future<List<MealEntry>> entriesForDay(DateTime day) async => entries;
@@ -31,6 +33,11 @@ class _FakeDiaryRepository extends DiaryRepository {
   Future<String?> signedPhotoUrl(String path) async {
     signedPhotoUrlCalls.add(path);
     return signedUrlResponder?.call(path);
+  }
+
+  @override
+  Future<void> deleteMealEntry(String mealEntryId) async {
+    deleteMealEntryCalls.add(mealEntryId);
   }
 }
 
@@ -272,5 +279,42 @@ void main() {
     // State would be reused for the new entry and never refetch — this
     // asserts the new entry's photo path was actually requested.
     expect(repository.signedPhotoUrlCalls, ['day-a.jpg', 'day-b.jpg']);
+  });
+
+  testWidgets('tapping a meal card navigates to the meal detail screen', (tester) async {
+    final repository = _FakeDiaryRepository()
+      ..entries = [
+        MealEntry(
+          id: '1',
+          eatenAt: DateTime(2024, 1, 1),
+          items: [
+            FoodItem(
+              name: 'Toast',
+              quantity: '1 slice',
+              calories: 100,
+              protein: 3,
+              carb: 15,
+              fat: 2,
+              source: 'user_edited',
+            ),
+          ],
+        ),
+      ];
+    await tester.pumpWidget(MaterialApp(
+      home: DiaryScreen(
+        repository: repository,
+        goalsRepository: _FakeGoalsRepository(),
+        weightRepository: _FakeWeightRepository(),
+      ),
+    ));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(MealDetailScreen), findsNothing);
+
+    await tester.tap(find.byType(ListTile));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(MealDetailScreen), findsOneWidget);
+    expect(find.text('Meal details'), findsOneWidget);
   });
 }

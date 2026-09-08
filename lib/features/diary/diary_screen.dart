@@ -5,6 +5,7 @@ import '../../models/weight_log.dart';
 import '../settings/goals_repository.dart';
 import 'date_scroller.dart';
 import 'diary_repository.dart';
+import 'meal_detail_screen.dart';
 import 'today_summary_card.dart';
 import 'weight_card.dart';
 import 'weight_repository.dart';
@@ -53,6 +54,18 @@ class _DiaryScreenState extends State<DiaryScreen> {
       _entriesFuture = widget.repository.entriesForDay(_day);
       _weightFuture = widget.weightRepository.fetchWeightForDate(_day);
     });
+  }
+
+  Future<void> _openMealDetail(MealEntry entry) async {
+    final deleted = await Navigator.push<bool>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => MealDetailScreen(entry: entry, repository: widget.repository),
+      ),
+    );
+    if (deleted == true && mounted) {
+      setState(() => _entriesFuture = widget.repository.entriesForDay(_day));
+    }
   }
 
   @override
@@ -110,6 +123,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                                           ),
                                     title: Text(e.items.map((it) => it.name).join(', ')),
                                     subtitle: Text('${e.totalCalories.toStringAsFixed(0)} kcal'),
+                                    onTap: () => _openMealDetail(e),
                                   ),
                                 ),
                           ],

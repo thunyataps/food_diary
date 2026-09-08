@@ -98,6 +98,14 @@ class DiaryRepository {
     }
   }
 
+  /// Deletes the `meal_entries` row with [mealEntryId]. Its `food_items`
+  /// rows are removed automatically via `on delete cascade`. RLS already
+  /// restricts this to the caller's own rows, so no extra `user_id` filter
+  /// is needed here (matching the rest of this file).
+  Future<void> deleteMealEntry(String mealEntryId) async {
+    await _client.from('meal_entries').delete().eq('id', mealEntryId);
+  }
+
   Future<List<MealEntry>> entriesForDay(DateTime day) async {
     final range = dayRangeUtc(day);
 
