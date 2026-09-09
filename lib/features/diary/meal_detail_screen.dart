@@ -46,6 +46,8 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
   bool _deleting = false;
   bool _updatingDate = false;
 
+  bool get _busy => _deleting || _updatingDate;
+
   static String _formatDate(DateTime date) {
     return '${_monthNames[date.month - 1]} ${date.day}, ${date.year}';
   }
@@ -171,7 +173,7 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.delete_outline),
-            onPressed: _deleting ? null : _confirmDelete,
+            onPressed: _busy ? null : _confirmDelete,
           ),
         ],
       ),
@@ -181,13 +183,16 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Logged on ${_formatDate(entry.eatenAt.toLocal())}',
-                style: Theme.of(context).textTheme.bodyMedium,
+              Expanded(
+                child: Text(
+                  'Logged on ${_formatDate(entry.eatenAt.toLocal())}',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               if (entry.id != null)
                 TextButton.icon(
-                  onPressed: _updatingDate ? null : _changeDate,
+                  onPressed: _busy ? null : _changeDate,
                   icon: _updatingDate
                       ? const SizedBox(
                           width: 16,
