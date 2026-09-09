@@ -62,6 +62,23 @@ class AnalyzeRepository {
 
     return parseAnalyzeResponse(response.data as Map<String, dynamic>);
   }
+
+  Future<List<FoodItem>> analyzeDescription({
+    required String description,
+  }) async {
+    final FunctionResponse response;
+    try {
+      response = await _client.functions.invoke(
+        'analyze-food',
+        body: {'note': description},
+      );
+    } on FunctionsFetchException {
+      rethrow;
+    } on FunctionException catch (e) {
+      throw analyzeExceptionFrom(e);
+    }
+    return parseAnalyzeResponse(response.data as Map<String, dynamic>);
+  }
 }
 
 class AnalyzeException implements Exception {

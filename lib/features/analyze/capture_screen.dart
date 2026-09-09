@@ -34,24 +34,46 @@ class _CaptureScreenState extends State<CaptureScreen> {
   bool _analyzing = false;
   String? _error;
 
+  @override
+  void initState() {
+    super.initState();
+    _noteController.addListener(_onNoteChanged);
+  }
+
+  @override
+  void dispose() {
+    _noteController.removeListener(_onNoteChanged);
+    _noteController.dispose();
+    super.dispose();
+  }
+
+  void _onNoteChanged() => setState(() {});
+
   Future<void> _pickPhoto(ImageSource source) async {
     final picked = await _picker.pickImage(source: source);
     if (picked != null) setState(() => _photo = File(picked.path));
   }
 
   Future<void> _analyze() async {
-    if (_photo == null) return;
+    if (_photo == null && _noteController.text.trim().isEmpty) return;
     setState(() {
       _analyzing = true;
       _error = null;
     });
     try {
-      final compressed = await ImageCompressor().compressFoodPhoto(_photo!);
-      final items = await widget.analyzeRepository.analyzePhoto(
-        imageBytes: compressed.bytes,
-        mimeType: compressed.mimeType,
-        note: _noteController.text,
-      );
+      final List<FoodItem> items;
+      if (_photo != null) {
+        final compressed = await ImageCompressor().compressFoodPhoto(_photo!);
+        items = await widget.analyzeRepository.analyzePhoto(
+          imageBytes: compressed.bytes,
+          mimeType: compressed.mimeType,
+          note: _noteController.text,
+        );
+      } else {
+        items = await widget.analyzeRepository.analyzeDescription(
+          description: _noteController.text.trim(),
+        );
+      }
       if (!mounted) return;
       await Navigator.push(
         context,
@@ -125,7 +147,8 @@ class _CaptureScreenState extends State<CaptureScreen> {
               TextField(
                 controller: _noteController,
                 decoration: const InputDecoration(
-                  labelText: 'Note (optional)',
+                  labelText:
+                      'Note (optional with a photo, required without one)',
                   hintText: 'e.g. "Thai green curry"',
                 ),
               ),
@@ -138,7 +161,11 @@ class _CaptureScreenState extends State<CaptureScreen> {
               ],
               const SizedBox(height: 16),
               FilledButton(
-                onPressed: _photo == null || _analyzing ? null : _analyze,
+                onPressed:
+                    (_photo == null && _noteController.text.trim().isEmpty) ||
+                        _analyzing
+                    ? null
+                    : _analyze,
                 child: Text(_analyzing ? 'Analyzing...' : 'Analyze'),
               ),
             ],

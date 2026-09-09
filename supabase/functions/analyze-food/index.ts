@@ -31,8 +31,8 @@ const RESPONSE_SCHEMA = {
 };
 
 export interface AnalyzeRequest {
-  image: string;
-  mimeType: string;
+  image?: string;
+  mimeType?: string;
   note?: string;
 }
 
@@ -48,12 +48,19 @@ export interface FoodItemResult {
 
 export class RateLimitError extends Error {}
 
-function buildPrompt(note?: string): string {
+function buildPrompt(note: string | undefined, hasPhoto: boolean): string {
   return [
-    "You are a nutrition estimation assistant. Look at the food photo and identify each distinct food item visible.",
+    hasPhoto
+      ? "You are a nutrition estimation assistant. Look at the food photo and identify each distinct food item visible."
+      : "You are a nutrition estimation assistant. The user described a meal in text (no photo). Identify each distinct food item they mentioned.",
     "For each item, estimate: name, quantity (e.g. '1 cup', '150g'), calories, protein (g), carb (g), fat (g).",
     "Set confidence to 'low' if you are not sure about the identification or portion size, otherwise 'high'.",
-    note ? `The user provided this hint about the photo: "${note}"` : "",
+    hasPhoto
+      ? ""
+      : "Since there is no photo, set confidence to 'low' unless the description is very specific and quantified.",
+    note
+      ? `The user provided this ${hasPhoto ? "hint about the photo" : "description"}: "${note}"`
+      : "",
     "Respond with JSON matching the required schema only.",
   ].filter(Boolean).join(" ");
 }
@@ -80,12 +87,15 @@ function validateItems(items: unknown): FoodItemResult[] {
 }
 
 export async function callGemini(req: AnalyzeRequest, attempt = 1): Promise<FoodItemResult[]> {
+  const hasPhoto = Boolean(req.image && req.mimeType);
   const body = {
     contents: [
       {
         parts: [
-          { text: buildPrompt(req.note) },
-          { inlineData: { mimeType: req.mimeType, data: req.image } },
+          { text: buildPrompt(req.note, hasPhoto) },
+          ...(hasPhoto
+            ? [{ inlineData: { mimeType: req.mimeType, data: req.image } }]
+            : []),
         ],
       },
     ],
@@ -143,7 +153,9 @@ async function handler(req: Request): Promise<Response> {
   } catch {
     return new Response(JSON.stringify({ error: "invalid_request" }), { status: 400 });
   }
-  if (!payload.image || !payload.mimeType) {
+  const hasPhoto = Boolean(payload.image && payload.mimeType);
+  const hasNote = Boolean(payload.note && payload.note.trim().length > 0);
+  if (!hasPhoto && !hasNote) {
     return new Response(JSON.stringify({ error: "invalid_request" }), { status: 400 });
   }
 
