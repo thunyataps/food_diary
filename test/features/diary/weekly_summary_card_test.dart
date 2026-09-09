@@ -9,7 +9,6 @@ void main() {
     testWidgets(
       'shows plain averages with no progress bars when goals are null',
       (tester) async {
-        final averages = WeeklyAverages(410, 22, 65, 17);
         await tester.pumpWidget(
           const MaterialApp(
             home: Scaffold(
@@ -19,8 +18,6 @@ void main() {
             ),
           ),
         );
-        // Sanity: keep the fixture and the widget in sync.
-        expect(averages.calories, 410);
 
         expect(find.text('7-day average'), findsOneWidget);
         expect(find.text('410 kcal'), findsOneWidget);

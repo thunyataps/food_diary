@@ -26,13 +26,16 @@ class _FakeDiaryRepository extends DiaryRepository {
   String? Function(String path)? signedUrlResponder;
   final List<String> signedPhotoUrlCalls = [];
   final List<String> deleteMealEntryCalls = [];
+  final List<DateTime> weeklyEntriesForCalls = [];
 
   @override
   Future<List<MealEntry>> entriesForDay(DateTime day) async => entries;
 
   @override
-  Future<List<MealEntry>> entriesForWeekEnding(DateTime endDay) async =>
-      weeklyEntries;
+  Future<List<MealEntry>> entriesForWeekEnding(DateTime endDay) async {
+    weeklyEntriesForCalls.add(endDay);
+    return weeklyEntries;
+  }
 
   @override
   Future<String?> signedPhotoUrl(String path) async {
@@ -430,6 +433,11 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(MealDetailScreen), findsOneWidget);
 
+      // The screen fetches the weekly window once on initial build; record
+      // that baseline before the delete so we can confirm a second fetch
+      // happens afterward (not just the daily list refreshing).
+      final weeklyFetchesBeforeDelete = repository.weeklyEntriesForCalls.length;
+
       // Simulate the backend no longer having this entry once it's deleted —
       // DiaryScreen must actually re-fetch (not just pop back showing stale
       // data) to see this.
@@ -446,6 +454,13 @@ void main() {
       expect(find.byType(MealDetailScreen), findsNothing);
       expect(find.text('Toast'), findsNothing);
       expect(find.text('No meals logged yet'), findsOneWidget);
+      // Regression guard: the 7-day average must be refetched alongside the
+      // daily list, or the weekly card keeps counting a meal the user just
+      // deleted while the daily card no longer does.
+      expect(
+        repository.weeklyEntriesForCalls.length,
+        greaterThan(weeklyFetchesBeforeDelete),
+      );
     },
   );
 }

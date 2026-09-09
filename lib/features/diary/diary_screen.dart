@@ -72,6 +72,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
     if (deleted == true && mounted) {
       setState(() {
         _entriesFuture = widget.repository.entriesForDay(_day);
+        _weeklyEntriesFuture = widget.repository.entriesForWeekEnding(_day);
       });
     }
   }
