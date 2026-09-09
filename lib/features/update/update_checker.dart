@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 const _repo = 'thunyataps/food_diary';
@@ -34,10 +35,13 @@ ReleaseInfo parseLatestRelease(Map<String, dynamic> json) {
   final version = tagName.startsWith('v') ? tagName.substring(1) : tagName;
   final assets = json['assets'] as List;
   final apkAsset = assets.cast<Map<String, dynamic>>().firstWhere(
-        (a) => (a['name'] as String).endsWith('.apk'),
-        orElse: () => throw Exception('Release $tagName has no .apk asset'),
-      );
-  return ReleaseInfo(version: version, apkDownloadUrl: apkAsset['browser_download_url'] as String);
+    (a) => (a['name'] as String).endsWith('.apk'),
+    orElse: () => throw Exception('Release $tagName has no .apk asset'),
+  );
+  return ReleaseInfo(
+    version: version,
+    apkDownloadUrl: apkAsset['browser_download_url'] as String,
+  );
 }
 
 class UpdateChecker {
@@ -51,8 +55,12 @@ class UpdateChecker {
     if (response.statusCode != 200) {
       throw Exception('Could not check for updates (${response.statusCode})');
     }
-    final release = parseLatestRelease(jsonDecode(response.body) as Map<String, dynamic>);
-    if (!isNewerVersion(latest: release.version, current: currentVersion)) return null;
+    final release = parseLatestRelease(
+      jsonDecode(response.body) as Map<String, dynamic>,
+    );
+    if (!isNewerVersion(latest: release.version, current: currentVersion)) {
+      return null;
+    }
     return release;
   }
 }

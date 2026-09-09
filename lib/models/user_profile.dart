@@ -24,11 +24,11 @@ class UserProfile {
   }
 
   Map<String, dynamic> toRow(String userId) => {
-        'user_id': userId,
-        'name': name,
-        'age': age,
-        'height_cm': heightCm,
-        'body_fat_pct': bodyFatPct,
-        'muscle_mass_kg': muscleMassKg,
-      };
+    'user_id': userId,
+    'name': name,
+    'age': age,
+    'height_cm': heightCm,
+    'body_fat_pct': bodyFatPct,
+    'muscle_mass_kg': muscleMassKg,
+  };
 }

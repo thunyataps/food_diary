@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../models/user_profile.dart';
 import '../../models/weight_log.dart';
 import '../update/update_checker.dart';
@@ -60,10 +61,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String? _error;
   String? _updateStatus;
 
-  static String _formatOrDash(double? value) => value == null ? '-' : _formatNumber(value);
+  static String _formatOrDash(double? value) =>
+      value == null ? '-' : _formatNumber(value);
 
   static String _formatNumber(double value) {
-    return value == value.roundToDouble() ? value.toStringAsFixed(0) : value.toString();
+    return value == value.roundToDouble()
+        ? value.toStringAsFixed(0)
+        : value.toString();
   }
 
   @override
@@ -94,16 +98,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final profile = _displayProfile;
     setState(() {
       _nameController = TextEditingController(text: profile?.name ?? '');
-      _ageController = TextEditingController(text: profile?.age?.toString() ?? '');
-      _heightController = TextEditingController(text: _formatOrEmpty(profile?.heightCm));
-      _bodyFatController = TextEditingController(text: _formatOrEmpty(profile?.bodyFatPct));
-      _muscleMassController = TextEditingController(text: _formatOrEmpty(profile?.muscleMassKg));
+      _ageController = TextEditingController(
+        text: profile?.age?.toString() ?? '',
+      );
+      _heightController = TextEditingController(
+        text: _formatOrEmpty(profile?.heightCm),
+      );
+      _bodyFatController = TextEditingController(
+        text: _formatOrEmpty(profile?.bodyFatPct),
+      );
+      _muscleMassController = TextEditingController(
+        text: _formatOrEmpty(profile?.muscleMassKg),
+      );
       _error = null;
       _editing = true;
     });
   }
 
-  static String _formatOrEmpty(double? value) => value == null ? '' : _formatNumber(value);
+  static String _formatOrEmpty(double? value) =>
+      value == null ? '' : _formatNumber(value);
 
   void _cancelEditing() {
     setState(() {
@@ -128,7 +141,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       _error = null;
     });
     final edited = UserProfile(
-      name: _nameController!.text.trim().isEmpty ? null : _nameController!.text.trim(),
+      name: _nameController!.text.trim().isEmpty
+          ? null
+          : _nameController!.text.trim(),
       age: int.tryParse(_ageController!.text),
       heightCm: double.tryParse(_heightController!.text),
       bodyFatPct: double.tryParse(_bodyFatController!.text),
@@ -153,7 +168,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         });
       }
     } catch (_) {
-      if (mounted) setState(() => _error = 'Could not save profile. Try again.');
+      if (mounted) {
+        setState(() => _error = 'Could not save profile. Try again.');
+      }
     } finally {
       if (mounted) setState(() => _savingProfile = false);
     }
@@ -166,7 +183,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       await widget.onSignOut();
     } catch (_) {
       if (mounted) {
-        messenger.showSnackBar(const SnackBar(content: Text('Could not sign out. Please try again.')));
+        messenger.showSnackBar(
+          const SnackBar(
+            content: Text('Could not sign out. Please try again.'),
+          ),
+        );
       }
     } finally {
       if (mounted) setState(() => _signingOut = false);
@@ -185,17 +206,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
         setState(() => _updateStatus = "You're on the latest version.");
         return;
       }
-      setState(() => _updateStatus = 'Version ${release.version} is available.');
+      setState(
+        () => _updateStatus = 'Version ${release.version} is available.',
+      );
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
           title: const Text('Update available'),
           content: Text(
-              'Version ${release.version} is available (you have ${widget.currentVersion}). Download and install it now?'),
+            'Version ${release.version} is available (you have ${widget.currentVersion}). Download and install it now?',
+          ),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Not now')),
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('Not now'),
+            ),
             FilledButton(
-                onPressed: () => Navigator.pop(context, true), child: const Text('Download & install')),
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('Download & install'),
+            ),
           ],
         ),
       );
@@ -203,7 +232,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         await widget.onDownloadAndInstall(release.apkDownloadUrl);
       }
     } catch (_) {
-      if (mounted) setState(() => _updateStatus = 'Could not check for updates. Try again.');
+      if (mounted) {
+        setState(
+          () => _updateStatus = 'Could not check for updates. Try again.',
+        );
+      }
     } finally {
       if (mounted) setState(() => _checkingForUpdate = false);
     }
@@ -233,7 +266,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Personal info', style: Theme.of(context).textTheme.titleMedium),
+                Text(
+                  'Personal info',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
                 IconButton(
                   key: const Key('edit_profile_button'),
                   tooltip: 'Edit',
@@ -261,7 +297,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Edit personal info', style: Theme.of(context).textTheme.titleMedium),
+            Text(
+              'Edit personal info',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
             const SizedBox(height: 12),
             TextField(
               key: const Key('name_field'),
@@ -279,26 +318,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
             TextField(
               key: const Key('height_field'),
               controller: _heightController,
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
               decoration: const InputDecoration(labelText: 'Height (cm)'),
             ),
             const SizedBox(height: 12),
             TextField(
               key: const Key('body_fat_field'),
               controller: _bodyFatController,
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
               decoration: const InputDecoration(labelText: 'Body fat (%)'),
             ),
             const SizedBox(height: 12),
             TextField(
               key: const Key('muscle_mass_field'),
               controller: _muscleMassController,
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                decimal: true,
+              ),
               decoration: const InputDecoration(labelText: 'Muscle mass (kg)'),
             ),
             if (_error != null) ...[
               const SizedBox(height: 8),
-              Text(_error!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
+              Text(
+                _error!,
+                style: TextStyle(color: Theme.of(context).colorScheme.error),
+              ),
             ],
             const SizedBox(height: 16),
             Row(
@@ -337,7 +385,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Text(widget.email, style: Theme.of(context).textTheme.titleMedium),
+                  child: Text(
+                    widget.email,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
@@ -358,7 +409,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 24),
               OutlinedButton(
                 onPressed: _checkingForUpdate ? null : _checkForUpdate,
-                child: Text(_checkingForUpdate ? 'Checking...' : 'Check for updates'),
+                child: Text(
+                  _checkingForUpdate ? 'Checking...' : 'Check for updates',
+                ),
               ),
               if (_updateStatus != null) ...[
                 const SizedBox(height: 8),

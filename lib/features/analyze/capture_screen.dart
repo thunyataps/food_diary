@@ -1,16 +1,27 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+
 import '../../core/image_compression.dart';
 import '../../models/food_item.dart';
 import 'analyze_repository.dart';
 import 'analysis_result_screen.dart';
 
 class CaptureScreen extends StatefulWidget {
-  const CaptureScreen({super.key, required this.analyzeRepository, required this.onSave});
+  const CaptureScreen({
+    super.key,
+    required this.analyzeRepository,
+    required this.onSave,
+  });
 
   final AnalyzeRepository analyzeRepository;
-  final Future<void> Function(List<FoodItem> items, File? photoFile, String? note) onSave;
+  final Future<void> Function(
+    List<FoodItem> items,
+    File? photoFile,
+    String? note,
+  )
+  onSave;
 
   @override
   State<CaptureScreen> createState() => _CaptureScreenState();
@@ -47,14 +58,17 @@ class _CaptureScreenState extends State<CaptureScreen> {
         MaterialPageRoute(
           builder: (_) => AnalysisResultScreen(
             initialItems: items,
-            onSave: (savedItems) => widget.onSave(savedItems, _photo, _noteController.text),
+            onSave: (savedItems) =>
+                widget.onSave(savedItems, _photo, _noteController.text),
           ),
         ),
       );
     } on AnalyzeException catch (e) {
       setState(() => _error = e.userMessage);
     } catch (_) {
-      setState(() => _error = 'Network error. Check your connection and try again.');
+      setState(
+        () => _error = 'Network error. Check your connection and try again.',
+      );
     } finally {
       if (mounted) setState(() => _analyzing = false);
     }
@@ -76,7 +90,9 @@ class _CaptureScreenState extends State<CaptureScreen> {
                     ? Image.file(_photo!, height: 220, fit: BoxFit.cover)
                     : Container(
                         height: 220,
-                        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .surfaceContainerHighest,
                         alignment: Alignment.center,
                         child: Icon(
                           Icons.restaurant_outlined,
@@ -115,7 +131,10 @@ class _CaptureScreenState extends State<CaptureScreen> {
               ),
               if (_error != null) ...[
                 const SizedBox(height: 8),
-                Text(_error!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
+                Text(
+                  _error!,
+                  style: TextStyle(color: Theme.of(context).colorScheme.error),
+                ),
               ],
               const SizedBox(height: 16),
               FilledButton(

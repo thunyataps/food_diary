@@ -31,16 +31,21 @@ class WeightTrendCard extends StatelessWidget {
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
   ];
 
-  static String _shortDate(DateTime date) => '${_monthAbbr[date.month - 1]} ${date.day}';
+  static String _shortDate(DateTime date) =>
+      '${_monthAbbr[date.month - 1]} ${date.day}';
 
   static String _formatWeight(double kg) {
-    return kg == kg.roundToDouble() ? kg.toStringAsFixed(0) : kg.toStringAsFixed(1);
+    return kg == kg.roundToDouble()
+        ? kg.toStringAsFixed(0)
+        : kg.toStringAsFixed(1);
   }
 
   /// Rounds [rough] up to a "nice" 1/2/5 * 10^n step, for clean axis ticks.
   static double _niceStep(double rough) {
     if (rough <= 0) return 1;
-    final magnitude = math.pow(10, (math.log(rough) / math.ln10).floor()).toDouble();
+    final magnitude = math
+        .pow(10, (math.log(rough) / math.ln10).floor())
+        .toDouble();
     final normalized = rough / magnitude;
     double niceNormalized;
     if (normalized <= 1) {
@@ -63,14 +68,21 @@ class WeightTrendCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Weight trend', style: Theme.of(context).textTheme.titleMedium),
+            Text(
+              'Weight trend',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
             const SizedBox(height: 4),
             Text(
               'Last $days days',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(color: _mutedTextColor),
+              style: Theme.of(context).textTheme.bodySmall
+                  ?.copyWith(color: _mutedTextColor),
             ),
             const SizedBox(height: 12),
-            if (weights.length < 2) _buildEmptyState(context) else _buildChart(context),
+            if (weights.length < 2)
+              _buildEmptyState(context)
+            else
+              _buildChart(context),
           ],
         ),
       ),
@@ -88,7 +100,8 @@ class WeightTrendCard extends StatelessWidget {
           Text(
             'Log your weight on a few different days to see your trend here.',
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: _mutedTextColor),
+            style: Theme.of(context).textTheme.bodyMedium
+                ?.copyWith(color: _mutedTextColor),
           ),
         ],
       ),
@@ -96,13 +109,17 @@ class WeightTrendCard extends StatelessWidget {
   }
 
   Widget _buildChart(BuildContext context) {
-    final sorted = [...weights]..sort((a, b) => a.loggedDate.compareTo(b.loggedDate));
+    final sorted = [...weights]
+      ..sort((a, b) => a.loggedDate.compareTo(b.loggedDate));
     final firstDate = sorted.first.loggedDate;
     final latest = sorted.last;
 
     final spots = [
       for (final w in sorted)
-        FlSpot(w.loggedDate.difference(firstDate).inDays.toDouble(), w.weightKg),
+        FlSpot(
+          w.loggedDate.difference(firstDate).inDays.toDouble(),
+          w.weightKg,
+        ),
     ];
 
     final weightValues = sorted.map((w) => w.weightKg);
@@ -125,7 +142,8 @@ class WeightTrendCard extends StatelessWidget {
     final yLabelDecimals = yStep < 1 ? 1 : 0;
 
     return Semantics(
-      label: 'Weight trend chart. Latest reading ${_formatWeight(latest.weightKg)} kilograms '
+      label:
+          'Weight trend chart. Latest reading ${_formatWeight(latest.weightKg)} kilograms '
           'on ${_shortDate(latest.loggedDate)}. Range over the period: '
           '${_formatWeight(rawMin)} to ${_formatWeight(rawMax)} kilograms.',
       child: Column(
@@ -161,15 +179,17 @@ class WeightTrendCard extends StatelessWidget {
                   show: true,
                   drawVerticalLine: false,
                   horizontalInterval: yStep,
-                  getDrawingHorizontalLine: (value) => const FlLine(
-                    color: _gridColor,
-                    strokeWidth: 1,
-                  ),
+                  getDrawingHorizontalLine: (value) =>
+                      const FlLine(color: _gridColor, strokeWidth: 1),
                 ),
                 borderData: FlBorderData(show: false),
                 titlesData: FlTitlesData(
-                  topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                  rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                  topTitles: const AxisTitles(
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
+                  rightTitles: const AxisTitles(
+                    sideTitles: SideTitles(showTitles: false),
+                  ),
                   leftTitles: AxisTitles(
                     sideTitles: SideTitles(
                       showTitles: true,
@@ -177,7 +197,10 @@ class WeightTrendCard extends StatelessWidget {
                       reservedSize: 40,
                       getTitlesWidget: (value, meta) => Text(
                         value.toStringAsFixed(yLabelDecimals),
-                        style: const TextStyle(color: _mutedTextColor, fontSize: 11),
+                        style: const TextStyle(
+                          color: _mutedTextColor,
+                          fontSize: 11,
+                        ),
                       ),
                     ),
                   ),
@@ -187,12 +210,17 @@ class WeightTrendCard extends StatelessWidget {
                       interval: xStep,
                       reservedSize: 28,
                       getTitlesWidget: (value, meta) {
-                        final date = firstDate.add(Duration(days: value.round()));
+                        final date = firstDate.add(
+                          Duration(days: value.round()),
+                        );
                         return Padding(
                           padding: const EdgeInsets.only(top: 6),
                           child: Text(
                             _shortDate(date),
-                            style: const TextStyle(color: _mutedTextColor, fontSize: 11),
+                            style: const TextStyle(
+                              color: _mutedTextColor,
+                              fontSize: 11,
+                            ),
                           ),
                         );
                       },
@@ -205,7 +233,9 @@ class WeightTrendCard extends StatelessWidget {
                     tooltipBorder: const BorderSide(color: _gridColor),
                     getTooltipItems: (touchedSpots) {
                       return touchedSpots.map((spot) {
-                        final date = firstDate.add(Duration(days: spot.x.round()));
+                        final date = firstDate.add(
+                          Duration(days: spot.x.round()),
+                        );
                         return LineTooltipItem(
                           '${_formatWeight(spot.y)} kg\n',
                           TextStyle(
@@ -230,12 +260,13 @@ class WeightTrendCard extends StatelessWidget {
                       return TouchedSpotIndicatorData(
                         const FlLine(color: _seriesColor, strokeWidth: 1),
                         FlDotData(
-                          getDotPainter: (spot, percent, bar, index) => FlDotCirclePainter(
-                            radius: 4,
-                            color: _seriesColor,
-                            strokeWidth: 2,
-                            strokeColor: Colors.white,
-                          ),
+                          getDotPainter: (spot, percent, bar, index) =>
+                              FlDotCirclePainter(
+                                radius: 4,
+                                color: _seriesColor,
+                                strokeWidth: 2,
+                                strokeColor: Colors.white,
+                              ),
                         ),
                       );
                     }).toList();
@@ -255,12 +286,13 @@ class WeightTrendCard extends StatelessWidget {
                     dotData: FlDotData(
                       show: true,
                       checkToShowDot: (spot, barData) => spot.x == spots.last.x,
-                      getDotPainter: (spot, percent, bar, index) => FlDotCirclePainter(
-                        radius: 4,
-                        color: _seriesColor,
-                        strokeWidth: 2,
-                        strokeColor: Colors.white,
-                      ),
+                      getDotPainter: (spot, percent, bar, index) =>
+                          FlDotCirclePainter(
+                            radius: 4,
+                            color: _seriesColor,
+                            strokeWidth: 2,
+                            strokeColor: Colors.white,
+                          ),
                     ),
                   ),
                 ],

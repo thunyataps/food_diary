@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../models/goals.dart';
 
 double progressRatio(double current, double goal) {
@@ -39,7 +40,10 @@ class TodaySummaryCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Today's summary", style: Theme.of(context).textTheme.titleMedium),
+            Text(
+              "Today's summary",
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
             const SizedBox(height: 12),
             _CaloriesRing(
               calories: calories,
@@ -103,9 +107,7 @@ class _CaloriesRing extends StatelessWidget {
             Text('Calories', style: Theme.of(context).textTheme.titleMedium),
             Text(
               '${calories.toStringAsFixed(0)} kcal',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium
+              style: Theme.of(context).textTheme.titleMedium
                   ?.copyWith(color: color, fontWeight: FontWeight.bold),
             ),
           ],
@@ -138,23 +140,23 @@ class _CaloriesRing extends StatelessWidget {
                 children: [
                   Text(
                     calories.toStringAsFixed(0),
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          color: color,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    style: Theme.of(context).textTheme.headlineMedium
+                        ?.copyWith(color: color, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     '/ ${goal.toStringAsFixed(0)} kcal',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: Theme.of(context).textTheme.bodySmall?.color?.withValues(alpha: 0.6),
-                        ),
+                      color: Theme.of(context).textTheme.bodySmall?.color
+                          ?.withValues(alpha: 0.6),
+                    ),
                   ),
                   const SizedBox(height: 2),
                   Text(
                     'Calories',
                     style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                          color: Theme.of(context).textTheme.bodySmall?.color?.withValues(alpha: 0.6),
-                        ),
+                      color: Theme.of(context).textTheme.bodySmall?.color
+                          ?.withValues(alpha: 0.6),
+                    ),
                   ),
                 ],
               ),
@@ -190,9 +192,7 @@ class _MacroRow extends StatelessWidget {
         ? '${value.toStringAsFixed(0)} / ${goal.toStringAsFixed(0)} $unit'
         : '${value.toStringAsFixed(0)} $unit';
     final labelStyle = Theme.of(context).textTheme.bodyMedium;
-    final valueStyle = Theme.of(context)
-        .textTheme
-        .bodyMedium
+    final valueStyle = Theme.of(context).textTheme.bodyMedium
         ?.copyWith(color: color, fontWeight: FontWeight.w600);
 
     return Padding(

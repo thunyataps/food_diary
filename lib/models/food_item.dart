@@ -35,13 +35,13 @@ class FoodItem {
   }
 
   Map<String, dynamic> toInsertRow(String mealEntryId) => {
-        'meal_entry_id': mealEntryId,
-        'name': name,
-        'quantity': quantity,
-        'calories': calories,
-        'protein': protein,
-        'carb': carb,
-        'fat': fat,
-        'source': source,
-      };
+    'meal_entry_id': mealEntryId,
+    'name': name,
+    'quantity': quantity,
+    'calories': calories,
+    'protein': protein,
+    'carb': carb,
+    'fat': fat,
+    'source': source,
+  };
 }

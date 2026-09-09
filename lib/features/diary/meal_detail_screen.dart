@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../models/food_item.dart';
 import '../../models/meal_entry.dart';
 import 'diary_repository.dart';
@@ -8,7 +9,11 @@ import 'diary_repository.dart';
 /// caller (the Diary screen) knows to refresh its list; pops with no value
 /// (or stays on screen) otherwise.
 class MealDetailScreen extends StatefulWidget {
-  const MealDetailScreen({super.key, required this.entry, required this.repository});
+  const MealDetailScreen({
+    super.key,
+    required this.entry,
+    required this.repository,
+  });
 
   final MealEntry entry;
   final DiaryRepository repository;
@@ -51,7 +56,9 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
     final id = widget.entry.id;
     if (id == null) {
       messenger.showSnackBar(
-        const SnackBar(content: Text('Could not delete this meal. Please try again.')),
+        const SnackBar(
+          content: Text('Could not delete this meal. Please try again.'),
+        ),
       );
       return;
     }
@@ -63,7 +70,9 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
     } catch (_) {
       if (mounted) {
         messenger.showSnackBar(
-          const SnackBar(content: Text('Could not delete this meal. Please try again.')),
+          const SnackBar(
+            content: Text('Could not delete this meal. Please try again.'),
+          ),
         );
       }
     } finally {
@@ -89,7 +98,10 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
         padding: const EdgeInsets.all(16),
         children: [
           if (entry.photoUrl != null) ...[
-            _MealDetailPhoto(repository: widget.repository, photoPath: entry.photoUrl!),
+            _MealDetailPhoto(
+              repository: widget.repository,
+              photoPath: entry.photoUrl!,
+            ),
             const SizedBox(height: 16),
           ],
           if (note != null && note.isNotEmpty) ...[
@@ -109,7 +121,10 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Totals', style: Theme.of(context).textTheme.titleMedium),
+                  Text(
+                    'Totals',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                   const SizedBox(height: 8),
                   _MacroLine(
                     label: 'Calories',
@@ -167,16 +182,35 @@ class _FoodItemDetailCard extends StatelessWidget {
             const SizedBox(height: 2),
             Text(
               item.quantity,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium
-                  ?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
             ),
             const SizedBox(height: 8),
-            _MacroLine(label: 'Calories', value: item.calories, unit: 'kcal', color: _caloriesColor),
-            _MacroLine(label: 'Protein', value: item.protein, unit: 'g', color: _proteinColor),
-            _MacroLine(label: 'Carb', value: item.carb, unit: 'g', color: _carbColor),
-            _MacroLine(label: 'Fat', value: item.fat, unit: 'g', color: _fatColor),
+            _MacroLine(
+              label: 'Calories',
+              value: item.calories,
+              unit: 'kcal',
+              color: _caloriesColor,
+            ),
+            _MacroLine(
+              label: 'Protein',
+              value: item.protein,
+              unit: 'g',
+              color: _proteinColor,
+            ),
+            _MacroLine(
+              label: 'Carb',
+              value: item.carb,
+              unit: 'g',
+              color: _carbColor,
+            ),
+            _MacroLine(
+              label: 'Fat',
+              value: item.fat,
+              unit: 'g',
+              color: _fatColor,
+            ),
           ],
         ),
       ),
@@ -185,7 +219,12 @@ class _FoodItemDetailCard extends StatelessWidget {
 }
 
 class _MacroLine extends StatelessWidget {
-  const _MacroLine({required this.label, required this.value, required this.unit, required this.color});
+  const _MacroLine({
+    required this.label,
+    required this.value,
+    required this.unit,
+    required this.color,
+  });
 
   final String label;
   final double value;
@@ -202,9 +241,7 @@ class _MacroLine extends StatelessWidget {
           Text(label, style: Theme.of(context).textTheme.bodyMedium),
           Text(
             '${value.toStringAsFixed(0)} $unit',
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
+            style: Theme.of(context).textTheme.bodyMedium
                 ?.copyWith(color: color, fontWeight: FontWeight.w600),
           ),
         ],

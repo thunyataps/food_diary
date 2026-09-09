@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+
 import 'auth_repository.dart';
 import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key, required this.authRepository, required this.onSignedIn});
+  const LoginScreen({
+    super.key,
+    required this.authRepository,
+    required this.onSignedIn,
+  });
   final AuthRepository authRepository;
   final VoidCallback onSignedIn;
 
@@ -23,7 +28,10 @@ class _LoginScreenState extends State<LoginScreen> {
       _error = null;
     });
     try {
-      await widget.authRepository.signInWithEmail(_emailController.text, _passwordController.text);
+      await widget.authRepository.signInWithEmail(
+        _emailController.text,
+        _passwordController.text,
+      );
       widget.onSignedIn();
     } catch (_) {
       setState(() => _error = 'Sign in failed. Check your email/password.');
@@ -44,9 +52,16 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.restaurant, size: 56, color: Theme.of(context).colorScheme.primary),
+                  Icon(
+                    Icons.restaurant,
+                    size: 56,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
                   const SizedBox(height: 12),
-                  Text('Food Diary', style: Theme.of(context).textTheme.headlineSmall),
+                  Text(
+                    'Food Diary',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
                   const SizedBox(height: 32),
                   TextField(
                     controller: _emailController,
@@ -60,10 +75,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   if (_error != null) ...[
                     const SizedBox(height: 8),
-                    Text(_error!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
+                    Text(
+                      _error!,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.error,
+                      ),
+                    ),
                   ],
                   const SizedBox(height: 20),
-                  FilledButton(onPressed: _loading ? null : _signIn, child: const Text('Sign in')),
+                  FilledButton(
+                    onPressed: _loading ? null : _signIn,
+                    child: const Text('Sign in'),
+                  ),
                   const SizedBox(height: 12),
                   OutlinedButton(
                     onPressed: () => widget.authRepository.signInWithGoogle(),
@@ -72,10 +95,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 12),
                   TextButton(
                     onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => SignupScreen(
-                                authRepository: widget.authRepository, onSignedUp: widget.onSignedIn))),
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => SignupScreen(
+                          authRepository: widget.authRepository,
+                          onSignedUp: widget.onSignedIn,
+                        ),
+                      ),
+                    ),
                     child: const Text('Create account'),
                   ),
                 ],

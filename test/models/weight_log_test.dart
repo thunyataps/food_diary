@@ -11,7 +11,10 @@ void main() {
   });
 
   test('WeightLog.fromRow parses the date and weight columns', () {
-    final log = WeightLog.fromRow({'logged_date': '2026-03-05', 'weight_kg': 68.5});
+    final log = WeightLog.fromRow({
+      'logged_date': '2026-03-05',
+      'weight_kg': 68.5,
+    });
     expect(log.loggedDate, DateTime(2026, 3, 5));
     expect(log.weightKg, 68.5);
   });

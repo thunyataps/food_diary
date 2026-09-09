@@ -13,7 +13,10 @@ class AuthRepository {
   /// Supabase default): the sign-up succeeded, but no session exists until the
   /// user clicks the link in the confirmation email.
   Future<Session?> signUpWithEmail(String email, String password) async {
-    final response = await _client.auth.signUp(email: email, password: password);
+    final response = await _client.auth.signUp(
+      email: email,
+      password: password,
+    );
     return response.session;
   }
 

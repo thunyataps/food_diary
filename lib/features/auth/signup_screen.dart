@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'auth_repository.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key, required this.authRepository, required this.onSignedUp});
+  const SignupScreen({
+    super.key,
+    required this.authRepository,
+    required this.onSignedUp,
+  });
   final AuthRepository authRepository;
   final VoidCallback onSignedUp;
 
@@ -25,14 +30,17 @@ class _SignupScreenState extends State<SignupScreen> {
       _info = null;
     });
     try {
-      final session = await widget.authRepository
-          .signUpWithEmail(_emailController.text, _passwordController.text);
+      final session = await widget.authRepository.signUpWithEmail(
+        _emailController.text,
+        _passwordController.text,
+      );
       if (session == null) {
         // Email confirmation is required: there is no session yet, so the auth
         // gate would stay on the login screen with no explanation.
         if (mounted) {
-          setState(() => _info =
-              'Check your email to confirm your account, then come back and sign in.');
+          setState(
+            () => _info = 'Check your email to confirm your account, then come back and sign in.',
+          );
         }
         return;
       }
@@ -70,7 +78,12 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   if (_error != null) ...[
                     const SizedBox(height: 8),
-                    Text(_error!, style: TextStyle(color: Theme.of(context).colorScheme.error)),
+                    Text(
+                      _error!,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.error,
+                      ),
+                    ),
                   ],
                   if (_info != null) ...[
                     const SizedBox(height: 8),
@@ -81,7 +94,10 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ],
                   const SizedBox(height: 20),
-                  FilledButton(onPressed: _loading ? null : _signUp, child: const Text('Sign up')),
+                  FilledButton(
+                    onPressed: _loading ? null : _signUp,
+                    child: const Text('Sign up'),
+                  ),
                 ],
               ),
             ),

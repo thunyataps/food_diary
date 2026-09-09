@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+
 import '../../models/goals.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key, required this.initialGoals, required this.onSave});
+  const SettingsScreen({
+    super.key,
+    required this.initialGoals,
+    required this.onSave,
+  });
 
   final Goals? initialGoals;
   final Future<void> Function(Goals goals) onSave;
@@ -12,14 +17,18 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  late final _caloriesController =
-      TextEditingController(text: widget.initialGoals?.dailyCalories.toStringAsFixed(0) ?? '');
-  late final _proteinController =
-      TextEditingController(text: widget.initialGoals?.dailyProtein.toStringAsFixed(0) ?? '');
-  late final _carbController =
-      TextEditingController(text: widget.initialGoals?.dailyCarb.toStringAsFixed(0) ?? '');
-  late final _fatController =
-      TextEditingController(text: widget.initialGoals?.dailyFat.toStringAsFixed(0) ?? '');
+  late final _caloriesController = TextEditingController(
+    text: widget.initialGoals?.dailyCalories.toStringAsFixed(0) ?? '',
+  );
+  late final _proteinController = TextEditingController(
+    text: widget.initialGoals?.dailyProtein.toStringAsFixed(0) ?? '',
+  );
+  late final _carbController = TextEditingController(
+    text: widget.initialGoals?.dailyCarb.toStringAsFixed(0) ?? '',
+  );
+  late final _fatController = TextEditingController(
+    text: widget.initialGoals?.dailyFat.toStringAsFixed(0) ?? '',
+  );
 
   bool _saving = false;
   String? _error;
@@ -49,12 +58,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
       _error = null;
     });
     try {
-      await widget.onSave(Goals(
-        dailyCalories: calories,
-        dailyProtein: protein,
-        dailyCarb: carb,
-        dailyFat: fat,
-      ));
+      await widget.onSave(
+        Goals(
+          dailyCalories: calories,
+          dailyProtein: protein,
+          dailyCarb: carb,
+          dailyFat: fat,
+        ),
+      );
       if (mounted) Navigator.pop(context);
     } catch (_) {
       if (mounted) setState(() => _error = 'Could not save goals. Try again.');

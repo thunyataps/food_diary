@@ -21,10 +21,10 @@ class Goals {
   }
 
   Map<String, dynamic> toRow(String userId) => {
-        'user_id': userId,
-        'daily_calories': dailyCalories,
-        'daily_protein': dailyProtein,
-        'daily_carb': dailyCarb,
-        'daily_fat': dailyFat,
-      };
+    'user_id': userId,
+    'daily_calories': dailyCalories,
+    'daily_protein': dailyProtein,
+    'daily_carb': dailyCarb,
+    'daily_fat': dailyFat,
+  };
 }

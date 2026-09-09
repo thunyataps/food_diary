@@ -24,37 +24,64 @@ void main() {
   });
 
   group('TodaySummaryCard', () {
-    testWidgets('shows plain totals with no progress bars when goals are null', (tester) async {
-      await tester.pumpWidget(const MaterialApp(
-        home: Scaffold(
-          body: TodaySummaryCard(calories: 450, protein: 20, carb: 60, fat: 15, goals: null),
-        ),
-      ));
+    testWidgets(
+      'shows plain totals with no progress bars when goals are null',
+      (tester) async {
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(
+              body: TodaySummaryCard(
+                calories: 450,
+                protein: 20,
+                carb: 60,
+                fat: 15,
+                goals: null,
+              ),
+            ),
+          ),
+        );
 
-      expect(find.text('450 kcal'), findsOneWidget);
-      expect(find.text('20 g'), findsOneWidget);
-      expect(find.byType(LinearProgressIndicator), findsNothing);
-      expect(find.byType(CircularProgressIndicator), findsNothing);
-    });
+        expect(find.text('450 kcal'), findsOneWidget);
+        expect(find.text('20 g'), findsOneWidget);
+        expect(find.byType(LinearProgressIndicator), findsNothing);
+        expect(find.byType(CircularProgressIndicator), findsNothing);
+      },
+    );
 
-    testWidgets('shows current/goal text and a progress bar per macro when goals are set', (tester) async {
-      final goals = Goals(dailyCalories: 2000, dailyProtein: 100, dailyCarb: 250, dailyFat: 70);
-      await tester.pumpWidget(MaterialApp(
-        home: Scaffold(
-          body: TodaySummaryCard(calories: 500, protein: 25, carb: 60, fat: 15, goals: goals),
-        ),
-      ));
+    testWidgets(
+      'shows current/goal text and a progress bar per macro when goals are set',
+      (tester) async {
+        final goals = Goals(
+          dailyCalories: 2000,
+          dailyProtein: 100,
+          dailyCarb: 250,
+          dailyFat: 70,
+        );
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: TodaySummaryCard(
+                calories: 500,
+                protein: 25,
+                carb: 60,
+                fat: 15,
+                goals: goals,
+              ),
+            ),
+          ),
+        );
 
-      expect(find.text('500'), findsOneWidget);
-      expect(find.text('/ 2000 kcal'), findsOneWidget);
-      expect(find.text('25 / 100 g'), findsOneWidget);
-      expect(find.byType(LinearProgressIndicator), findsNWidgets(3));
-      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+        expect(find.text('500'), findsOneWidget);
+        expect(find.text('/ 2000 kcal'), findsOneWidget);
+        expect(find.text('25 / 100 g'), findsOneWidget);
+        expect(find.byType(LinearProgressIndicator), findsNWidgets(3));
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
-      final ring = tester.widget<CircularProgressIndicator>(
-        find.byKey(const Key('calories_progress_ring')),
-      );
-      expect(ring.value, closeTo(0.25, 0.001));
-    });
+        final ring = tester.widget<CircularProgressIndicator>(
+          find.byKey(const Key('calories_progress_ring')),
+        );
+        expect(ring.value, closeTo(0.25, 0.001));
+      },
+    );
   });
 }

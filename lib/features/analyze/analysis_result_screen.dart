@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../models/food_item.dart';
 
 /// A [FoodItem] paired with a stable, per-session identity.
@@ -14,7 +15,11 @@ class _IdentifiedItem {
 }
 
 class AnalysisResultScreen extends StatefulWidget {
-  const AnalysisResultScreen({super.key, required this.initialItems, required this.onSave});
+  const AnalysisResultScreen({
+    super.key,
+    required this.initialItems,
+    required this.onSave,
+  });
 
   final List<FoodItem> initialItems;
   final Future<void> Function(List<FoodItem> items) onSave;
@@ -31,16 +36,23 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
   @override
   void initState() {
     super.initState();
-    _entries = [for (final item in widget.initialItems) _IdentifiedItem(_nextId++, item)];
+    _entries = [
+      for (final item in widget.initialItems) _IdentifiedItem(_nextId++, item),
+    ];
   }
 
-  double get _totalCalories => _entries.fold(0, (sum, e) => sum + e.item.calories);
+  double get _totalCalories =>
+      _entries.fold(0, (sum, e) => sum + e.item.calories);
 
-  void _updateItem(_IdentifiedItem entry, FoodItem updated) => setState(() => entry.item = updated);
+  void _updateItem(_IdentifiedItem entry, FoodItem updated) =>
+      setState(() => entry.item = updated);
 
-  void _removeItem(_IdentifiedItem entry) => setState(() => _entries.remove(entry));
+  void _removeItem(_IdentifiedItem entry) =>
+      setState(() => _entries.remove(entry));
 
-  void _addItem() => setState(() => _entries.add(_IdentifiedItem(
+  void _addItem() => setState(
+    () => _entries.add(
+      _IdentifiedItem(
         _nextId++,
         FoodItem(
           name: '',
@@ -51,7 +63,9 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
           fat: 0,
           source: 'user_edited',
         ),
-      )));
+      ),
+    ),
+  );
 
   Future<void> _save() async {
     final navigator = Navigator.of(context);
@@ -63,7 +77,9 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
     } catch (_) {
       if (mounted) {
         messenger.showSnackBar(
-          const SnackBar(content: Text('Could not save this meal. Please try again.')),
+          const SnackBar(
+            content: Text('Could not save this meal. Please try again.'),
+          ),
         );
       }
     } finally {
@@ -86,10 +102,16 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
               onChanged: (updated) => _updateItem(entry, updated),
               onRemove: () => _removeItem(entry),
             ),
-          TextButton.icon(onPressed: _addItem, icon: const Icon(Icons.add), label: const Text('Add item')),
+          TextButton.icon(
+            onPressed: _addItem,
+            icon: const Icon(Icons.add),
+            label: const Text('Add item'),
+          ),
           const Divider(),
-          Text('Total: ${_totalCalories.toStringAsFixed(0)} kcal',
-              style: Theme.of(context).textTheme.titleMedium),
+          Text(
+            'Total: ${_totalCalories.toStringAsFixed(0)} kcal',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
           const SizedBox(height: 16),
           FilledButton(
             onPressed: _saving || _entries.isEmpty ? null : _save,
@@ -151,7 +173,10 @@ class _FoodItemCard extends StatelessWidget {
             if (lowConfidence)
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Low confidence - please check', style: TextStyle(color: Colors.orange)),
+                child: Text(
+                  'Low confidence - please check',
+                  style: TextStyle(color: Colors.orange),
+                ),
               ),
             TextFormField(
               key: Key('name_field_$id'),
@@ -170,32 +195,39 @@ class _FoodItemCard extends StatelessWidget {
               initialValue: item.calories.toString(),
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(labelText: 'Calories'),
-              onChanged: (v) => onChanged(_copyWith(item, calories: double.tryParse(v) ?? 0)),
+              onChanged: (v) =>
+                  onChanged(_copyWith(item, calories: double.tryParse(v) ?? 0)),
             ),
             TextFormField(
               key: Key('protein_field_$id'),
               initialValue: item.protein.toString(),
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(labelText: 'Protein (g)'),
-              onChanged: (v) => onChanged(_copyWith(item, protein: double.tryParse(v) ?? 0)),
+              onChanged: (v) =>
+                  onChanged(_copyWith(item, protein: double.tryParse(v) ?? 0)),
             ),
             TextFormField(
               key: Key('carb_field_$id'),
               initialValue: item.carb.toString(),
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(labelText: 'Carbs (g)'),
-              onChanged: (v) => onChanged(_copyWith(item, carb: double.tryParse(v) ?? 0)),
+              onChanged: (v) =>
+                  onChanged(_copyWith(item, carb: double.tryParse(v) ?? 0)),
             ),
             TextFormField(
               key: Key('fat_field_$id'),
               initialValue: item.fat.toString(),
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(labelText: 'Fat (g)'),
-              onChanged: (v) => onChanged(_copyWith(item, fat: double.tryParse(v) ?? 0)),
+              onChanged: (v) =>
+                  onChanged(_copyWith(item, fat: double.tryParse(v) ?? 0)),
             ),
             Align(
               alignment: Alignment.centerRight,
-              child: IconButton(icon: const Icon(Icons.delete_outline), onPressed: onRemove),
+              child: IconButton(
+                icon: const Icon(Icons.delete_outline),
+                onPressed: onRemove,
+              ),
             ),
           ],
         ),

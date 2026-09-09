@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
+
 import 'package:supabase_flutter/supabase_flutter.dart';
+
 import '../../models/food_item.dart';
 
 List<FoodItem> parseAnalyzeResponse(Map<String, dynamic> data) {

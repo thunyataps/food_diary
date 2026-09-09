@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+
 import '../../models/weight_log.dart';
 
 class WeightCard extends StatefulWidget {
-  const WeightCard({super.key, required this.initialWeight, required this.onSave});
+  const WeightCard({
+    super.key,
+    required this.initialWeight,
+    required this.onSave,
+  });
 
   final WeightLog? initialWeight;
   final Future<void> Function(double weightKg) onSave;
@@ -13,7 +18,9 @@ class WeightCard extends StatefulWidget {
 
 class _WeightCardState extends State<WeightCard> {
   late final _controller = TextEditingController(
-    text: widget.initialWeight != null ? _formatWeight(widget.initialWeight!.weightKg) : '',
+    text: widget.initialWeight != null
+        ? _formatWeight(widget.initialWeight!.weightKg)
+        : '',
   );
   bool _saving = false;
   String? _error;
@@ -28,8 +35,9 @@ class _WeightCardState extends State<WeightCard> {
   void didUpdateWidget(WeightCard oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.initialWeight?.weightKg != oldWidget.initialWeight?.weightKg) {
-      _controller.text =
-          widget.initialWeight != null ? _formatWeight(widget.initialWeight!.weightKg) : '';
+      _controller.text = widget.initialWeight != null
+          ? _formatWeight(widget.initialWeight!.weightKg)
+          : '';
     }
   }
 
@@ -71,7 +79,9 @@ class _WeightCardState extends State<WeightCard> {
               child: TextField(
                 key: const Key('weight_field'),
                 controller: _controller,
-                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
                 decoration: InputDecoration(
                   labelText: 'Weight (kg)',
                   errorText: _error,

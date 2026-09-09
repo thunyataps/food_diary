@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
 import 'features/auth/auth_repository.dart';
 import 'features/auth/login_screen.dart';
 import 'features/analyze/analyze_repository.dart';
@@ -41,7 +42,10 @@ final appTheme = ThemeData(
   inputDecorationTheme: InputDecorationTheme(
     filled: true,
     fillColor: Colors.white,
-    border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: BorderSide.none,
+    ),
     contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
   ),
   filledButtonTheme: FilledButtonThemeData(
@@ -100,7 +104,10 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
         builder: (context, snapshot) {
           final signedIn = _authRepository.currentSession != null;
           if (!signedIn) {
-            return LoginScreen(authRepository: _authRepository, onSignedIn: () => setState(() {}));
+            return LoginScreen(
+              authRepository: _authRepository,
+              onSignedIn: () => setState(() {}),
+            );
           }
           return _HomeShell(
             authRepository: _authRepository,
@@ -187,7 +194,9 @@ class _HomeShellState extends State<_HomeShell> {
             items: items,
             eatenAt: DateTime.now(),
             note: note,
-            photoBytes: photoFile != null ? await photoFile.readAsBytes() : null,
+            photoBytes: photoFile != null
+                ? await photoFile.readAsBytes()
+                : null,
           );
           if (mounted) setState(() => _tab = 0);
         },
@@ -205,7 +214,9 @@ class _HomeShellState extends State<_HomeShell> {
                     future: _versionFuture,
                     builder: (context, versionSnapshot) {
                       return ProfileScreen(
-                        email: widget.authRepository.currentSession?.user.email ?? '',
+                        email:
+                            widget.authRepository.currentSession?.user.email ??
+                            '',
                         latestWeightKg: weightSnapshot.data?.weightKg,
                         recentWeights: recentWeightsSnapshot.data ?? [],
                         initialProfile: profileSnapshot.data,
@@ -213,7 +224,8 @@ class _HomeShellState extends State<_HomeShell> {
                           await widget.profileRepository.saveProfile(profile);
                           if (mounted) {
                             setState(() {
-                              _profileFuture = widget.profileRepository.fetchProfile();
+                              _profileFuture = widget.profileRepository
+                                  .fetchProfile();
                             });
                           }
                         },
@@ -221,7 +233,8 @@ class _HomeShellState extends State<_HomeShell> {
                         onSignOut: widget.authRepository.signOut,
                         currentVersion: versionSnapshot.data ?? '0.0.0',
                         onCheckForUpdate: widget.updateChecker.checkForUpdate,
-                        onDownloadAndInstall: widget.updateDownloader.downloadAndInstall,
+                        onDownloadAndInstall:
+                            widget.updateDownloader.downloadAndInstall,
                       );
                     },
                   );
@@ -239,8 +252,14 @@ class _HomeShellState extends State<_HomeShell> {
         onDestinationSelected: (i) => setState(() => _tab = i),
         destinations: const [
           NavigationDestination(icon: Icon(Icons.book), label: 'Diary'),
-          NavigationDestination(icon: Icon(Icons.camera_alt), label: 'Add meal'),
-          NavigationDestination(icon: Icon(Icons.person_outline), label: 'Profile'),
+          NavigationDestination(
+            icon: Icon(Icons.camera_alt),
+            label: 'Add meal',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.person_outline),
+            label: 'Profile',
+          ),
         ],
       ),
     );

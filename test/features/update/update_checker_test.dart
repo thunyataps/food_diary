@@ -43,14 +43,17 @@ void main() {
           },
           {
             'name': 'source.zip',
-            'browser_download_url': 'https://github.com/x/y/releases/download/v1.1.0/source.zip',
+            'browser_download_url':
+                'https://github.com/x/y/releases/download/v1.1.0/source.zip',
           },
         ],
       });
 
       expect(release.version, '1.1.0');
-      expect(release.apkDownloadUrl,
-          'https://github.com/x/y/releases/download/v1.1.0/app-release.apk');
+      expect(
+        release.apkDownloadUrl,
+        'https://github.com/x/y/releases/download/v1.1.0/app-release.apk',
+      );
     });
 
     test('throws when the release has no .apk asset', () {
@@ -58,7 +61,10 @@ void main() {
         () => parseLatestRelease({
           'tag_name': 'v1.1.0',
           'assets': [
-            {'name': 'source.zip', 'browser_download_url': 'https://example.com/source.zip'},
+            {
+              'name': 'source.zip',
+              'browser_download_url': 'https://example.com/source.zip',
+            },
           ],
         }),
         throwsException,

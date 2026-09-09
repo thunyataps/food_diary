@@ -14,8 +14,8 @@ void main() {
           'carb': 45,
           'fat': 0.5,
           'confidence': 'high',
-        }
-      ]
+        },
+      ],
     };
     final items = parseAnalyzeResponse(data);
     expect(items.length, 1);
@@ -25,19 +25,23 @@ void main() {
 
   group('analyzeExceptionFrom', () {
     test('uses the Edge Function error code from the JSON body', () {
-      final e = analyzeExceptionFrom(const FunctionsHttpException(
-        status: 429,
-        details: {'error': 'rate_limited'},
-      ));
+      final e = analyzeExceptionFrom(
+        const FunctionsHttpException(
+          status: 429,
+          details: {'error': 'rate_limited'},
+        ),
+      );
       expect(e.code, 'rate_limited');
       expect(e.userMessage, 'High demand right now, try again shortly.');
     });
 
     test('maps the 401 unauthorized body to the sign-in message', () {
-      final e = analyzeExceptionFrom(const FunctionsHttpException(
-        status: 401,
-        details: {'error': 'unauthorized'},
-      ));
+      final e = analyzeExceptionFrom(
+        const FunctionsHttpException(
+          status: 401,
+          details: {'error': 'unauthorized'},
+        ),
+      );
       expect(e.code, 'unauthorized');
       expect(e.userMessage, 'Please sign in again.');
     });
@@ -47,7 +51,10 @@ void main() {
         const FunctionsHttpException(status: 429, details: 'Too Many Requests'),
       );
       expect(rateLimited.code, 'rate_limited');
-      expect(rateLimited.userMessage, 'High demand right now, try again shortly.');
+      expect(
+        rateLimited.userMessage,
+        'High demand right now, try again shortly.',
+      );
 
       final unauthorized = analyzeExceptionFrom(
         const FunctionsHttpException(status: 401, details: ''),
@@ -57,15 +64,20 @@ void main() {
     });
 
     test('unrecognised failures get the generic analysis-failed message', () {
-      final e = analyzeExceptionFrom(const FunctionsHttpException(
-        status: 502,
-        details: {'error': 'analysis_failed'},
-      ));
+      final e = analyzeExceptionFrom(
+        const FunctionsHttpException(
+          status: 502,
+          details: {'error': 'analysis_failed'},
+        ),
+      );
       expect(e.code, 'analysis_failed');
       expect(e.userMessage, 'Analysis failed, try again.');
 
       final relay = analyzeExceptionFrom(
-        const FunctionsRelayException(status: 500, details: '<html>bad gateway</html>'),
+        const FunctionsRelayException(
+          status: 500,
+          details: '<html>bad gateway</html>',
+        ),
       );
       expect(relay.code, 'unknown');
       expect(relay.userMessage, 'Analysis failed, try again.');

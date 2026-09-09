@@ -3,15 +3,19 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/analyze/analysis_result_screen.dart';
 import 'package:food_diary/models/food_item.dart';
 
-FoodItem _item(String name, {String quantity = '1 serving', double calories = 100}) => FoodItem(
-      name: name,
-      quantity: quantity,
-      calories: calories,
-      protein: 1,
-      carb: 2,
-      fat: 3,
-      source: 'ai',
-    );
+FoodItem _item(
+  String name, {
+  String quantity = '1 serving',
+  double calories = 100,
+}) => FoodItem(
+  name: name,
+  quantity: quantity,
+  calories: calories,
+  protein: 1,
+  carb: 2,
+  fat: 3,
+  source: 'ai',
+);
 
 /// Pushes [AnalysisResultScreen] onto a route so pop-on-save behaves as it does
 /// in the app (where the screen is always pushed from `CaptureScreen`).
@@ -26,18 +30,25 @@ Future<void> _pushScreen(
   tester.view.devicePixelRatio = 1.0;
   addTearDown(tester.view.reset);
 
-  await tester.pumpWidget(MaterialApp(
-    home: Scaffold(
-      body: Builder(
-        builder: (context) => TextButton(
-          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => AnalysisResultScreen(initialItems: initialItems, onSave: onSave),
-          )),
-          child: const Text('open review'),
+  await tester.pumpWidget(
+    MaterialApp(
+      home: Scaffold(
+        body: Builder(
+          builder: (context) => TextButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => AnalysisResultScreen(
+                  initialItems: initialItems,
+                  onSave: onSave,
+                ),
+              ),
+            ),
+            child: const Text('open review'),
+          ),
         ),
       ),
     ),
-  ));
+  );
   await tester.tap(find.text('open review'));
   await tester.pumpAndSettle();
 }
@@ -47,7 +58,10 @@ Future<void> _pushScreen(
 String _fieldText(WidgetTester tester, String key) {
   return tester
       .widget<TextField>(
-        find.descendant(of: find.byKey(Key(key)), matching: find.byType(TextField)),
+        find.descendant(
+          of: find.byKey(Key(key)),
+          matching: find.byType(TextField),
+        ),
       )
       .controller!
       .text;
@@ -59,7 +73,15 @@ void main() {
     await _pushScreen(
       tester,
       initialItems: [
-        FoodItem(name: 'Rice', quantity: '1 cup', calories: 200, protein: 4, carb: 45, fat: 0.5, source: 'ai'),
+        FoodItem(
+          name: 'Rice',
+          quantity: '1 cup',
+          calories: 200,
+          protein: 4,
+          carb: 45,
+          fat: 0.5,
+          source: 'ai',
+        ),
       ],
       onSave: (items) async => saved = items,
     );
@@ -82,7 +104,15 @@ void main() {
     await _pushScreen(
       tester,
       initialItems: [
-        FoodItem(name: 'Rice', quantity: '1 cup', calories: 200, protein: 4, carb: 45, fat: 0.5, source: 'ai'),
+        FoodItem(
+          name: 'Rice',
+          quantity: '1 cup',
+          calories: 200,
+          protein: 4,
+          carb: 45,
+          fat: 0.5,
+          source: 'ai',
+        ),
       ],
       onSave: (items) async {},
     );
@@ -95,53 +125,60 @@ void main() {
 
   // Regression guard for C3: cards used to be keyed by list index, so deleting a
   // non-last item left the surviving cards displaying the previous item's text.
-  testWidgets('deleting the middle item leaves the remaining cards showing their own values',
-      (tester) async {
-    List<FoodItem>? saved;
-    await _pushScreen(
-      tester,
-      initialItems: [
-        _item('Rice', quantity: '1 cup', calories: 200),
-        _item('Chicken', quantity: '100 g', calories: 165),
-        _item('Salad', quantity: '1 bowl', calories: 50),
-      ],
-      onSave: (items) async => saved = items,
-    );
+  testWidgets(
+    'deleting the middle item leaves the remaining cards showing their own values',
+    (tester) async {
+      List<FoodItem>? saved;
+      await _pushScreen(
+        tester,
+        initialItems: [
+          _item('Rice', quantity: '1 cup', calories: 200),
+          _item('Chicken', quantity: '100 g', calories: 165),
+          _item('Salad', quantity: '1 bowl', calories: 50),
+        ],
+        onSave: (items) async => saved = items,
+      );
 
-    expect(find.text('Total: 415 kcal'), findsOneWidget);
+      expect(find.text('Total: 415 kcal'), findsOneWidget);
 
-    // Delete "Chicken" (the middle card).
-    await tester.tap(find.byIcon(Icons.delete_outline).at(1));
-    await tester.pumpAndSettle();
+      // Delete "Chicken" (the middle card).
+      await tester.tap(find.byIcon(Icons.delete_outline).at(1));
+      await tester.pumpAndSettle();
 
-    expect(find.text('Total: 250 kcal'), findsOneWidget);
+      expect(find.text('Total: 250 kcal'), findsOneWidget);
 
-    // The surviving cards keep their own identities (ids 0 and 2), and each
-    // field still shows the value of the item it is bound to.
-    expect(find.byKey(const Key('name_field_1')), findsNothing);
-    expect(_fieldText(tester, 'name_field_0'), 'Rice');
-    expect(_fieldText(tester, 'quantity_field_0'), '1 cup');
-    expect(_fieldText(tester, 'calories_field_0'), '200.0');
-    expect(_fieldText(tester, 'name_field_2'), 'Salad');
-    expect(_fieldText(tester, 'quantity_field_2'), '1 bowl');
-    expect(_fieldText(tester, 'calories_field_2'), '50.0');
-    // The deleted item's text must be gone from the tree entirely.
-    expect(find.text('Chicken'), findsNothing);
-    expect(find.text('100 g'), findsNothing);
+      // The surviving cards keep their own identities (ids 0 and 2), and each
+      // field still shows the value of the item it is bound to.
+      expect(find.byKey(const Key('name_field_1')), findsNothing);
+      expect(_fieldText(tester, 'name_field_0'), 'Rice');
+      expect(_fieldText(tester, 'quantity_field_0'), '1 cup');
+      expect(_fieldText(tester, 'calories_field_0'), '200.0');
+      expect(_fieldText(tester, 'name_field_2'), 'Salad');
+      expect(_fieldText(tester, 'quantity_field_2'), '1 bowl');
+      expect(_fieldText(tester, 'calories_field_2'), '50.0');
+      // The deleted item's text must be gone from the tree entirely.
+      expect(find.text('Chicken'), findsNothing);
+      expect(find.text('100 g'), findsNothing);
 
-    // Editing a surviving card must write into that card's own item, not a
-    // neighbour's.
-    await tester.enterText(find.byKey(const Key('name_field_2')), 'Green salad');
-    await tester.pump();
-    await tester.tap(find.text('Save to diary'));
-    await tester.pumpAndSettle();
+      // Editing a surviving card must write into that card's own item, not a
+      // neighbour's.
+      await tester.enterText(
+        find.byKey(const Key('name_field_2')),
+        'Green salad',
+      );
+      await tester.pump();
+      await tester.tap(find.text('Save to diary'));
+      await tester.pumpAndSettle();
 
-    expect(saved, isNotNull);
-    expect(saved!.map((i) => i.name).toList(), ['Rice', 'Green salad']);
-  });
+      expect(saved, isNotNull);
+      expect(saved!.map((i) => i.name).toList(), ['Rice', 'Green salad']);
+    },
+  );
 
   // I2: protein/carb/fat must be correctable, not just calories.
-  testWidgets('protein, carb and fat are editable and reach the saved item', (tester) async {
+  testWidgets('protein, carb and fat are editable and reach the saved item', (
+    tester,
+  ) async {
     List<FoodItem>? saved;
     await _pushScreen(
       tester,
@@ -185,7 +222,9 @@ void main() {
 
   // C2: a failing save must surface the error and re-enable the button rather
   // than hanging forever on "Saving...".
-  testWidgets('a failed save shows an error and lets the user retry', (tester) async {
+  testWidgets('a failed save shows an error and lets the user retry', (
+    tester,
+  ) async {
     var attempts = 0;
     await _pushScreen(
       tester,
@@ -200,12 +239,18 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(attempts, 1);
-    expect(find.text('Could not save this meal. Please try again.'), findsOneWidget);
+    expect(
+      find.text('Could not save this meal. Please try again.'),
+      findsOneWidget,
+    );
     // Still on the review screen, button back to its idle label (not stuck on "Saving...").
     expect(find.text('Review Analysis'), findsOneWidget);
     expect(find.text('Save to diary'), findsOneWidget);
     expect(find.text('Saving...'), findsNothing);
-    expect(tester.widget<FilledButton>(find.byType(FilledButton)).onPressed, isNotNull);
+    expect(
+      tester.widget<FilledButton>(find.byType(FilledButton)).onPressed,
+      isNotNull,
+    );
 
     // Retrying works and this time dismisses the screen.
     await tester.tap(find.text('Save to diary'));

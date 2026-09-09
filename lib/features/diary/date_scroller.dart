@@ -48,7 +48,8 @@ class _DateScrollerState extends State<DateScroller> {
     super.dispose();
   }
 
-  bool _isSameDay(DateTime a, DateTime b) => a.year == b.year && a.month == b.month && a.day == b.day;
+  bool _isSameDay(DateTime a, DateTime b) =>
+      a.year == b.year && a.month == b.month && a.day == b.day;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +76,11 @@ class _DateScrollerState extends State<DateScroller> {
 }
 
 class _DayTile extends StatelessWidget {
-  const _DayTile({required this.day, required this.selected, required this.onTap});
+  const _DayTile({
+    required this.day,
+    required this.selected,
+    required this.onTap,
+  });
 
   final DateTime day;
   final bool selected;
@@ -102,7 +107,9 @@ class _DayTile extends StatelessWidget {
               _weekdayLabels[day.weekday - 1],
               style: TextStyle(
                 fontSize: 11,
-                color: selected ? colorScheme.onPrimary.withValues(alpha: 0.8) : colorScheme.onSurfaceVariant,
+                color: selected
+                    ? colorScheme.onPrimary.withValues(alpha: 0.8)
+                    : colorScheme.onSurfaceVariant,
               ),
             ),
             const SizedBox(height: 2),
