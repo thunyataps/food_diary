@@ -147,8 +147,8 @@ class _CaptureScreenState extends State<CaptureScreen> {
               TextField(
                 controller: _noteController,
                 decoration: const InputDecoration(
-                  labelText:
-                      'Note (optional with a photo, required without one)',
+                  labelText: 'Note',
+                  helperText: 'Required if you skip the photo',
                   hintText: 'e.g. "Thai green curry"',
                 ),
               ),

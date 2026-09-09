@@ -153,8 +153,11 @@ async function handler(req: Request): Promise<Response> {
   } catch {
     return new Response(JSON.stringify({ error: "invalid_request" }), { status: 400 });
   }
-  const hasPhoto = Boolean(payload.image && payload.mimeType);
   const hasNote = Boolean(payload.note && payload.note.trim().length > 0);
+  if (payload.image && !payload.mimeType) {
+    return new Response(JSON.stringify({ error: "invalid_request" }), { status: 400 });
+  }
+  const hasPhoto = Boolean(payload.image && payload.mimeType);
   if (!hasPhoto && !hasNote) {
     return new Response(JSON.stringify({ error: "invalid_request" }), { status: 400 });
   }
