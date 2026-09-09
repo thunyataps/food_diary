@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../models/goals.dart';
 import '../../models/meal_entry.dart';
 import '../../models/weight_log.dart';
@@ -7,6 +8,7 @@ import 'date_scroller.dart';
 import 'diary_repository.dart';
 import 'meal_detail_screen.dart';
 import 'today_summary_card.dart';
+import 'weekly_summary_card.dart';
 import 'weight_card.dart';
 import 'weight_repository.dart';
 
@@ -28,6 +30,7 @@ class DiaryScreen extends StatefulWidget {
 class _DiaryScreenState extends State<DiaryScreen> {
   DateTime _day = DateTime.now();
   late Future<List<MealEntry>> _entriesFuture;
+  late Future<List<MealEntry>> _weeklyEntriesFuture;
   late Future<Goals?> _goalsFuture;
   late Future<WeightLog?> _weightFuture;
 
@@ -35,6 +38,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
   void initState() {
     super.initState();
     _entriesFuture = widget.repository.entriesForDay(_day);
+    _weeklyEntriesFuture = widget.repository.entriesForWeekEnding(_day);
     _goalsFuture = widget.goalsRepository.fetchGoals();
     _weightFuture = widget.weightRepository.fetchWeightForDate(_day);
   }
@@ -52,6 +56,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
     setState(() {
       _day = day;
       _entriesFuture = widget.repository.entriesForDay(_day);
+      _weeklyEntriesFuture = widget.repository.entriesForWeekEnding(_day);
       _weightFuture = widget.weightRepository.fetchWeightForDate(_day);
     });
   }
@@ -60,7 +65,8 @@ class _DiaryScreenState extends State<DiaryScreen> {
     final deleted = await Navigator.push<bool>(
       context,
       MaterialPageRoute(
-        builder: (_) => MealDetailScreen(entry: entry, repository: widget.repository),
+        builder: (_) =>
+            MealDetailScreen(entry: entry, repository: widget.repository),
       ),
     );
     if (deleted == true && mounted) {
@@ -85,50 +91,89 @@ class _DiaryScreenState extends State<DiaryScreen> {
                   return const Center(child: CircularProgressIndicator());
                 }
                 final entries = entriesSnapshot.data!;
-                final totalCalories = entries.fold<double>(0, (s, e) => s + e.totalCalories);
-                final totalProtein = entries.fold<double>(0, (s, e) => s + e.totalProtein);
-                final totalCarb = entries.fold<double>(0, (s, e) => s + e.totalCarb);
-                final totalFat = entries.fold<double>(0, (s, e) => s + e.totalFat);
-                return FutureBuilder<Goals?>(
-                  future: _goalsFuture,
-                  builder: (context, goalsSnapshot) {
-                    return FutureBuilder<WeightLog?>(
-                      future: _weightFuture,
-                      builder: (context, weightSnapshot) {
-                        return ListView(
-                          children: [
-                            TodaySummaryCard(
-                              calories: totalCalories,
-                              protein: totalProtein,
-                              carb: totalCarb,
-                              fat: totalFat,
-                              goals: goalsSnapshot.data,
-                            ),
-                            WeightCard(
-                              key: ValueKey(_day),
-                              initialWeight: weightSnapshot.data,
-                              onSave: _saveWeight,
-                            ),
-                            if (entries.isEmpty)
-                              _EmptyMealsState(colorScheme: Theme.of(context).colorScheme)
-                            else
-                              for (final e in entries)
-                                Card(
-                                  key: ValueKey(e.id ?? e.photoUrl ?? e.eatenAt.toIso8601String()),
-                                  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                                  child: ListTile(
-                                    leading: e.photoUrl == null
-                                        ? null
-                                        : _MealPhotoThumbnail(
-                                            repository: widget.repository,
-                                            photoPath: e.photoUrl!,
-                                          ),
-                                    title: Text(e.items.map((it) => it.name).join(', ')),
-                                    subtitle: Text('${e.totalCalories.toStringAsFixed(0)} kcal'),
-                                    onTap: () => _openMealDetail(e),
-                                  ),
+                final totalCalories = entries.fold<double>(
+                  0,
+                  (s, e) => s + e.totalCalories,
+                );
+                final totalProtein = entries.fold<double>(
+                  0,
+                  (s, e) => s + e.totalProtein,
+                );
+                final totalCarb = entries.fold<double>(
+                  0,
+                  (s, e) => s + e.totalCarb,
+                );
+                final totalFat = entries.fold<double>(
+                  0,
+                  (s, e) => s + e.totalFat,
+                );
+                return FutureBuilder<List<MealEntry>>(
+                  future: _weeklyEntriesFuture,
+                  builder: (context, weeklyEntriesSnapshot) {
+                    final weeklyAverages = computeWeeklyAverages(
+                      weeklyEntriesSnapshot.data ?? const <MealEntry>[],
+                    );
+                    return FutureBuilder<Goals?>(
+                      future: _goalsFuture,
+                      builder: (context, goalsSnapshot) {
+                        return FutureBuilder<WeightLog?>(
+                          future: _weightFuture,
+                          builder: (context, weightSnapshot) {
+                            return ListView(
+                              children: [
+                                TodaySummaryCard(
+                                  calories: totalCalories,
+                                  protein: totalProtein,
+                                  carb: totalCarb,
+                                  fat: totalFat,
+                                  goals: goalsSnapshot.data,
                                 ),
-                          ],
+                                WeeklySummaryCard(
+                                  averages: weeklyAverages,
+                                  goals: goalsSnapshot.data,
+                                ),
+                                WeightCard(
+                                  key: ValueKey(_day),
+                                  initialWeight: weightSnapshot.data,
+                                  onSave: _saveWeight,
+                                ),
+                                if (entries.isEmpty)
+                                  _EmptyMealsState(
+                                    colorScheme: Theme.of(context).colorScheme,
+                                  )
+                                else
+                                  for (final e in entries)
+                                    Card(
+                                      key: ValueKey(
+                                        e.id ??
+                                            e.photoUrl ??
+                                            e.eatenAt.toIso8601String(),
+                                      ),
+                                      margin: const EdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 4,
+                                      ),
+                                      child: ListTile(
+                                        leading: e.photoUrl == null
+                                            ? null
+                                            : _MealPhotoThumbnail(
+                                                repository: widget.repository,
+                                                photoPath: e.photoUrl!,
+                                              ),
+                                        title: Text(
+                                          e.items
+                                              .map((it) => it.name)
+                                              .join(', '),
+                                        ),
+                                        subtitle: Text(
+                                          '${e.totalCalories.toStringAsFixed(0)} kcal',
+                                        ),
+                                        onTap: () => _openMealDetail(e),
+                                      ),
+                                    ),
+                              ],
+                            );
+                          },
                         );
                       },
                     );
@@ -169,9 +214,7 @@ class _EmptyMealsState extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             'Tap Add meal to log what you ate',
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
+            style: Theme.of(context).textTheme.bodyMedium
                 ?.copyWith(color: colorScheme.onSurfaceVariant),
             textAlign: TextAlign.center,
           ),
@@ -187,7 +230,10 @@ class _EmptyMealsState extends StatelessWidget {
 /// Any failure along the way (signing, or the image itself) falls back to a
 /// neutral placeholder icon rather than a blank space or a crash.
 class _MealPhotoThumbnail extends StatefulWidget {
-  const _MealPhotoThumbnail({required this.repository, required this.photoPath});
+  const _MealPhotoThumbnail({
+    required this.repository,
+    required this.photoPath,
+  });
 
   final DiaryRepository repository;
   final String photoPath;
