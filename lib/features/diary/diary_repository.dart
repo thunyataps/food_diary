@@ -160,6 +160,16 @@ class DiaryRepository {
     await _client.from('meal_entries').delete().eq('id', mealEntryId);
   }
 
+  /// Updates the `eaten_at` timestamp for [mealEntryId]. RLS already scopes
+  /// this to the caller's own rows (matching the rest of this file), so no
+  /// extra `user_id` filter is needed.
+  Future<void> updateMealEatenAt(String mealEntryId, DateTime eatenAt) async {
+    await _client
+        .from('meal_entries')
+        .update({'eaten_at': eatenAt.toUtc().toIso8601String()})
+        .eq('id', mealEntryId);
+  }
+
   Future<List<MealEntry>> entriesForDay(DateTime day) async {
     final range = dayRangeUtc(day);
     return _entriesInRange(range.start, range.end);

@@ -17,8 +17,10 @@ class _FakeDiaryRepository extends DiaryRepository {
   _FakeDiaryRepository() : super(_fakeClient());
 
   final List<String> deleteMealEntryCalls = [];
+  final List<({String id, DateTime eatenAt})> updateMealEatenAtCalls = [];
   String? Function(String path)? signedUrlResponder;
   bool throwOnDelete = false;
+  bool throwOnUpdateEatenAt = false;
 
   @override
   Future<String?> signedPhotoUrl(String path) async =>
@@ -29,6 +31,14 @@ class _FakeDiaryRepository extends DiaryRepository {
     deleteMealEntryCalls.add(mealEntryId);
     if (throwOnDelete) {
       throw Exception('delete failed');
+    }
+  }
+
+  @override
+  Future<void> updateMealEatenAt(String mealEntryId, DateTime eatenAt) async {
+    updateMealEatenAtCalls.add((id: mealEntryId, eatenAt: eatenAt));
+    if (throwOnUpdateEatenAt) {
+      throw Exception('update failed');
     }
   }
 }
@@ -63,6 +73,20 @@ MealEntry _entry({String id = 'entry-1', String? photoUrl, String? note}) =>
         ),
       ],
     );
+
+/// A day-of-month-20 date, always within the picker's `[now - 2y, now]`
+/// range and never the 1st of a month, so "one day before" stays on the
+/// same calendar page as the initial date shown by `showDatePicker`. Picking
+/// day 20 of the current month if we're already past it, otherwise day 20
+/// of the previous month, keeps this comfortably in the past no matter when
+/// the suite runs.
+DateTime _safeTestDate() {
+  final now = DateTime.now();
+  if (now.day > 20) {
+    return DateTime(now.year, now.month, 20, 12, 30);
+  }
+  return DateTime(now.year, now.month - 1, 20, 12, 30);
+}
 
 /// Captures whatever `Navigator.pop` value the pushed [MealDetailScreen]
 /// returns, so tests can assert on it — not just that a pop happened.
@@ -257,4 +281,112 @@ void main() {
     await tester.pump(const Duration(seconds: 5));
     await tester.pumpAndSettle();
   });
+
+  testWidgets('shows a "Change date" button when the entry has an id', (
+    tester,
+  ) async {
+    await _pushScreen(
+      tester,
+      entry: _entry(id: 'entry-1'),
+      repository: _FakeDiaryRepository(),
+    );
+
+    expect(find.text('Change date'), findsOneWidget);
+  });
+
+  testWidgets('hides the "Change date" button when the entry has no id', (
+    tester,
+  ) async {
+    final entry = MealEntry(
+      id: null,
+      eatenAt: DateTime(2024, 1, 15, 12),
+      items: const [],
+    );
+    await _pushScreen(tester, entry: entry, repository: _FakeDiaryRepository());
+
+    expect(find.text('Change date'), findsNothing);
+  });
+
+  testWidgets(
+    'picking a new date updates the eaten-at day, keeps the time-of-day, '
+    'and pops true',
+    (tester) async {
+      final repository = _FakeDiaryRepository();
+      final entry = _entry(id: 'entry-42');
+      final entryDate = _safeTestDate();
+      entry.eatenAt = entryDate;
+      final popResult = _PopResult();
+
+      await _pushScreen(
+        tester,
+        entry: entry,
+        repository: repository,
+        popResult: popResult,
+      );
+
+      await tester.tap(find.text('Change date'));
+      await tester.pumpAndSettle();
+
+      // The initial date's month page is already open, so day 19 (one day
+      // before the entry's day 20) is reachable without scrolling.
+      await tester.tap(find.text('19'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('OK'));
+      await tester.pumpAndSettle();
+
+      expect(repository.updateMealEatenAtCalls, hasLength(1));
+      final call = repository.updateMealEatenAtCalls.single;
+      expect(call.id, 'entry-42');
+      expect(
+        call.eatenAt,
+        DateTime(entryDate.year, entryDate.month, 19, 12, 30),
+      );
+
+      // The detail screen is gone; we're back on the launcher page.
+      expect(find.text('open detail'), findsOneWidget);
+      expect(find.text('Meal details'), findsNothing);
+      expect(popResult.called, isTrue);
+      expect(popResult.value, isTrue);
+    },
+  );
+
+  testWidgets(
+    'a failed date update shows an error and does not pop the route',
+    (tester) async {
+      final repository = _FakeDiaryRepository()..throwOnUpdateEatenAt = true;
+      final entry = _entry(id: 'entry-42');
+      entry.eatenAt = _safeTestDate();
+      final popResult = _PopResult();
+
+      await _pushScreen(
+        tester,
+        entry: entry,
+        repository: repository,
+        popResult: popResult,
+      );
+
+      await tester.tap(find.text('Change date'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('19'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('OK'));
+      await tester.pumpAndSettle();
+
+      expect(repository.updateMealEatenAtCalls, hasLength(1));
+      expect(
+        find.text('Could not update the date. Please try again.'),
+        findsOneWidget,
+      );
+      // Still on the detail screen so the user can retry.
+      expect(find.text('Meal details'), findsOneWidget);
+      expect(popResult.called, isFalse);
+
+      // Let the SnackBar's auto-dismiss timer fire so it doesn't outlive the test.
+      await tester.pump(const Duration(seconds: 5));
+      await tester.pumpAndSettle();
+    },
+  );
 }

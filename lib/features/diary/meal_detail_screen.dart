@@ -28,7 +28,88 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
   static const _carbColor = Color(0xFFD9A441);
   static const _fatColor = Color(0xFF7A8C6B);
 
+  static const _monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
   bool _deleting = false;
+  bool _updatingDate = false;
+
+  static String _formatDate(DateTime date) {
+    return '${_monthNames[date.month - 1]} ${date.day}, ${date.year}';
+  }
+
+  Future<void> _changeDate() async {
+    final id = widget.entry.id;
+    if (id == null) return;
+
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final firstDate = DateTime(now.year - 2, now.month, now.day);
+    final currentLocal = widget.entry.eatenAt.toLocal();
+    var initialDate = DateTime(
+      currentLocal.year,
+      currentLocal.month,
+      currentLocal.day,
+    );
+    if (initialDate.isBefore(firstDate)) {
+      initialDate = firstDate;
+    } else if (initialDate.isAfter(today)) {
+      initialDate = today;
+    }
+
+    final picked = await showDatePicker(
+      context: context,
+      initialDate: initialDate,
+      firstDate: firstDate,
+      lastDate: today,
+    );
+
+    if (picked == null || !mounted) return;
+
+    final navigator = Navigator.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    final newEatenAt = DateTime(
+      picked.year,
+      picked.month,
+      picked.day,
+      currentLocal.hour,
+      currentLocal.minute,
+      currentLocal.second,
+      currentLocal.millisecond,
+      currentLocal.microsecond,
+    );
+
+    setState(() => _updatingDate = true);
+    try {
+      await widget.repository.updateMealEatenAt(id, newEatenAt);
+      if (mounted) {
+        widget.entry.eatenAt = newEatenAt;
+        navigator.pop(true);
+      }
+    } catch (_) {
+      if (mounted) {
+        messenger.showSnackBar(
+          const SnackBar(
+            content: Text('Could not update the date. Please try again.'),
+          ),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _updatingDate = false);
+    }
+  }
 
   Future<void> _confirmDelete() async {
     final confirmed = await showDialog<bool>(
@@ -97,6 +178,28 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Logged on ${_formatDate(entry.eatenAt.toLocal())}',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              if (entry.id != null)
+                TextButton.icon(
+                  onPressed: _updatingDate ? null : _changeDate,
+                  icon: _updatingDate
+                      ? const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Icon(Icons.edit_calendar),
+                  label: const Text('Change date'),
+                ),
+            ],
+          ),
+          const SizedBox(height: 8),
           if (entry.photoUrl != null) ...[
             _MealDetailPhoto(
               repository: widget.repository,
