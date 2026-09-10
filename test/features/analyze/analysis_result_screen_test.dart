@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/analyze/analysis_result_screen.dart';
 import 'package:food_diary/models/food_item.dart';
 
+import '../../test_utils.dart';
+
 FoodItem _item(
   String name, {
   String quantity = '1 serving',
@@ -31,8 +33,8 @@ Future<void> _pushScreen(
   addTearDown(tester.view.reset);
 
   await tester.pumpWidget(
-    MaterialApp(
-      home: Scaffold(
+    localizedApp(
+      Scaffold(
         body: Builder(
           builder: (context) => TextButton(
             onPressed: () => Navigator.of(context).push(

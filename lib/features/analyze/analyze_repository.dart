@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/food_item.dart';
 
 List<FoodItem> parseAnalyzeResponse(Map<String, dynamic> data) {
@@ -85,14 +86,14 @@ class AnalyzeException implements Exception {
   AnalyzeException(this.code);
   final String code;
 
-  String get userMessage {
+  String userMessage(AppLocalizations l10n) {
     switch (code) {
       case 'rate_limited':
-        return 'High demand right now, try again shortly.';
+        return l10n.analyzeErrorRateLimited;
       case 'unauthorized':
-        return 'Please sign in again.';
+        return l10n.analyzeErrorUnauthorized;
       default:
-        return 'Analysis failed, try again.';
+        return l10n.analyzeErrorUnknown;
     }
   }
 }

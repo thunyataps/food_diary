@@ -42,5 +42,32 @@
   "weightCardLabel": "Weight (kg)",
   "weightCardSaveButton": "Save",
   "weightCardInvalidError": "Enter a valid weight.",
-  "weightCardSaveError": "Could not save weight. Try again."
+  "weightCardSaveError": "Could not save weight. Try again.",
+  "captureAppBarTitle": "Add meal",
+  "captureCameraButton": "Camera",
+  "captureGalleryButton": "Gallery",
+  "captureNoteLabel": "Note",
+  "captureNoteHelper": "Required if you skip the photo",
+  "captureNoteHint": "e.g. \"Thai green curry\"",
+  "captureNetworkError": "Network error. Check your connection and try again.",
+  "captureAnalyzeButton": "Analyze",
+  "captureAnalyzingButton": "Analyzing...",
+  "analysisResultAppBarTitle": "Review Analysis",
+  "analysisResultSaveError": "Could not save this meal. Please try again.",
+  "analysisResultAddItem": "Add item",
+  "analysisResultTotal": "Total: {value} kcal",
+  "@analysisResultTotal": {
+    "placeholders": { "value": { "type": "String" } }
+  },
+  "analysisResultSaveButton": "Save to diary",
+  "analysisResultLowConfidence": "Low confidence - please check",
+  "analysisResultNameLabel": "Name",
+  "analysisResultQuantityLabel": "Quantity",
+  "analysisResultCaloriesLabel": "Calories",
+  "analysisResultProteinLabel": "Protein (g)",
+  "analysisResultCarbsLabel": "Carbs (g)",
+  "analysisResultFatLabel": "Fat (g)",
+  "analyzeErrorRateLimited": "High demand right now, try again shortly.",
+  "analyzeErrorUnauthorized": "Please sign in again.",
+  "analyzeErrorUnknown": "Analysis failed, try again."
 }

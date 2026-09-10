@@ -1,8 +1,16 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/analyze/analyze_repository.dart';
+import 'package:food_diary/l10n/generated/app_localizations.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() {
+  late AppLocalizations l10n;
+
+  setUpAll(() async {
+    l10n = await AppLocalizations.delegate.load(const Locale('en'));
+  });
+
   test('parseAnalyzeResponse maps items to FoodItem list', () {
     final data = {
       'items': [
@@ -32,7 +40,7 @@ void main() {
         ),
       );
       expect(e.code, 'rate_limited');
-      expect(e.userMessage, 'High demand right now, try again shortly.');
+      expect(e.userMessage(l10n), 'High demand right now, try again shortly.');
     });
 
     test('maps the 401 unauthorized body to the sign-in message', () {
@@ -43,7 +51,7 @@ void main() {
         ),
       );
       expect(e.code, 'unauthorized');
-      expect(e.userMessage, 'Please sign in again.');
+      expect(e.userMessage(l10n), 'Please sign in again.');
     });
 
     test('falls back to the HTTP status when the body is not the {error:...} shape', () {
@@ -52,7 +60,7 @@ void main() {
       );
       expect(rateLimited.code, 'rate_limited');
       expect(
-        rateLimited.userMessage,
+        rateLimited.userMessage(l10n),
         'High demand right now, try again shortly.',
       );
 
@@ -60,7 +68,7 @@ void main() {
         const FunctionsHttpException(status: 401, details: ''),
       );
       expect(unauthorized.code, 'unauthorized');
-      expect(unauthorized.userMessage, 'Please sign in again.');
+      expect(unauthorized.userMessage(l10n), 'Please sign in again.');
     });
 
     test('unrecognised failures get the generic analysis-failed message', () {
@@ -71,7 +79,7 @@ void main() {
         ),
       );
       expect(e.code, 'analysis_failed');
-      expect(e.userMessage, 'Analysis failed, try again.');
+      expect(e.userMessage(l10n), 'Analysis failed, try again.');
 
       final relay = analyzeExceptionFrom(
         const FunctionsRelayException(
@@ -80,7 +88,7 @@ void main() {
         ),
       );
       expect(relay.code, 'unknown');
-      expect(relay.userMessage, 'Analysis failed, try again.');
+      expect(relay.userMessage(l10n), 'Analysis failed, try again.');
     });
   });
 }

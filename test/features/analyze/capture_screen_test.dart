@@ -9,6 +9,8 @@ import 'package:food_diary/features/analyze/capture_screen.dart';
 import 'package:food_diary/models/food_item.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../test_utils.dart';
+
 SupabaseClient _fakeClient() => SupabaseClient(
   'http://localhost:54321',
   'anon',
@@ -59,8 +61,8 @@ Future<void> _pumpCaptureScreen(
   onSave,
 }) async {
   await tester.pumpWidget(
-    MaterialApp(
-      home: CaptureScreen(
+    localizedApp(
+      CaptureScreen(
         analyzeRepository: analyzeRepository,
         onSave: onSave ?? (items, photoFile, note) async {},
       ),

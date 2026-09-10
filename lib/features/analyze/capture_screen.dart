@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../core/image_compression.dart';
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/food_item.dart';
 import 'analyze_repository.dart';
 import 'analysis_result_screen.dart';
@@ -86,11 +87,11 @@ class _CaptureScreenState extends State<CaptureScreen> {
         ),
       );
     } on AnalyzeException catch (e) {
-      setState(() => _error = e.userMessage);
+      if (!mounted) return;
+      setState(() => _error = e.userMessage(AppLocalizations.of(context)));
     } catch (_) {
-      setState(
-        () => _error = 'Network error. Check your connection and try again.',
-      );
+      if (!mounted) return;
+      setState(() => _error = AppLocalizations.of(context).captureNetworkError);
     } finally {
       if (mounted) setState(() => _analyzing = false);
     }
@@ -99,7 +100,9 @@ class _CaptureScreenState extends State<CaptureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Add meal')),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).captureAppBarTitle),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -130,7 +133,9 @@ class _CaptureScreenState extends State<CaptureScreen> {
                     child: OutlinedButton.icon(
                       onPressed: () => _pickPhoto(ImageSource.camera),
                       icon: const Icon(Icons.camera_alt_outlined),
-                      label: const Text('Camera'),
+                      label: Text(
+                        AppLocalizations.of(context).captureCameraButton,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -138,7 +143,9 @@ class _CaptureScreenState extends State<CaptureScreen> {
                     child: OutlinedButton.icon(
                       onPressed: () => _pickPhoto(ImageSource.gallery),
                       icon: const Icon(Icons.photo_library_outlined),
-                      label: const Text('Gallery'),
+                      label: Text(
+                        AppLocalizations.of(context).captureGalleryButton,
+                      ),
                     ),
                   ),
                 ],
@@ -146,10 +153,10 @@ class _CaptureScreenState extends State<CaptureScreen> {
               const SizedBox(height: 16),
               TextField(
                 controller: _noteController,
-                decoration: const InputDecoration(
-                  labelText: 'Note',
-                  helperText: 'Required if you skip the photo',
-                  hintText: 'e.g. "Thai green curry"',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context).captureNoteLabel,
+                  helperText: AppLocalizations.of(context).captureNoteHelper,
+                  hintText: AppLocalizations.of(context).captureNoteHint,
                 ),
               ),
               if (_error != null) ...[
@@ -166,7 +173,11 @@ class _CaptureScreenState extends State<CaptureScreen> {
                         _analyzing
                     ? null
                     : _analyze,
-                child: Text(_analyzing ? 'Analyzing...' : 'Analyze'),
+                child: Text(
+                  _analyzing
+                      ? AppLocalizations.of(context).captureAnalyzingButton
+                      : AppLocalizations.of(context).captureAnalyzeButton,
+                ),
               ),
             ],
           ),

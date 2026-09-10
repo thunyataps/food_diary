@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/food_item.dart';
 
 /// A [FoodItem] paired with a stable, per-session identity.
@@ -77,8 +78,8 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
     } catch (_) {
       if (mounted) {
         messenger.showSnackBar(
-          const SnackBar(
-            content: Text('Could not save this meal. Please try again.'),
+          SnackBar(
+            content: Text(AppLocalizations.of(context).analysisResultSaveError),
           ),
         );
       }
@@ -90,7 +91,9 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Review Analysis')),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).analysisResultAppBarTitle),
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -105,17 +108,22 @@ class _AnalysisResultScreenState extends State<AnalysisResultScreen> {
           TextButton.icon(
             onPressed: _addItem,
             icon: const Icon(Icons.add),
-            label: const Text('Add item'),
+            label: Text(AppLocalizations.of(context).analysisResultAddItem),
           ),
           const Divider(),
           Text(
-            'Total: ${_totalCalories.toStringAsFixed(0)} kcal',
+            AppLocalizations.of(context)
+                .analysisResultTotal(_totalCalories.toStringAsFixed(0)),
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(height: 16),
           FilledButton(
             onPressed: _saving || _entries.isEmpty ? null : _save,
-            child: Text(_saving ? 'Saving...' : 'Save to diary'),
+            child: Text(
+              _saving
+                  ? AppLocalizations.of(context).commonSaving
+                  : AppLocalizations.of(context).analysisResultSaveButton,
+            ),
           ),
         ],
       ),
@@ -171,30 +179,38 @@ class _FoodItemCard extends StatelessWidget {
         child: Column(
           children: [
             if (lowConfidence)
-              const Align(
+              Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Low confidence - please check',
-                  style: TextStyle(color: Colors.orange),
+                  AppLocalizations.of(context).analysisResultLowConfidence,
+                  style: const TextStyle(color: Colors.orange),
                 ),
               ),
             TextFormField(
               key: Key('name_field_$id'),
               initialValue: item.name,
-              decoration: const InputDecoration(labelText: 'Name'),
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context).analysisResultNameLabel,
+              ),
               onChanged: (v) => onChanged(_copyWith(item, name: v)),
             ),
             TextFormField(
               key: Key('quantity_field_$id'),
               initialValue: item.quantity,
-              decoration: const InputDecoration(labelText: 'Quantity'),
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)
+                    .analysisResultQuantityLabel,
+              ),
               onChanged: (v) => onChanged(_copyWith(item, quantity: v)),
             ),
             TextFormField(
               key: Key('calories_field_$id'),
               initialValue: item.calories.toString(),
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Calories'),
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)
+                    .analysisResultCaloriesLabel,
+              ),
               onChanged: (v) =>
                   onChanged(_copyWith(item, calories: double.tryParse(v) ?? 0)),
             ),
@@ -202,7 +218,10 @@ class _FoodItemCard extends StatelessWidget {
               key: Key('protein_field_$id'),
               initialValue: item.protein.toString(),
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Protein (g)'),
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)
+                    .analysisResultProteinLabel,
+              ),
               onChanged: (v) =>
                   onChanged(_copyWith(item, protein: double.tryParse(v) ?? 0)),
             ),
@@ -210,7 +229,10 @@ class _FoodItemCard extends StatelessWidget {
               key: Key('carb_field_$id'),
               initialValue: item.carb.toString(),
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Carbs (g)'),
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)
+                    .analysisResultCarbsLabel,
+              ),
               onChanged: (v) =>
                   onChanged(_copyWith(item, carb: double.tryParse(v) ?? 0)),
             ),
@@ -218,7 +240,9 @@ class _FoodItemCard extends StatelessWidget {
               key: Key('fat_field_$id'),
               initialValue: item.fat.toString(),
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Fat (g)'),
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context).analysisResultFatLabel,
+              ),
               onChanged: (v) =>
                   onChanged(_copyWith(item, fat: double.tryParse(v) ?? 0)),
             ),
