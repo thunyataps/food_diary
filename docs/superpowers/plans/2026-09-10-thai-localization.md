@@ -19,8 +19,9 @@
 - `flutter gen-l10n` (run automatically by `flutter build`/`test`/`analyze`/`run` because of `generate: true`) must succeed with zero missing-translation errors after every task. Run `flutter analyze` and `flutter test` before every commit in every task.
 - Existing test assertions (`find.text('English string')`) keep asserting the exact same English string values — the string's *source* moves from a Dart literal to `app_en.arb`, its *value* does not change. Do not alter an assertion's expected text unless the table below shows a different value for that key than what's currently in the source file (there are none in this plan — every table entry's English value is copied verbatim from the current source).
 - Never hand-pick dependency version numbers — add them with `flutter pub add` (Task 1 only; no other task touches `pubspec.yaml`) and let pub resolve current compatible versions.
-- `AnalyzeException.userMessage` (in `lib/features/analyze/analyze_repository.dart`) is a getter on a plain Dart exception class with no `BuildContext` — it cannot call `AppLocalizations.of(context)!` itself. Task 3 changes it from a getter to a method `String userMessage(AppLocalizations l10n)`, called as `e.userMessage(AppLocalizations.of(context)!)` from `capture_screen.dart`, where context is available.
-- `MaterialApp.title` cannot read `AppLocalizations.of(context)!` directly (the `context` passed to the widget's own `build()` is above the `Localizations` scope `MaterialApp` itself creates). Task 1 uses `onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle` instead of a static `title:` string — `onGenerateTitle` receives a context that IS inside the scope.
+- `AnalyzeException.userMessage` (in `lib/features/analyze/analyze_repository.dart`) is a getter on a plain Dart exception class with no `BuildContext` — it cannot call `AppLocalizations.of(context)` itself. Task 3 changes it from a getter to a method `String userMessage(AppLocalizations l10n)`, called as `e.userMessage(AppLocalizations.of(context))` from `capture_screen.dart`, where context is available.
+- `MaterialApp.title` cannot read `AppLocalizations.of(context)` directly (the `context` passed to the widget's own `build()` is above the `Localizations` scope `MaterialApp` itself creates). Task 1 uses `onGenerateTitle: (context) => AppLocalizations.of(context).appTitle` instead of a static `title:` string — `onGenerateTitle` receives a context that IS inside the scope.
+- `AppLocalizations.of(context)` returns non-nullable (this plan's `l10n.yaml` sets `nullable-getter: false`) — always call it WITHOUT a trailing `!`. Every snippet in this plan already reflects this (confirmed against Task 1's implementation and Opus review: the generated getter is `static AppLocalizations of(BuildContext context) => Localizations.of<AppLocalizations>(context, AppLocalizations)!;` — the null-check already lives inside the generated code).
 
 ---
 
@@ -184,7 +185,7 @@ Future<void> _setLocale(Locale? locale) async {
 Update the `MaterialApp` returned from `build`: replace `title: 'Food Diary',` with:
 
 ```dart
-onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
+onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
 locale: _localeOverride,
 localizationsDelegates: AppLocalizations.localizationsDelegates,
 supportedLocales: AppLocalizations.supportedLocales,
@@ -211,7 +212,7 @@ Future<void> showLanguagePicker({
   required Locale? currentLocale,
   required ValueChanged<Locale?> onChanged,
 }) {
-  final l10n = AppLocalizations.of(context)!;
+  final l10n = AppLocalizations.of(context);
   return showDialog<void>(
     context: context,
     builder: (context) => SimpleDialog(
@@ -266,7 +267,7 @@ OutlinedButton(
     currentLocale: widget.currentLocale,
     onChanged: widget.onLocaleChanged,
   ),
-  child: Text(AppLocalizations.of(context)!.languageDialogTitle),
+  child: Text(AppLocalizations.of(context).languageDialogTitle),
 ),
 ```
 
@@ -274,9 +275,9 @@ Do NOT touch any other string in this file — every other `Text(...)`/`labelTex
 
 - [ ] **Step 10: Extract every string in `lib/features/auth/login_screen.dart`**
 
-Import `../../l10n/generated/app_localizations.dart`. Replace each literal with the matching key from the table above via `AppLocalizations.of(context)!.<key>`:
+Import `../../l10n/generated/app_localizations.dart`. Replace each literal with the matching key from the table above via `AppLocalizations.of(context).<key>`:
 - `'Food Diary'` → `appTitle`
-- `labelText: 'Email'` → `labelText: AppLocalizations.of(context)!.commonEmailLabel`
+- `labelText: 'Email'` → `labelText: AppLocalizations.of(context).commonEmailLabel`
 - `labelText: 'Password'` → `commonPasswordLabel`
 - `'Sign in failed. Check your email/password.'` → `loginErrorFailed`
 - `'Sign in'` → `loginSignInButton`
@@ -289,7 +290,7 @@ Import `../../l10n/generated/app_localizations.dart`. Replace each literal with 
 - `labelText: 'Email'` → `commonEmailLabel`
 - `labelText: 'Password'` → `commonPasswordLabel`
 - `'Check your email to confirm your account, then come back and sign in.'` → `signupInfoCheckEmail`
-- `'Sign up failed: $e'` → `AppLocalizations.of(context)!.signupErrorFailed(e.toString())`
+- `'Sign up failed: $e'` → `AppLocalizations.of(context).signupErrorFailed(e.toString())`
 - `'Sign up'` → `signupButton`
 
 - [ ] **Step 12: Create `test/test_utils.dart`**
@@ -301,7 +302,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:food_diary/l10n/generated/app_localizations.dart';
 
 /// Wraps [home] in a MaterialApp configured with the app's localization
-/// delegates, so widgets that call `AppLocalizations.of(context)!` work
+/// delegates, so widgets that call `AppLocalizations.of(context)` work
 /// under test. Tests assert against the English strings (the default
 /// locale here is `en`, matching `app_en.arb`) unless a test explicitly
 /// passes a different `locale`.
@@ -540,7 +541,7 @@ static String _formatDate(BuildContext context, DateTime date) {
 
 String replacements:
 - AppBar `'Meal details'` → `mealDetailAppBarTitle`
-- `'Logged on ${_formatDate(...)}'` → `AppLocalizations.of(context)!.mealDetailLoggedOn(_formatDate(context, entry.eatenAt.toLocal()))`
+- `'Logged on ${_formatDate(...)}'` → `AppLocalizations.of(context).mealDetailLoggedOn(_formatDate(context, entry.eatenAt.toLocal()))`
 - `'Change date'` → `mealDetailChangeDate`
 - `'Could not update the date. Please try again.'` → `mealDetailUpdateDateError`
 - `'Delete this meal?'` → `mealDetailDeleteConfirmTitle`
@@ -549,7 +550,7 @@ String replacements:
 - `'Delete'` (dialog action) → `mealDetailDeleteButton`
 - `'Could not delete this meal. Please try again.'` → `mealDetailDeleteError`
 - `'Totals'` → `mealDetailTotalsTitle`
-- Both `_MacroLine(label: 'Calories', ..., unit: 'kcal', ...)` call sites → `label: AppLocalizations.of(context)!.commonCalories, ..., unit: AppLocalizations.of(context)!.commonKcalUnit`
+- Both `_MacroLine(label: 'Calories', ..., unit: 'kcal', ...)` call sites → `label: AppLocalizations.of(context).commonCalories, ..., unit: AppLocalizations.of(context).commonKcalUnit`
 - Both `_MacroLine(label: 'Protein', ..., unit: 'g', ...)` → `commonProtein` / `commonGramUnit`
 - Both `_MacroLine(label: 'Carb', ..., unit: 'g', ...)` → `commonCarb` / `commonGramUnit`
 - Both `_MacroLine(label: 'Fat', ..., unit: 'g', ...)` → `commonFat` / `commonGramUnit`
@@ -561,7 +562,7 @@ String replacements:
 Import `../../l10n/generated/app_localizations.dart`.
 
 - `"Today's summary"` → `todaySummaryTitle`
-- In `_CaloriesRing`'s no-goal branch: `'Calories'` → `commonCalories`; `'${calories...} kcal'` → interpolate `AppLocalizations.of(context)!.commonKcalUnit` in place of the literal `'kcal'`
+- In `_CaloriesRing`'s no-goal branch: `'Calories'` → `commonCalories`; `'${calories...} kcal'` → interpolate `AppLocalizations.of(context).commonKcalUnit` in place of the literal `'kcal'`
 - In `_CaloriesRing`'s with-goal branch: `'/ ${goal...} kcal'` and the bottom `'Calories'` label → same `commonKcalUnit` / `commonCalories` substitutions
 - The three `_MacroRow(label: 'Protein', ..., unit: 'g')` / `'Carb'` / `'Fat'` call sites in `TodaySummaryCard.build` → `commonProtein`/`commonCarb`/`commonFat` and `commonGramUnit` (same pattern as Step 2)
 
@@ -579,7 +580,7 @@ Import `../../l10n/generated/app_localizations.dart`.
 - `labelText: 'Weight (kg)'` → `weightCardLabel`
 - `'Enter a valid weight.'` → `weightCardInvalidError`
 - `'Could not save weight. Try again.'` → `weightCardSaveError`
-- `_saving ? 'Saving...' : 'Save'` → `_saving ? AppLocalizations.of(context)!.commonSaving : AppLocalizations.of(context)!.weightCardSaveButton`
+- `_saving ? 'Saving...' : 'Save'` → `_saving ? AppLocalizations.of(context).commonSaving : AppLocalizations.of(context).weightCardSaveButton`
 
 - [ ] **Step 6: Extract strings in `lib/features/diary/date_scroller.dart`**
 
@@ -599,8 +600,8 @@ No ARB key needed for this file — `intl`'s `DateFormat` handles the Thai weekd
 
 Import `../../l10n/generated/app_localizations.dart`.
 
-- AppBar `'Food Diary'` → `AppLocalizations.of(context)!.appTitle` (reuses the key Task 1 already defined — do not redefine it)
-- `'${e.totalCalories.toStringAsFixed(0)} kcal'` (the meal list tile subtitle) → interpolate `AppLocalizations.of(context)!.commonKcalUnit` in place of the literal `'kcal'`
+- AppBar `'Food Diary'` → `AppLocalizations.of(context).appTitle` (reuses the key Task 1 already defined — do not redefine it)
+- `'${e.totalCalories.toStringAsFixed(0)} kcal'` (the meal list tile subtitle) → interpolate `AppLocalizations.of(context).commonKcalUnit` in place of the literal `'kcal'`
 - `_EmptyMealsState`'s two `Text(...)`: `'No meals logged yet'` → `diaryEmptyStateTitle`, `'Tap Add meal to log what you ate'` → `diaryEmptyStateSubtitle`
 
 - [ ] **Step 8: Update tests**
@@ -713,7 +714,7 @@ String userMessage(AppLocalizations l10n) {
 
 Import `../../l10n/generated/app_localizations.dart`.
 
-- Update the one call site: `e.userMessage` → `e.userMessage(AppLocalizations.of(context)!)` (inside the `on AnalyzeException catch (e)` block; `context` is available there since `_analyze` is called from a widget's event handler — confirm `mounted`/`context` access matches the existing surrounding code style)
+- Update the one call site: `e.userMessage` → `e.userMessage(AppLocalizations.of(context))` (inside the `on AnalyzeException catch (e)` block; `context` is available there since `_analyze` is called from a widget's event handler — confirm `mounted`/`context` access matches the existing surrounding code style)
 - `'Network error. Check your connection and try again.'` → `captureNetworkError`
 - AppBar `'Add meal'` → `captureAppBarTitle`
 - `'Camera'` → `captureCameraButton`
@@ -721,7 +722,7 @@ Import `../../l10n/generated/app_localizations.dart`.
 - `labelText: 'Note'` → `captureNoteLabel`
 - `helperText: 'Required if you skip the photo'` → `captureNoteHelper`
 - `hintText: 'e.g. "Thai green curry"'` → `captureNoteHint`
-- `_analyzing ? 'Analyzing...' : 'Analyze'` → `_analyzing ? AppLocalizations.of(context)!.captureAnalyzingButton : AppLocalizations.of(context)!.captureAnalyzeButton`
+- `_analyzing ? 'Analyzing...' : 'Analyze'` → `_analyzing ? AppLocalizations.of(context).captureAnalyzingButton : AppLocalizations.of(context).captureAnalyzeButton`
 
 - [ ] **Step 4: Extract strings in `lib/features/analyze/analysis_result_screen.dart`**
 
@@ -730,8 +731,8 @@ Import `../../l10n/generated/app_localizations.dart`.
 - `'Could not save this meal. Please try again.'` → `analysisResultSaveError`
 - AppBar `'Review Analysis'` → `analysisResultAppBarTitle`
 - `'Add item'` → `analysisResultAddItem`
-- `'Total: ${_totalCalories.toStringAsFixed(0)} kcal'` → `AppLocalizations.of(context)!.analysisResultTotal(_totalCalories.toStringAsFixed(0))`
-- `_saving ? 'Saving...' : 'Save to diary'` → `_saving ? AppLocalizations.of(context)!.commonSaving : AppLocalizations.of(context)!.analysisResultSaveButton`
+- `'Total: ${_totalCalories.toStringAsFixed(0)} kcal'` → `AppLocalizations.of(context).analysisResultTotal(_totalCalories.toStringAsFixed(0))`
+- `_saving ? 'Saving...' : 'Save to diary'` → `_saving ? AppLocalizations.of(context).commonSaving : AppLocalizations.of(context).analysisResultSaveButton`
 - `'Low confidence - please check'` → `analysisResultLowConfidence`
 - `labelText: 'Name'` → `analysisResultNameLabel`
 - `labelText: 'Quantity'` → `analysisResultQuantityLabel`
@@ -861,7 +862,7 @@ Import `../../l10n/generated/app_localizations.dart` (it's likely already import
 - AppBar `'Profile'` → `profileAppBarTitle`
 - `tooltip: 'Edit'` → `profileEditTooltip`
 - `'Personal info'` → `profilePersonalInfoTitle`
-- `_fieldRow('Name', ...)` label → `AppLocalizations.of(context)!.profileNameLabel`
+- `_fieldRow('Name', ...)` label → `AppLocalizations.of(context).profileNameLabel`
 - `_fieldRow('Age', ...)` → `profileAgeLabel`
 - `_fieldRow('Weight (kg)', ...)` → `profileWeightLabel`
 - `_fieldRow('Height (cm)', ...)` → `profileHeightLabel`
@@ -872,19 +873,19 @@ Import `../../l10n/generated/app_localizations.dart` (it's likely already import
 - Edit-mode `TextField` labels: `'Name'`/`'Age'`/`'Height (cm)'`/`'Body fat (%)'`/`'Muscle mass (kg)'` → same 5 keys as the view-mode row labels above (`profileNameLabel` etc. — reuse, don't create new keys)
 - `'Could not save profile. Try again.'` → `profileSaveError`
 - `'Cancel'` (edit-mode cancel button) → `profileCancelButton`
-- `_savingProfile ? 'Saving...' : 'Save profile'` → `_savingProfile ? AppLocalizations.of(context)!.commonSaving : AppLocalizations.of(context)!.profileSaveButton`
+- `_savingProfile ? 'Saving...' : 'Save profile'` → `_savingProfile ? AppLocalizations.of(context).commonSaving : AppLocalizations.of(context).profileSaveButton`
 - `'Could not sign out. Please try again.'` → `profileSignOutError`
 - `"You're on the latest version."` → `profileUpdateLatestVersion`
-- `'Version ${release.version} is available.'` → `AppLocalizations.of(context)!.profileUpdateAvailableStatus(release.version)`
+- `'Version ${release.version} is available.'` → `AppLocalizations.of(context).profileUpdateAvailableStatus(release.version)`
 - `'Update available'` (dialog title) → `profileUpdateDialogTitle`
-- `'Version ${release.version} is available (you have ${widget.currentVersion}). Download and install it now?'` → `AppLocalizations.of(context)!.profileUpdateDialogBody(release.version, widget.currentVersion)`
+- `'Version ${release.version} is available (you have ${widget.currentVersion}). Download and install it now?'` → `AppLocalizations.of(context).profileUpdateDialogBody(release.version, widget.currentVersion)`
 - `'Not now'` → `profileUpdateNotNow`
 - `'Download & install'` → `profileUpdateDownloadInstall`
 - `'Could not check for updates. Try again.'` → `profileUpdateCheckError`
 - `'Daily goals'` (button) → `profileGoalsButton`
-- `_signingOut ? 'Signing out...' : 'Sign out'` → `_signingOut ? AppLocalizations.of(context)!.profileSigningOutButton : AppLocalizations.of(context)!.profileSignOutButton`
-- `_checkingForUpdate ? 'Checking...' : 'Check for updates'` → `_checkingForUpdate ? AppLocalizations.of(context)!.profileCheckingButton : AppLocalizations.of(context)!.profileCheckForUpdatesButton`
-- `'v${widget.currentVersion}'` → `AppLocalizations.of(context)!.profileVersionLabel(widget.currentVersion)`
+- `_signingOut ? 'Signing out...' : 'Sign out'` → `_signingOut ? AppLocalizations.of(context).profileSigningOutButton : AppLocalizations.of(context).profileSignOutButton`
+- `_checkingForUpdate ? 'Checking...' : 'Check for updates'` → `_checkingForUpdate ? AppLocalizations.of(context).profileCheckingButton : AppLocalizations.of(context).profileCheckForUpdatesButton`
+- `'v${widget.currentVersion}'` → `AppLocalizations.of(context).profileVersionLabel(widget.currentVersion)`
 
 Do not touch the Language row, `currentLocale`, or `onLocaleChanged` — Task 1 already localized those.
 
@@ -901,22 +902,22 @@ static String _shortDate(BuildContext context, DateTime date) {
 
 String replacements (all inside methods that already receive `context`):
 - `'Weight trend'` → `weightTrendTitle`
-- `'Last $days days'` → `AppLocalizations.of(context)!.weightTrendLastNDays(days)`
+- `'Last $days days'` → `AppLocalizations.of(context).weightTrendLastNDays(days)`
 - `'Log your weight on a few different days to see your trend here.'` → `weightTrendEmptyState`
 - The `Semantics label:` string (the long one starting `'Weight trend chart. Latest reading ...'`) → build it from `weightTrendSemanticsLabel(latest, date, min, max)`:
   ```dart
-  label: AppLocalizations.of(context)!.weightTrendSemanticsLabel(
+  label: AppLocalizations.of(context).weightTrendSemanticsLabel(
     _formatWeight(latest.weightKg),
     _shortDate(context, latest.loggedDate),
     _formatWeight(rawMin),
     _formatWeight(rawMax),
   ),
   ```
-- The `RichText`'s `TextSpan(text: 'Latest: ')` → `TextSpan(text: AppLocalizations.of(context)!.weightTrendLatestPrefix)`
-- `'${_formatWeight(latest.weightKg)} kg'` → interpolate `AppLocalizations.of(context)!.commonKcalUnit`... **no** — this is `kg` not `kcal`. There is no `commonKgUnit` key defined anywhere in this plan. Add one: append to this task's ARB table `weightTrendKgUnit` = `kg` / `kg` (same "units aren't translated" rule as `commonKcalUnit`/`commonGramUnit`), and use it here: `'${_formatWeight(latest.weightKg)} ${AppLocalizations.of(context)!.weightTrendKgUnit}'`.
-- `TextSpan(text: ' on ${_shortDate(latest.loggedDate)}')` → `TextSpan(text: AppLocalizations.of(context)!.weightTrendOnDate(_shortDate(context, latest.loggedDate)))`
+- The `RichText`'s `TextSpan(text: 'Latest: ')` → `TextSpan(text: AppLocalizations.of(context).weightTrendLatestPrefix)`
+- `'${_formatWeight(latest.weightKg)} kg'` → interpolate `AppLocalizations.of(context).commonKcalUnit`... **no** — this is `kg` not `kcal`. There is no `commonKgUnit` key defined anywhere in this plan. Add one: append to this task's ARB table `weightTrendKgUnit` = `kg` / `kg` (same "units aren't translated" rule as `commonKcalUnit`/`commonGramUnit`), and use it here: `'${_formatWeight(latest.weightKg)} ${AppLocalizations.of(context).weightTrendKgUnit}'`.
+- `TextSpan(text: ' on ${_shortDate(latest.loggedDate)}')` → `TextSpan(text: AppLocalizations.of(context).weightTrendOnDate(_shortDate(context, latest.loggedDate)))`
 - Bottom-axis `getTitlesWidget`'s `_shortDate(date)` → `_shortDate(context, date)` (context is available in that closure — it's inside `_buildChart(BuildContext context)`)
-- Tooltip's `'${_formatWeight(spot.y)} kg\n'` → `'${_formatWeight(spot.y)} ${AppLocalizations.of(context)!.weightTrendKgUnit}\n'`
+- Tooltip's `'${_formatWeight(spot.y)} kg\n'` → `'${_formatWeight(spot.y)} ${AppLocalizations.of(context).weightTrendKgUnit}\n'`
 - Tooltip's `TextSpan(text: _shortDate(date))` → `TextSpan(text: _shortDate(context, date))`
 
 - [ ] **Step 4: Extract strings in `lib/features/settings/settings_screen.dart`**
@@ -930,7 +931,7 @@ Import `../../l10n/generated/app_localizations.dart`.
 - `labelText: 'Fat (g)'` → `settingsFatLabel`
 - `'Enter a number for every field.'` → `settingsValidationError`
 - `'Could not save goals. Try again.'` → `settingsSaveError`
-- `_saving ? 'Saving...' : 'Save goals'` → `_saving ? AppLocalizations.of(context)!.commonSaving : AppLocalizations.of(context)!.settingsSaveButton`
+- `_saving ? 'Saving...' : 'Save goals'` → `_saving ? AppLocalizations.of(context).commonSaving : AppLocalizations.of(context).settingsSaveButton`
 
 - [ ] **Step 5: Update tests**
 

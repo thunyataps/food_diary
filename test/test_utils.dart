@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:food_diary/l10n/generated/app_localizations.dart';
 
 /// Wraps [home] in a MaterialApp configured with the app's localization
-/// delegates, so widgets that call `AppLocalizations.of(context)!` work
+/// delegates, so widgets that call `AppLocalizations.of(context)` work
 /// under test. Tests assert against the English strings (the default
 /// locale here is `en`, matching `app_en.arb`) unless a test explicitly
 /// passes a different `locale`.
