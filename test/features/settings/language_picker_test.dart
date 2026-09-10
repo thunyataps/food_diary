@@ -29,38 +29,43 @@ void main() {
     expect(find.text('ไทย'), findsOneWidget);
   });
 
-  testWidgets('picking English calls onChanged with Locale("en") and closes the dialog', (tester) async {
-    Locale? picked;
-    var pickedFlag = false;
-    await tester.pumpWidget(
-      localizedApp(
-        Builder(
-          builder: (context) => ElevatedButton(
-            onPressed: () => showLanguagePicker(
-              context: context,
-              currentLocale: null,
-              onChanged: (value) {
-                picked = value;
-                pickedFlag = true;
-              },
+  testWidgets(
+    'picking English calls onChanged with Locale("en") and closes the dialog',
+    (tester) async {
+      Locale? picked;
+      var pickedFlag = false;
+      await tester.pumpWidget(
+        localizedApp(
+          Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () => showLanguagePicker(
+                context: context,
+                currentLocale: null,
+                onChanged: (value) {
+                  picked = value;
+                  pickedFlag = true;
+                },
+              ),
+              child: const Text('open'),
             ),
-            child: const Text('open'),
           ),
         ),
-      ),
-    );
-    await tester.tap(find.text('open'));
-    await tester.pumpAndSettle();
+      );
+      await tester.tap(find.text('open'));
+      await tester.pumpAndSettle();
 
-    await tester.tap(find.byKey(const Key('language_option_en')));
-    await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('language_option_en')));
+      await tester.pumpAndSettle();
 
-    expect(pickedFlag, true);
-    expect(picked, const Locale('en'));
-    expect(find.text('Language'), findsNothing);
-  });
+      expect(pickedFlag, true);
+      expect(picked, const Locale('en'));
+      expect(find.text('Language'), findsNothing);
+    },
+  );
 
-  testWidgets('picking System default calls onChanged with null', (tester) async {
+  testWidgets('picking System default calls onChanged with null', (
+    tester,
+  ) async {
     Locale? picked = const Locale('en');
     await tester.pumpWidget(
       localizedApp(

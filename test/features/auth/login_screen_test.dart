@@ -31,10 +31,7 @@ void main() {
   ) async {
     await tester.pumpWidget(
       localizedApp(
-        LoginScreen(
-          authRepository: _FakeAuthRepository(),
-          onSignedIn: () {},
-        ),
+        LoginScreen(authRepository: _FakeAuthRepository(), onSignedIn: () {}),
       ),
     );
 

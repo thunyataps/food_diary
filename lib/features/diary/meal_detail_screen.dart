@@ -126,7 +126,8 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
 
     final navigator = Navigator.of(context);
     final messenger = ScaffoldMessenger.of(context);
-    final deleteErrorMessage = AppLocalizations.of(context).mealDetailDeleteError;
+    final deleteErrorMessage = AppLocalizations.of(context)
+        .mealDetailDeleteError;
     final id = widget.entry.id;
     if (id == null) {
       messenger.showSnackBar(SnackBar(content: Text(deleteErrorMessage)));
@@ -185,7 +186,9 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
                       : const Icon(Icons.edit_calendar),
-                  label: Text(AppLocalizations.of(context).mealDetailChangeDate),
+                  label: Text(
+                    AppLocalizations.of(context).mealDetailChangeDate,
+                  ),
                 ),
             ],
           ),

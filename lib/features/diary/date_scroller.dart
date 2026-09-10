@@ -104,7 +104,8 @@ class _DayTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              DateFormat.E(Localizations.localeOf(context).toString()).format(day),
+              DateFormat.E(Localizations.localeOf(context).toString())
+                  .format(day),
               style: TextStyle(
                 fontSize: 11,
                 color: selected
