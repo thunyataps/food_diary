@@ -40,8 +40,7 @@ class _SignupScreenState extends State<SignupScreen> {
         // gate would stay on the login screen with no explanation.
         if (mounted) {
           setState(
-            () => _info =
-                AppLocalizations.of(context).signupInfoCheckEmail,
+            () => _info = AppLocalizations.of(context).signupInfoCheckEmail,
           );
         }
         return;
@@ -51,9 +50,9 @@ class _SignupScreenState extends State<SignupScreen> {
     } catch (e) {
       if (mounted) {
         setState(
-          () => _error = AppLocalizations.of(
-            context,
-          ).signupErrorFailed(e.toString()),
+          () =>
+              _error = AppLocalizations.of(context)
+                  .signupErrorFailed(e.toString()),
         );
       }
     } finally {
@@ -87,8 +86,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     controller: _passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
-                      labelText:
-                          AppLocalizations.of(context).commonPasswordLabel,
+                      labelText: AppLocalizations.of(context)
+                          .commonPasswordLabel,
                     ),
                   ),
                   if (_error != null) ...[

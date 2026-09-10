@@ -35,9 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       widget.onSignedIn();
     } catch (_) {
-      setState(
-        () => _error = AppLocalizations.of(context).loginErrorFailed,
-      );
+      setState(() => _error = AppLocalizations.of(context).loginErrorFailed);
     } finally {
       if (mounted) setState(() => _loading = false);
     }
@@ -77,8 +75,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
-                      labelText:
-                          AppLocalizations.of(context).commonPasswordLabel,
+                      labelText: AppLocalizations.of(context)
+                          .commonPasswordLabel,
                     ),
                   ),
                   if (_error != null) ...[
@@ -98,9 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 12),
                   OutlinedButton(
                     onPressed: () => widget.authRepository.signInWithGoogle(),
-                    child: Text(
-                      AppLocalizations.of(context).loginGoogleButton,
-                    ),
+                    child: Text(AppLocalizations.of(context).loginGoogleButton),
                   ),
                   const SizedBox(height: 12),
                   TextButton(
