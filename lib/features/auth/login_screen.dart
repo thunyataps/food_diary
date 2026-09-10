@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import 'auth_repository.dart';
 import 'signup_screen.dart';
 
@@ -34,7 +35,9 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       widget.onSignedIn();
     } catch (_) {
-      setState(() => _error = 'Sign in failed. Check your email/password.');
+      setState(
+        () => _error = AppLocalizations.of(context).loginErrorFailed,
+      );
     } finally {
       if (mounted) setState(() => _loading = false);
     }
@@ -59,19 +62,24 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Food Diary',
+                    AppLocalizations.of(context).appTitle,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(height: 32),
                   TextField(
                     controller: _emailController,
-                    decoration: const InputDecoration(labelText: 'Email'),
+                    decoration: InputDecoration(
+                      labelText: AppLocalizations.of(context).commonEmailLabel,
+                    ),
                   ),
                   const SizedBox(height: 12),
                   TextField(
                     controller: _passwordController,
                     obscureText: true,
-                    decoration: const InputDecoration(labelText: 'Password'),
+                    decoration: InputDecoration(
+                      labelText:
+                          AppLocalizations.of(context).commonPasswordLabel,
+                    ),
                   ),
                   if (_error != null) ...[
                     const SizedBox(height: 8),
@@ -85,12 +93,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 20),
                   FilledButton(
                     onPressed: _loading ? null : _signIn,
-                    child: const Text('Sign in'),
+                    child: Text(AppLocalizations.of(context).loginSignInButton),
                   ),
                   const SizedBox(height: 12),
                   OutlinedButton(
                     onPressed: () => widget.authRepository.signInWithGoogle(),
-                    child: const Text('Continue with Google'),
+                    child: Text(
+                      AppLocalizations.of(context).loginGoogleButton,
+                    ),
                   ),
                   const SizedBox(height: 12),
                   TextButton(
@@ -103,7 +113,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    child: const Text('Create account'),
+                    child: Text(
+                      AppLocalizations.of(context).commonCreateAccount,
+                    ),
                   ),
                 ],
               ),

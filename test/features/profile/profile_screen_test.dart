@@ -5,6 +5,8 @@ import 'package:food_diary/features/update/update_checker.dart';
 import 'package:food_diary/models/user_profile.dart';
 import 'package:food_diary/models/weight_log.dart';
 
+import '../../test_utils.dart';
+
 void main() {
   Widget buildScreen({
     String email = 'alex@example.com',
@@ -18,8 +20,8 @@ void main() {
     Future<ReleaseInfo?> Function(String)? onCheckForUpdate,
     Future<void> Function(String)? onDownloadAndInstall,
   }) {
-    return MaterialApp(
-      home: ProfileScreen(
+    return localizedApp(
+      ProfileScreen(
         email: email,
         latestWeightKg: latestWeightKg,
         recentWeights: recentWeights,
@@ -30,6 +32,8 @@ void main() {
         currentVersion: currentVersion,
         onCheckForUpdate: onCheckForUpdate ?? (v) async => null,
         onDownloadAndInstall: onDownloadAndInstall ?? (url) async {},
+        currentLocale: null,
+        onLocaleChanged: (_) {},
       ),
     );
   }

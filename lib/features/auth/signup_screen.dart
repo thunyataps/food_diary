@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import 'auth_repository.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -39,7 +40,8 @@ class _SignupScreenState extends State<SignupScreen> {
         // gate would stay on the login screen with no explanation.
         if (mounted) {
           setState(
-            () => _info = 'Check your email to confirm your account, then come back and sign in.',
+            () => _info =
+                AppLocalizations.of(context).signupInfoCheckEmail,
           );
         }
         return;
@@ -47,7 +49,13 @@ class _SignupScreenState extends State<SignupScreen> {
       widget.onSignedUp();
       if (mounted) navigator.pop();
     } catch (e) {
-      if (mounted) setState(() => _error = 'Sign up failed: $e');
+      if (mounted) {
+        setState(
+          () => _error = AppLocalizations.of(
+            context,
+          ).signupErrorFailed(e.toString()),
+        );
+      }
     } finally {
       if (mounted) setState(() => _loading = false);
     }
@@ -56,7 +64,9 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Create account')),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).commonCreateAccount),
+      ),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -68,13 +78,18 @@ class _SignupScreenState extends State<SignupScreen> {
                 children: [
                   TextField(
                     controller: _emailController,
-                    decoration: const InputDecoration(labelText: 'Email'),
+                    decoration: InputDecoration(
+                      labelText: AppLocalizations.of(context).commonEmailLabel,
+                    ),
                   ),
                   const SizedBox(height: 12),
                   TextField(
                     controller: _passwordController,
                     obscureText: true,
-                    decoration: const InputDecoration(labelText: 'Password'),
+                    decoration: InputDecoration(
+                      labelText:
+                          AppLocalizations.of(context).commonPasswordLabel,
+                    ),
                   ),
                   if (_error != null) ...[
                     const SizedBox(height: 8),
@@ -96,7 +111,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(height: 20),
                   FilledButton(
                     onPressed: _loading ? null : _signUp,
-                    child: const Text('Sign up'),
+                    child: Text(AppLocalizations.of(context).signupButton),
                   ),
                 ],
               ),

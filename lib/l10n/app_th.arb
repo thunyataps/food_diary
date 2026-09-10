@@ -1,0 +1,23 @@
+{
+  "@@locale": "th",
+  "appTitle": "ไดอารี่อาหาร",
+  "commonEmailLabel": "อีเมล",
+  "commonPasswordLabel": "รหัสผ่าน",
+  "commonCreateAccount": "สร้างบัญชี",
+  "commonCancel": "ยกเลิก",
+  "commonSaving": "กำลังบันทึก...",
+  "commonCalories": "แคลอรี่",
+  "commonProtein": "โปรตีน",
+  "commonCarb": "คาร์บ",
+  "commonFat": "ไขมัน",
+  "commonKcalUnit": "kcal",
+  "commonGramUnit": "g",
+  "loginSignInButton": "เข้าสู่ระบบ",
+  "loginGoogleButton": "เข้าสู่ระบบด้วย Google",
+  "loginErrorFailed": "เข้าสู่ระบบไม่สำเร็จ ตรวจสอบอีเมล/รหัสผ่านอีกครั้ง",
+  "signupButton": "สมัครสมาชิก",
+  "signupErrorFailed": "สมัครสมาชิกไม่สำเร็จ: {error}",
+  "signupInfoCheckEmail": "ตรวจสอบอีเมลเพื่อยืนยันบัญชี แล้วกลับมาเข้าสู่ระบบอีกครั้ง",
+  "languageDialogTitle": "ภาษา",
+  "languageSystemDefault": "ตามภาษาเครื่อง"
+}

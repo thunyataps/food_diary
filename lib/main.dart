@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'features/auth/auth_repository.dart';
@@ -15,6 +16,7 @@ import 'features/settings/goals_repository.dart';
 import 'features/settings/settings_screen.dart';
 import 'features/update/update_checker.dart';
 import 'features/update/update_downloader.dart';
+import 'l10n/generated/app_localizations.dart';
 import 'models/user_profile.dart';
 import 'models/weight_log.dart';
 
@@ -94,10 +96,39 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
   final _updateChecker = UpdateChecker();
   final _updateDownloader = UpdateDownloader();
 
+  Locale? _localeOverride;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadLocale();
+  }
+
+  Future<void> _loadLocale() async {
+    final prefs = await SharedPreferences.getInstance();
+    final code = prefs.getString('locale_code');
+    if (code != null && mounted) {
+      setState(() => _localeOverride = Locale(code));
+    }
+  }
+
+  Future<void> _setLocale(Locale? locale) async {
+    final prefs = await SharedPreferences.getInstance();
+    if (locale == null) {
+      await prefs.remove('locale_code');
+    } else {
+      await prefs.setString('locale_code', locale.languageCode);
+    }
+    setState(() => _localeOverride = locale);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Food Diary',
+      onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
+      locale: _localeOverride,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: appTheme,
       home: StreamBuilder<AuthState>(
         stream: _authRepository.onAuthStateChange,
@@ -118,6 +149,8 @@ class _FoodDiaryAppState extends State<FoodDiaryApp> {
             profileRepository: _profileRepository,
             updateChecker: _updateChecker,
             updateDownloader: _updateDownloader,
+            currentLocale: _localeOverride,
+            onLocaleChanged: _setLocale,
           );
         },
       ),
@@ -135,6 +168,8 @@ class _HomeShell extends StatefulWidget {
     required this.profileRepository,
     required this.updateChecker,
     required this.updateDownloader,
+    required this.currentLocale,
+    required this.onLocaleChanged,
   });
   final AuthRepository authRepository;
   final AnalyzeRepository analyzeRepository;
@@ -144,6 +179,8 @@ class _HomeShell extends StatefulWidget {
   final ProfileRepository profileRepository;
   final UpdateChecker updateChecker;
   final UpdateDownloader updateDownloader;
+  final Locale? currentLocale;
+  final ValueChanged<Locale?> onLocaleChanged;
 
   @override
   State<_HomeShell> createState() => _HomeShellState();
@@ -235,6 +272,8 @@ class _HomeShellState extends State<_HomeShell> {
                         onCheckForUpdate: widget.updateChecker.checkForUpdate,
                         onDownloadAndInstall:
                             widget.updateDownloader.downloadAndInstall,
+                        currentLocale: widget.currentLocale,
+                        onLocaleChanged: widget.onLocaleChanged,
                       );
                     },
                   );

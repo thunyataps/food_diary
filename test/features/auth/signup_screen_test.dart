@@ -4,6 +4,8 @@ import 'package:food_diary/features/auth/auth_repository.dart';
 import 'package:food_diary/features/auth/signup_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../test_utils.dart';
+
 /// Stands in for a real [AuthRepository]; the underlying client is never used
 /// because every method under test is overridden.
 class _FakeAuthRepository extends AuthRepository {
@@ -46,8 +48,8 @@ Future<void> _pushSignup(
   required VoidCallback onSignedUp,
 }) async {
   await tester.pumpWidget(
-    MaterialApp(
-      home: Scaffold(
+    localizedApp(
+      Scaffold(
         body: Builder(
           builder: (context) => TextButton(
             onPressed: () => Navigator.of(context).push(

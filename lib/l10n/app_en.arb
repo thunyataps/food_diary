@@ -1,0 +1,26 @@
+{
+  "@@locale": "en",
+  "appTitle": "Food Diary",
+  "commonEmailLabel": "Email",
+  "commonPasswordLabel": "Password",
+  "commonCreateAccount": "Create account",
+  "commonCancel": "Cancel",
+  "commonSaving": "Saving...",
+  "commonCalories": "Calories",
+  "commonProtein": "Protein",
+  "commonCarb": "Carb",
+  "commonFat": "Fat",
+  "commonKcalUnit": "kcal",
+  "commonGramUnit": "g",
+  "loginSignInButton": "Sign in",
+  "loginGoogleButton": "Continue with Google",
+  "loginErrorFailed": "Sign in failed. Check your email/password.",
+  "signupButton": "Sign up",
+  "signupErrorFailed": "Sign up failed: {error}",
+  "@signupErrorFailed": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "signupInfoCheckEmail": "Check your email to confirm your account, then come back and sign in.",
+  "languageDialogTitle": "Language",
+  "languageSystemDefault": "System default"
+}

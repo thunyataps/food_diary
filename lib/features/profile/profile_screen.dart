@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/user_profile.dart';
 import '../../models/weight_log.dart';
+import '../settings/language_picker.dart';
 import '../update/update_checker.dart';
 import 'weight_trend_card.dart';
 
@@ -18,6 +20,8 @@ class ProfileScreen extends StatefulWidget {
     required this.currentVersion,
     required this.onCheckForUpdate,
     required this.onDownloadAndInstall,
+    required this.currentLocale,
+    required this.onLocaleChanged,
   });
 
   final String email;
@@ -34,6 +38,9 @@ class ProfileScreen extends StatefulWidget {
   final String currentVersion;
   final Future<ReleaseInfo?> Function(String currentVersion) onCheckForUpdate;
   final Future<void> Function(String apkDownloadUrl) onDownloadAndInstall;
+
+  final Locale? currentLocale;
+  final ValueChanged<Locale?> onLocaleChanged;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -399,6 +406,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
               OutlinedButton(
                 onPressed: widget.onOpenGoals,
                 child: const Text('Daily goals'),
+              ),
+              const SizedBox(height: 12),
+              OutlinedButton(
+                key: const Key('language_button'),
+                onPressed: () => showLanguagePicker(
+                  context: context,
+                  currentLocale: widget.currentLocale,
+                  onChanged: widget.onLocaleChanged,
+                ),
+                child: Text(AppLocalizations.of(context).languageDialogTitle),
               ),
               const SizedBox(height: 12),
               OutlinedButton(
