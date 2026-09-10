@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/goals.dart';
 import 'diary_repository.dart' show WeeklyAverages;
 import 'today_summary_card.dart' show progressRatio;
@@ -31,40 +32,40 @@ class WeeklySummaryCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '7-day average',
+              AppLocalizations.of(context).weeklySummaryTitle,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 12),
             _WeeklyMacroRow(
               rowKey: 'weekly_calories',
-              label: 'Calories',
+              label: AppLocalizations.of(context).commonCalories,
               value: averages.calories,
               goal: goals?.dailyCalories,
-              unit: 'kcal',
+              unit: AppLocalizations.of(context).commonKcalUnit,
               color: _caloriesColor,
             ),
             _WeeklyMacroRow(
               rowKey: 'weekly_protein',
-              label: 'Protein',
+              label: AppLocalizations.of(context).commonProtein,
               value: averages.protein,
               goal: goals?.dailyProtein,
-              unit: 'g',
+              unit: AppLocalizations.of(context).commonGramUnit,
               color: _proteinColor,
             ),
             _WeeklyMacroRow(
               rowKey: 'weekly_carb',
-              label: 'Carb',
+              label: AppLocalizations.of(context).commonCarb,
               value: averages.carb,
               goal: goals?.dailyCarb,
-              unit: 'g',
+              unit: AppLocalizations.of(context).commonGramUnit,
               color: _carbColor,
             ),
             _WeeklyMacroRow(
               rowKey: 'weekly_fat',
-              label: 'Fat',
+              label: AppLocalizations.of(context).commonFat,
               value: averages.fat,
               goal: goals?.dailyFat,
-              unit: 'g',
+              unit: AppLocalizations.of(context).commonGramUnit,
               color: _fatColor,
             ),
           ],

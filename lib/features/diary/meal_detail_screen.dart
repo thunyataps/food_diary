@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/food_item.dart';
 import '../../models/meal_entry.dart';
 import 'diary_repository.dart';
@@ -28,28 +30,14 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
   static const _carbColor = Color(0xFFD9A441);
   static const _fatColor = Color(0xFF7A8C6B);
 
-  static const _monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-
   bool _deleting = false;
   bool _updatingDate = false;
 
   bool get _busy => _deleting || _updatingDate;
 
-  static String _formatDate(DateTime date) {
-    return '${_monthNames[date.month - 1]} ${date.day}, ${date.year}';
+  static String _formatDate(BuildContext context, DateTime date) {
+    final locale = Localizations.localeOf(context).toString();
+    return DateFormat.yMMMd(locale).format(date);
   }
 
   Future<void> _changeDate() async {
@@ -103,8 +91,10 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
     } catch (_) {
       if (mounted) {
         messenger.showSnackBar(
-          const SnackBar(
-            content: Text('Could not update the date. Please try again.'),
+          SnackBar(
+            content: Text(
+              AppLocalizations.of(context).mealDetailUpdateDateError,
+            ),
           ),
         );
       }
@@ -117,16 +107,16 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Delete this meal?'),
-        content: const Text("This can't be undone."),
+        title: Text(AppLocalizations.of(context).mealDetailDeleteConfirmTitle),
+        content: Text(AppLocalizations.of(context).mealDetailDeleteConfirmBody),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
+            child: Text(AppLocalizations.of(context).commonCancel),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: const Text('Delete'),
+            child: Text(AppLocalizations.of(context).mealDetailDeleteButton),
           ),
         ],
       ),
@@ -136,13 +126,10 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
 
     final navigator = Navigator.of(context);
     final messenger = ScaffoldMessenger.of(context);
+    final deleteErrorMessage = AppLocalizations.of(context).mealDetailDeleteError;
     final id = widget.entry.id;
     if (id == null) {
-      messenger.showSnackBar(
-        const SnackBar(
-          content: Text('Could not delete this meal. Please try again.'),
-        ),
-      );
+      messenger.showSnackBar(SnackBar(content: Text(deleteErrorMessage)));
       return;
     }
 
@@ -152,11 +139,7 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
       if (mounted) navigator.pop(true);
     } catch (_) {
       if (mounted) {
-        messenger.showSnackBar(
-          const SnackBar(
-            content: Text('Could not delete this meal. Please try again.'),
-          ),
-        );
+        messenger.showSnackBar(SnackBar(content: Text(deleteErrorMessage)));
       }
     } finally {
       if (mounted) setState(() => _deleting = false);
@@ -169,7 +152,7 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
     final note = entry.note;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Meal details'),
+        title: Text(AppLocalizations.of(context).mealDetailAppBarTitle),
         actions: [
           IconButton(
             icon: const Icon(Icons.delete_outline),
@@ -185,7 +168,9 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
             children: [
               Expanded(
                 child: Text(
-                  'Logged on ${_formatDate(entry.eatenAt.toLocal())}',
+                  AppLocalizations.of(context).mealDetailLoggedOn(
+                    _formatDate(context, entry.eatenAt.toLocal()),
+                  ),
                   style: Theme.of(context).textTheme.bodyMedium,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -200,7 +185,7 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
                       : const Icon(Icons.edit_calendar),
-                  label: const Text('Change date'),
+                  label: Text(AppLocalizations.of(context).mealDetailChangeDate),
                 ),
             ],
           ),
@@ -230,32 +215,32 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Totals',
+                    AppLocalizations.of(context).mealDetailTotalsTitle,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(height: 8),
                   _MacroLine(
-                    label: 'Calories',
+                    label: AppLocalizations.of(context).commonCalories,
                     value: entry.totalCalories,
-                    unit: 'kcal',
+                    unit: AppLocalizations.of(context).commonKcalUnit,
                     color: _caloriesColor,
                   ),
                   _MacroLine(
-                    label: 'Protein',
+                    label: AppLocalizations.of(context).commonProtein,
                     value: entry.totalProtein,
-                    unit: 'g',
+                    unit: AppLocalizations.of(context).commonGramUnit,
                     color: _proteinColor,
                   ),
                   _MacroLine(
-                    label: 'Carb',
+                    label: AppLocalizations.of(context).commonCarb,
                     value: entry.totalCarb,
-                    unit: 'g',
+                    unit: AppLocalizations.of(context).commonGramUnit,
                     color: _carbColor,
                   ),
                   _MacroLine(
-                    label: 'Fat',
+                    label: AppLocalizations.of(context).commonFat,
                     value: entry.totalFat,
-                    unit: 'g',
+                    unit: AppLocalizations.of(context).commonGramUnit,
                     color: _fatColor,
                   ),
                 ],
@@ -296,27 +281,27 @@ class _FoodItemDetailCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             _MacroLine(
-              label: 'Calories',
+              label: AppLocalizations.of(context).commonCalories,
               value: item.calories,
-              unit: 'kcal',
+              unit: AppLocalizations.of(context).commonKcalUnit,
               color: _caloriesColor,
             ),
             _MacroLine(
-              label: 'Protein',
+              label: AppLocalizations.of(context).commonProtein,
               value: item.protein,
-              unit: 'g',
+              unit: AppLocalizations.of(context).commonGramUnit,
               color: _proteinColor,
             ),
             _MacroLine(
-              label: 'Carb',
+              label: AppLocalizations.of(context).commonCarb,
               value: item.carb,
-              unit: 'g',
+              unit: AppLocalizations.of(context).commonGramUnit,
               color: _carbColor,
             ),
             _MacroLine(
-              label: 'Fat',
+              label: AppLocalizations.of(context).commonFat,
               value: item.fat,
-              unit: 'g',
+              unit: AppLocalizations.of(context).commonGramUnit,
               color: _fatColor,
             ),
           ],

@@ -19,5 +19,22 @@
   "signupErrorFailed": "สมัครสมาชิกไม่สำเร็จ: {error}",
   "signupInfoCheckEmail": "ตรวจสอบอีเมลเพื่อยืนยันบัญชี แล้วกลับมาเข้าสู่ระบบอีกครั้ง",
   "languageDialogTitle": "ภาษา",
-  "languageSystemDefault": "ตามภาษาเครื่อง"
+  "languageSystemDefault": "ตามภาษาเครื่อง",
+  "diaryEmptyStateTitle": "ยังไม่มีมื้ออาหารที่บันทึก",
+  "diaryEmptyStateSubtitle": "แตะ \"เพิ่มมื้ออาหาร\" เพื่อบันทึกสิ่งที่คุณกิน",
+  "mealDetailAppBarTitle": "รายละเอียดมื้ออาหาร",
+  "mealDetailLoggedOn": "บันทึกเมื่อ {date}",
+  "mealDetailChangeDate": "เปลี่ยนวันที่",
+  "mealDetailUpdateDateError": "ไม่สามารถอัปเดตวันที่ได้ กรุณาลองอีกครั้ง",
+  "mealDetailDeleteConfirmTitle": "ลบมื้ออาหารนี้?",
+  "mealDetailDeleteConfirmBody": "การกระทำนี้ไม่สามารถย้อนกลับได้",
+  "mealDetailDeleteButton": "ลบ",
+  "mealDetailDeleteError": "ไม่สามารถลบมื้ออาหารนี้ได้ กรุณาลองอีกครั้ง",
+  "mealDetailTotalsTitle": "รวมทั้งหมด",
+  "todaySummaryTitle": "สรุปวันนี้",
+  "weeklySummaryTitle": "ค่าเฉลี่ย 7 วัน",
+  "weightCardLabel": "น้ำหนัก (kg)",
+  "weightCardSaveButton": "บันทึก",
+  "weightCardInvalidError": "กรอกน้ำหนักให้ถูกต้อง",
+  "weightCardSaveError": "ไม่สามารถบันทึกน้ำหนักได้ ลองอีกครั้ง"
 }

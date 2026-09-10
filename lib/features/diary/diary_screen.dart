@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/goals.dart';
 import '../../models/meal_entry.dart';
 import '../../models/weight_log.dart';
@@ -80,7 +81,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Food Diary')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).appTitle)),
       body: Column(
         children: [
           DateScroller(selectedDay: _day, onDaySelected: _selectDay),
@@ -167,7 +168,7 @@ class _DiaryScreenState extends State<DiaryScreen> {
                                               .join(', '),
                                         ),
                                         subtitle: Text(
-                                          '${e.totalCalories.toStringAsFixed(0)} kcal',
+                                          '${e.totalCalories.toStringAsFixed(0)} ${AppLocalizations.of(context).commonKcalUnit}',
                                         ),
                                         onTap: () => _openMealDetail(e),
                                       ),
@@ -208,13 +209,13 @@ class _EmptyMealsState extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Text(
-            'No meals logged yet',
+            AppLocalizations.of(context).diaryEmptyStateTitle,
             style: Theme.of(context).textTheme.titleMedium,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 4),
           Text(
-            'Tap Add meal to log what you ate',
+            AppLocalizations.of(context).diaryEmptyStateSubtitle,
             style: Theme.of(context).textTheme.bodyMedium
                 ?.copyWith(color: colorScheme.onSurfaceVariant),
             textAlign: TextAlign.center,

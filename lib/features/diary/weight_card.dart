@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/weight_log.dart';
 
 class WeightCard extends StatefulWidget {
@@ -50,10 +51,13 @@ class _WeightCardState extends State<WeightCard> {
   Future<void> _save() async {
     final weight = double.tryParse(_controller.text);
     if (weight == null || weight <= 0) {
-      setState(() => _error = 'Enter a valid weight.');
+      setState(
+        () => _error = AppLocalizations.of(context).weightCardInvalidError,
+      );
       return;
     }
 
+    final saveErrorMessage = AppLocalizations.of(context).weightCardSaveError;
     setState(() {
       _saving = true;
       _error = null;
@@ -61,7 +65,7 @@ class _WeightCardState extends State<WeightCard> {
     try {
       await widget.onSave(weight);
     } catch (_) {
-      if (mounted) setState(() => _error = 'Could not save weight. Try again.');
+      if (mounted) setState(() => _error = saveErrorMessage);
     } finally {
       if (mounted) setState(() => _saving = false);
     }
@@ -83,7 +87,7 @@ class _WeightCardState extends State<WeightCard> {
                   decimal: true,
                 ),
                 decoration: InputDecoration(
-                  labelText: 'Weight (kg)',
+                  labelText: AppLocalizations.of(context).weightCardLabel,
                   errorText: _error,
                 ),
               ),
@@ -91,7 +95,11 @@ class _WeightCardState extends State<WeightCard> {
             const SizedBox(width: 12),
             FilledButton(
               onPressed: _saving ? null : _save,
-              child: Text(_saving ? 'Saving...' : 'Save'),
+              child: Text(
+                _saving
+                    ? AppLocalizations.of(context).commonSaving
+                    : AppLocalizations.of(context).weightCardSaveButton,
+              ),
             ),
           ],
         ),

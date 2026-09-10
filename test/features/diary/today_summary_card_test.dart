@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/diary/today_summary_card.dart';
 import 'package:food_diary/models/goals.dart';
 
+import '../../test_utils.dart';
+
 void main() {
   group('progressRatio', () {
     test('returns the plain ratio between 0 and 1', () {
@@ -28,8 +30,8 @@ void main() {
       'shows plain totals with no progress bars when goals are null',
       (tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
-            home: Scaffold(
+          localizedApp(
+            const Scaffold(
               body: TodaySummaryCard(
                 calories: 450,
                 protein: 20,
@@ -58,8 +60,8 @@ void main() {
           dailyFat: 70,
         );
         await tester.pumpWidget(
-          MaterialApp(
-            home: Scaffold(
+          localizedApp(
+            Scaffold(
               body: TodaySummaryCard(
                 calories: 500,
                 protein: 25,

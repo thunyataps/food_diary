@@ -22,5 +22,25 @@
   },
   "signupInfoCheckEmail": "Check your email to confirm your account, then come back and sign in.",
   "languageDialogTitle": "Language",
-  "languageSystemDefault": "System default"
+  "languageSystemDefault": "System default",
+  "diaryEmptyStateTitle": "No meals logged yet",
+  "diaryEmptyStateSubtitle": "Tap Add meal to log what you ate",
+  "mealDetailAppBarTitle": "Meal details",
+  "mealDetailLoggedOn": "Logged on {date}",
+  "@mealDetailLoggedOn": {
+    "placeholders": { "date": { "type": "String" } }
+  },
+  "mealDetailChangeDate": "Change date",
+  "mealDetailUpdateDateError": "Could not update the date. Please try again.",
+  "mealDetailDeleteConfirmTitle": "Delete this meal?",
+  "mealDetailDeleteConfirmBody": "This can't be undone.",
+  "mealDetailDeleteButton": "Delete",
+  "mealDetailDeleteError": "Could not delete this meal. Please try again.",
+  "mealDetailTotalsTitle": "Totals",
+  "todaySummaryTitle": "Today's summary",
+  "weeklySummaryTitle": "7-day average",
+  "weightCardLabel": "Weight (kg)",
+  "weightCardSaveButton": "Save",
+  "weightCardInvalidError": "Enter a valid weight.",
+  "weightCardSaveError": "Could not save weight. Try again."
 }

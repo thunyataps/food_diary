@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-const _weekdayLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const _daysShown = 60;
 
 class DateScroller extends StatefulWidget {
@@ -104,7 +104,7 @@ class _DayTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              _weekdayLabels[day.weekday - 1],
+              DateFormat.E(Localizations.localeOf(context).toString()).format(day),
               style: TextStyle(
                 fontSize: 11,
                 color: selected

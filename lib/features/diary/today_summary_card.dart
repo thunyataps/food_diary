@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/goals.dart';
 
 double progressRatio(double current, double goal) {
@@ -41,7 +42,7 @@ class TodaySummaryCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Today's summary",
+              AppLocalizations.of(context).todaySummaryTitle,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 12),
@@ -53,26 +54,26 @@ class TodaySummaryCard extends StatelessWidget {
             const SizedBox(height: 8),
             _MacroRow(
               rowKey: 'protein',
-              label: 'Protein',
+              label: AppLocalizations.of(context).commonProtein,
               value: protein,
               goal: goals?.dailyProtein,
-              unit: 'g',
+              unit: AppLocalizations.of(context).commonGramUnit,
               color: _proteinColor,
             ),
             _MacroRow(
               rowKey: 'carb',
-              label: 'Carb',
+              label: AppLocalizations.of(context).commonCarb,
               value: carb,
               goal: goals?.dailyCarb,
-              unit: 'g',
+              unit: AppLocalizations.of(context).commonGramUnit,
               color: _carbColor,
             ),
             _MacroRow(
               rowKey: 'fat',
-              label: 'Fat',
+              label: AppLocalizations.of(context).commonFat,
               value: fat,
               goal: goals?.dailyFat,
-              unit: 'g',
+              unit: AppLocalizations.of(context).commonGramUnit,
               color: _fatColor,
             ),
           ],
@@ -104,9 +105,12 @@ class _CaloriesRing extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Calories', style: Theme.of(context).textTheme.titleMedium),
             Text(
-              '${calories.toStringAsFixed(0)} kcal',
+              AppLocalizations.of(context).commonCalories,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            Text(
+              '${calories.toStringAsFixed(0)} ${AppLocalizations.of(context).commonKcalUnit}',
               style: Theme.of(context).textTheme.titleMedium
                   ?.copyWith(color: color, fontWeight: FontWeight.bold),
             ),
@@ -144,7 +148,7 @@ class _CaloriesRing extends StatelessWidget {
                         ?.copyWith(color: color, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    '/ ${goal.toStringAsFixed(0)} kcal',
+                    '/ ${goal.toStringAsFixed(0)} ${AppLocalizations.of(context).commonKcalUnit}',
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: Theme.of(context).textTheme.bodySmall?.color
                           ?.withValues(alpha: 0.6),
@@ -152,7 +156,7 @@ class _CaloriesRing extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    'Calories',
+                    AppLocalizations.of(context).commonCalories,
                     style: Theme.of(context).textTheme.labelSmall?.copyWith(
                       color: Theme.of(context).textTheme.bodySmall?.color
                           ?.withValues(alpha: 0.6),

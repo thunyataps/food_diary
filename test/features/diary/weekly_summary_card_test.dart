@@ -4,14 +4,16 @@ import 'package:food_diary/features/diary/diary_repository.dart';
 import 'package:food_diary/features/diary/weekly_summary_card.dart';
 import 'package:food_diary/models/goals.dart';
 
+import '../../test_utils.dart';
+
 void main() {
   group('WeeklySummaryCard', () {
     testWidgets(
       'shows plain averages with no progress bars when goals are null',
       (tester) async {
         await tester.pumpWidget(
-          const MaterialApp(
-            home: Scaffold(
+          localizedApp(
+            const Scaffold(
               body: WeeklySummaryCard(
                 averages: WeeklyAverages(410, 22, 65, 17),
               ),
@@ -39,8 +41,8 @@ void main() {
           dailyFat: 70,
         );
         await tester.pumpWidget(
-          MaterialApp(
-            home: Scaffold(
+          localizedApp(
+            Scaffold(
               body: WeeklySummaryCard(
                 averages: const WeeklyAverages(500, 25, 60, 15),
                 goals: goals,

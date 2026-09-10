@@ -11,6 +11,8 @@ import 'package:food_diary/models/meal_entry.dart';
 import 'package:food_diary/models/weight_log.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../test_utils.dart';
+
 SupabaseClient _fakeClient() => SupabaseClient(
   'http://localhost:54321',
   'anon',
@@ -85,8 +87,8 @@ Future<void> _pumpDiaryScreen(
   addTearDown(tester.view.reset);
 
   await tester.pumpWidget(
-    MaterialApp(
-      home: DiaryScreen(
+    localizedApp(
+      DiaryScreen(
         repository: repository,
         goalsRepository: goalsRepository,
         weightRepository: weightRepository,

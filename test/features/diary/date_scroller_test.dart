@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/diary/date_scroller.dart';
 
+import '../../test_utils.dart';
+
 void main() {
   testWidgets('shows the last 60 days ending on selectedDay, today included', (
     tester,
   ) async {
     final today = DateTime(2026, 3, 5);
     await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
+      localizedApp(
+        Scaffold(
           body: DateScroller(
             selectedDay: today,
             today: today,
@@ -30,8 +32,8 @@ void main() {
     DateTime? picked;
     final today = DateTime(2026, 3, 5);
     await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
+      localizedApp(
+        Scaffold(
           body: DateScroller(
             selectedDay: today,
             today: today,
@@ -54,8 +56,8 @@ void main() {
   testWidgets('days after today are not shown', (tester) async {
     final today = DateTime(2026, 3, 5);
     await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
+      localizedApp(
+        Scaffold(
           body: DateScroller(
             selectedDay: today,
             today: today,

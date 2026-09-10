@@ -3,12 +3,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/diary/weight_card.dart';
 import 'package:food_diary/models/weight_log.dart';
 
+import '../../test_utils.dart';
+
 void main() {
   testWidgets('starts empty and saves an entered weight', (tester) async {
     double? saved;
     await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
+      localizedApp(
+        Scaffold(
           body: WeightCard(initialWeight: null, onSave: (w) async => saved = w),
         ),
       ),
@@ -28,8 +30,8 @@ void main() {
     'prefills the field when a weight log already exists for the day',
     (tester) async {
       await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
+        localizedApp(
+          Scaffold(
             body: WeightCard(
               initialWeight: WeightLog(
                 loggedDate: DateTime(2026, 3, 5),
@@ -50,8 +52,8 @@ void main() {
   ) async {
     var saveCalls = 0;
     await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
+      localizedApp(
+        Scaffold(
           body: WeightCard(
             initialWeight: null,
             onSave: (w) async => saveCalls++,
@@ -72,8 +74,8 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
+      localizedApp(
+        Scaffold(
           body: WeightCard(
             initialWeight: null,
             onSave: (w) async => throw Exception('offline'),

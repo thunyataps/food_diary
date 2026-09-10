@@ -6,6 +6,8 @@ import 'package:food_diary/models/food_item.dart';
 import 'package:food_diary/models/meal_entry.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../test_utils.dart';
+
 SupabaseClient _fakeClient() => SupabaseClient(
   'http://localhost:54321',
   'anon',
@@ -105,8 +107,8 @@ Future<void> _pushScreen(
   _PopResult? popResult,
 }) async {
   await tester.pumpWidget(
-    MaterialApp(
-      home: Builder(
+    localizedApp(
+      Builder(
         builder: (context) => Scaffold(
           body: TextButton(
             onPressed: () async {
