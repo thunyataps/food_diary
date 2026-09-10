@@ -289,15 +289,18 @@ class _HomeShellState extends State<_HomeShell> {
       bottomNavigationBar: NavigationBar(
         selectedIndex: _tab,
         onDestinationSelected: (i) => setState(() => _tab = i),
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.book), label: 'Diary'),
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.camera_alt),
-            label: 'Add meal',
+            icon: const Icon(Icons.book),
+            label: AppLocalizations.of(context).navDiaryLabel,
           ),
           NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            label: 'Profile',
+            icon: const Icon(Icons.camera_alt),
+            label: AppLocalizations.of(context).captureAppBarTitle,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.person_outline),
+            label: AppLocalizations.of(context).profileAppBarTitle,
           ),
         ],
       ),

@@ -1,6 +1,7 @@
 {
   "@@locale": "th",
   "appTitle": "ไดอารี่อาหาร",
+  "navDiaryLabel": "ไดอารี่",
   "commonEmailLabel": "อีเมล",
   "commonPasswordLabel": "รหัสผ่าน",
   "commonCreateAccount": "สร้างบัญชี",

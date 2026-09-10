@@ -1,6 +1,7 @@
 {
   "@@locale": "en",
   "appTitle": "Food Diary",
+  "navDiaryLabel": "Diary",
   "commonEmailLabel": "Email",
   "commonPasswordLabel": "Password",
   "commonCreateAccount": "Create account",
