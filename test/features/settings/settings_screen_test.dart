@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/settings/settings_screen.dart';
 import 'package:food_diary/models/goals.dart';
 
+import '../../test_utils.dart';
+
 void main() {
   testWidgets('prefills fields from initialGoals and saves edited values', (
     tester,
@@ -16,11 +18,8 @@ void main() {
     );
 
     await tester.pumpWidget(
-      MaterialApp(
-        home: SettingsScreen(
-          initialGoals: goals,
-          onSave: (g) async => saved = g,
-        ),
+      localizedApp(
+        SettingsScreen(initialGoals: goals, onSave: (g) async => saved = g),
       ),
     );
 
@@ -42,9 +41,7 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      MaterialApp(
-        home: SettingsScreen(initialGoals: null, onSave: (g) async {}),
-      ),
+      localizedApp(SettingsScreen(initialGoals: null, onSave: (g) async {})),
     );
 
     expect(find.text('2000'), findsNothing);
@@ -55,8 +52,8 @@ void main() {
   ) async {
     var saveCalls = 0;
     await tester.pumpWidget(
-      MaterialApp(
-        home: SettingsScreen(
+      localizedApp(
+        SettingsScreen(
           initialGoals: Goals(
             dailyCalories: 2000,
             dailyProtein: 100,
@@ -80,8 +77,8 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      MaterialApp(
-        home: SettingsScreen(
+      localizedApp(
+        SettingsScreen(
           initialGoals: Goals(
             dailyCalories: 2000,
             dailyProtein: 100,

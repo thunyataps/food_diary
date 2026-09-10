@@ -2,7 +2,9 @@ import 'dart:math' as math;
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/weight_log.dart';
 
 /// A presentational "weight trend" card for the Profile screen.
@@ -26,13 +28,10 @@ class WeightTrendCard extends StatelessWidget {
   static const _gridColor = Color(0xFFE1E0D9);
   static const _mutedTextColor = Color(0xFF898781);
 
-  static const _monthAbbr = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', //
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-  ];
-
-  static String _shortDate(DateTime date) =>
-      '${_monthAbbr[date.month - 1]} ${date.day}';
+  static String _shortDate(BuildContext context, DateTime date) {
+    final locale = Localizations.localeOf(context).toString();
+    return DateFormat.MMMd(locale).format(date);
+  }
 
   static String _formatWeight(double kg) {
     return kg == kg.roundToDouble()
@@ -69,12 +68,12 @@ class WeightTrendCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Weight trend',
+              AppLocalizations.of(context).weightTrendTitle,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
             Text(
-              'Last $days days',
+              AppLocalizations.of(context).weightTrendLastNDays(days),
               style: Theme.of(context).textTheme.bodySmall
                   ?.copyWith(color: _mutedTextColor),
             ),
@@ -98,7 +97,7 @@ class WeightTrendCard extends StatelessWidget {
           Icon(Icons.show_chart, color: _mutedTextColor, size: 32),
           const SizedBox(height: 12),
           Text(
-            'Log your weight on a few different days to see your trend here.',
+            AppLocalizations.of(context).weightTrendEmptyState,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyMedium
                 ?.copyWith(color: _mutedTextColor),
@@ -141,11 +140,14 @@ class WeightTrendCard extends StatelessWidget {
     // yStep apart (e.g. step 0.5 -> "69, 70, 70" without this).
     final yLabelDecimals = yStep < 1 ? 1 : 0;
 
+    final l10n = AppLocalizations.of(context);
     return Semantics(
-      label:
-          'Weight trend chart. Latest reading ${_formatWeight(latest.weightKg)} kilograms '
-          'on ${_shortDate(latest.loggedDate)}. Range over the period: '
-          '${_formatWeight(rawMin)} to ${_formatWeight(rawMax)} kilograms.',
+      label: l10n.weightTrendSemanticsLabel(
+        _formatWeight(latest.weightKg),
+        _shortDate(context, latest.loggedDate),
+        _formatWeight(rawMin),
+        _formatWeight(rawMax),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -153,15 +155,20 @@ class WeightTrendCard extends StatelessWidget {
             text: TextSpan(
               style: Theme.of(context).textTheme.bodyMedium,
               children: [
-                const TextSpan(text: 'Latest: '),
+                TextSpan(text: l10n.weightTrendLatestPrefix),
                 TextSpan(
-                  text: '${_formatWeight(latest.weightKg)} kg',
+                  text:
+                      '${_formatWeight(latest.weightKg)} ${l10n.weightTrendKgUnit}',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
-                TextSpan(text: ' on ${_shortDate(latest.loggedDate)}'),
+                TextSpan(
+                  text: l10n.weightTrendOnDate(
+                    _shortDate(context, latest.loggedDate),
+                  ),
+                ),
               ],
             ),
           ),
@@ -216,7 +223,7 @@ class WeightTrendCard extends StatelessWidget {
                         return Padding(
                           padding: const EdgeInsets.only(top: 6),
                           child: Text(
-                            _shortDate(date),
+                            _shortDate(context, date),
                             style: const TextStyle(
                               color: _mutedTextColor,
                               fontSize: 11,
@@ -237,14 +244,14 @@ class WeightTrendCard extends StatelessWidget {
                           Duration(days: spot.x.round()),
                         );
                         return LineTooltipItem(
-                          '${_formatWeight(spot.y)} kg\n',
+                          '${_formatWeight(spot.y)} ${l10n.weightTrendKgUnit}\n',
                           TextStyle(
                             color: Theme.of(context).colorScheme.onSurface,
                             fontWeight: FontWeight.w700,
                           ),
                           children: [
                             TextSpan(
-                              text: _shortDate(date),
+                              text: _shortDate(context, date),
                               style: const TextStyle(
                                 color: _mutedTextColor,
                                 fontWeight: FontWeight.normal,

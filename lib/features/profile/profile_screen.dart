@@ -68,8 +68,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String? _error;
   String? _updateStatus;
 
-  static String _formatOrDash(double? value) =>
-      value == null ? '-' : _formatNumber(value);
+  static String _formatOrDash(BuildContext context, double? value) =>
+      value == null
+      ? AppLocalizations.of(context).profileDashPlaceholder
+      : _formatNumber(value);
 
   static String _formatNumber(double value) {
     return value == value.roundToDouble()
@@ -176,7 +178,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       }
     } catch (_) {
       if (mounted) {
-        setState(() => _error = 'Could not save profile. Try again.');
+        setState(() => _error = AppLocalizations.of(context).profileSaveError);
       }
     } finally {
       if (mounted) setState(() => _savingProfile = false);
@@ -185,15 +187,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Future<void> _signOut() async {
     final messenger = ScaffoldMessenger.of(context);
+    final l10n = AppLocalizations.of(context);
     setState(() => _signingOut = true);
     try {
       await widget.onSignOut();
     } catch (_) {
       if (mounted) {
         messenger.showSnackBar(
-          const SnackBar(
-            content: Text('Could not sign out. Please try again.'),
-          ),
+          SnackBar(content: Text(l10n.profileSignOutError)),
         );
       }
     } finally {
@@ -209,31 +210,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
     try {
       final release = await widget.onCheckForUpdate(widget.currentVersion);
       if (!mounted) return;
+      final l10n = AppLocalizations.of(context);
       if (release == null) {
-        setState(() => _updateStatus = "You're on the latest version.");
+        setState(() => _updateStatus = l10n.profileUpdateLatestVersion);
         return;
       }
       setState(
-        () => _updateStatus = 'Version ${release.version} is available.',
+        () =>
+            _updateStatus = l10n.profileUpdateAvailableStatus(release.version),
       );
       final confirmed = await showDialog<bool>(
         context: context,
-        builder: (context) => AlertDialog(
-          title: const Text('Update available'),
-          content: Text(
-            'Version ${release.version} is available (you have ${widget.currentVersion}). Download and install it now?',
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context, false),
-              child: const Text('Not now'),
+        builder: (context) {
+          final dialogL10n = AppLocalizations.of(context);
+          return AlertDialog(
+            title: Text(dialogL10n.profileUpdateDialogTitle),
+            content: Text(
+              dialogL10n.profileUpdateDialogBody(
+                release.version,
+                widget.currentVersion,
+              ),
             ),
-            FilledButton(
-              onPressed: () => Navigator.pop(context, true),
-              child: const Text('Download & install'),
-            ),
-          ],
-        ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: Text(dialogL10n.profileUpdateNotNow),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(context, true),
+                child: Text(dialogL10n.profileUpdateDownloadInstall),
+              ),
+            ],
+          );
+        },
       );
       if (confirmed == true) {
         await widget.onDownloadAndInstall(release.apkDownloadUrl);
@@ -241,7 +250,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     } catch (_) {
       if (mounted) {
         setState(
-          () => _updateStatus = 'Could not check for updates. Try again.',
+          () =>
+              _updateStatus = AppLocalizations.of(context)
+                  .profileUpdateCheckError,
         );
       }
     } finally {
@@ -264,6 +275,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Widget _buildViewMode() {
     final profile = _displayProfile;
+    final l10n = AppLocalizations.of(context);
+    final dash = l10n.profileDashPlaceholder;
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -274,23 +287,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Personal info',
+                  l10n.profilePersonalInfoTitle,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 IconButton(
                   key: const Key('edit_profile_button'),
-                  tooltip: 'Edit',
+                  tooltip: l10n.profileEditTooltip,
                   icon: const Icon(Icons.edit_outlined),
                   onPressed: _startEditing,
                 ),
               ],
             ),
-            _fieldRow('Name', profile?.name ?? '-'),
-            _fieldRow('Age', profile?.age?.toString() ?? '-'),
-            _fieldRow('Weight (kg)', _formatOrDash(widget.latestWeightKg)),
-            _fieldRow('Height (cm)', _formatOrDash(profile?.heightCm)),
-            _fieldRow('Body fat (%)', _formatOrDash(profile?.bodyFatPct)),
-            _fieldRow('Muscle mass (kg)', _formatOrDash(profile?.muscleMassKg)),
+            _fieldRow(l10n.profileNameLabel, profile?.name ?? dash),
+            _fieldRow(l10n.profileAgeLabel, profile?.age?.toString() ?? dash),
+            _fieldRow(
+              l10n.profileWeightLabel,
+              _formatOrDash(context, widget.latestWeightKg),
+            ),
+            _fieldRow(
+              l10n.profileHeightLabel,
+              _formatOrDash(context, profile?.heightCm),
+            ),
+            _fieldRow(
+              l10n.profileBodyFatLabel,
+              _formatOrDash(context, profile?.bodyFatPct),
+            ),
+            _fieldRow(
+              l10n.profileMuscleMassLabel,
+              _formatOrDash(context, profile?.muscleMassKg),
+            ),
           ],
         ),
       ),
@@ -298,6 +323,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget _buildEditMode() {
+    final l10n = AppLocalizations.of(context);
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -305,21 +331,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Edit personal info',
+              l10n.profileEditPersonalInfoTitle,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 12),
             TextField(
               key: const Key('name_field'),
               controller: _nameController,
-              decoration: const InputDecoration(labelText: 'Name'),
+              decoration: InputDecoration(labelText: l10n.profileNameLabel),
             ),
             const SizedBox(height: 12),
             TextField(
               key: const Key('age_field'),
               controller: _ageController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Age'),
+              decoration: InputDecoration(labelText: l10n.profileAgeLabel),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -328,7 +354,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               keyboardType: const TextInputType.numberWithOptions(
                 decimal: true,
               ),
-              decoration: const InputDecoration(labelText: 'Height (cm)'),
+              decoration: InputDecoration(labelText: l10n.profileHeightLabel),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -337,7 +363,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               keyboardType: const TextInputType.numberWithOptions(
                 decimal: true,
               ),
-              decoration: const InputDecoration(labelText: 'Body fat (%)'),
+              decoration: InputDecoration(labelText: l10n.profileBodyFatLabel),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -346,7 +372,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               keyboardType: const TextInputType.numberWithOptions(
                 decimal: true,
               ),
-              decoration: const InputDecoration(labelText: 'Muscle mass (kg)'),
+              decoration: InputDecoration(
+                labelText: l10n.profileMuscleMassLabel,
+              ),
             ),
             if (_error != null) ...[
               const SizedBox(height: 8),
@@ -361,14 +389,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Expanded(
                   child: OutlinedButton(
                     onPressed: _savingProfile ? null : _cancelEditing,
-                    child: const Text('Cancel'),
+                    child: Text(l10n.profileCancelButton),
                   ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: FilledButton(
                     onPressed: _savingProfile ? null : _saveProfile,
-                    child: Text(_savingProfile ? 'Saving...' : 'Save profile'),
+                    child: Text(
+                      _savingProfile
+                          ? l10n.commonSaving
+                          : l10n.profileSaveButton,
+                    ),
                   ),
                 ),
               ],
@@ -381,8 +413,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
+      appBar: AppBar(title: Text(l10n.profileAppBarTitle)),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -405,7 +438,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 24),
               OutlinedButton(
                 onPressed: widget.onOpenGoals,
-                child: const Text('Daily goals'),
+                child: Text(l10n.profileGoalsButton),
               ),
               const SizedBox(height: 12),
               OutlinedButton(
@@ -415,19 +448,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   currentLocale: widget.currentLocale,
                   onChanged: widget.onLocaleChanged,
                 ),
-                child: Text(AppLocalizations.of(context).languageDialogTitle),
+                child: Text(l10n.languageDialogTitle),
               ),
               const SizedBox(height: 12),
               OutlinedButton(
                 key: const Key('sign_out_button'),
                 onPressed: _signingOut ? null : _signOut,
-                child: Text(_signingOut ? 'Signing out...' : 'Sign out'),
+                child: Text(
+                  _signingOut
+                      ? l10n.profileSigningOutButton
+                      : l10n.profileSignOutButton,
+                ),
               ),
               const SizedBox(height: 24),
               OutlinedButton(
                 onPressed: _checkingForUpdate ? null : _checkForUpdate,
                 child: Text(
-                  _checkingForUpdate ? 'Checking...' : 'Check for updates',
+                  _checkingForUpdate
+                      ? l10n.profileCheckingButton
+                      : l10n.profileCheckForUpdatesButton,
                 ),
               ),
               if (_updateStatus != null) ...[
@@ -436,7 +475,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ],
               const SizedBox(height: 8),
               Text(
-                'v${widget.currentVersion}',
+                l10n.profileVersionLabel(widget.currentVersion),
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodySmall,
               ),

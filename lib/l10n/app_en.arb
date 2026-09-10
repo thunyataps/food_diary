@@ -69,5 +69,71 @@
   "analysisResultFatLabel": "Fat (g)",
   "analyzeErrorRateLimited": "High demand right now, try again shortly.",
   "analyzeErrorUnauthorized": "Please sign in again.",
-  "analyzeErrorUnknown": "Analysis failed, try again."
+  "analyzeErrorUnknown": "Analysis failed, try again.",
+  "profileAppBarTitle": "Profile",
+  "profileEditTooltip": "Edit",
+  "profilePersonalInfoTitle": "Personal info",
+  "profileEditPersonalInfoTitle": "Edit personal info",
+  "profileNameLabel": "Name",
+  "profileAgeLabel": "Age",
+  "profileWeightLabel": "Weight (kg)",
+  "profileHeightLabel": "Height (cm)",
+  "profileBodyFatLabel": "Body fat (%)",
+  "profileMuscleMassLabel": "Muscle mass (kg)",
+  "profileDashPlaceholder": "-",
+  "profileSaveError": "Could not save profile. Try again.",
+  "profileCancelButton": "Cancel",
+  "profileSaveButton": "Save profile",
+  "profileSignOutError": "Could not sign out. Please try again.",
+  "profileUpdateLatestVersion": "You're on the latest version.",
+  "profileUpdateAvailableStatus": "Version {version} is available.",
+  "@profileUpdateAvailableStatus": {
+    "placeholders": { "version": { "type": "String" } }
+  },
+  "profileUpdateDialogTitle": "Update available",
+  "profileUpdateDialogBody": "Version {version} is available (you have {current}). Download and install it now?",
+  "@profileUpdateDialogBody": {
+    "placeholders": { "version": { "type": "String" }, "current": { "type": "String" } }
+  },
+  "profileUpdateNotNow": "Not now",
+  "profileUpdateDownloadInstall": "Download & install",
+  "profileUpdateCheckError": "Could not check for updates. Try again.",
+  "profileGoalsButton": "Daily goals",
+  "profileSignOutButton": "Sign out",
+  "profileSigningOutButton": "Signing out...",
+  "profileCheckForUpdatesButton": "Check for updates",
+  "profileCheckingButton": "Checking...",
+  "profileVersionLabel": "v{version}",
+  "@profileVersionLabel": {
+    "placeholders": { "version": { "type": "String" } }
+  },
+  "weightTrendTitle": "Weight trend",
+  "weightTrendLastNDays": "Last {days} days",
+  "@weightTrendLastNDays": {
+    "placeholders": { "days": { "type": "int" } }
+  },
+  "weightTrendEmptyState": "Log your weight on a few different days to see your trend here.",
+  "weightTrendLatestPrefix": "Latest: ",
+  "weightTrendOnDate": " on {date}",
+  "@weightTrendOnDate": {
+    "placeholders": { "date": { "type": "String" } }
+  },
+  "weightTrendSemanticsLabel": "Weight trend chart. Latest reading {latest} kilograms on {date}. Range over the period: {min} to {max} kilograms.",
+  "@weightTrendSemanticsLabel": {
+    "placeholders": {
+      "latest": { "type": "String" },
+      "date": { "type": "String" },
+      "min": { "type": "String" },
+      "max": { "type": "String" }
+    }
+  },
+  "weightTrendKgUnit": "kg",
+  "settingsAppBarTitle": "Daily goals",
+  "settingsCaloriesLabel": "Calories (kcal)",
+  "settingsProteinLabel": "Protein (g)",
+  "settingsCarbLabel": "Carb (g)",
+  "settingsFatLabel": "Fat (g)",
+  "settingsValidationError": "Enter a number for every field.",
+  "settingsSaveError": "Could not save goals. Try again.",
+  "settingsSaveButton": "Save goals"
 }

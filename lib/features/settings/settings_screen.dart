@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/goals.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -49,7 +50,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final fat = double.tryParse(_fatController.text);
 
     if (calories == null || protein == null || carb == null || fat == null) {
-      setState(() => _error = 'Enter a number for every field.');
+      setState(
+        () => _error = AppLocalizations.of(context).settingsValidationError,
+      );
       return;
     }
 
@@ -68,7 +71,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       );
       if (mounted) Navigator.pop(context);
     } catch (_) {
-      if (mounted) setState(() => _error = 'Could not save goals. Try again.');
+      if (mounted) {
+        setState(() => _error = AppLocalizations.of(context).settingsSaveError);
+      }
     } finally {
       if (mounted) setState(() => _saving = false);
     }
@@ -76,8 +81,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Daily goals')),
+      appBar: AppBar(title: Text(l10n.settingsAppBarTitle)),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -86,28 +92,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
               key: const Key('calories_goal_field'),
               controller: _caloriesController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Calories (kcal)'),
+              decoration: InputDecoration(
+                labelText: l10n.settingsCaloriesLabel,
+              ),
             ),
             const SizedBox(height: 8),
             TextField(
               key: const Key('protein_goal_field'),
               controller: _proteinController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Protein (g)'),
+              decoration: InputDecoration(labelText: l10n.settingsProteinLabel),
             ),
             const SizedBox(height: 8),
             TextField(
               key: const Key('carb_goal_field'),
               controller: _carbController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Carb (g)'),
+              decoration: InputDecoration(labelText: l10n.settingsCarbLabel),
             ),
             const SizedBox(height: 8),
             TextField(
               key: const Key('fat_goal_field'),
               controller: _fatController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Fat (g)'),
+              decoration: InputDecoration(labelText: l10n.settingsFatLabel),
             ),
             if (_error != null) ...[
               const SizedBox(height: 8),
@@ -116,7 +124,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 16),
             FilledButton(
               onPressed: _saving ? null : _save,
-              child: Text(_saving ? 'Saving...' : 'Save goals'),
+              child: Text(
+                _saving ? l10n.commonSaving : l10n.settingsSaveButton,
+              ),
             ),
           ],
         ),

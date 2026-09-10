@@ -4,11 +4,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:food_diary/features/profile/weight_trend_card.dart';
 import 'package:food_diary/models/weight_log.dart';
 
+import '../../test_utils.dart';
+
 void main() {
   Widget buildCard(List<WeightLog> weights) {
-    return MaterialApp(
-      home: Scaffold(body: WeightTrendCard(weights: weights)),
-    );
+    return localizedApp(Scaffold(body: WeightTrendCard(weights: weights)));
   }
 
   testWidgets('shows the insufficient-data message with zero entries', (
