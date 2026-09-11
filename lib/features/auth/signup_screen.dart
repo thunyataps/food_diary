@@ -23,6 +23,13 @@ class _SignupScreenState extends State<SignupScreen> {
   String? _info;
   bool _loading = false;
 
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   Future<void> _signUp() async {
     final navigator = Navigator.of(context);
     setState(() {
@@ -74,11 +81,14 @@ class _SignupScreenState extends State<SignupScreen> {
               constraints: const BoxConstraints(maxWidth: 400),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   TextField(
                     controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       labelText: AppLocalizations.of(context).commonEmailLabel,
+                      prefixIcon: const Icon(Icons.mail_outline),
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -88,12 +98,14 @@ class _SignupScreenState extends State<SignupScreen> {
                     decoration: InputDecoration(
                       labelText: AppLocalizations.of(context)
                           .commonPasswordLabel,
+                      prefixIcon: const Icon(Icons.lock_outline),
                     ),
                   ),
                   if (_error != null) ...[
                     const SizedBox(height: 8),
                     Text(
                       _error!,
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.error,
                       ),
@@ -104,6 +116,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     Text(
                       _info!,
                       key: const Key('signup_info'),
+                      textAlign: TextAlign.center,
                       style: const TextStyle(color: Color(0xFF7A8C6B)),
                     ),
                   ],
