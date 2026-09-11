@@ -190,11 +190,17 @@ class _GoogleSignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      // The theme's OutlinedButton padding sets a 14 vertical inset that
+      // this button overrides to 0 below, so this fixed height is the only
+      // thing establishing the button's height.
       height: 48,
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
           backgroundColor: Colors.white,
+          // Without this, the press/hover ripple falls through to the
+          // theme's default (terracotta) instead of a neutral gray.
+          foregroundColor: _textColor,
           side: const BorderSide(color: _borderColor),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
