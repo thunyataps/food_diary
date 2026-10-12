@@ -136,5 +136,16 @@
   "musclesCreditsBody": "โมเดลกายวิภาค 3D ดัดแปลงจาก Z-Anatomy (z-anatomy.com) สัญญาอนุญาต CC BY-SA 4.0 โมเดลที่ดัดแปลงเผยแพร่ภายใต้สัญญาอนุญาตเดียวกัน",
   "musclesLoadError": "โหลดร่างกาย 3D ไม่สำเร็จ",
   "musclesRetry": "ลองใหม่",
-  "musclesOpenList": "เปิดรายการกล้ามเนื้อ"
+  "musclesOpenList": "เปิดรายการกล้ามเนื้อ",
+  "musclesSearchHint": "ค้นหากล้ามเนื้อ",
+  "musclesNoResults": "ไม่พบกล้ามเนื้อ",
+  "muscleGroupChest": "อก",
+  "muscleGroupShoulders": "ไหล่",
+  "muscleGroupBack": "หลัง",
+  "muscleGroupArms": "แขน",
+  "muscleGroupCore": "แกนกลางลำตัว",
+  "muscleGroupHips": "สะโพกและก้น",
+  "muscleGroupThighs": "ต้นขา",
+  "muscleGroupLowerLegs": "น่องและหน้าแข้ง",
+  "muscleGroupNeck": "คอ"
 }

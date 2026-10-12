@@ -7,6 +7,7 @@ import '../../models/exercise.dart';
 import '../../models/muscle.dart';
 import 'body_viewer.dart';
 import 'muscle_catalog.dart';
+import 'muscle_list_screen.dart';
 import 'muscle_sheet.dart';
 import 'web_body_viewer_controller.dart';
 
@@ -26,7 +27,7 @@ class MuscleMapScreen extends StatefulWidget {
   final BodyViewerController Function() controllerFactory;
   final Duration readyTimeout;
 
-  /// Shows the muscle list and returns the chosen muscle (or null).
+  /// Shows the muscle list and returns the chosen muscle. Defaults to [pushMuscleList]; overridden in tests.
   final Future<Muscle?> Function(BuildContext context)? openMuscleList;
 
   @override
@@ -114,8 +115,9 @@ class _MuscleMapScreenState extends State<MuscleMapScreen> {
   }
 
   Future<void> _openList() async {
-    final open = widget.openMuscleList;
-    if (open == null) return;
+    final open =
+        widget.openMuscleList ??
+        (BuildContext context) => pushMuscleList(context, widget.catalog);
     final muscle = await open(context);
     if (muscle != null && mounted) _openMuscle(muscle.id);
   }
