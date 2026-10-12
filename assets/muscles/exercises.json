@@ -4920,11 +4920,12 @@
     "equipment": "dumbbell",
     "difficulty": "intermediate",
     "primary": [
+      "vastus_lateralis",
       "vastus_medialis",
+      "vastus_intermedius",
       "gluteus_maximus"
     ],
     "secondary": [
-      "vastus_lateralis",
       "rectus_femoris",
       "gluteus_medius",
       "hip_adductors"
@@ -4974,10 +4975,11 @@
     "difficulty": "beginner",
     "primary": [
       "vastus_lateralis",
+      "vastus_medialis",
+      "vastus_intermedius",
       "gluteus_maximus"
     ],
     "secondary": [
-      "vastus_medialis",
       "rectus_femoris",
       "gluteus_medius"
     ],
@@ -5026,11 +5028,11 @@
     "difficulty": "advanced",
     "primary": [
       "rectus_femoris",
-      "vastus_medialis"
+      "vastus_lateralis",
+      "vastus_medialis",
+      "vastus_intermedius"
     ],
-    "secondary": [
-      "vastus_lateralis"
-    ],
+    "secondary": [],
     "steps": {
       "en": [
         "Stand with your feet hip-width apart and hold a sturdy support beside you with one hand.",
