@@ -157,5 +157,16 @@
   "equipmentBand": "Band",
   "difficultyBeginner": "Beginner",
   "difficultyIntermediate": "Intermediate",
-  "difficultyAdvanced": "Advanced"
+  "difficultyAdvanced": "Advanced",
+  "musclesAppBarTitle": "Muscles",
+  "musclesTapHint": "Tap a muscle to see exercises",
+  "musclesViewFront": "Front",
+  "musclesViewBack": "Back",
+  "musclesResetView": "Reset",
+  "musclesListTooltip": "Muscle list",
+  "musclesCreditsTooltip": "Credits",
+  "musclesCreditsBody": "3D anatomy model adapted from Z-Anatomy (z-anatomy.com), licensed under CC BY-SA 4.0. The adapted model is shared under the same license.",
+  "musclesLoadError": "Couldn't load the 3D body.",
+  "musclesRetry": "Retry",
+  "musclesOpenList": "Open muscle list"
 }

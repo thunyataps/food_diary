@@ -125,5 +125,16 @@
   "equipmentBand": "ยางยืด",
   "difficultyBeginner": "มือใหม่",
   "difficultyIntermediate": "ระดับกลาง",
-  "difficultyAdvanced": "ขั้นสูง"
+  "difficultyAdvanced": "ขั้นสูง",
+  "musclesAppBarTitle": "กล้ามเนื้อ",
+  "musclesTapHint": "แตะที่กล้ามเนื้อเพื่อดูท่าออกกำลังกาย",
+  "musclesViewFront": "ด้านหน้า",
+  "musclesViewBack": "ด้านหลัง",
+  "musclesResetView": "รีเซ็ต",
+  "musclesListTooltip": "รายการกล้ามเนื้อ",
+  "musclesCreditsTooltip": "เครดิต",
+  "musclesCreditsBody": "โมเดลกายวิภาค 3D ดัดแปลงจาก Z-Anatomy (z-anatomy.com) สัญญาอนุญาต CC BY-SA 4.0 โมเดลที่ดัดแปลงเผยแพร่ภายใต้สัญญาอนุญาตเดียวกัน",
+  "musclesLoadError": "โหลดร่างกาย 3D ไม่สำเร็จ",
+  "musclesRetry": "ลองใหม่",
+  "musclesOpenList": "เปิดรายการกล้ามเนื้อ"
 }
