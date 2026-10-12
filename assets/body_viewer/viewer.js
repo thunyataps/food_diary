@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import {
   CONTEXT_PREFIX, muscleIdFromName, TapTracker, orbitPosition, lerpAngle,
-  accumulateOutward, mergeOutward, facingFromOutward,
+  accumulateOutward, mergeOutward, facingFromOutward, pickMuscleId,
 } from './viewer_core.js';
 
 const COLORS = {
@@ -18,6 +18,9 @@ const DIM_TOWARD = new THREE.Color(0xd9d2cb);
 const DIM_AMOUNT = 0.6;
 const FOCUS_ZOOM = 0.6;
 const TWEEN_MS = 450;
+// Context geometry within this distance (model units = metres, so 1.5 cm) in front of a
+// muscle does not block a tap on it.
+const PICK_TOLERANCE = 0.015;
 
 // ---------- bridge ----------
 const standalone = new URLSearchParams(location.search).has('standalone');
@@ -283,8 +286,9 @@ canvas.addEventListener('pointerup', (e) => {
   const rect = canvas.getBoundingClientRect();
   ndc.set(((e.clientX - rect.left) / rect.width) * 2 - 1, -((e.clientY - rect.top) / rect.height) * 2 + 1);
   raycaster.setFromCamera(ndc, camera);
-  const hit = raycaster.intersectObjects(pickables, false)[0];
-  const id = hit?.object.userData.muscleId;
+  const hits = raycaster.intersectObjects(pickables, false)
+    .map((h) => ({ distance: h.distance, id: h.object.userData.muscleId ?? null }));
+  const id = pickMuscleId(hits, PICK_TOLERANCE);
   if (id) {
     post({ type: 'muscleTapped', id });
     if (standalone) select(id);

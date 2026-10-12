@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   muscleIdFromName, isTap, TapTracker, facingAngle, orbitPosition, lerpAngle,
-  accumulateOutward, mergeOutward, facingFromOutward,
+  accumulateOutward, mergeOutward, facingFromOutward, pickMuscleId,
 } from '../../assets/body_viewer/viewer_core.js';
 
 test('muscleIdFromName strips the side suffix', () => {
@@ -117,6 +117,24 @@ test('mirrored front pair still faces the front', () => {
   const l = accumulateOutward(blob(0.1, 0.04), bone(0.1));
   const r = accumulateOutward(blob(-0.1, 0.04), bone(-0.1));
   assert.ok(Math.abs(facingFromOutward(mergeOutward([l, r]))) < 1e-9);
+});
+
+test('pickMuscleId takes a muscle hit directly', () => {
+  assert.equal(pickMuscleId([{ distance: 2, id: 'soleus' }, { distance: 2.01, id: null }], 0.015), 'soleus');
+});
+
+test('pickMuscleId sees through context geometry within the tolerance', () => {
+  const hits = [{ distance: 2, id: null }, { distance: 2.01, id: 'tibialis_anterior' }, { distance: 2.02, id: 'soleus' }];
+  assert.equal(pickMuscleId(hits, 0.015), 'tibialis_anterior');
+});
+
+test('pickMuscleId ignores a muscle buried deeper than the tolerance', () => {
+  assert.equal(pickMuscleId([{ distance: 2, id: null }, { distance: 2.05, id: 'soleus' }], 0.015), null);
+});
+
+test('pickMuscleId returns null for no hits or context only', () => {
+  assert.equal(pickMuscleId([], 0.015), null);
+  assert.equal(pickMuscleId([{ distance: 1, id: null }], 0.015), null);
 });
 
 test('facingFromOutward is null with no data', () => {

@@ -98,3 +98,18 @@ export function facingFromOutward({ x, z, abs }, minRatio = 0.3) {
   if (!(abs > 0) || Math.hypot(x, z) / abs < minRatio) return null;
   return Math.atan2(x, z);
 }
+
+// Muscle id for a tap given ray hits sorted near-to-far ({distance, id|null}).
+// The nearest hit wins, except that context geometry (skin-level shell, bone) lying
+// within `tolerance` in front of a muscle does not block it; the model's context
+// shell sits ~1 cm over thin muscles such as tibialis anterior.
+export function pickMuscleId(hits, tolerance) {
+  if (!hits.length) return null;
+  if (hits[0].id) return hits[0].id;
+  const limit = hits[0].distance + tolerance;
+  for (const h of hits) {
+    if (h.distance > limit) break;
+    if (h.id) return h.id;
+  }
+  return null;
+}
