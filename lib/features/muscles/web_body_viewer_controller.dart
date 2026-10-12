@@ -57,6 +57,11 @@ class WebBodyViewerController implements BodyViewerController {
         _emit(ViewerFailed(error.description));
       }
     },
+    // The renderer died (crash or killed for memory); the canvas is dead, so
+    // surface it and let the screen offer Retry (reload).
+    onRenderProcessGone: (controller, detail) {
+      _emit(const ViewerFailed('renderer gone'));
+    },
   );
 
   Future<void> _call(String function, [Object? arg]) async {
