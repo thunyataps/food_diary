@@ -75,7 +75,7 @@
     "anatomical": "Deltoid, acromial part",
     "description": {
       "en": "The side of the shoulder cap that gives your shoulders their width. It lifts your arm out to the side, as in lateral raises.",
-      "th": "กล้ามไหล่ส่วนข้างที่ทำให้ไหล่ดูกว้าง ทำหน้าที่กางแขนออกด้านข้าง เช่น ท่ายกดัมเบลออกข้าง (Lateral Raise)"
+      "th": "กล้ามไหล่ส่วนข้างที่ทำให้ไหล่ดูกว้าง ทำหน้าที่กางแขนออกด้านข้าง เช่น ดัมเบลแลทเทอรัลเรส"
     }
   },
   {
@@ -405,7 +405,7 @@
     "anatomical": "Transversus abdominis",
     "description": {
       "en": "The deepest abdominal layer, wrapping around your waist like a belt. It draws the belly in and stabilizes the spine when you brace before a lift.",
-      "th": "กล้ามท้องชั้นในสุดที่พันรอบเอวเหมือนเข็มขัด ทำหน้าที่แขม่วท้องและล็อกกระดูกสันหลังให้มั่นคง เป็นตัวหลักตอนเกร็งท้อง (bracing) ก่อนยก"
+      "th": "กล้ามท้องชั้นในสุดที่พันรอบเอวเหมือนเข็มขัด ทำหน้าที่แขม่วท้องและล็อกกระดูกสันหลังให้มั่นคง มีส่วนสำคัญตอนเกร็งท้อง (bracing) ก่อนยก"
     }
   },
   {
@@ -522,8 +522,8 @@
     },
     "anatomical": "Vastus medialis",
     "description": {
-      "en": "The teardrop-shaped quad just above the inside of the knee. It straightens the knee, especially near full extension, and helps the kneecap track straight.",
-      "th": "ควอดส์ทรงหยดน้ำเหนือเข่าด้านใน ทำหน้าที่เหยียดเข่า โดยเฉพาะช่วงท้ายที่เหยียดเกือบสุด และช่วยให้ลูกสะบ้าเคลื่อนตรงแนว"
+      "en": "The teardrop-shaped quad just above the inside of the knee. It straightens the knee and helps the kneecap track straight.",
+      "th": "ควอดส์ทรงหยดน้ำเหนือเข่าด้านใน ทำหน้าที่เหยียดเข่า และช่วยให้ลูกสะบ้าเคลื่อนตรงแนว"
     }
   },
   {
@@ -589,7 +589,7 @@
     "anatomical": "Gastrocnemius, medial head",
     "description": {
       "en": "The inner head of the calf and its bigger bulge. It points your foot down and helps bend the knee, working hardest in straight-leg calf raises.",
-      "th": "น่องส่วนด้านในซึ่งเป็นมัดที่นูนกว่า ทำหน้าที่เขย่งปลายเท้าและช่วยงอเข่า ทำงานหนักที่สุดในท่าเขย่งเท้าแบบเข่าตึง (Calf Raise)"
+      "th": "น่องส่วนด้านในซึ่งเป็นมัดที่นูนกว่า ทำหน้าที่เขย่งปลายเท้าและช่วยงอเข่า ทำงานหนักที่สุดในท่าคาล์ฟเรสแบบยืน"
     }
   },
   {
@@ -602,7 +602,7 @@
     "anatomical": "Gastrocnemius, lateral head",
     "description": {
       "en": "The outer head of the calf on the back of the lower leg. It points your foot down and helps bend the knee, as in standing calf raises.",
-      "th": "น่องส่วนด้านนอกที่ขาท่อนล่างด้านหลัง ทำหน้าที่เขย่งปลายเท้าและช่วยงอเข่า เช่น ท่ายืนเขย่งเท้า (Standing Calf Raise)"
+      "th": "น่องส่วนด้านนอกที่ขาท่อนล่างด้านหลัง ทำหน้าที่เขย่งปลายเท้าและช่วยงอเข่า เช่น คาล์ฟเรสแบบยืน"
     }
   },
   {
@@ -615,7 +615,7 @@
     "anatomical": "Soleus",
     "description": {
       "en": "A flat calf muscle beneath the gastrocnemius. It points your foot down and takes over when the knee is bent, as in seated calf raises.",
-      "th": "กล้ามน่องแผ่นแบนที่อยู่ใต้น่องมัดนอก ทำหน้าที่เขย่งปลายเท้า และทำงานเด่นที่สุดตอนงอเข่า เช่น ท่านั่งเขย่งเท้า (Seated Calf Raise)"
+      "th": "กล้ามน่องแผ่นแบนที่อยู่ใต้น่องมัดนอก ทำหน้าที่เขย่งปลายเท้า และทำงานเด่นที่สุดตอนงอเข่า เช่น คาล์ฟเรสแบบนั่ง"
     }
   },
   {
