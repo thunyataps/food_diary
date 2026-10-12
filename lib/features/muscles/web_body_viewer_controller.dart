@@ -61,9 +61,14 @@ class WebBodyViewerController implements BodyViewerController {
 
   Future<void> _call(String function, [Object? arg]) async {
     final args = arg == null ? '' : jsonEncode(arg);
-    await _web?.evaluateJavascript(
-      source: 'window.viewer && window.viewer.$function($args);',
-    );
+    try {
+      await _web?.evaluateJavascript(
+        source: 'window.viewer && window.viewer.$function($args);',
+      );
+    } catch (e) {
+      // The WebView can be gone mid tab-switch; a dropped command is harmless.
+      if (kDebugMode) debugPrint('body viewer call $function failed: $e');
+    }
   }
 
   @override
@@ -85,8 +90,17 @@ class WebBodyViewerController implements BodyViewerController {
   Future<void> resetView() => _call('resetView');
 
   @override
-  Future<void> reload() async => _web?.reload();
+  Future<void> reload() async {
+    try {
+      await _web?.reload();
+    } catch (e) {
+      if (kDebugMode) debugPrint('body viewer reload failed: $e');
+    }
+  }
 
   @override
-  void dispose() => _events.close();
+  void dispose() {
+    _web = null;
+    _events.close();
+  }
 }
