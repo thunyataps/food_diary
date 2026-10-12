@@ -17,14 +17,19 @@ https://github.com/Z-Anatomy/Models-of-human-anatomy). The source `.blend` is no
 
 ## Inventory
 ```
-Blender -b ~/Z-Anatomy/template/Z-Anatomy/Startup.blend -P tools/body_model/inventory.py -- tools/body_model/out/inventory.json
+mkdir -p tools/body_model/out
+/Applications/Blender.app/Contents/MacOS/Blender -b ~/Z-Anatomy/template/Z-Anatomy/Startup.blend -P tools/body_model/inventory.py -- tools/body_model/out/inventory.json
 ```
 7184 objects: 4569 MESH, 1660 FONT, 951 CURVE, 3 LIGHT, 1 CAMERA. Units are meters, Z up; the body is
 ~1.75 m tall, centered on x = 0. Y is the depth axis (anterior = -Y: pectoralis y < 0, trapezius/lats y > 0).
 
 Filter for muscles: MESH objects in collections `4: Muscular system` AND `Muscles` (509 meshes).
-Other objects in `4: Muscular system` are origin/insertion helpers: suffix `.j` (2-vert point markers),
-`.ol/.or/.el/.er` (insertion markers, in `2: Muscular insertions`, carry SOLIDIFY/SUBSURF) — exclude those.
+The other 280 meshes in `4: Muscular system` (789 total) are not in `Muscles` and are not muscles:
+105 `.j` 2-vert point markers, 78 bursae (collection `Bursae`), 56 fascia (`Fascia`, e.g. Diaphragmatic fascia,
+Transversalis fascia), 38 tendon sheaths (`Tendon sheaths`),
+2 fibrous sheaths of digit of hand, and 1 `Muscular system.g` (791 verts). Requiring `Muscles` excludes all of them.
+Separately, the insertion markers (`Deltoid muscle.el`, `.ol/.or/.er`; 705 meshes) live only in
+`2: Muscular insertions`, not in `4: Muscular system`, and carry SOLIDIFY/SUBSURF.
 
 ## Findings
 - Side suffix: `.l` / `.r`. `.l` center x sign: **+** (252/252 `.l` muscles have x > 0; 253/253 `.r` have x < 0).
@@ -48,7 +53,11 @@ Other objects in `4: Muscular system` are origin/insertion helpers: suffix `.j` 
 - Modifiers on muscles: none on the real muscle bellies. Only 23 of the 509 muscle-collection meshes have modifiers
   (SOLIDIFY 22, SUBSURF 5) and they are all thin sheets: retinacula, patellar retinacula, plantar aponeurosis,
   transverse metacarpal/metatarsal ligaments, plus Diaphragm (SUBSURF). Insertion markers (`.ol/.or/.el/.er`) also carry
-  SOLIDIFY+SUBSURF. No MIRROR anywhere in the probed objects. Baking modifiers is still safe.
+  SOLIDIFY+SUBSURF. No MIRROR/ARRAY/CURVE on any of the 509 muscle meshes.
+  Non-muscle objects do carry them: 44 objects have MIRROR (42 MESH, 2 CURVE; mostly `7: Nervous system & Sense organs`
+  (35), `8: Visceral systems` (6), 1 cardiovascular, 1 skeletal; 7 are in `Head`, 6 of those also in `Brain`), and 28 of the 44
+  also have ARRAY+CURVE (30 objects in the file have ARRAY and CURVE). Task 2 must bake modifiers if it pulls in any of
+  these as context. Baking modifiers is still safe.
 - Context collections:
   - Skeleton: `1: Skeletal system` (1244 meshes; sub-collections `Axial skeleton`, `Appendicular skeleton`, `Bones of ...`;
     many `.i/.j` marker objects live in `Bonus collection`). Skull/head bones also in `Head`.
