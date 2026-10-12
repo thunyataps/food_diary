@@ -3542,5 +3542,2280 @@
         "อย่าปล่อยสะโพกตกหรือโด่งขึ้น ให้ลำตัวเป็นเส้นตรงจากหัวถึงส้นเท้า"
       ]
     }
+  },
+  {
+    "id": "crunch",
+    "name": {
+      "en": "Crunch",
+      "th": "ครันช์"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "rectus_abdominis"
+    ],
+    "secondary": [
+      "external_oblique"
+    ],
+    "steps": {
+      "en": [
+        "Lie on your back with your knees bent, feet flat, and fingertips lightly behind your ears.",
+        "Breathe out and curl your head and shoulders off the floor by drawing your ribs toward your pelvis.",
+        "Pause when your shoulder blades are just off the floor.",
+        "Lower slowly back down and repeat."
+      ],
+      "th": [
+        "นอนหงาย ชันเข่า เท้าวางราบกับพื้น แตะปลายนิ้วไว้หลังใบหูเบาๆ",
+        "หายใจออก ม้วนศีรษะและไหล่ขึ้นจากพื้น โดยดึงซี่โครงเข้าหาเชิงกราน",
+        "ค้างไว้ครู่หนึ่งเมื่อสะบักพ้นพื้นเล็กน้อย",
+        "ค่อยๆ ลดตัวลงแล้วทำซ้ำ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Roll your spine up one segment at a time instead of lifting your torso as one piece — bending the spine is what works the rectus abdominis.",
+        "Breathe out fully at the top to get a stronger ab contraction."
+      ],
+      "th": [
+        "ม้วนกระดูกสันหลังขึ้นทีละข้อ แทนการยกลำตัวขึ้นทั้งแผ่น เพราะการงอลำตัวคือสิ่งที่ทำให้กล้ามหน้าท้องทำงาน",
+        "หายใจออกให้สุดในจังหวะบน เพื่อให้หน้าท้องหดตัวได้แรงขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't pull on your head with your hands — it strains your neck and takes work away from the abs.",
+        "Avoid sitting all the way up; once your shoulder blades are off the floor, going higher hands the work to the hip flexors instead of the abs."
+      ],
+      "th": [
+        "อย่าใช้มือดึงศีรษะ เพราะคอจะรับแรงเกินและหน้าท้องทำงานน้อยลง",
+        "อย่าลุกขึ้นจนนั่งเต็มตัว เพราะเมื่อสะบักพ้นพื้นแล้ว การยกสูงขึ้นอีกจะเป็นงานของกล้ามงอสะโพกแทนหน้าท้อง"
+      ]
+    }
+  },
+  {
+    "id": "hanging_leg_raise",
+    "name": {
+      "en": "Hanging Leg Raise",
+      "th": "แฮงกิ้งเลกเรส"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "advanced",
+    "primary": [
+      "rectus_abdominis",
+      "iliopsoas"
+    ],
+    "secondary": [
+      "external_oblique",
+      "rectus_femoris"
+    ],
+    "steps": {
+      "en": [
+        "Hang from a pull-up bar with an overhand grip, arms straight and legs together.",
+        "Brace your core and pull your shoulders slightly down to stop any swing.",
+        "Keeping your legs straight, raise them in front of you to at least hip height, curling your pelvis up at the top.",
+        "Lower your legs slowly under control until they hang straight again."
+      ],
+      "th": [
+        "ห้อยตัวจากบาร์โหน จับบาร์แบบคว่ำมือ แขนเหยียดตรง ขาชิดกัน",
+        "เกร็งแกนกลางลำตัวและกดไหล่ลงเล็กน้อยเพื่อไม่ให้ตัวแกว่ง",
+        "เหยียดขาตรง ยกขาขึ้นด้านหน้าให้สูงอย่างน้อยระดับสะโพก แล้วม้วนเชิงกรานขึ้นในจังหวะบน",
+        "ค่อยๆ ลดขาลงอย่างควบคุมจนขากลับมาห้อยตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Lifting the legs is the hip flexors' job; curling your pelvis toward your ribs at the top is what brings in the abs, so finish every rep with that curl.",
+        "Keep your legs straight so the hip flexors lift the full weight of your legs."
+      ],
+      "th": [
+        "การยกขาเป็นงานของกล้ามงอสะโพก ส่วนการม้วนเชิงกรานเข้าหาซี่โครงในจังหวะบนคือสิ่งที่ทำให้หน้าท้องทำงาน จึงควรจบทุกเรพด้วยการม้วนเชิงกราน",
+        "เหยียดขาตรงไว้ เพื่อให้กล้ามงอสะโพกยกน้ำหนักขาทั้งหมด"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't swing or kick your legs up with momentum — the swing does the lifting instead of the abs and hip flexors.",
+        "Avoid arching your lower back as your legs rise; the hip flexors then pull on your lumbar spine and strain it, so keep your abs braced and pelvis tucked."
+      ],
+      "th": [
+        "อย่าแกว่งตัวหรือใช้แรงเหวี่ยงเตะขาขึ้น เพราะแรงเหวี่ยงจะยกขาแทนหน้าท้องและกล้ามงอสะโพก",
+        "อย่าแอ่นหลังล่างตอนยกขา เพราะกล้ามงอสะโพกจะดึงกระดูกสันหลังส่วนล่างจนหลังรับแรงเกิน ให้เกร็งหน้าท้องและม้วนเชิงกรานเข้าไว้"
+      ]
+    }
+  },
+  {
+    "id": "cable_crunch",
+    "name": {
+      "en": "Cable Crunch",
+      "th": "เคเบิลครันช์"
+    },
+    "equipment": "cable",
+    "difficulty": "intermediate",
+    "primary": [
+      "rectus_abdominis"
+    ],
+    "secondary": [
+      "external_oblique",
+      "internal_oblique"
+    ],
+    "steps": {
+      "en": [
+        "Attach a rope to a high pulley and kneel facing the machine, holding the rope ends beside your head.",
+        "Sit your hips slightly back and keep them still for the whole set.",
+        "Breathe out and crunch down, rounding your spine to bring your elbows toward your thighs.",
+        "Return slowly until your abs are stretched, without letting your hips move."
+      ],
+      "th": [
+        "ติดเชือกที่รอกสูง คุกเข่าหันหน้าเข้าหาเครื่อง จับปลายเชือกไว้ข้างศีรษะ",
+        "ถอยสะโพกไปด้านหลังเล็กน้อย และให้สะโพกอยู่นิ่งตลอดเซ็ต",
+        "หายใจออก งอลำตัวลงโดยม้วนกระดูกสันหลังให้ศอกเข้าหาต้นขา",
+        "ค่อยๆ กลับขึ้นจนหน้าท้องยืด โดยไม่ขยับสะโพก"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Round your spine to bring your ribs toward your pelvis rather than bending at the hips — the curl is what loads the abs.",
+        "Keep your hands fixed beside your head so your abs, not your arms, pull the weight down."
+      ],
+      "th": [
+        "ม้วนลำตัวให้ซี่โครงเข้าหาเชิงกราน แทนการพับที่สะโพก เพราะการม้วนลำตัวคือสิ่งที่ทำให้หน้าท้องรับน้ำหนัก",
+        "ล็อกมือไว้ข้างศีรษะ ให้หน้าท้องเป็นตัวดึงน้ำหนักลง ไม่ใช่แขน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't sit your hips back toward your heels as you crunch — it turns the movement into a hip hinge and the abs do less.",
+        "Avoid going so heavy that you have to yank the rope with your arms; your arms take over from the abs."
+      ],
+      "th": [
+        "อย่านั่งสะโพกลงหาส้นเท้าตอนงอตัว เพราะท่าจะกลายเป็นการพับสะโพก และหน้าท้องทำงานน้อยลง",
+        "อย่าใช้น้ำหนักมากจนต้องใช้แขนกระชากเชือก เพราะแขนจะทำงานแทนหน้าท้อง"
+      ]
+    }
+  },
+  {
+    "id": "ab_wheel_rollout",
+    "name": {
+      "en": "Ab Wheel Rollout",
+      "th": "แอบวีลโรลเอาต์"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "intermediate",
+    "primary": [
+      "rectus_abdominis",
+      "transversus_abdominis"
+    ],
+    "secondary": [
+      "latissimus_dorsi",
+      "external_oblique"
+    ],
+    "steps": {
+      "en": [
+        "Kneel on a mat holding the ab wheel on the floor under your shoulders, arms straight.",
+        "Brace your abs and tuck your pelvis slightly so your back is flat.",
+        "Roll the wheel forward slowly, letting your hips and torso move toward the floor together.",
+        "Stop before your lower back starts to sag, then pull the wheel back to your knees using your abs."
+      ],
+      "th": [
+        "คุกเข่าบนเสื่อ จับล้อหน้าท้องวางบนพื้นใต้ไหล่ แขนเหยียดตรง",
+        "เกร็งหน้าท้องและม้วนเชิงกรานเข้าเล็กน้อยให้หลังเรียบ",
+        "ค่อยๆ กลิ้งล้อไปข้างหน้า ให้สะโพกและลำตัวเคลื่อนลงหาพื้นไปพร้อมกัน",
+        "หยุดก่อนหลังล่างเริ่มแอ่น แล้วใช้หน้าท้องดึงล้อกลับมาที่เข่า"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your ribs pulled down and pelvis tucked the whole time — resisting the arch is what loads the rectus abdominis and deep abs.",
+        "The further you roll, the harder your abs work, so roll only as far as you can keep your back flat and add distance over time."
+      ],
+      "th": [
+        "ดึงซี่โครงลงและม้วนเชิงกรานเข้าไว้ตลอด การต้านไม่ให้หลังแอ่นคือสิ่งที่ทำให้กล้ามหน้าท้องและกล้ามท้องชั้นลึกรับแรง",
+        "ยิ่งกลิ้งไกล หน้าท้องยิ่งทำงานหนัก จึงควรกลิ้งไปเท่าที่ยังคุมหลังให้เรียบได้ แล้วค่อยๆ เพิ่มระยะ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your lower back sag at the far end — the load shifts onto your lower back and can strain it.",
+        "Avoid pulling back by shoving your hips up and back first; the hips take over and the abs do less."
+      ],
+      "th": [
+        "อย่าปล่อยให้หลังล่างแอ่นในจังหวะไกลสุด เพราะแรงจะไปลงที่หลังล่างและอาจบาดเจ็บได้",
+        "อย่าดึงล้อกลับด้วยการยกสะโพกขึ้นและถอยไปก่อน เพราะสะโพกจะทำงานแทนและหน้าท้องทำงานน้อยลง"
+      ]
+    }
+  },
+  {
+    "id": "plank",
+    "name": {
+      "en": "Plank",
+      "th": "แพลงก์"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "transversus_abdominis",
+      "rectus_abdominis"
+    ],
+    "secondary": [
+      "external_oblique",
+      "internal_oblique",
+      "gluteus_maximus"
+    ],
+    "steps": {
+      "en": [
+        "Place your forearms on the floor with your elbows under your shoulders.",
+        "Step your feet back so your body forms a straight line from head to heels.",
+        "Brace your abs and squeeze your glutes, tucking your pelvis slightly.",
+        "Hold the position while breathing steadily, then lower your knees to rest."
+      ],
+      "th": [
+        "วางปลายแขนบนพื้น ให้ศอกอยู่ใต้ไหล่",
+        "ถอยเท้าไปด้านหลังจนลำตัวเป็นเส้นตรงจากศีรษะถึงส้นเท้า",
+        "เกร็งหน้าท้องและบีบก้น ม้วนเชิงกรานเข้าเล็กน้อย",
+        "ค้างท่าไว้โดยหายใจสม่ำเสมอ แล้ววางเข่าลงพักเมื่อจบเซ็ต"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Brace your whole midsection as if about to be poked in the stomach, with your ribs pulled down — this works the deep abs and the rectus abdominis together.",
+        "Try to pull your elbows toward your toes without letting them move; it raises the tension in your abs."
+      ],
+      "th": [
+        "เกร็งรอบลำตัวเหมือนเตรียมรับแรงจิ้มที่ท้อง และดึงซี่โครงลง เพื่อให้กล้ามท้องชั้นลึกและกล้ามหน้าท้องทำงานไปพร้อมกัน",
+        "ลองออกแรงดึงศอกเข้าหาปลายเท้าโดยไม่ให้ศอกขยับ จะช่วยเพิ่มแรงเกร็งที่หน้าท้อง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your hips sag — your lower back takes the load instead of your abs.",
+        "Avoid piking your hips up high; it makes the hold easier by taking work off the abs."
+      ],
+      "th": [
+        "อย่าปล่อยสะโพกตก เพราะหลังล่างจะรับแรงแทนหน้าท้อง",
+        "อย่าโด่งสะโพกขึ้นสูง เพราะท่าจะง่ายขึ้นโดยหน้าท้องทำงานน้อยลง"
+      ]
+    }
+  },
+  {
+    "id": "side_plank",
+    "name": {
+      "en": "Side Plank",
+      "th": "ไซด์แพลงก์"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "external_oblique",
+      "internal_oblique"
+    ],
+    "secondary": [
+      "gluteus_medius",
+      "transversus_abdominis"
+    ],
+    "steps": {
+      "en": [
+        "Lie on your side with your forearm on the floor, elbow under your shoulder, and your legs straight with feet stacked.",
+        "Brace your core and lift your hips off the floor so your body forms a straight line from head to feet.",
+        "Hold the position without letting your hips drop, breathing steadily.",
+        "Lower your hips to the floor, then switch sides."
+      ],
+      "th": [
+        "นอนตะแคง วางปลายแขนบนพื้นให้ศอกอยู่ใต้ไหล่ เหยียดขาตรงและวางเท้าซ้อนกัน",
+        "เกร็งแกนกลางลำตัว ยกสะโพกขึ้นจากพื้นจนลำตัวเป็นเส้นตรงจากศีรษะถึงเท้า",
+        "ค้างท่าไว้โดยไม่ให้สะโพกตก หายใจสม่ำเสมอ",
+        "ลดสะโพกลงพื้น แล้วเปลี่ยนข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Push your bottom hip up toward the ceiling — holding the hip high against gravity is the job of the obliques on the bottom side.",
+        "Keep your chest and hips facing straight ahead, not rolling toward the floor, so the obliques hold the position on their own."
+      ],
+      "th": [
+        "ดันสะโพกด้านล่างขึ้นหาเพดาน การยกสะโพกค้างไว้ต้านแรงโน้มถ่วงคือหน้าที่ของกล้ามเอวฝั่งที่อยู่ด้านล่าง",
+        "ให้หน้าอกและสะโพกหันตรงไปด้านหน้า ไม่บิดลงหาพื้น เพื่อให้กล้ามเอวเป็นตัวค้างท่าเอง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your hips sag toward the floor — the obliques stop working and your shoulder takes the strain.",
+        "Avoid placing your elbow out in front of your shoulder; it puts extra strain on the shoulder joint."
+      ],
+      "th": [
+        "อย่าปล่อยสะโพกตกลงหาพื้น เพราะกล้ามเอวจะหยุดทำงานและไหล่รับแรงแทน",
+        "อย่าวางศอกเลยไปด้านหน้าไหล่ เพราะข้อไหล่จะรับแรงเกิน"
+      ]
+    }
+  },
+  {
+    "id": "russian_twist",
+    "name": {
+      "en": "Russian Twist",
+      "th": "รัสเซียนทวิสต์"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "external_oblique",
+      "internal_oblique"
+    ],
+    "secondary": [
+      "rectus_abdominis"
+    ],
+    "steps": {
+      "en": [
+        "Sit on the floor with your knees bent and heels down, then lean back about 45 degrees with a straight back.",
+        "Clasp your hands in front of your chest.",
+        "Rotate your torso to one side, turning your shoulders until your hands are beside your hip.",
+        "Rotate back through the middle to the other side and keep alternating."
+      ],
+      "th": [
+        "นั่งบนพื้น ชันเข่า ส้นเท้าแตะพื้น แล้วเอนตัวไปด้านหลังประมาณ 45 องศาโดยหลังตรง",
+        "ประสานมือไว้หน้าอก",
+        "บิดลำตัวไปด้านหนึ่ง ให้ไหล่หมุนตามจนมือมาอยู่ข้างสะโพก",
+        "บิดกลับผ่านตรงกลางไปอีกด้าน แล้วสลับไปเรื่อยๆ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Turn from your ribcage so your shoulders rotate, not just your arms — rotating the trunk is what works the obliques.",
+        "Move at a controlled pace and pause briefly at each side, so the obliques, not momentum, stop and reverse the turn."
+      ],
+      "th": [
+        "บิดจากช่วงซี่โครงให้ไหล่หมุนตาม ไม่ใช่แค่ขยับแขน เพราะการบิดลำตัวคือสิ่งที่ทำให้กล้ามเอวทำงาน",
+        "บิดด้วยจังหวะที่ควบคุมได้และค้างสั้นๆ ที่แต่ละด้าน เพื่อให้กล้ามเอวเป็นตัวหยุดและเปลี่ยนทิศ ไม่ใช่แรงเหวี่ยง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't round your back as you lean back — it puts pressure on your lower back.",
+        "Avoid just swinging your arms side to side while your torso stays still; the obliques barely work."
+      ],
+      "th": [
+        "อย่างอหลังตอนเอนตัว เพราะหลังล่างจะรับแรงกด",
+        "อย่าแค่แกว่งแขนไปมาโดยที่ลำตัวไม่หมุน เพราะกล้ามเอวแทบไม่ได้ทำงาน"
+      ]
+    }
+  },
+  {
+    "id": "pallof_press",
+    "name": {
+      "en": "Pallof Press",
+      "th": "พัลลอฟเพรส"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "internal_oblique",
+      "external_oblique",
+      "transversus_abdominis"
+    ],
+    "secondary": [
+      "rectus_abdominis"
+    ],
+    "steps": {
+      "en": [
+        "Set a cable handle at chest height and stand side-on to the machine, feet hip-width apart.",
+        "Hold the handle with both hands at the middle of your chest and step away until the cable is taut.",
+        "Brace your core and press the handle straight out in front of your chest without letting your torso turn.",
+        "Hold for a moment, bring the handle back to your chest, and switch sides after the set."
+      ],
+      "th": [
+        "ตั้งด้ามจับเคเบิลไว้ระดับอก ยืนหันข้างให้เครื่อง เท้ากว้างเท่าสะโพก",
+        "ใช้สองมือจับด้ามไว้กลางอก แล้วเดินออกจากเครื่องจนสายตึง",
+        "เกร็งแกนกลางลำตัว ดันด้ามจับออกไปตรงหน้าอก โดยไม่ให้ลำตัวบิดตามแรงดึง",
+        "ค้างไว้ครู่หนึ่ง ดึงด้ามกลับมาที่อก ครบเซ็ตแล้วเปลี่ยนข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Your core works hardest when your arms are straight, because the cable twists your torso most there — pause and resist the twist.",
+        "Keep your ribs down and hips facing forward so the obliques and deep abs, not a change in stance, resist the pull."
+      ],
+      "th": [
+        "แกนกลางลำตัวทำงานหนักที่สุดตอนแขนเหยียดตรง เพราะสายดึงให้ลำตัวบิดมากที่สุดในจุดนั้น จึงควรค้างไว้และต้านไม่ให้ตัวบิด",
+        "ดึงซี่โครงลงและให้สะโพกหันตรงไปด้านหน้า เพื่อให้กล้ามเอวและกล้ามท้องชั้นลึกเป็นตัวต้านแรงดึง ไม่ใช่การเปลี่ยนท่ายืน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your torso or hips rotate toward the machine; once you turn, the obliques are no longer resisting the twist.",
+        "Avoid leaning away from the cable to counter the pull — the lean does the job instead of your core."
+      ],
+      "th": [
+        "อย่าปล่อยให้ลำตัวหรือสะโพกบิดเข้าหาเครื่อง เพราะเมื่อตัวบิดตามไปแล้ว กล้ามเอวก็ไม่ได้ต้านแรงบิดอีก",
+        "อย่าเอนตัวหนีสายเพื่อต้านแรงดึง เพราะการเอนตัวจะทำงานแทนแกนกลางลำตัว"
+      ]
+    }
+  },
+  {
+    "id": "cable_woodchop",
+    "name": {
+      "en": "Cable Woodchop",
+      "th": "เคเบิลวู้ดช็อป"
+    },
+    "equipment": "cable",
+    "difficulty": "intermediate",
+    "primary": [
+      "external_oblique"
+    ],
+    "secondary": [
+      "internal_oblique",
+      "rectus_abdominis",
+      "deltoid_anterior"
+    ],
+    "steps": {
+      "en": [
+        "Set a cable handle at the top of the pulley and stand side-on to the machine, feet wider than shoulder width.",
+        "Reach up and grab the handle with both hands, arms nearly straight.",
+        "Rotate your torso and pull the handle diagonally down across your body toward the opposite hip, pivoting on your back foot.",
+        "Return slowly along the same path, and switch sides after the set."
+      ],
+      "th": [
+        "ตั้งด้ามจับเคเบิลไว้ที่รอกสูงสุด ยืนหันข้างให้เครื่อง เท้ากว้างกว่าไหล่",
+        "เอื้อมมือขึ้นจับด้ามด้วยสองมือ แขนเกือบเหยียดตรง",
+        "บิดลำตัวดึงด้ามจับลงเฉียงตัดผ่านลำตัวไปทางสะโพกฝั่งตรงข้าม โดยหมุนปลายเท้าหลังตาม",
+        "ค่อยๆ กลับตามแนวเดิม ครบเซ็ตแล้วเปลี่ยนข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your arms nearly straight and drive the movement by rotating your ribcage, so the obliques do the pulling instead of your arms.",
+        "Finish with your chest turned toward the opposite hip to take the obliques through their full rotation."
+      ],
+      "th": [
+        "ให้แขนเกือบเหยียดตรงตลอด แล้วออกแรงด้วยการบิดช่วงซี่โครง เพื่อให้กล้ามเอวเป็นตัวดึงแทนแขน",
+        "จบท่าโดยให้หน้าอกหันไปทางสะโพกฝั่งตรงข้าม เพื่อให้กล้ามเอวบิดได้สุดช่วง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't bend your elbows and pull with your arms; the chop becomes an arm exercise and the obliques do less.",
+        "Avoid twisting only through your lower back with both feet planted — let your back foot pivot so your hips turn too and your lower back isn't over-twisted."
+      ],
+      "th": [
+        "อย่างอศอกแล้วใช้แขนดึง เพราะท่าจะกลายเป็นการฝึกแขน และกล้ามเอวทำงานน้อยลง",
+        "อย่าบิดเฉพาะหลังล่างโดยที่เท้าทั้งสองข้างล็อกอยู่กับที่ ให้ปลายเท้าหลังหมุนตามเพื่อให้สะโพกหมุนด้วย หลังล่างจะได้ไม่รับแรงบิดเกิน"
+      ]
+    }
+  },
+  {
+    "id": "dead_bug",
+    "name": {
+      "en": "Dead Bug",
+      "th": "เดดบัก"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "transversus_abdominis",
+      "rectus_abdominis"
+    ],
+    "secondary": [
+      "iliopsoas"
+    ],
+    "steps": {
+      "en": [
+        "Lie on your back with your arms pointing straight up and your hips and knees bent to 90 degrees.",
+        "Brace your abs and press your lower back gently into the floor.",
+        "Slowly lower one arm overhead and straighten the opposite leg toward the floor, stopping before your back lifts.",
+        "Bring them back to the start and repeat on the other side."
+      ],
+      "th": [
+        "นอนหงาย ยกแขนชี้ตรงขึ้นเพดาน งอสะโพกและเข่า 90 องศา",
+        "เกร็งหน้าท้อง กดหลังล่างแนบพื้นเบาๆ",
+        "ค่อยๆ ลดแขนข้างหนึ่งไปเหนือศีรษะ พร้อมเหยียดขาฝั่งตรงข้ามลงหาพื้น หยุดก่อนหลังลอย",
+        "ดึงกลับมาท่าเริ่มต้น แล้วทำอีกฝั่ง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your lower back pressed down the whole time — holding it still while your limbs move is what trains the deep abs.",
+        "Breathe out as you extend your arm and leg to help your abs tighten."
+      ],
+      "th": [
+        "กดหลังล่างแนบพื้นไว้ตลอด การคุมหลังให้นิ่งขณะที่แขนขาขยับคือสิ่งที่ฝึกกล้ามท้องชั้นลึก",
+        "หายใจออกตอนเหยียดแขนและขา เพื่อช่วยให้หน้าท้องเกร็งแน่นขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your lower back arch off the floor; it means the abs have lost control and your back is taking the strain.",
+        "Avoid rushing the reps; moving fast lets momentum do the work instead of your abs."
+      ],
+      "th": [
+        "อย่าปล่อยให้หลังล่างแอ่นลอยจากพื้น เพราะแสดงว่าหน้าท้องคุมไม่อยู่แล้ว และหลังกำลังรับแรงแทน",
+        "อย่ารีบทำ เพราะการขยับเร็วทำให้แรงเหวี่ยงทำงานแทนหน้าท้อง"
+      ]
+    }
+  },
+  {
+    "id": "hip_thrust",
+    "name": {
+      "en": "Barbell Hip Thrust",
+      "th": "บาร์เบลฮิปทรัสต์"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "gluteus_maximus"
+    ],
+    "secondary": [
+      "biceps_femoris",
+      "semitendinosus",
+      "hip_adductors"
+    ],
+    "steps": {
+      "en": [
+        "Sit on the floor with your upper back against the edge of a bench and a padded barbell across your hips.",
+        "Plant your feet flat, about hip-width apart, where your shins will be vertical at the top.",
+        "Brace your core and drive through your heels to lift your hips until your thighs line up with your torso, ribs down and chin tucked.",
+        "Squeeze your glutes for a moment at the top, then lower your hips under control."
+      ],
+      "th": [
+        "นั่งบนพื้น พิงหลังส่วนบนกับขอบม้านั่ง วางบาร์เบลที่หุ้มแผ่นรองไว้บนสะโพก",
+        "วางเท้าราบกับพื้นกว้างประมาณสะโพก ในระยะที่หน้าแข้งจะตั้งตรงเมื่ออยู่จังหวะบน",
+        "เกร็งแกนกลางลำตัว ดันส้นเท้ายกสะโพกขึ้นจนต้นขาอยู่ในแนวเดียวกับลำตัว ดึงซี่โครงลงและเก็บคาง",
+        "บีบก้นค้างไว้ครู่หนึ่งในจังหวะบน แล้วลดสะโพกลงอย่างควบคุม"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Finish the lift by squeezing your glutes, not by arching your back — reaching full hip extension is where the glutes work hardest in this exercise.",
+        "Keep your shins vertical at the top; feet too far out shifts work to the hamstrings, too close shifts it to the quads."
+      ],
+      "th": [
+        "จบจังหวะยกด้วยการบีบก้น ไม่ใช่แอ่นหลัง เพราะช่วงที่สะโพกเหยียดสุดคือช่วงที่ก้นทำงานหนักที่สุดในท่านี้",
+        "ให้หน้าแข้งตั้งตรงในจังหวะบน ถ้าวางเท้าไกลเกินไปงานจะไปที่แฮมสตริง ถ้าใกล้เกินไปงานจะไปที่ต้นขาหน้า"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't overarch your lower back at the top — the load goes into your spine instead of your glutes.",
+        "Don't skip the bar pad; the bar pressing straight onto your hip bones is painful and stops you pushing hard."
+      ],
+      "th": [
+        "อย่าแอ่นหลังล่างมากเกินไปในจังหวะบน เพราะแรงจะไปลงที่กระดูกสันหลังแทนก้น",
+        "อย่าละเลยแผ่นรองบาร์ เพราะบาร์ที่กดลงบนกระดูกสะโพกโดยตรงจะเจ็บ และทำให้ดันได้ไม่เต็มแรง"
+      ]
+    }
+  },
+  {
+    "id": "glute_bridge",
+    "name": {
+      "en": "Glute Bridge",
+      "th": "กลูตบริดจ์"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "gluteus_maximus"
+    ],
+    "secondary": [
+      "biceps_femoris",
+      "erector_spinae"
+    ],
+    "steps": {
+      "en": [
+        "Lie on your back with your knees bent, feet flat about hip-width apart and close to your glutes, arms at your sides.",
+        "Brace your core and tuck your pelvis slightly.",
+        "Drive through your heels to lift your hips until your body forms a straight line from shoulders to knees.",
+        "Squeeze your glutes at the top for a moment, then lower slowly."
+      ],
+      "th": [
+        "นอนหงาย ชันเข่า วางเท้าราบกับพื้นกว้างเท่าสะโพกและใกล้ก้น วางแขนไว้ข้างลำตัว",
+        "เกร็งแกนกลางลำตัวและม้วนเชิงกรานเข้าเล็กน้อย",
+        "ดันส้นเท้ายกสะโพกขึ้นจนลำตัวเป็นเส้นตรงจากไหล่ถึงเข่า",
+        "บีบก้นค้างไว้ครู่หนึ่งในจังหวะบน แล้วค่อยๆ ลดลง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Push through your heels and squeeze your glutes to lift, so your hips rise from the glutes and not from your lower back.",
+        "Hold the top for two seconds on each rep to keep the glutes working."
+      ],
+      "th": [
+        "ดันผ่านส้นเท้าและบีบก้นเพื่อยกสะโพก ให้ก้นเป็นตัวยก ไม่ใช่หลังล่าง",
+        "ค้างจังหวะบน 2 วินาทีในทุกเรพ เพื่อให้ก้นทำงานต่อเนื่อง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't push your hips so high that your back arches; your lower back takes over from the glutes.",
+        "Avoid placing your feet far from your body; the hamstrings take over and may cramp."
+      ],
+      "th": [
+        "อย่ายกสะโพกสูงจนหลังแอ่น เพราะหลังล่างจะทำงานแทนก้น",
+        "อย่าวางเท้าห่างจากลำตัวมากเกินไป เพราะแฮมสตริงจะทำงานแทนและอาจเป็นตะคริว"
+      ]
+    }
+  },
+  {
+    "id": "cable_kickback",
+    "name": {
+      "en": "Cable Glute Kickback",
+      "th": "เคเบิลกลูตคิกแบ็ก"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "gluteus_maximus"
+    ],
+    "secondary": [
+      "biceps_femoris"
+    ],
+    "steps": {
+      "en": [
+        "Attach an ankle strap to a low pulley and fasten it around one ankle.",
+        "Face the machine, hold the frame for support, and lean your torso slightly forward with a flat back.",
+        "Keeping a slight bend in the knee, squeeze your glute to push the strapped leg straight back.",
+        "Stop when your hip is fully extended, return slowly, and switch legs after the set."
+      ],
+      "th": [
+        "ติดสายรัดข้อเท้าที่รอกต่ำ แล้วรัดไว้ที่ข้อเท้าข้างหนึ่ง",
+        "ยืนหันหน้าเข้าหาเครื่อง จับโครงเครื่องไว้ทรงตัว แล้วเอนลำตัวไปข้างหน้าเล็กน้อยโดยหลังตรง",
+        "งอเข่าเล็กน้อยค้างไว้ แล้วบีบก้นถีบขาข้างที่รัดสายไปด้านหลังตรงๆ",
+        "หยุดเมื่อสะโพกเหยียดสุด ค่อยๆ กลับ ครบเซ็ตแล้วเปลี่ยนขา"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Think of driving your heel back rather than kicking up, and squeeze the glute at the end of every rep.",
+        "The slight forward lean lets your hip extend through a longer range, so the glute does more work."
+      ],
+      "th": [
+        "นึกว่าถีบส้นเท้าไปด้านหลังแทนการเตะขึ้น และบีบก้นในจังหวะสุดของทุกเรพ",
+        "การเอนตัวไปข้างหน้าเล็กน้อยช่วยให้สะโพกเหยียดได้ในช่วงที่ยาวขึ้น ก้นจึงทำงานได้มากขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't arch your lower back to get the leg higher — your back does the lifting instead of the glute.",
+        "Avoid twisting your hip open as you kick; it fakes extra range with your lower back instead of using the glute."
+      ],
+      "th": [
+        "อย่าแอ่นหลังล่างเพื่อให้ขาขึ้นสูงขึ้น เพราะหลังจะเป็นตัวยกแทนก้น",
+        "อย่าบิดสะโพกเปิดออกตอนถีบขา เพราะเป็นการโกงระยะด้วยหลังล่างแทนการใช้ก้น"
+      ]
+    }
+  },
+  {
+    "id": "side_lying_hip_abduction",
+    "name": {
+      "en": "Side-lying Hip Abduction",
+      "th": "นอนตะแคงกางขา"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "gluteus_medius",
+      "gluteus_minimus",
+      "tensor_fasciae_latae"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Lie on your side with your legs straight and stacked, resting your head on your bottom arm.",
+        "Roll your top hip slightly forward so your toes point straight ahead.",
+        "Raise your top leg to about 30–45 degrees, leading with your heel.",
+        "Lower it slowly without resting it on the bottom leg, and switch sides after the set."
+      ],
+      "th": [
+        "นอนตะแคง เหยียดขาตรงซ้อนกัน ใช้แขนด้านล่างรองศีรษะ",
+        "เอียงสะโพกด้านบนไปข้างหน้าเล็กน้อย ให้ปลายเท้าชี้ไปด้านหน้า",
+        "ยกขาด้านบนขึ้นประมาณ 30–45 องศา โดยให้ส้นเท้านำ",
+        "ค่อยๆ ลดลงโดยไม่วางพักบนขาด้านล่าง ครบเซ็ตแล้วเปลี่ยนข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your leg in line with your body rather than drifting forward, so the muscles on the side of the hip do the lifting.",
+        "Lift only as high as you can without your pelvis tilting; above that, your trunk starts doing the work instead of the hip."
+      ],
+      "th": [
+        "ให้ขาอยู่แนวเดียวกับลำตัว ไม่เลื่อนมาด้านหน้า เพื่อให้กล้ามสะโพกด้านข้างเป็นตัวยก",
+        "ยกขึ้นแค่เท่าที่เชิงกรานไม่เอียงตาม เพราะถ้าสูงกว่านั้นลำตัวจะเริ่มทำงานแทนสะโพก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't turn your toes up toward the ceiling — the lift becomes a hip-flexor movement and the side of the hip does less.",
+        "Avoid swinging the leg up quickly; momentum lifts it instead of your hip muscles."
+      ],
+      "th": [
+        "อย่าหมุนปลายเท้าชี้ขึ้นเพดาน เพราะท่าจะกลายเป็นการใช้กล้ามงอสะโพก และสะโพกด้านข้างทำงานน้อยลง",
+        "อย่าเหวี่ยงขาขึ้นเร็วๆ เพราะแรงเหวี่ยงจะยกขาแทนกล้ามสะโพก"
+      ]
+    }
+  },
+  {
+    "id": "banded_lateral_walk",
+    "name": {
+      "en": "Banded Lateral Walk",
+      "th": "เดินด้านข้างต้านยางยืด"
+    },
+    "equipment": "band",
+    "difficulty": "beginner",
+    "primary": [
+      "gluteus_medius"
+    ],
+    "secondary": [
+      "gluteus_minimus",
+      "tensor_fasciae_latae"
+    ],
+    "steps": {
+      "en": [
+        "Place a loop band around your legs just above your knees and stand with your feet hip-width apart.",
+        "Bend your hips and knees slightly, keeping your chest up.",
+        "Step sideways with one foot, then follow with the other, keeping the band taut.",
+        "Take the planned number of steps, then walk back the other way."
+      ],
+      "th": [
+        "คล้องยางยืดแบบวงไว้เหนือเข่า ยืนเท้ากว้างเท่าสะโพก",
+        "ย่อเข่าและพับสะโพกลงเล็กน้อย อกตั้ง",
+        "ก้าวเท้าข้างหนึ่งออกด้านข้าง แล้วก้าวเท้าอีกข้างตาม โดยให้ยางตึงตลอด",
+        "ก้าวจนครบจำนวนที่ตั้งไว้ แล้วเดินกลับอีกทาง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Press your knees out against the band on every step so the side glutes keep working.",
+        "Take small, controlled steps and never let your feet come together — a slack band means the glutes get a rest."
+      ],
+      "th": [
+        "ดันเข่าออกต้านแรงยางทุกก้าว เพื่อให้ก้นด้านข้างทำงานตลอด",
+        "ก้าวสั้นๆ อย่างควบคุม และอย่าให้เท้าชิดกัน เพราะเมื่อยางหย่อน ก้นก็ได้พัก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your knees cave inward; the glutes stop resisting the band and your knees take the strain.",
+        "Avoid swaying your upper body side to side to take each step; leaning shifts the work away from the hip."
+      ],
+      "th": [
+        "อย่าปล่อยเข่าบิดเข้าด้านใน เพราะก้นจะหยุดต้านแรงยางและเข่ารับแรงแทน",
+        "อย่าโยกลำตัวไปมาเพื่อช่วยก้าว เพราะการเอียงตัวทำให้งานหลุดจากสะโพก"
+      ]
+    }
+  },
+  {
+    "id": "clamshell",
+    "name": {
+      "en": "Clamshell",
+      "th": "แคลมเชลล์"
+    },
+    "equipment": "band",
+    "difficulty": "beginner",
+    "primary": [
+      "gluteus_medius"
+    ],
+    "secondary": [
+      "gluteus_minimus"
+    ],
+    "steps": {
+      "en": [
+        "Place a loop band around your thighs just above the knees and lie on your side with hips and knees bent about 45 degrees, heels together.",
+        "Rest your head on your bottom arm and stack your hips vertically.",
+        "Keeping your feet together, lift your top knee as high as you can without rolling your pelvis back.",
+        "Pause, lower slowly, and switch sides after the set."
+      ],
+      "th": [
+        "คล้องยางยืดแบบวงไว้เหนือเข่า นอนตะแคง งอสะโพกและเข่าประมาณ 45 องศา ส้นเท้าชิดกัน",
+        "วางศีรษะบนแขนด้านล่าง และจัดสะโพกให้ซ้อนกันตั้งตรง",
+        "ให้เท้าชิดกันไว้ แล้วยกเข่าด้านบนขึ้นให้สูงที่สุดเท่าที่ยังไม่ต้องเอนเชิงกรานไปด้านหลัง",
+        "ค้างไว้ครู่หนึ่ง ค่อยๆ ลดลง ครบเซ็ตแล้วเปลี่ยนข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Put a hand on your top hip to check it doesn't roll back, so the movement comes only from the side glute.",
+        "Squeeze the side of your hip at the top for a second on each rep."
+      ],
+      "th": [
+        "วางมือไว้บนสะโพกด้านบนเพื่อเช็กว่าสะโพกไม่เอนไปด้านหลัง ให้การเคลื่อนไหวมาจากก้นด้านข้างอย่างเดียว",
+        "บีบก้นด้านข้างค้างไว้ 1 วินาทีในจังหวะบนของทุกเรพ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't roll your pelvis backward to lift the knee higher; your trunk does the work instead of the glute.",
+        "Avoid letting your feet separate; the movement changes and the side glute does less."
+      ],
+      "th": [
+        "อย่าเอนเชิงกรานไปด้านหลังเพื่อให้เข่ายกสูงขึ้น เพราะลำตัวจะทำงานแทนก้น",
+        "อย่าปล่อยให้เท้าแยกจากกัน เพราะท่าจะเปลี่ยนไปและก้นด้านข้างทำงานน้อยลง"
+      ]
+    }
+  },
+  {
+    "id": "hip_abduction_machine",
+    "name": {
+      "en": "Hip Abduction Machine",
+      "th": "เครื่องกางขา"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "gluteus_medius",
+      "tensor_fasciae_latae"
+    ],
+    "secondary": [
+      "gluteus_minimus"
+    ],
+    "steps": {
+      "en": [
+        "Sit in the machine with your back against the pad and the leg pads against the outside of your knees.",
+        "Hold the handles and brace your core.",
+        "Push your knees out as wide as you can against the pads.",
+        "Pause, then let your legs come back in slowly without letting the weight stack touch down."
+      ],
+      "th": [
+        "นั่งบนเครื่อง หลังพิงเบาะ ให้แผ่นรองขาอยู่ด้านนอกเข่า",
+        "จับที่จับและเกร็งแกนกลางลำตัว",
+        "ดันเข่าออกด้านข้างให้กว้างที่สุดต้านแผ่นรอง",
+        "ค้างไว้ครู่หนึ่ง แล้วค่อยๆ หุบขากลับโดยไม่ให้แผ่นน้ำหนักวางลงสุด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Use the full range, from legs close together to as wide as your hips allow, so the side hip muscles work through their whole range.",
+        "Pause for a second with your knees at their widest to keep the side hip muscles working."
+      ],
+      "th": [
+        "ใช้ช่วงการเคลื่อนไหวให้เต็ม ตั้งแต่ขาหุบเกือบชิดจนกางกว้างที่สุดเท่าที่สะโพกทำได้ เพื่อให้กล้ามสะโพกด้านข้างทำงานเต็มช่วง",
+        "ค้าง 1 วินาทีในจังหวะที่เข่ากางกว้างสุด เพื่อให้กล้ามสะโพกด้านข้างทำงานต่อเนื่อง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let the pads slam back together; the side hip muscles stop resisting on the way in.",
+        "Avoid rocking your torso back and forth to move the weight; momentum replaces the hip muscles."
+      ],
+      "th": [
+        "อย่าปล่อยแผ่นรองหุบกลับกระแทก เพราะกล้ามสะโพกด้านข้างจะหยุดต้านแรงในจังหวะกลับ",
+        "อย่าโยกลำตัวไปมาเพื่อช่วยดันน้ำหนัก เพราะแรงเหวี่ยงจะทำงานแทนกล้ามสะโพก"
+      ]
+    }
+  },
+  {
+    "id": "cable_hip_abduction",
+    "name": {
+      "en": "Standing Cable Hip Abduction",
+      "th": "เคเบิลกางขาแบบยืน"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "tensor_fasciae_latae",
+      "gluteus_medius"
+    ],
+    "secondary": [
+      "gluteus_minimus"
+    ],
+    "steps": {
+      "en": [
+        "Attach an ankle strap to a low pulley and fasten it around the ankle farther from the machine.",
+        "Stand side-on to the machine, holding it for balance, with your weight on the leg nearer to it.",
+        "Keeping your torso upright and toes forward, raise the strapped leg out to the side.",
+        "Lower it slowly back to the start, and switch legs after the set."
+      ],
+      "th": [
+        "ติดสายรัดข้อเท้าที่รอกต่ำ แล้วรัดไว้ที่ข้อเท้าข้างที่อยู่ไกลจากเครื่อง",
+        "ยืนหันข้างให้เครื่อง จับเครื่องไว้ทรงตัว ลงน้ำหนักบนขาข้างที่อยู่ใกล้เครื่อง",
+        "ยืดลำตัวตรง ปลายเท้าชี้ไปด้านหน้า แล้วกางขาข้างที่รัดสายออกด้านข้าง",
+        "ค่อยๆ ลดขากลับมาท่าเริ่ม ครบเซ็ตแล้วเปลี่ยนขา"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep the working leg slightly in front of your body throughout — this brings the tensor fasciae latae in alongside the side glute.",
+        "Let the cable draw the leg slightly across your standing leg at the start, so the hip abductors work through a full range."
+      ],
+      "th": [
+        "ให้ขาข้างที่ทำงานอยู่เยื้องไปด้านหน้าลำตัวเล็กน้อยตลอด เพื่อให้เทนเซอร์ฟาสเซียลาตาทำงานร่วมกับก้นด้านข้าง",
+        "ปล่อยให้สายดึงขาไขว้มาด้านหน้าขาที่ยืนเล็กน้อยในจังหวะเริ่ม เพื่อให้กล้ามกางสะโพกทำงานเต็มช่วง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't lean your torso away from the working leg to lift it higher; your trunk does the lifting instead of the hip.",
+        "Avoid turning your toes up and out; the leg rotates and the side hip muscles do less."
+      ],
+      "th": [
+        "อย่าเอียงลำตัวหนีขาที่ทำงานเพื่อยกให้สูงขึ้น เพราะลำตัวจะเป็นตัวยกแทนสะโพก",
+        "อย่าหมุนปลายเท้าชี้ขึ้นและออกด้านนอก เพราะขาจะหมุน และกล้ามสะโพกด้านข้างทำงานน้อยลง"
+      ]
+    }
+  },
+  {
+    "id": "copenhagen_plank",
+    "name": {
+      "en": "Copenhagen Plank",
+      "th": "โคเปนเฮเกนแพลงก์"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "advanced",
+    "primary": [
+      "hip_adductors"
+    ],
+    "secondary": [
+      "internal_oblique",
+      "external_oblique"
+    ],
+    "steps": {
+      "en": [
+        "Lie on your side next to a bench, with your forearm on the floor under your shoulder and the inside of your top ankle resting on the bench.",
+        "Let your bottom leg rest on the floor beneath the bench.",
+        "Press your top leg down into the bench to lift your hips and bottom leg off the floor until your body forms a straight line.",
+        "Hold the position, then lower your hips to the floor and switch sides."
+      ],
+      "th": [
+        "นอนตะแคงข้างม้านั่ง วางปลายแขนบนพื้นให้ศอกอยู่ใต้ไหล่ แล้ววางข้อเท้าด้านในของขาบนไว้บนม้านั่ง",
+        "วางขาล่างไว้บนพื้นใต้ม้านั่ง",
+        "กดขาบนลงบนม้านั่งเพื่อยกสะโพกและขาล่างขึ้นจากพื้น จนลำตัวเป็นเส้นตรง",
+        "ค้างท่าไว้ แล้วลดสะโพกลงพื้นและเปลี่ยนข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Actively press your top leg down into the bench — that downward squeeze is what makes the inner thigh hold you up.",
+        "Keep your hips stacked and in line with your shoulders so the inner thigh carries the load."
+      ],
+      "th": [
+        "ตั้งใจกดขาบนลงบนม้านั่ง เพราะแรงกดลงนี้คือสิ่งที่ทำให้ต้นขาด้านในรับน้ำหนักตัว",
+        "จัดสะโพกให้ซ้อนกันและอยู่แนวเดียวกับไหล่ เพื่อให้ต้นขาด้านในรับแรงเต็มที่"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't start with long holds — this position loads the groin heavily; begin with holds of a few seconds and build up over several weeks to avoid a groin strain.",
+        "Don't push on through pain on the inside of the top knee; with the ankle on the bench the knee takes a lot of strain, so rest your knee on the bench instead to shorten the lever.",
+        "Avoid letting your hips sag toward the floor; the inner thigh and obliques stop holding you up."
+      ],
+      "th": [
+        "อย่าเริ่มด้วยการค้างนาน เพราะท่านี้ทำให้ขาหนีบรับแรงสูง ให้เริ่มค้างครั้งละไม่กี่วินาที แล้วค่อยๆ เพิ่มภายในหลายสัปดาห์ เพื่อป้องกันขาหนีบบาดเจ็บ",
+        "อย่าฝืนทำต่อถ้าเจ็บที่ด้านในเข่าของขาบน เพราะเมื่อวางข้อเท้าบนม้านั่ง เข่าจะรับแรงมาก ให้เปลี่ยนมาวางเข่าบนม้านั่งแทนเพื่อลดแรง",
+        "อย่าปล่อยสะโพกตกลงหาพื้น เพราะต้นขาด้านในและกล้ามเอวจะหยุดรับน้ำหนักตัว"
+      ]
+    }
+  },
+  {
+    "id": "hip_adduction_machine",
+    "name": {
+      "en": "Hip Adduction Machine",
+      "th": "เครื่องหนีบขา"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "hip_adductors"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Sit in the machine with your back against the pad and the leg pads against the inside of your knees, set to a comfortable stretch.",
+        "Hold the handles and brace your core.",
+        "Squeeze your legs together until the pads nearly meet.",
+        "Pause, then open your legs slowly back to the stretched position."
+      ],
+      "th": [
+        "นั่งบนเครื่อง หลังพิงเบาะ ให้แผ่นรองขาอยู่ด้านในเข่า ตั้งระยะให้ขากางในจุดที่ยืดได้สบาย",
+        "จับที่จับและเกร็งแกนกลางลำตัว",
+        "หนีบขาเข้าหากันจนแผ่นรองเกือบชิด",
+        "ค้างไว้ครู่หนึ่ง แล้วค่อยๆ กางขากลับไปยังจุดที่ยืด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Open slowly into the stretch on every rep — working the inner thighs through their full range trains them more completely.",
+        "Squeeze the pads together for a second at the end of each rep."
+      ],
+      "th": [
+        "กางขาออกช้าๆ จนรู้สึกยืดในทุกเรพ เพราะการให้ต้นขาด้านในทำงานเต็มช่วงจะฝึกได้ครบกว่า",
+        "บีบแผ่นรองค้างไว้ 1 วินาทีในจังหวะสุดของทุกเรพ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't set the start wider than you can comfortably stretch; forcing the range can strain your groin.",
+        "Avoid letting your legs fly open on the way back; you lose control in the stretched position, where the groin is most at risk."
+      ],
+      "th": [
+        "อย่าตั้งระยะเริ่มต้นกว้างเกินกว่าที่ยืดได้สบาย เพราะการฝืนระยะอาจทำให้ขาหนีบบาดเจ็บ",
+        "อย่าปล่อยขากางออกเร็ว เพราะจะคุมไม่อยู่ในช่วงที่ขาหนีบยืดสุด ซึ่งเป็นช่วงที่เสี่ยงบาดเจ็บที่สุด"
+      ]
+    }
+  },
+  {
+    "id": "sumo_squat",
+    "name": {
+      "en": "Kettlebell Sumo Squat",
+      "th": "เคตเทิลเบลซูโม่สควอท"
+    },
+    "equipment": "kettlebell",
+    "difficulty": "beginner",
+    "primary": [
+      "hip_adductors",
+      "gluteus_maximus"
+    ],
+    "secondary": [
+      "vastus_lateralis",
+      "vastus_medialis",
+      "rectus_femoris"
+    ],
+    "steps": {
+      "en": [
+        "Stand with your feet well wider than shoulder width and toes turned out, holding a kettlebell by the handle with both hands between your legs.",
+        "Brace your core and keep your chest up.",
+        "Sit your hips straight down between your heels, pushing your knees out in line with your toes.",
+        "Go as low as you can with a neutral back, then drive through your whole foot to stand up."
+      ],
+      "th": [
+        "ยืนเท้ากว้างกว่าไหล่มาก ปลายเท้าชี้ออก ใช้สองมือจับหูเคตเทิลเบลห้อยไว้ระหว่างขา",
+        "เกร็งแกนกลางลำตัวและยืดอกขึ้น",
+        "ย่อสะโพกลงตรงๆ ระหว่างส้นเท้า ดันเข่าออกให้อยู่แนวเดียวกับปลายเท้า",
+        "ลงให้ต่ำที่สุดเท่าที่หลังยังอยู่ในแนวธรรมชาติ แล้วดันเท้าทั้งฝ่ายืนขึ้น"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Sink straight down until you feel a stretch in your inner thighs — the wide stance gives the adductors more of the work.",
+        "Squeeze your glutes to finish standing fully tall at the top."
+      ],
+      "th": [
+        "ย่อลงตรงๆ จนรู้สึกว่าต้นขาด้านในยืด เพราะการยืนกว้างทำให้กล้ามต้นขาด้านในรับงานมากขึ้น",
+        "บีบก้นเพื่อยืนตัวตรงให้สุดในจังหวะบน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your knees cave inward as you stand up; it strains the knees and the hips do less work.",
+        "Avoid rounding your back to get lower; it puts strain on your lower back."
+      ],
+      "th": [
+        "อย่าปล่อยเข่าบิดเข้าด้านในตอนยืนขึ้น เพราะเข่ารับแรงเกินและสะโพกทำงานน้อยลง",
+        "อย่างอหลังเพื่อให้ลงได้ต่ำขึ้น เพราะหลังล่างจะรับแรงเกิน"
+      ]
+    }
+  },
+  {
+    "id": "lying_leg_raise",
+    "name": {
+      "en": "Lying Leg Raise",
+      "th": "นอนยกขา"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "iliopsoas",
+      "rectus_abdominis"
+    ],
+    "secondary": [
+      "rectus_femoris"
+    ],
+    "steps": {
+      "en": [
+        "Lie on your back with your legs straight and your hands flat beside your hips.",
+        "Brace your abs to press your lower back gently into the floor.",
+        "Keeping your legs straight, raise them until they point at the ceiling.",
+        "Lower them slowly, stopping just before your lower back starts to lift off the floor."
+      ],
+      "th": [
+        "นอนหงาย เหยียดขาตรง วางฝ่ามือราบไว้ข้างสะโพก",
+        "เกร็งหน้าท้องกดหลังล่างแนบพื้นเบาๆ",
+        "เหยียดขาตรง ยกขาขึ้นจนชี้ตรงขึ้นเพดาน",
+        "ค่อยๆ ลดขาลง หยุดก่อนที่หลังล่างจะเริ่มลอยจากพื้น"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Lift with straight legs at a steady pace so the hip flexors raise the full weight of your legs.",
+        "At the top, curl your pelvis toward your ribs so your hips lift slightly off the floor — this brings the abs in more."
+      ],
+      "th": [
+        "ยกขาแบบเหยียดตรงด้วยจังหวะสม่ำเสมอ เพื่อให้กล้ามงอสะโพกยกน้ำหนักขาทั้งหมด",
+        "ในจังหวะบน ม้วนเชิงกรานเข้าหาซี่โครงจนสะโพกลอยจากพื้นเล็กน้อย เพื่อให้หน้าท้องทำงานมากขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your lower back arch off the floor as your legs come down — the hip flexors pull on your lower spine and strain it.",
+        "Avoid dropping your legs quickly; the lowering is where the hip flexors and abs do their controlling work."
+      ],
+      "th": [
+        "อย่าปล่อยให้หลังล่างแอ่นลอยจากพื้นตอนลดขาลง เพราะกล้ามงอสะโพกจะดึงกระดูกสันหลังส่วนล่างจนหลังรับแรงเกิน",
+        "อย่าปล่อยขาตกลงเร็ว เพราะจังหวะลดขาคือช่วงที่กล้ามงอสะโพกและหน้าท้องต้องออกแรงควบคุม"
+      ]
+    }
+  },
+  {
+    "id": "cable_knee_drive",
+    "name": {
+      "en": "Standing Cable Knee Drive",
+      "th": "เคเบิลยกเข่าแบบยืน"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "iliopsoas",
+      "rectus_femoris"
+    ],
+    "secondary": [
+      "tensor_fasciae_latae"
+    ],
+    "steps": {
+      "en": [
+        "Attach an ankle strap to a low pulley, fasten it to one ankle, and stand facing away from the machine.",
+        "Hold a support for balance and stand tall on your other leg.",
+        "Drive the strapped knee up in front of you until your thigh is at least level with your hip.",
+        "Lower it slowly back to the start, and switch legs after the set."
+      ],
+      "th": [
+        "ติดสายรัดข้อเท้าที่รอกต่ำ รัดไว้ที่ข้อเท้าข้างหนึ่ง แล้วยืนหันหลังให้เครื่อง",
+        "จับที่ยึดไว้ทรงตัว แล้วยืนตัวตรงบนขาอีกข้าง",
+        "ยกเข่าข้างที่รัดสายขึ้นด้านหน้า จนต้นขาสูงอย่างน้อยระดับสะโพก",
+        "ค่อยๆ ลดขาลงกลับท่าเริ่ม ครบเซ็ตแล้วเปลี่ยนขา"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Drive the knee above hip height if you can — the higher part of the lift is where the iliopsoas does most of the work.",
+        "Keep your torso upright and still so the hip flexors, not a backward lean, lift the leg."
+      ],
+      "th": [
+        "ยกเข่าให้สูงกว่าระดับสะโพกถ้าทำได้ เพราะช่วงที่ยกสูงคือช่วงที่อิลิโอโซแอสทำงานมากที่สุด",
+        "ยืดลำตัวตรงและนิ่ง ให้กล้ามงอสะโพกเป็นตัวยกขา ไม่ใช่การเอนตัวไปด้านหลัง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't lean back or round your lower back to get the knee higher; the work moves from the hip flexors to your spine.",
+        "Avoid letting the cable yank your leg back; control the return to keep the hip flexors working."
+      ],
+      "th": [
+        "อย่าเอนตัวไปด้านหลังหรืองอหลังล่างเพื่อยกเข่าให้สูงขึ้น เพราะงานจะย้ายจากกล้ามงอสะโพกไปที่กระดูกสันหลัง",
+        "อย่าปล่อยให้สายดึงขากลับเร็ว ให้ควบคุมจังหวะกลับเพื่อให้กล้ามงอสะโพกทำงานต่อเนื่อง"
+      ]
+    }
+  },
+  {
+    "id": "back_squat",
+    "name": {
+      "en": "Barbell Back Squat",
+      "th": "บาร์เบลแบ็กสควอท"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "vastus_lateralis",
+      "vastus_medialis",
+      "vastus_intermedius",
+      "gluteus_maximus"
+    ],
+    "secondary": [
+      "rectus_femoris",
+      "hip_adductors",
+      "erector_spinae"
+    ],
+    "steps": {
+      "en": [
+        "Set the bar in a rack at upper-chest height with the safety pins just below your lowest depth, rest it across your upper back, and lift it out of the rack.",
+        "Stand with your feet about shoulder-width apart and toes turned slightly out, take a deep breath, and brace your core.",
+        "Bend your hips and knees together to sit down between your heels, knees following your toes, until your thighs are at least parallel to the floor.",
+        "Drive through your whole foot to stand back up, keeping your chest up and your back neutral."
+      ],
+      "th": [
+        "ตั้งบาร์บนแร็กระดับอกบน ตั้งเหล็กกันบาร์ให้ต่ำกว่าจุดที่ลงลึกสุดเล็กน้อย วางบาร์บนหลังส่วนบน แล้วยกออกจากแร็ก",
+        "ยืนเท้ากว้างประมาณไหล่ ปลายเท้าชี้ออกเล็กน้อย หายใจเข้าลึกแล้วเกร็งแกนกลางลำตัว",
+        "งอสะโพกและเข่าพร้อมกัน ย่อตัวลงตรงระหว่างส้นเท้า ให้เข่าชี้ไปทางเดียวกับปลายเท้า จนต้นขาขนานกับพื้นหรือต่ำกว่า",
+        "ดันเท้าทั้งฝ่ายืนขึ้น อกตั้งและหลังอยู่ในแนวธรรมชาติ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Go down to at least parallel — a deeper squat trains the quads and glutes through a longer range.",
+        "Let your knees travel forward past your toes as you descend; it keeps more of the work on the quads."
+      ],
+      "th": [
+        "ย่อลงให้ต้นขาขนานกับพื้นเป็นอย่างน้อย การลงลึกขึ้นทำให้ต้นขาหน้าและก้นทำงานในช่วงที่ยาวขึ้น",
+        "ปล่อยให้เข่าเคลื่อนไปด้านหน้าเลยปลายเท้าได้ตอนย่อลง เพื่อให้ต้นขาหน้ารับงานมากขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your lower back round at the bottom; your spine is carrying the bar and takes strain it handles poorly.",
+        "Avoid letting your knees cave inward as you stand up; it strains the knees and leaks force from the quads and glutes.",
+        "Don't go heavy without safety pins or a spotter — if you fail a rep, you need a safe way to set the bar down."
+      ],
+      "th": [
+        "อย่าปล่อยให้หลังล่างงอในจังหวะล่าง เพราะกระดูกสันหลังที่แบกบาร์อยู่จะรับแรงในท่าที่ไม่ปลอดภัย",
+        "อย่าปล่อยเข่าบิดเข้าด้านในตอนยืนขึ้น เพราะเข่ารับแรงเกิน และแรงจากต้นขาหน้ากับก้นจะส่งออกไม่เต็มที่",
+        "อย่าเล่นหนักโดยไม่มีเหล็กกันบาร์หรือคนช่วย เพราะถ้ายกไม่ขึ้นจะไม่มีทางวางบาร์ลงอย่างปลอดภัย"
+      ]
+    }
+  },
+  {
+    "id": "front_squat",
+    "name": {
+      "en": "Front Squat",
+      "th": "ฟรอนต์สควอท"
+    },
+    "equipment": "barbell",
+    "difficulty": "advanced",
+    "primary": [
+      "vastus_lateralis",
+      "vastus_medialis",
+      "vastus_intermedius"
+    ],
+    "secondary": [
+      "rectus_femoris",
+      "gluteus_maximus",
+      "erector_spinae"
+    ],
+    "steps": {
+      "en": [
+        "Set the bar in a rack at shoulder height with the safety pins just below your lowest depth, then rest it on the front of your shoulders with your fingertips under the bar and elbows high.",
+        "Lift the bar out of the rack, stand with your feet about shoulder-width apart, and brace your core.",
+        "Sit straight down with your torso upright, letting your knees travel forward, until your thighs are at least parallel to the floor.",
+        "Drive back up, keeping your elbows high so the bar stays on your shoulders."
+      ],
+      "th": [
+        "ตั้งบาร์บนแร็กระดับไหล่ ตั้งเหล็กกันบาร์ให้ต่ำกว่าจุดที่ลงลึกสุดเล็กน้อย แล้ววางบาร์บนไหล่ด้านหน้า ใช้ปลายนิ้วรองใต้บาร์และยกศอกสูง",
+        "ยกบาร์ออกจากแร็ก ยืนเท้ากว้างประมาณไหล่ แล้วเกร็งแกนกลางลำตัว",
+        "ย่อตัวลงตรงๆ โดยลำตัวตั้ง ปล่อยให้เข่าเคลื่อนไปด้านหน้า จนต้นขาขนานกับพื้นหรือต่ำกว่า",
+        "ดันตัวขึ้นโดยยกศอกสูงไว้ เพื่อให้บาร์อยู่บนไหล่ตลอด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Stay upright and let your knees travel well forward — this position keeps the work focused on the quads.",
+        "Drive your elbows up as you stand so your torso stays upright and the quads finish the lift."
+      ],
+      "th": [
+        "ยืดลำตัวให้ตั้งตรงและปล่อยให้เข่าเคลื่อนไปด้านหน้า เพราะท่วงท่านี้ทำให้งานเน้นไปที่ต้นขาหน้า",
+        "ดันศอกขึ้นตอนยืนขึ้น เพื่อให้ลำตัวตั้งตรงและต้นขาหน้าเป็นตัวยกจนจบ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your elbows drop; the bar rolls forward, your upper back rounds, and you can lose the bar.",
+        "Avoid going heavy without the safety pins set — if you lose the bar, you need to be able to drop it forward onto the pins.",
+        "Don't let your lower back round at the bottom; your spine is carrying the bar and takes strain it handles poorly."
+      ],
+      "th": [
+        "อย่าปล่อยศอกตก เพราะบาร์จะไหลไปด้านหน้า หลังส่วนบนงอ และบาร์อาจหลุด",
+        "อย่าเล่นหนักโดยไม่ได้ตั้งเหล็กกันบาร์ เพราะถ้าบาร์หลุด คุณต้องปล่อยบาร์ไปด้านหน้าลงบนเหล็กกันบาร์ได้",
+        "อย่าปล่อยให้หลังล่างงอในจังหวะล่าง เพราะกระดูกสันหลังที่แบกบาร์อยู่จะรับแรงในท่าที่ไม่ปลอดภัย"
+      ]
+    }
+  },
+  {
+    "id": "leg_press",
+    "name": {
+      "en": "Leg Press",
+      "th": "เลกเพรส"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "vastus_lateralis",
+      "vastus_medialis",
+      "vastus_intermedius"
+    ],
+    "secondary": [
+      "gluteus_maximus",
+      "hip_adductors"
+    ],
+    "steps": {
+      "en": [
+        "Sit in the machine with your back and hips flat against the pad and your feet shoulder-width apart in the middle of the platform.",
+        "Push the platform up and release the safety handles.",
+        "Lower the platform by bending your knees toward your chest as far as you can without your lower back lifting off the pad.",
+        "Press through your whole foot to straighten your legs, stopping just short of locking your knees."
+      ],
+      "th": [
+        "นั่งบนเครื่อง หลังและสะโพกแนบเบาะ วางเท้ากว้างเท่าไหล่ตรงกลางแผ่นเหยียบ",
+        "ดันแผ่นเหยียบขึ้นแล้วปลดที่ล็อกนิรภัย",
+        "ลดแผ่นเหยียบลงโดยงอเข่าเข้าหาอก ให้ลึกที่สุดเท่าที่หลังล่างยังไม่ลอยจากเบาะ",
+        "ดันเท้าทั้งฝ่าเหยียดขาขึ้น หยุดก่อนเข่าจะล็อกเล็กน้อย"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Lower until your knees are deeply bent — a deeper range makes the quads work harder.",
+        "Don't rest with your knees straight at the top; go straight into the next rep so the quads stay under load."
+      ],
+      "th": [
+        "ลดลงจนเข่างอมาก เพราะการเคลื่อนไหวในช่วงที่ลึกขึ้นทำให้ต้นขาหน้าทำงานหนักขึ้น",
+        "อย่าพักค้างโดยเหยียดเข่าในจังหวะบน ให้ต่อเรพถัดไปทันที เพื่อให้ต้นขาหน้ารับน้ำหนักต่อเนื่อง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't lower so far that your hips curl up off the seat; your lower back rounds under the load and can be strained.",
+        "Avoid snapping your knees into a hard lockout; it puts heavy load straight onto the knee joint."
+      ],
+      "th": [
+        "อย่าลดลงลึกจนสะโพกม้วนลอยจากเบาะ เพราะหลังล่างจะงอขณะรับน้ำหนักและอาจบาดเจ็บได้",
+        "อย่าเหยียดเข่าจนล็อกกระแทก เพราะข้อเข่าจะรับน้ำหนักมากโดยตรง"
+      ]
+    }
+  },
+  {
+    "id": "leg_extension",
+    "name": {
+      "en": "Leg Extension",
+      "th": "เลกเอ็กซ์เทนชัน"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "rectus_femoris",
+      "vastus_lateralis",
+      "vastus_medialis",
+      "vastus_intermedius"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Sit in the machine with your back against the pad and your knees lined up with the machine's pivot point.",
+        "Set the ankle pad just above your feet and hold the handles.",
+        "Straighten your knees to lift the pad until your legs are fully extended.",
+        "Pause briefly, then lower the weight slowly."
+      ],
+      "th": [
+        "นั่งบนเครื่อง หลังพิงเบาะ จัดเข่าให้ตรงกับแกนหมุนของเครื่อง",
+        "ปรับแผ่นรองข้อเท้าให้อยู่เหนือหลังเท้า แล้วจับที่จับ",
+        "เหยียดเข่ายกแผ่นรองขึ้นจนขาเหยียดตรงสุด",
+        "ค้างสั้นๆ แล้วค่อยๆ ลดน้ำหนักลง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Lift and lower through the full range, from deeply bent to fully straight, so all four quad muscles work.",
+        "Sit back against the pad instead of leaning forward — with your hips less bent, the rectus femoris is stretched and works harder."
+      ],
+      "th": [
+        "ยกและลดให้เต็มช่วง ตั้งแต่เข่างอมากจนเหยียดตรงสุด เพื่อให้ต้นขาหน้าทั้งสี่มัดทำงาน",
+        "นั่งพิงเบาะไว้แทนการโน้มตัวไปด้านหน้า เพราะเมื่อสะโพกพับน้อยลง ต้นขาหน้าแนวกลางจะถูกยืดและทำงานหนักขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't kick the weight up with momentum; the swing takes tension off the quads and jolts the knee.",
+        "Avoid lifting your hips off the seat to move more weight; the quads do less and your lower back takes over."
+      ],
+      "th": [
+        "อย่าเตะน้ำหนักขึ้นด้วยแรงเหวี่ยง เพราะต้นขาหน้ารับแรงน้อยลงและเข่าโดนกระชาก",
+        "อย่ายกสะโพกลอยจากเบาะเพื่อยกน้ำหนักมากขึ้น เพราะต้นขาหน้าทำงานน้อยลงและหลังล่างจะเข้ามาช่วยแทน"
+      ]
+    }
+  },
+  {
+    "id": "bulgarian_split_squat",
+    "name": {
+      "en": "Bulgarian Split Squat",
+      "th": "บัลแกเรียนสปลิทสควอท"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "vastus_medialis",
+      "gluteus_maximus"
+    ],
+    "secondary": [
+      "vastus_lateralis",
+      "rectus_femoris",
+      "gluteus_medius",
+      "hip_adductors"
+    ],
+    "steps": {
+      "en": [
+        "Stand about two steps in front of a bench holding a dumbbell in each hand, and rest the top of your back foot on the bench.",
+        "Brace your core, keep your torso upright, and put most of your weight on the front foot.",
+        "Lower straight down by bending your front knee until your front thigh is about parallel to the floor.",
+        "Drive through your front foot to stand back up, and switch legs after the set."
+      ],
+      "th": [
+        "ยืนห่างจากม้านั่งไปด้านหน้าประมาณสองก้าว ถือดัมเบลข้างละลูก แล้ววางหลังเท้าข้างหลังไว้บนม้านั่ง",
+        "เกร็งแกนกลางลำตัว ลำตัวตั้งตรง และลงน้ำหนักส่วนใหญ่ที่เท้าหน้า",
+        "ย่อตัวลงตรงๆ โดยงอเข่าหน้า จนต้นขาหน้าเกือบขนานกับพื้น",
+        "ดันเท้าหน้ายืนขึ้น ครบเซ็ตแล้วเปลี่ยนขา"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Let your front knee travel forward past your toes as you lower, so the front-leg quads take more of the load.",
+        "Sink deep enough to feel a stretch in the front-leg glute at the bottom, then drive up through your whole front foot."
+      ],
+      "th": [
+        "ปล่อยให้เข่าหน้าเคลื่อนไปด้านหน้าเลยปลายเท้าได้ตอนย่อลง เพื่อให้ต้นขาหน้าของขาหน้ารับน้ำหนักมากขึ้น",
+        "ย่อลงลึกจนรู้สึกว่าก้นของขาหน้ายืดในจังหวะล่าง แล้วดันเท้าหน้าทั้งฝ่ายืนขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't push off with your back leg; the front leg's quads and glute do less.",
+        "Avoid letting your front knee cave inward; it strains the knee."
+      ],
+      "th": [
+        "อย่าใช้ขาหลังช่วยดันตัว เพราะต้นขาหน้าและก้นของขาหน้าจะทำงานน้อยลง",
+        "อย่าปล่อยเข่าหน้าบิดเข้าด้านใน เพราะเข่าจะรับแรงเกิน"
+      ]
+    }
+  },
+  {
+    "id": "walking_lunge",
+    "name": {
+      "en": "Walking Lunge",
+      "th": "ดัมเบลวอล์กกิ้งลันจ์"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "vastus_lateralis",
+      "gluteus_maximus"
+    ],
+    "secondary": [
+      "vastus_medialis",
+      "rectus_femoris",
+      "gluteus_medius"
+    ],
+    "steps": {
+      "en": [
+        "Stand tall holding a dumbbell in each hand at your sides.",
+        "Take a long step forward and lower your back knee toward the floor until both knees are bent about 90 degrees.",
+        "Drive through your front foot to stand up, bringing your back foot forward into the next step.",
+        "Keep alternating legs as you walk for the set distance."
+      ],
+      "th": [
+        "ยืนตัวตรง ถือดัมเบลข้างละลูกไว้ข้างลำตัว",
+        "ก้าวเท้าไปด้านหน้ายาวๆ แล้วลดเข่าหลังลงหาพื้น จนเข่าทั้งสองข้างงอประมาณ 90 องศา",
+        "ดันเท้าหน้ายืนขึ้น แล้วก้าวเท้าหลังไปด้านหน้าต่อเป็นก้าวถัดไป",
+        "สลับขาเดินไปเรื่อยๆ จนครบระยะ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Push through your whole front foot to stand up, so the front leg's quads and glutes drive every step.",
+        "A slightly longer step puts more work on the glutes; a shorter step lets the knee travel forward and puts more on the quads."
+      ],
+      "th": [
+        "ดันด้วยเท้าหน้าทั้งฝ่าเพื่อยืนขึ้น ให้ต้นขาหน้าและก้นของขาหน้าเป็นตัวพาไปทุกก้าว",
+        "ก้าวยาวขึ้นเล็กน้อยจะเน้นก้นมากขึ้น ส่วนก้าวสั้นลงจะให้เข่าเคลื่อนไปด้านหน้าและเน้นต้นขาหน้ามากขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't slam your back knee into the floor; it can bruise or injure the knee.",
+        "Avoid letting your front knee cave inward; it strains the knee and takes work off the glutes."
+      ],
+      "th": [
+        "อย่าปล่อยเข่าหลังกระแทกพื้น เพราะอาจทำให้เข่าช้ำหรือบาดเจ็บ",
+        "อย่าปล่อยเข่าหน้าบิดเข้าด้านใน เพราะเข่ารับแรงเกินและก้นทำงานน้อยลง"
+      ]
+    }
+  },
+  {
+    "id": "sissy_squat",
+    "name": {
+      "en": "Sissy Squat",
+      "th": "ซิสซี่สควอท"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "advanced",
+    "primary": [
+      "rectus_femoris",
+      "vastus_medialis"
+    ],
+    "secondary": [
+      "vastus_lateralis"
+    ],
+    "steps": {
+      "en": [
+        "Stand with your feet hip-width apart and hold a sturdy support beside you with one hand.",
+        "Rise onto the balls of your feet and squeeze your glutes to keep your hips straight.",
+        "Bend your knees forward and lean back so your body stays a straight line from knees to shoulders, lowering only as far as you can control.",
+        "Straighten your knees to return to standing, keeping your hips straight."
+      ],
+      "th": [
+        "ยืนเท้ากว้างเท่าสะโพก ใช้มือข้างหนึ่งจับที่ยึดที่มั่นคงไว้ข้างตัว",
+        "เขย่งปลายเท้า และบีบก้นให้สะโพกเหยียดตรง",
+        "งอเข่าไปด้านหน้าพร้อมเอนตัวไปด้านหลัง ให้ลำตัวตั้งแต่เข่าถึงไหล่เป็นเส้นตรง และลดลงเท่าที่ยังควบคุมได้",
+        "เหยียดเข่ายืนกลับขึ้น โดยให้สะโพกเหยียดไว้ตลอด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your hips straight and glutes squeezed throughout — with the hips open, the rectus femoris is stretched and takes more of the knee work.",
+        "Use the support only for balance so your quads lift you."
+      ],
+      "th": [
+        "เหยียดสะโพกและบีบก้นไว้ตลอด เพราะเมื่อสะโพกไม่พับ ต้นขาหน้าแนวกลางจะถูกยืดและรับงานเหยียดเข่ามากขึ้น",
+        "ใช้ที่ยึดเพื่อทรงตัวเท่านั้น ให้ต้นขาหน้าเป็นตัวยกตัวขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't go deeper than you can control at first — the knees take a lot of strain; start with a shallow range and add depth gradually over weeks.",
+        "Avoid bending at the hips as you lower; it turns the move into an ordinary squat and takes the stretch off the rectus femoris.",
+        "Don't push through sharp pain at the front of the knee; it means the knee is overloaded, so stop or reduce the depth."
+      ],
+      "th": [
+        "อย่าลงลึกเกินกว่าที่คุมได้ในช่วงแรก เพราะเข่ารับแรงมาก ให้เริ่มจากระยะตื้นแล้วค่อยๆ เพิ่มความลึกภายในหลายสัปดาห์",
+        "อย่าพับสะโพกตอนลดตัวลง เพราะท่าจะกลายเป็นการย่อตัวธรรมดา และต้นขาหน้าแนวกลางไม่ได้ถูกยืด",
+        "อย่าฝืนทำต่อถ้าเจ็บแปลบที่ด้านหน้าเข่า เพราะแสดงว่าเข่ารับแรงเกิน ให้หยุดหรือลดความลึกลง"
+      ]
+    }
+  },
+  {
+    "id": "reverse_nordic",
+    "name": {
+      "en": "Reverse Nordic",
+      "th": "รีเวิร์สนอร์ดิก"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "intermediate",
+    "primary": [
+      "rectus_femoris"
+    ],
+    "secondary": [
+      "vastus_lateralis",
+      "vastus_medialis"
+    ],
+    "steps": {
+      "en": [
+        "Kneel on a thick mat with your knees hip-width apart, shins flat on the floor, and your body upright.",
+        "Squeeze your glutes so your body forms a straight line from knees to shoulders.",
+        "Lean back slowly, keeping that straight line, only as far as you can control.",
+        "Use your thighs to pull yourself back upright."
+      ],
+      "th": [
+        "คุกเข่าบนเสื่อหนา เข่ากว้างเท่าสะโพก หน้าแข้งราบกับพื้น และลำตัวตั้งตรง",
+        "บีบก้นให้ลำตัวตั้งแต่เข่าถึงไหล่เป็นเส้นตรง",
+        "ค่อยๆ เอนตัวไปด้านหลังโดยรักษาแนวเส้นตรงไว้ ไปเท่าที่ยังควบคุมได้",
+        "ใช้ต้นขาหน้าดึงตัวกลับขึ้นมาตั้งตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your hips straight and glutes squeezed — leaning back as one straight line stretches the rectus femoris across both the hip and the knee.",
+        "Lean back slowly so the front of your thigh controls the whole descent."
+      ],
+      "th": [
+        "เหยียดสะโพกและบีบก้นไว้ การเอนไปด้านหลังเป็นเส้นตรงทั้งตัวจะยืดต้นขาหน้าแนวกลางทั้งช่วงสะโพกและเข่า",
+        "เอนลงช้าๆ ให้ต้นขาหน้าควบคุมการเอนตัวตลอดทาง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't lean back further than you can return from — the knees and thighs are heavily loaded; start with a small range and add depth gradually.",
+        "Avoid bending at the hips as you lean; it shortens the rectus femoris and takes the load off it.",
+        "Don't do this on a hard floor; kneeling without padding hurts the knees."
+      ],
+      "th": [
+        "อย่าเอนลงไกลเกินกว่าที่จะกลับขึ้นมาได้ เพราะเข่าและต้นขารับแรงมาก ให้เริ่มจากระยะสั้นแล้วค่อยๆ เพิ่มระยะ",
+        "อย่าพับสะโพกตอนเอนตัว เพราะต้นขาหน้าแนวกลางจะหดสั้นและรับแรงน้อยลง",
+        "อย่าทำบนพื้นแข็ง เพราะการคุกเข่าโดยไม่มีอะไรรองทำให้เจ็บเข่า"
+      ]
+    }
+  },
+  {
+    "id": "romanian_deadlift",
+    "name": {
+      "en": "Romanian Deadlift",
+      "th": "โรมาเนียนเดดลิฟต์"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "biceps_femoris",
+      "semitendinosus",
+      "semimembranosus"
+    ],
+    "secondary": [
+      "gluteus_maximus",
+      "erector_spinae",
+      "hip_adductors"
+    ],
+    "steps": {
+      "en": [
+        "Stand holding a barbell at your thighs with an overhand grip just outside your legs, feet hip-width apart.",
+        "Brace your core, set your shoulders back, and bend your knees slightly.",
+        "Push your hips back and slide the bar down your thighs with a flat back until you feel a strong stretch in your hamstrings.",
+        "Drive your hips forward to stand back up, squeezing your glutes at the top."
+      ],
+      "th": [
+        "ยืนถือบาร์เบลไว้ระดับต้นขา จับแบบคว่ำมือกว้างกว่าขาเล็กน้อย เท้ากว้างเท่าสะโพก",
+        "เกร็งแกนกลางลำตัว ดึงไหล่ไปด้านหลัง และงอเข่าเล็กน้อย",
+        "ดันสะโพกไปด้านหลังแล้วเลื่อนบาร์ลงตามแนวต้นขาโดยหลังตรง จนรู้สึกว่าแฮมสตริงยืดมาก",
+        "ดันสะโพกไปด้านหน้าเพื่อยืนขึ้น แล้วบีบก้นในจังหวะบน"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Think of pushing your hips back toward a wall behind you rather than bending down — the hip hinge is what stretches and loads the hamstrings.",
+        "Keep the same slight knee bend from start to finish so the hamstrings, not the quads, do the work."
+      ],
+      "th": [
+        "นึกว่าดันสะโพกไปแตะกำแพงด้านหลัง แทนการก้มตัวลง เพราะการพับสะโพกคือสิ่งที่ยืดและโหลดแฮมสตริง",
+        "ล็อกมุมงอเข่าไว้เท่าเดิมตั้งแต่ต้นจนจบ เพื่อให้แฮมสตริงเป็นตัวทำงาน ไม่ใช่ต้นขาหน้า"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't round your back to get the bar lower; going past your hamstring flexibility shifts the load onto your spine.",
+        "Avoid letting the bar drift away from your legs; it puts much more load on your lower back."
+      ],
+      "th": [
+        "อย่างอหลังเพื่อให้บาร์ลงต่ำขึ้น เพราะการลงเกินกว่าความยืดหยุ่นของแฮมสตริงจะย้ายแรงไปที่กระดูกสันหลัง",
+        "อย่าปล่อยให้บาร์ห่างจากขา เพราะหลังล่างจะรับแรงมากขึ้นมาก"
+      ]
+    }
+  },
+  {
+    "id": "lying_leg_curl",
+    "name": {
+      "en": "Lying Leg Curl",
+      "th": "เลกเคิร์ลแบบนอน"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "biceps_femoris",
+      "semitendinosus",
+      "semimembranosus"
+    ],
+    "secondary": [
+      "gastrocnemius_medial",
+      "gastrocnemius_lateral"
+    ],
+    "steps": {
+      "en": [
+        "Lie face down on the machine with your knees just past the edge of the pad and the ankle pad resting just above your heels.",
+        "Hold the handles and press your hips into the pad.",
+        "Curl your heels toward your glutes as far as you can.",
+        "Lower the weight slowly until your knees are almost straight."
+      ],
+      "th": [
+        "นอนคว่ำบนเครื่อง ให้เข่าเลยขอบเบาะเล็กน้อย และแผ่นรองข้อเท้าอยู่เหนือส้นเท้า",
+        "จับที่จับและกดสะโพกแนบเบาะ",
+        "งอเข่าดึงส้นเท้าเข้าหาก้นให้มากที่สุด",
+        "ค่อยๆ ลดน้ำหนักลงจนเข่าเกือบเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your hips pressed into the pad so the hamstrings, not your lower back, move the weight.",
+        "Lower slowly to almost straight legs to work the hamstrings through their full range."
+      ],
+      "th": [
+        "กดสะโพกแนบเบาะไว้ ให้แฮมสตริงเป็นตัวยกน้ำหนัก ไม่ใช่หลังล่าง",
+        "ลดลงช้าๆ จนขาเกือบเหยียดตรง เพื่อให้แฮมสตริงทำงานเต็มช่วง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't lift your hips off the pad to curl more weight; your lower back arches and the hamstrings do less.",
+        "Avoid letting the weight drop at the bottom; the hamstrings lose tension and the knee gets jolted."
+      ],
+      "th": [
+        "อย่ายกสะโพกลอยจากเบาะเพื่อยกน้ำหนักมากขึ้น เพราะหลังล่างจะแอ่นและแฮมสตริงทำงานน้อยลง",
+        "อย่าปล่อยน้ำหนักตกในจังหวะล่าง เพราะแฮมสตริงหมดแรงต้านและเข่าโดนกระชาก"
+      ]
+    }
+  },
+  {
+    "id": "seated_leg_curl",
+    "name": {
+      "en": "Seated Leg Curl",
+      "th": "เลกเคิร์ลแบบนั่ง"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "semitendinosus",
+      "semimembranosus",
+      "biceps_femoris"
+    ],
+    "secondary": [
+      "gastrocnemius_medial"
+    ],
+    "steps": {
+      "en": [
+        "Sit in the machine with your knees lined up with the pivot point, the lower pad just above your heels, and the thigh pad locked down on your thighs.",
+        "Hold the handles and sit with your back against the backrest.",
+        "Curl your heels down and back under the seat as far as you can.",
+        "Return slowly until your legs are almost straight."
+      ],
+      "th": [
+        "นั่งบนเครื่อง จัดเข่าให้ตรงกับแกนหมุน ให้แผ่นรองด้านล่างอยู่เหนือส้นเท้า และล็อกแผ่นกดต้นขาให้แนบต้นขา",
+        "จับที่จับและนั่งพิงพนัก",
+        "งอเข่าดึงส้นเท้าลงและไปด้านหลังใต้เบาะให้มากที่สุด",
+        "ค่อยๆ กลับจนขาเกือบเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Sitting bends your hips, which stretches the hamstrings so they work through a longer range — use the full range on every rep.",
+        "Pause briefly with your heels fully curled under the seat to keep the hamstrings working."
+      ],
+      "th": [
+        "ท่านั่งทำให้สะโพกพับ แฮมสตริงจึงถูกยืดและทำงานในช่วงที่ยาวขึ้น ให้ทำเต็มช่วงทุกเรพ",
+        "ค้างสั้นๆ ในจังหวะที่ส้นเท้างอเข้าใต้เบาะสุด เพื่อให้แฮมสตริงทำงานต่อเนื่อง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't leave the thigh pad loose; your thighs lift off the seat and the hamstrings lose tension.",
+        "Avoid letting the weight pull your legs back up quickly; control the return to keep the hamstrings working."
+      ],
+      "th": [
+        "อย่าปล่อยแผ่นกดต้นขาหลวม เพราะต้นขาจะลอยจากเบาะและแฮมสตริงรับแรงน้อยลง",
+        "อย่าปล่อยให้น้ำหนักดึงขากลับขึ้นเร็ว ให้ควบคุมจังหวะกลับ เพื่อให้แฮมสตริงทำงานต่อเนื่อง"
+      ]
+    }
+  },
+  {
+    "id": "nordic_hamstring_curl",
+    "name": {
+      "en": "Nordic Hamstring Curl",
+      "th": "นอร์ดิกแฮมสตริงเคิร์ล"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "advanced",
+    "primary": [
+      "biceps_femoris",
+      "semitendinosus",
+      "semimembranosus"
+    ],
+    "secondary": [
+      "gastrocnemius_medial",
+      "gastrocnemius_lateral"
+    ],
+    "steps": {
+      "en": [
+        "Kneel on a thick mat with your heels anchored under a sturdy support or held down by a partner.",
+        "Squeeze your glutes so your body forms a straight line from knees to head.",
+        "Lower your body forward as slowly as you can, resisting with your hamstrings and keeping your hips straight.",
+        "When you can no longer hold it, catch yourself with your hands, then push lightly off the floor to help yourself back up."
+      ],
+      "th": [
+        "คุกเข่าบนเสื่อหนา ล็อกส้นเท้าไว้ใต้ที่ยึดที่มั่นคงหรือให้คู่ฝึกกดไว้",
+        "บีบก้นให้ลำตัวตั้งแต่เข่าถึงศีรษะเป็นเส้นตรง",
+        "ค่อยๆ เอนตัวลงไปด้านหน้าให้ช้าที่สุด ใช้แฮมสตริงต้านไว้ และไม่พับสะโพก",
+        "เมื่อต้านไม่ไหวแล้ว ใช้มือรับตัวกับพื้น แล้วดันพื้นเบาๆ ช่วยตัวกลับขึ้นมา"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your hips straight so the hamstrings resist at the knee for the whole descent.",
+        "Try to make the lowering a little slower each session — the slow lowering is what strengthens the hamstrings."
+      ],
+      "th": [
+        "เหยียดสะโพกไว้ เพื่อให้แฮมสตริงต้านแรงที่ข้อเข่าตลอดการลดตัวลง",
+        "พยายามลดตัวลงให้ช้ากว่าเดิมเล็กน้อยในแต่ละครั้งที่ฝึก เพราะจังหวะลดตัวลงช้าๆ คือสิ่งที่สร้างความแข็งแรงให้แฮมสตริง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't start with lots of sets — this exercise causes severe soreness and can strain the hamstrings; begin with 1–2 sets of a few reps and build up over several weeks.",
+        "Avoid bending at the hips to make it easier; it shortens the lever and takes the load off the hamstrings."
+      ],
+      "th": [
+        "อย่าเริ่มด้วยจำนวนเซ็ตเยอะ เพราะท่านี้ทำให้ปวดเมื่อยรุนแรงและอาจทำให้แฮมสตริงบาดเจ็บ ให้เริ่มที่ 1–2 เซ็ต เซ็ตละไม่กี่เรพ แล้วค่อยๆ เพิ่มภายในหลายสัปดาห์",
+        "อย่าพับสะโพกเพื่อให้ท่าง่ายขึ้น เพราะคานจะสั้นลงและแฮมสตริงรับแรงน้อยลง"
+      ]
+    }
+  },
+  {
+    "id": "standing_calf_raise",
+    "name": {
+      "en": "Standing Calf Raise",
+      "th": "คาล์ฟเรสแบบยืน"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "gastrocnemius_medial",
+      "gastrocnemius_lateral"
+    ],
+    "secondary": [
+      "soleus"
+    ],
+    "steps": {
+      "en": [
+        "Stand in the machine with the pads on your shoulders and the balls of your feet on the edge of the platform, heels hanging off.",
+        "Keep your knees straight but not locked, and lower your heels as far as you can into a deep stretch.",
+        "Push through the balls of your feet to rise as high as you can.",
+        "Pause at the top, then lower slowly back into the stretch."
+      ],
+      "th": [
+        "ยืนในเครื่อง ให้แผ่นรองอยู่บนไหล่ วางปลายเท้าบนขอบแท่นเหยียบ ให้ส้นเท้าลอยพ้นขอบ",
+        "เหยียดเข่าตรงแต่ไม่ล็อก แล้วลดส้นเท้าลงให้ต่ำที่สุดจนน่องยืดเต็มที่",
+        "ดันปลายเท้าเขย่งขึ้นให้สูงที่สุด",
+        "ค้างไว้ในจังหวะบน แล้วค่อยๆ ลดลงกลับสู่จุดยืด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your knees straight — the gastrocnemius crosses the knee and works best when the leg is straight.",
+        "Pause for a second in the bottom stretch before rising, so the calves lift you rather than the spring of the Achilles tendon."
+      ],
+      "th": [
+        "เหยียดเข่าตรงไว้ เพราะน่องด้านในและด้านนอกพาดผ่านข้อเข่า และทำงานได้ดีที่สุดเมื่อขาเหยียดตรง",
+        "ค้าง 1 วินาทีในจังหวะล่างที่น่องยืดก่อนเขย่งขึ้น เพื่อให้กล้ามน่องเป็นตัวยก ไม่ใช่แรงดีดของเอ็นร้อยหวาย"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't cut the range short with quick half reps; the calves miss both the stretch at the bottom and the full rise at the top.",
+        "Avoid bending your knees to help push the weight up; your thighs join in and the gastrocnemius does less."
+      ],
+      "th": [
+        "อย่าทำแค่ครึ่งทางเร็วๆ เพราะกล้ามน่องจะไม่ได้ทำงานทั้งช่วงยืดสุดด้านล่างและช่วงเขย่งสุดด้านบน",
+        "อย่างอเข่าช่วยดันน้ำหนักขึ้น เพราะต้นขาจะเข้ามาช่วย และน่องด้านในกับด้านนอกทำงานน้อยลง"
+      ]
+    }
+  },
+  {
+    "id": "seated_calf_raise",
+    "name": {
+      "en": "Seated Calf Raise",
+      "th": "คาล์ฟเรสแบบนั่ง"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "soleus"
+    ],
+    "secondary": [
+      "gastrocnemius_medial",
+      "gastrocnemius_lateral"
+    ],
+    "steps": {
+      "en": [
+        "Sit in the machine with the balls of your feet on the edge of the platform and the knee pad snug on your lower thighs.",
+        "Release the safety lever and lower your heels as far as you can.",
+        "Push through the balls of your feet to raise your heels as high as you can.",
+        "Pause at the top, then lower slowly back into the stretch; lock the safety lever when you finish."
+      ],
+      "th": [
+        "นั่งบนเครื่อง วางปลายเท้าบนขอบแท่นเหยียบ แล้วปรับแผ่นรองเข่าให้กดแนบต้นขาส่วนล่าง",
+        "ปลดคันล็อกนิรภัย แล้วลดส้นเท้าลงให้ต่ำที่สุด",
+        "ดันปลายเท้ายกส้นเท้าขึ้นให้สูงที่สุด",
+        "ค้างไว้ในจังหวะบน แล้วค่อยๆ ลดลงกลับสู่จุดยืด เมื่อจบเซ็ตให้ล็อกคันนิรภัย"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Bent knees slacken the gastrocnemius, so the soleus does most of the work — keep your knees at 90 degrees throughout.",
+        "Pause in the bottom stretch for a second before each rep so the soleus starts the lift without a bounce."
+      ],
+      "th": [
+        "การงอเข่าทำให้น่องด้านในและด้านนอกหย่อนลง โซเลียสจึงรับงานส่วนใหญ่ ให้งอเข่า 90 องศาไว้ตลอด",
+        "ค้าง 1 วินาทีในจังหวะล่างก่อนทุกเรพ ให้โซเลียสเป็นตัวเริ่มยกโดยไม่ใช้แรงเด้ง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't bounce through quick partial reps; the spring of the Achilles tendon takes over from the soleus.",
+        "Avoid pushing up on the knee pad with your hands; it takes load off the calves."
+      ],
+      "th": [
+        "อย่าเด้งทำเรพสั้นๆ เร็วๆ เพราะแรงดีดของเอ็นร้อยหวายจะทำงานแทนโซเลียส",
+        "อย่าใช้มือดันแผ่นรองเข่าช่วย เพราะน่องจะรับน้ำหนักน้อยลง"
+      ]
+    }
+  },
+  {
+    "id": "single_leg_calf_raise",
+    "name": {
+      "en": "Single-leg Calf Raise",
+      "th": "คาล์ฟเรสขาเดียว"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "gastrocnemius_medial",
+      "gastrocnemius_lateral"
+    ],
+    "secondary": [
+      "soleus"
+    ],
+    "steps": {
+      "en": [
+        "Stand on one foot with the ball of the foot on the edge of a step, holding a wall or rail for balance.",
+        "Keep your knee straight and lower your heel below the step into a full stretch.",
+        "Rise onto your toes as high as you can.",
+        "Pause at the top, lower slowly, and switch legs after the set."
+      ],
+      "th": [
+        "ยืนขาเดียว วางปลายเท้าบนขอบขั้นบันได จับผนังหรือราวไว้ทรงตัว",
+        "เหยียดเข่าตรง แล้วลดส้นเท้าลงต่ำกว่าขอบขั้นจนน่องยืดเต็มที่",
+        "เขย่งปลายเท้าขึ้นให้สูงที่สุด",
+        "ค้างไว้ในจังหวะบน ค่อยๆ ลดลง ครบเซ็ตแล้วเปลี่ยนขา"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep the working knee straight so the gastrocnemius does most of the lifting.",
+        "Use your hand only for balance so the calf lifts your full body weight."
+      ],
+      "th": [
+        "เหยียดเข่าข้างที่ทำงานตรงไว้ เพื่อให้น่องด้านในและด้านนอกเป็นตัวยกหลัก",
+        "ใช้มือจับเพื่อทรงตัวเท่านั้น ให้น่องเป็นตัวยกน้ำหนักตัวทั้งหมด"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't bounce out of the bottom; the spring of the Achilles tendon replaces the calf's work.",
+        "Avoid rolling onto the outside of your foot as you rise; it stresses the ankle."
+      ],
+      "th": [
+        "อย่าเด้งตัวขึ้นจากจังหวะล่าง เพราะแรงดีดของเอ็นร้อยหวายจะทำงานแทนกล้ามน่อง",
+        "อย่าบิดข้อเท้าลงน้ำหนักที่ขอบเท้าด้านนอกตอนเขย่ง เพราะข้อเท้าจะรับแรงเกิน"
+      ]
+    }
+  },
+  {
+    "id": "leg_press_calf_raise",
+    "name": {
+      "en": "Leg Press Calf Raise",
+      "th": "คาล์ฟเรสบนเครื่องเลกเพรส"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "gastrocnemius_medial",
+      "gastrocnemius_lateral"
+    ],
+    "secondary": [
+      "soleus"
+    ],
+    "steps": {
+      "en": [
+        "Sit in the leg press with the balls of your feet on the bottom edge of the platform and your heels hanging off.",
+        "Push the platform up until your knees are straight but not locked, then release the safety handles.",
+        "Let the platform push your toes back toward you to stretch your calves.",
+        "Push the platform away by pointing your toes as far as you can, then lower slowly."
+      ],
+      "th": [
+        "นั่งในเครื่องเลกเพรส วางปลายเท้าบนขอบล่างของแผ่นเหยียบ ให้ส้นเท้าลอยพ้นขอบ",
+        "ดันแผ่นเหยียบขึ้นจนเข่าเหยียดตรงแต่ไม่ล็อก แล้วปลดที่ล็อกนิรภัย",
+        "ปล่อยให้แผ่นเหยียบดันปลายเท้ากลับเข้าหาตัวจนน่องยืด",
+        "ถีบแผ่นเหยียบออกโดยกดปลายเท้าให้สุด แล้วค่อยๆ ลดกลับ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your knees straight the whole time so the push comes only from your ankles and the gastrocnemius does the work.",
+        "Let your toes come all the way back for a full calf stretch on every rep."
+      ],
+      "th": [
+        "เหยียดเข่าไว้ตลอด ให้แรงดันมาจากข้อเท้าเท่านั้น เพื่อให้น่องด้านในและด้านนอกเป็นตัวทำงาน",
+        "ปล่อยให้ปลายเท้ากลับเข้าหาตัวให้สุด เพื่อให้น่องยืดเต็มที่ทุกเรพ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't place your feet so low that only your toes are on the platform; your feet can slip off and the platform can drop toward you.",
+        "Avoid bending your knees to help move the weight; it turns into a partial leg press and the calves do less."
+      ],
+      "th": [
+        "อย่าวางเท้าต่ำจนมีแค่นิ้วเท้าอยู่บนแผ่นเหยียบ เพราะเท้าอาจลื่นหลุดและแผ่นเหยียบอาจตกลงมาหาตัว",
+        "อย่างอเข่าช่วยดันน้ำหนัก เพราะท่าจะกลายเป็นเลกเพรสครึ่งทาง และน่องทำงานน้อยลง"
+      ]
+    }
+  },
+  {
+    "id": "bent_knee_calf_raise",
+    "name": {
+      "en": "Bent-knee Single-leg Calf Raise",
+      "th": "คาล์ฟเรสขาเดียวแบบงอเข่า"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "soleus"
+    ],
+    "secondary": [
+      "gastrocnemius_medial"
+    ],
+    "steps": {
+      "en": [
+        "Stand on one foot with the ball of the foot on the edge of a step, holding a wall or rail for balance.",
+        "Bend your knee to about 30–45 degrees and keep it bent throughout.",
+        "Lower your heel below the step, then rise onto your toes as high as you can.",
+        "Pause at the top, lower slowly, and switch legs after the set."
+      ],
+      "th": [
+        "ยืนขาเดียว วางปลายเท้าบนขอบขั้นบันได จับผนังหรือราวไว้ทรงตัว",
+        "งอเข่าประมาณ 30–45 องศา และงอค้างไว้ตลอด",
+        "ลดส้นเท้าลงต่ำกว่าขอบขั้น แล้วเขย่งปลายเท้าขึ้นให้สูงที่สุด",
+        "ค้างไว้ในจังหวะบน ค่อยๆ ลดลง ครบเซ็ตแล้วเปลี่ยนขา"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep the same knee angle from bottom to top — the bend slackens the gastrocnemius so the soleus does more of the work.",
+        "Pause in the bottom stretch before each rep so the soleus starts the lift."
+      ],
+      "th": [
+        "รักษามุมงอเข่าให้เท่าเดิมตั้งแต่จังหวะล่างถึงบน เพราะการงอเข่าทำให้น่องด้านในและด้านนอกหย่อน โซเลียสจึงรับงานมากขึ้น",
+        "ค้างในจังหวะล่างที่น่องยืดก่อนทุกเรพ ให้โซเลียสเป็นตัวเริ่มยก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't straighten your knee as you rise; the gastrocnemius takes over from the soleus.",
+        "Avoid bouncing at the bottom; the spring of the Achilles tendon replaces the soleus's work."
+      ],
+      "th": [
+        "อย่าเหยียดเข่าตอนเขย่งขึ้น เพราะน่องด้านในและด้านนอกจะทำงานแทนโซเลียส",
+        "อย่าเด้งในจังหวะล่าง เพราะแรงดีดของเอ็นร้อยหวายจะทำงานแทนโซเลียส"
+      ]
+    }
+  },
+  {
+    "id": "tibialis_raise",
+    "name": {
+      "en": "Tibialis Raise",
+      "th": "ทิเบียลิสเรส"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "tibialis_anterior"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Stand with your back against a wall and your heels about one foot-length away from it.",
+        "Lean your back and hips against the wall with your legs straight.",
+        "Lift your toes and the front of your feet as high as you can, keeping your heels on the floor.",
+        "Lower your toes slowly until they almost touch the floor, then repeat."
+      ],
+      "th": [
+        "ยืนหันหลังให้ผนัง วางส้นเท้าห่างจากผนังประมาณหนึ่งช่วงเท้า",
+        "พิงหลังและสะโพกกับผนัง ขาเหยียดตรง",
+        "กระดกปลายเท้าและเท้าส่วนหน้าขึ้นให้สูงที่สุด โดยส้นเท้ายังแตะพื้น",
+        "ค่อยๆ ลดปลายเท้าลงจนเกือบแตะพื้น แล้วทำซ้ำ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Pull your toes all the way up toward your shins on every rep to work the shin muscle through its full range.",
+        "To make it harder, move your feet farther from the wall — the shin muscle then has to lift more of your body weight."
+      ],
+      "th": [
+        "กระดกปลายเท้าขึ้นหาหน้าแข้งให้สุดทุกเรพ เพื่อให้กล้ามหน้าแข้งทำงานเต็มช่วง",
+        "ถ้าต้องการให้ยากขึ้น ให้วางเท้าห่างจากผนังมากขึ้น เพราะกล้ามหน้าแข้งต้องยกน้ำหนักตัวมากขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your toes slap down; lowering under control is part of the work for the shin muscle.",
+        "Avoid bending your knees or hips to lift your toes; your body moves instead of your ankles doing the work."
+      ],
+      "th": [
+        "อย่าปล่อยปลายเท้าตบลงพื้น เพราะการลดลงอย่างควบคุมเป็นส่วนหนึ่งของงานกล้ามหน้าแข้ง",
+        "อย่างอเข่าหรือพับสะโพกเพื่อช่วยยกปลายเท้า เพราะลำตัวจะขยับแทนการใช้ข้อเท้า"
+      ]
+    }
+  },
+  {
+    "id": "band_dorsiflexion",
+    "name": {
+      "en": "Band Dorsiflexion",
+      "th": "กระดกข้อเท้าต้านยางยืด"
+    },
+    "equipment": "band",
+    "difficulty": "beginner",
+    "primary": [
+      "tibialis_anterior"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Sit on the floor with one leg straight and loop a resistance band around the top of that foot.",
+        "Anchor the other end of the band to a sturdy post in front of you so it pulls your toes away from you.",
+        "Pull your toes back toward your shin as far as you can against the band.",
+        "Return slowly to the start, and switch feet after the set."
+      ],
+      "th": [
+        "นั่งบนพื้น เหยียดขาข้างหนึ่งตรง แล้วคล้องยางยืดไว้ที่หลังเท้าข้างนั้น",
+        "ผูกปลายยางอีกด้านไว้กับเสาที่มั่นคงด้านหน้า ให้ยางดึงปลายเท้าออกจากตัว",
+        "กระดกปลายเท้ากลับเข้าหาหน้าแข้งต้านแรงยางให้สุด",
+        "ค่อยๆ กลับท่าเริ่ม ครบเซ็ตแล้วเปลี่ยนเท้า"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Move only at the ankle and pull your toes up as far as they go, so the shin muscle works through its full range.",
+        "Pause for a second with your toes pulled back on every rep to keep the shin muscle working."
+      ],
+      "th": [
+        "ขยับเฉพาะข้อเท้า และกระดกปลายเท้าขึ้นให้สุด เพื่อให้กล้ามหน้าแข้งทำงานเต็มช่วง",
+        "ค้าง 1 วินาทีตอนกระดกปลายเท้าสุดในทุกเรพ เพื่อให้กล้ามหน้าแข้งทำงานต่อเนื่อง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let the band snap your foot back; control the return so the shin muscle keeps working.",
+        "Avoid bending your knee to help pull; your leg moves instead of your ankle doing the work."
+      ],
+      "th": [
+        "อย่าปล่อยให้ยางดีดเท้ากลับ ให้ควบคุมจังหวะกลับเพื่อให้กล้ามหน้าแข้งทำงานต่อเนื่อง",
+        "อย่างอเข่าช่วยดึง เพราะขาจะขยับแทนการใช้ข้อเท้า"
+      ]
+    }
+  },
+  {
+    "id": "heel_walk",
+    "name": {
+      "en": "Heel Walk",
+      "th": "เดินด้วยส้นเท้า"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "tibialis_anterior"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Stand tall and lift your toes and the front of your feet off the floor so you balance on your heels.",
+        "Walk forward with short steps, staying on your heels.",
+        "Keep your toes pulled up for the whole walk.",
+        "Walk for a set distance or time, then lower your feet and rest."
+      ],
+      "th": [
+        "ยืนตัวตรง กระดกปลายเท้าและเท้าส่วนหน้าขึ้นจากพื้น ทรงตัวบนส้นเท้า",
+        "เดินไปข้างหน้าด้วยก้าวสั้นๆ โดยลงน้ำหนักบนส้นเท้า",
+        "กระดกปลายเท้าค้างไว้ตลอดการเดิน",
+        "เดินจนครบระยะหรือเวลาที่กำหนด แล้ววางเท้าลงพัก"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Pull your toes as high as you can — the higher they are, the harder the shin muscle has to work to hold them."
+      ],
+      "th": [
+        "กระดกปลายเท้าให้สูงที่สุด ยิ่งกระดกสูง กล้ามหน้าแข้งยิ่งต้องออกแรงมากเพื่อค้างไว้"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't let your toes drop to the floor between steps; the shin muscle gets a rest each time.",
+        "Avoid leaning your upper body back to keep your balance; it can tip you over backward."
+      ],
+      "th": [
+        "อย่าปล่อยให้ปลายเท้าตกลงพื้นระหว่างก้าว เพราะกล้ามหน้าแข้งจะได้พักทุกครั้ง",
+        "อย่าเอนลำตัวไปด้านหลังเพื่อทรงตัว เพราะอาจทำให้ล้มหงายหลังได้"
+      ]
+    }
+  },
+  {
+    "id": "dumbbell_seated_calf_raise",
+    "name": {
+      "en": "Dumbbell Seated Calf Raise",
+      "th": "ดัมเบลคาล์ฟเรสแบบนั่ง"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "soleus"
+    ],
+    "secondary": [
+      "gastrocnemius_medial"
+    ],
+    "steps": {
+      "en": [
+        "Sit on a bench with the balls of your feet on a weight plate and your knees bent at 90 degrees.",
+        "Rest a dumbbell on each thigh just above the knee, holding them in place.",
+        "Lower your heels as far as you can, then raise them as high as you can.",
+        "Pause at the top, then lower slowly and repeat."
+      ],
+      "th": [
+        "นั่งบนม้านั่ง วางปลายเท้าบนแผ่นน้ำหนัก และงอเข่า 90 องศา",
+        "วางดัมเบลบนต้นขาข้างละลูกเหนือเข่าเล็กน้อย แล้วใช้มือจับไว้",
+        "ลดส้นเท้าลงให้ต่ำที่สุด แล้วยกส้นเท้าขึ้นให้สูงที่สุด",
+        "ค้างไว้ในจังหวะบน แล้วค่อยๆ ลดลงและทำซ้ำ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your knees bent at 90 degrees — this slackens the gastrocnemius so the soleus carries most of the load.",
+        "Raise your heels as high as you can on every rep so the soleus works through its full range."
+      ],
+      "th": [
+        "งอเข่า 90 องศาไว้ เพราะทำให้น่องด้านในและด้านนอกหย่อน โซเลียสจึงรับน้ำหนักส่วนใหญ่",
+        "ยกส้นเท้าให้สูงสุดทุกเรพ เพื่อให้โซเลียสทำงานเต็มช่วง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't lift the dumbbells with your hands to help; the soleus gets less load.",
+        "Avoid bouncing at the bottom; the spring of the Achilles tendon replaces the soleus's work."
+      ],
+      "th": [
+        "อย่าใช้มือยกดัมเบลช่วย เพราะโซเลียสจะรับน้ำหนักน้อยลง",
+        "อย่าเด้งในจังหวะล่าง เพราะแรงดีดของเอ็นร้อยหวายจะทำงานแทนโซเลียส"
+      ]
+    }
+  },
+  {
+    "id": "kettlebell_swing",
+    "name": {
+      "en": "Kettlebell Swing",
+      "th": "เคตเทิลเบลสวิง"
+    },
+    "equipment": "kettlebell",
+    "difficulty": "intermediate",
+    "primary": [
+      "gluteus_maximus",
+      "biceps_femoris"
+    ],
+    "secondary": [
+      "erector_spinae",
+      "semitendinosus"
+    ],
+    "steps": {
+      "en": [
+        "Stand with your feet slightly wider than shoulder width and a kettlebell on the floor about a foot-length in front of you.",
+        "Hinge at the hips with a flat back, grip the handle with both hands, and hike the kettlebell back between your legs.",
+        "Snap your hips forward and squeeze your glutes to swing the kettlebell up to chest height, arms straight and relaxed.",
+        "Let it fall back between your legs as you hinge again, and repeat; to finish, hinge and set it down in front of you."
+      ],
+      "th": [
+        "ยืนเท้ากว้างกว่าไหล่เล็กน้อย วางเคตเทิลเบลบนพื้นห่างจากเท้าไปด้านหน้าประมาณหนึ่งช่วงเท้า",
+        "พับสะโพกโดยหลังตรง ใช้สองมือจับหูเคตเทิลเบล แล้วเหวี่ยงไปด้านหลังระหว่างขา",
+        "ดันสะโพกไปด้านหน้าอย่างรวดเร็วและบีบก้น เพื่อเหวี่ยงเคตเทิลเบลขึ้นถึงระดับอก แขนเหยียดตรงแบบผ่อนคลาย",
+        "ปล่อยให้เคตเทิลเบลตกกลับระหว่างขาพร้อมพับสะโพกอีกครั้ง แล้วทำซ้ำ เมื่อจบให้พับสะโพกแล้ววางลงตรงหน้า"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Let the hip snap and glute squeeze drive the swing — your arms only guide the kettlebell.",
+        "Hinge back with only a slight knee bend, so the hamstrings load up as the kettlebell swings between your legs."
+      ],
+      "th": [
+        "ให้แรงเหวี่ยงมาจากการดันสะโพกและบีบก้น แขนมีหน้าที่แค่ประคองเคตเทิลเบล",
+        "พับสะโพกไปด้านหลังโดยงอเข่าเพียงเล็กน้อย เพื่อให้แฮมสตริงรับแรงตอนเคตเทิลเบลเหวี่ยงกลับระหว่างขา"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't squat the kettlebell up and down; bending your knees a lot shifts the work to the quads and away from the glutes and hamstrings.",
+        "Avoid leaning back or arching at the top; finish standing tall with your glutes squeezed, or your lower back takes the strain.",
+        "Don't round your back as the kettlebell swings between your legs; your spine takes the load while the weight is moving fast."
+      ],
+      "th": [
+        "อย่าย่อเข่าลงลึกแล้วยกขึ้นเหมือนการย่อตัว เพราะงานจะย้ายไปที่ต้นขาหน้า และก้นกับแฮมสตริงทำงานน้อยลง",
+        "อย่าเอนตัวไปด้านหลังหรือแอ่นหลังในจังหวะบน ให้จบท่าด้วยการยืนตรงและบีบก้น ไม่เช่นนั้นหลังล่างจะรับแรงเกิน",
+        "อย่างอหลังตอนเคตเทิลเบลเหวี่ยงกลับระหว่างขา เพราะกระดูกสันหลังจะรับแรงขณะที่น้ำหนักเคลื่อนที่เร็ว"
+      ]
+    }
   }
 ]

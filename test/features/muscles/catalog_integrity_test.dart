@@ -5,10 +5,6 @@ import 'package:food_diary/features/muscles/muscle_catalog.dart';
 import 'package:food_diary/models/localized_text.dart';
 import 'package:food_diary/models/muscle.dart';
 
-/// Groups whose exercise content is complete. Extended as content tasks land;
-/// removed (checking every group) once all content exists.
-const authoredGroups = <String>{'chest', 'shoulders', 'back', 'neck', 'arms'};
-
 void main() {
   final catalog = MuscleCatalog.fromJsonStrings(
     File(MuscleCatalog.musclesAsset).readAsStringSync(),
@@ -72,9 +68,8 @@ void main() {
     }
   });
 
-  test('authored muscles have enough primary exercises', () {
+  test('every muscle has enough primary exercises', () {
     for (final m in catalog.muscles) {
-      if (!authoredGroups.contains(m.group.jsonName)) continue;
       final count = catalog.exercises.where((e) => e.primary.contains(m.id)).length;
       expect(
         count,
