@@ -2483,5 +2483,1064 @@
         "อย่าออกแรงหนักทันทีหรือกลั้นหายใจ"
       ]
     }
+  },
+  {
+    "id": "barbell_curl",
+    "name": {
+      "en": "Barbell Curl",
+      "th": "บาร์เบลเคิร์ล"
+    },
+    "equipment": "barbell",
+    "difficulty": "beginner",
+    "primary": [
+      "biceps_long",
+      "biceps_short"
+    ],
+    "secondary": [
+      "brachialis",
+      "brachioradialis"
+    ],
+    "steps": {
+      "en": [
+        "Stand tall holding a barbell with an underhand grip, hands about shoulder width apart.",
+        "Pin your elbows at your sides and brace your core.",
+        "Curl the bar up toward your shoulders by bending only at the elbows.",
+        "Lower the bar slowly until your arms are fully straight."
+      ],
+      "th": [
+        "ยืนตัวตรง จับบาร์เบลแบบหงายมือ กว้างประมาณไหล่",
+        "แนบศอกไว้ข้างลำตัวและเกร็งแกนกลางลำตัว",
+        "งอศอกยกบาร์ขึ้นหาไหล่ โดยขยับแค่ข้อศอก",
+        "ลดบาร์ลงช้าๆ จนแขนเหยียดสุด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your upper arms still so the biceps, not the shoulders, move the bar.",
+        "Use the full range: straighten your arms at the bottom of every rep."
+      ],
+      "th": [
+        "ให้ต้นแขนอยู่นิ่ง เพื่อให้ไบเซ็ปส์เป็นตัวยกบาร์ ไม่ใช่ไหล่",
+        "เล่นให้สุดช่วง เหยียดแขนให้สุดในจังหวะล่างของทุกเรพ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid swinging the bar up with your hips and back — momentum takes the work off the biceps and strains the lower back.",
+        "Don't let your elbows drift forward at the top; the front delts take over and the biceps lose tension."
+      ],
+      "th": [
+        "อย่าใช้สะโพกและหลังเหวี่ยงบาร์ขึ้น เพราะแรงเหวี่ยงทำให้ไบเซ็ปส์ทำงานน้อยลงและหลังล่างรับแรงเกิน",
+        "อย่าปล่อยศอกเลื่อนไปข้างหน้าในจังหวะบน เพราะไหล่หน้าจะช่วยยกแทนและไบเซ็ปส์เสียแรงตึง"
+      ]
+    }
+  },
+  {
+    "id": "incline_dumbbell_curl",
+    "name": {
+      "en": "Incline Dumbbell Curl",
+      "th": "อินไคลน์ดัมเบลเคิร์ล"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "biceps_long"
+    ],
+    "secondary": [
+      "biceps_short",
+      "brachialis"
+    ],
+    "steps": {
+      "en": [
+        "Set a bench to about 45–60° and sit back holding a dumbbell in each hand.",
+        "Let your arms hang straight down behind your torso, palms facing forward.",
+        "Curl the dumbbells up without moving your upper arms.",
+        "Lower slowly until your arms are fully straight again."
+      ],
+      "th": [
+        "ปรับม้านั่งเอียงราว 45–60 องศา นั่งพิงพนักโดยถือดัมเบลข้างละลูก",
+        "ปล่อยแขนห้อยตรงลงมาหลังแนวลำตัว หันฝ่ามือไปด้านหน้า",
+        "งอศอกยกดัมเบลขึ้น โดยไม่ขยับต้นแขน",
+        "ลดดัมเบลลงช้าๆ จนแขนเหยียดสุดอีกครั้ง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keeping your arms behind your body stretches the long head, which crosses the shoulder — that is what this curl is for.",
+        "Keep your head and back against the bench for the whole set."
+      ],
+      "th": [
+        "การให้แขนอยู่หลังลำตัวช่วยยืดไบเซ็ปส์หัวยาวที่พาดผ่านข้อไหล่ ซึ่งเป็นจุดเด่นของท่านี้",
+        "ให้หัวและหลังแนบพนักตลอดเซ็ต"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid bringing your elbows forward as you curl — it removes the stretch on the long head.",
+        "Don't go so heavy that the front of your shoulders strains in the stretched position."
+      ],
+      "th": [
+        "อย่าดึงศอกมาข้างหน้าขณะยก เพราะไบเซ็ปส์หัวยาวจะไม่ถูกยืด",
+        "อย่าใช้น้ำหนักมากจนไหล่ด้านหน้าตึงเจ็บในจังหวะที่แขนถูกยืด"
+      ]
+    }
+  },
+  {
+    "id": "preacher_curl",
+    "name": {
+      "en": "Preacher Curl",
+      "th": "พรีชเชอร์เคิร์ล"
+    },
+    "equipment": "barbell",
+    "difficulty": "beginner",
+    "primary": [
+      "biceps_short"
+    ],
+    "secondary": [
+      "brachialis"
+    ],
+    "steps": {
+      "en": [
+        "Sit at a preacher bench with your armpits snug against the top of the pad.",
+        "Hold an EZ-bar or barbell with an underhand grip, upper arms flat on the pad.",
+        "Curl the bar up until your forearms are nearly vertical.",
+        "Lower slowly until your arms are almost straight."
+      ],
+      "th": [
+        "นั่งที่ม้าพรีชเชอร์ ให้รักแร้ชิดขอบบนของเบาะ",
+        "จับบาร์ EZ หรือบาร์เบลแบบหงายมือ วางต้นแขนราบกับเบาะ",
+        "งอศอกยกบาร์ขึ้นจนปลายแขนเกือบตั้งฉาก",
+        "ลดบาร์ลงช้าๆ จนแขนเกือบเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "With your arms in front of your body the long head is slackened, so the short head does relatively more of the work.",
+        "Control the bottom half — that is where the pad keeps the most tension on the biceps."
+      ],
+      "th": [
+        "เมื่อแขนอยู่หน้าลำตัว ไบเซ็ปส์หัวยาวจะหย่อน หัวสั้นจึงรับงานมากขึ้นเมื่อเทียบกัน",
+        "ควบคุมครึ่งล่างของท่าให้ดี เพราะช่วงนี้ไบเซ็ปส์รับแรงตึงมากที่สุดเมื่อแขนพาดเบาะ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid dropping fast into the bottom and bouncing out — it stresses the elbow and biceps tendon.",
+        "Don't lift your elbows or shoulders off the pad to finish a rep; that turns it into a shoulder lift."
+      ],
+      "th": [
+        "อย่าปล่อยบาร์ลงเร็วแล้วเด้งขึ้นในจังหวะล่าง เพราะข้อศอกและเอ็นไบเซ็ปส์รับแรงกระแทก",
+        "อย่ายกศอกหรือไหล่ขึ้นจากเบาะเพื่อช่วยยก เพราะไหล่จะกลายเป็นตัวยกแทน"
+      ]
+    }
+  },
+  {
+    "id": "concentration_curl",
+    "name": {
+      "en": "Concentration Curl",
+      "th": "คอนเซนเทรชันเคิร์ล"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "biceps_short"
+    ],
+    "secondary": [
+      "biceps_long",
+      "brachialis"
+    ],
+    "steps": {
+      "en": [
+        "Sit on a bench, lean forward, and brace the back of your upper arm against your inner thigh.",
+        "Let the dumbbell hang with your arm straight and palm facing your other leg.",
+        "Curl the dumbbell up toward your shoulder, keeping your upper arm still.",
+        "Lower slowly to a full stretch and switch arms after the set."
+      ],
+      "th": [
+        "นั่งบนม้านั่ง โน้มตัวไปข้างหน้า วางต้นแขนด้านหลังพิงต้นขาด้านใน",
+        "ปล่อยดัมเบลห้อยลง แขนเหยียดตรง หันฝ่ามือเข้าหาขาอีกข้าง",
+        "งอศอกยกดัมเบลขึ้นหาไหล่ โดยให้ต้นแขนอยู่นิ่ง",
+        "ลดดัมเบลลงช้าๆ จนแขนเหยียดสุด ครบเซ็ตแล้วเปลี่ยนข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your palm turned fully up as you curl; turning the palm up is one of the biceps' own jobs.",
+        "Working one arm at a time lets you focus on each side and fix any imbalance."
+      ],
+      "th": [
+        "หงายฝ่ามือให้สุดขณะยก เพราะการหงายมือเป็นหน้าที่หนึ่งของไบเซ็ปส์เอง",
+        "การเล่นทีละข้างช่วยให้โฟกัสแต่ละแขนและแก้ความไม่สมดุลได้"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid rocking your torso back to lift the weight — it takes the work off the biceps.",
+        "Don't let your elbow slide along your thigh; keep the upper arm fixed."
+      ],
+      "th": [
+        "อย่าเอนลำตัวไปด้านหลังเพื่อช่วยยก เพราะไบเซ็ปส์จะทำงานน้อยลง",
+        "อย่าปล่อยศอกไถลไปตามต้นขา ให้ต้นแขนอยู่กับที่"
+      ]
+    }
+  },
+  {
+    "id": "bayesian_cable_curl",
+    "name": {
+      "en": "Bayesian Cable Curl",
+      "th": "เบย์เซียนเคเบิลเคิร์ล"
+    },
+    "equipment": "cable",
+    "difficulty": "intermediate",
+    "primary": [
+      "biceps_long"
+    ],
+    "secondary": [
+      "biceps_short"
+    ],
+    "steps": {
+      "en": [
+        "Set a cable pulley at the lowest position and attach a single handle.",
+        "Hold the handle with an underhand grip, face away from the machine, and step forward until your arm is pulled behind your body.",
+        "Stand in a staggered stance and curl the handle up while keeping your elbow behind you.",
+        "Lower slowly until your arm is straight and you feel a stretch in the biceps."
+      ],
+      "th": [
+        "ตั้งรอกเคเบิลไว้ตำแหน่งต่ำสุด ใส่ด้ามจับแบบมือเดียว",
+        "จับด้ามแบบหงายมือ หันหลังให้เครื่อง แล้วก้าวไปข้างหน้าจนแขนถูกดึงไปอยู่หลังลำตัว",
+        "ยืนเท้าหน้า-หลัง แล้วงอศอกยกด้ามขึ้น โดยให้ศอกอยู่หลังลำตัวตลอด",
+        "ลดลงช้าๆ จนแขนเหยียดตรงและรู้สึกตึงที่ไบเซ็ปส์"
+      ]
+    },
+    "tips": {
+      "en": [
+        "The arm-behind-the-body position stretches the long head, and the cable keeps tension on it even at the bottom.",
+        "Keep your upper arm still and let only the forearm move."
+      ],
+      "th": [
+        "การให้แขนอยู่หลังลำตัวช่วยยืดไบเซ็ปส์หัวยาว และเคเบิลยังคงแรงตึงไว้แม้ในจังหวะล่าง",
+        "ให้ต้นแขนอยู่นิ่ง ขยับเฉพาะปลายแขน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid letting your elbow swing forward as you curl — the long-head stretch disappears.",
+        "Don't use a weight that pulls your shoulder forward and rounds it; the front of the shoulder takes the strain."
+      ],
+      "th": [
+        "อย่าปล่อยศอกแกว่งมาข้างหน้าขณะยก เพราะไบเซ็ปส์หัวยาวจะไม่ถูกยืดอีก",
+        "อย่าใช้น้ำหนักที่มากจนดึงไหล่ห่อไปข้างหน้า เพราะไหล่ด้านหน้าจะรับแรงแทน"
+      ]
+    }
+  },
+  {
+    "id": "hammer_curl",
+    "name": {
+      "en": "Hammer Curl",
+      "th": "แฮมเมอร์เคิร์ล"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "brachialis",
+      "brachioradialis"
+    ],
+    "secondary": [
+      "biceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Stand holding a dumbbell in each hand at your sides, palms facing your body.",
+        "Pin your elbows to your sides.",
+        "Curl the dumbbells up with your thumbs pointing up the whole time.",
+        "Lower slowly until your arms are straight."
+      ],
+      "th": [
+        "ยืนถือดัมเบลข้างละลูกไว้ข้างลำตัว หันฝ่ามือเข้าหาตัว",
+        "แนบศอกไว้ข้างลำตัว",
+        "งอศอกยกดัมเบลขึ้น โดยให้นิ้วโป้งชี้ขึ้นตลอด",
+        "ลดดัมเบลลงช้าๆ จนแขนเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "The thumbs-up grip puts the brachioradialis in its strongest position, so it and the brachialis share more of the load.",
+        "Keep your wrists straight and squeeze the handles firmly."
+      ],
+      "th": [
+        "การจับแบบนิ้วโป้งชี้ขึ้นทำให้เบรคิโอเรเดียลิสอยู่ในตำแหน่งที่ออกแรงได้ดีที่สุด จึงรับงานร่วมกับเบรเคียลิสได้มากขึ้น",
+        "รักษาข้อมือให้ตรงและกำด้ามดัมเบลให้แน่น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid twisting your palms up as you lift — that turns it back into a regular curl.",
+        "Don't swing the dumbbells with your body; the arm muscles do less work."
+      ],
+      "th": [
+        "อย่าบิดฝ่ามือหงายขึ้นขณะยก เพราะจะกลายเป็นท่าเคิร์ลธรรมดา",
+        "อย่าใช้ลำตัวเหวี่ยงดัมเบล เพราะกล้ามแขนจะทำงานน้อยลง"
+      ]
+    }
+  },
+  {
+    "id": "reverse_curl",
+    "name": {
+      "en": "Reverse Curl",
+      "th": "รีเวิร์สเคิร์ล"
+    },
+    "equipment": "barbell",
+    "difficulty": "beginner",
+    "primary": [
+      "brachioradialis",
+      "brachialis",
+      "forearm_extensors"
+    ],
+    "secondary": [
+      "biceps_short"
+    ],
+    "steps": {
+      "en": [
+        "Stand holding a barbell or EZ-bar with an overhand grip, hands about shoulder width apart.",
+        "Keep your elbows at your sides and your wrists straight.",
+        "Curl the bar up toward your shoulders.",
+        "Lower slowly until your arms are straight."
+      ],
+      "th": [
+        "ยืนจับบาร์เบลหรือบาร์ EZ แบบคว่ำมือ กว้างประมาณไหล่",
+        "แนบศอกไว้ข้างลำตัวและรักษาข้อมือให้ตรง",
+        "งอศอกยกบาร์ขึ้นหาไหล่",
+        "ลดบาร์ลงช้าๆ จนแขนเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "With palms down the biceps are at a disadvantage, so the brachioradialis and brachialis do more of the lifting.",
+        "Hold your wrists level with your forearms — keeping them there is the forearm extensors' job.",
+        "Expect to use noticeably less weight than on a barbell curl."
+      ],
+      "th": [
+        "เมื่อคว่ำมือ ไบเซ็ปส์จะออกแรงได้น้อยลง เบรคิโอเรเดียลิสและเบรเคียลิสจึงต้องยกมากขึ้น",
+        "ล็อกข้อมือให้อยู่ระดับเดียวกับปลายแขน ซึ่งเป็นงานของกล้ามเหยียดข้อมือ",
+        "น้ำหนักที่ใช้จะน้อยกว่าบาร์เบลเคิร์ลอย่างชัดเจน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid letting your wrists bend down as you lift — the extensors stop holding and the wrist takes the strain.",
+        "Don't swing the bar up with your hips."
+      ],
+      "th": [
+        "อย่าปล่อยข้อมือหักลงขณะยก เพราะกล้ามเหยียดข้อมือเลิกทำงานและข้อมือรับแรงแทน",
+        "อย่าใช้สะโพกเหวี่ยงบาร์ขึ้น"
+      ]
+    }
+  },
+  {
+    "id": "cross_body_hammer_curl",
+    "name": {
+      "en": "Cross-body Hammer Curl",
+      "th": "ครอสบอดี้แฮมเมอร์เคิร์ล"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "brachialis"
+    ],
+    "secondary": [
+      "brachioradialis",
+      "biceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Stand holding a dumbbell in each hand at your sides, palms facing your body.",
+        "Curl one dumbbell up and across your body toward the opposite shoulder, thumb up.",
+        "Lower it slowly back to your side.",
+        "Repeat with the other arm, alternating each rep."
+      ],
+      "th": [
+        "ยืนถือดัมเบลข้างละลูกไว้ข้างลำตัว หันฝ่ามือเข้าหาตัว",
+        "งอศอกยกดัมเบลข้างหนึ่งขึ้นเฉียงข้ามลำตัวไปหาไหล่อีกข้าง โดยให้นิ้วโป้งชี้ขึ้น",
+        "ลดดัมเบลลงช้าๆ กลับมาข้างลำตัว",
+        "ทำสลับกับแขนอีกข้างทีละเรพ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep the thumb-up grip the whole way; without the palm turning up, the brachialis carries a bigger share of the curl.",
+        "Keep your elbow close to your side as the dumbbell crosses your body."
+      ],
+      "th": [
+        "จับแบบนิ้วโป้งชี้ขึ้นตลอดการเคลื่อนไหว เมื่อไม่หงายมือ เบรเคียลิสจะรับงานในการยกมากขึ้น",
+        "ให้ศอกอยู่ชิดลำตัวขณะดัมเบลเคลื่อนข้ามลำตัว"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid twisting your torso to help the weight across.",
+        "Don't let the dumbbell drop quickly; lower it under control."
+      ],
+      "th": [
+        "อย่าบิดลำตัวเพื่อช่วยพาดัมเบลข้ามมา",
+        "อย่าปล่อยดัมเบลลงเร็ว ให้ควบคุมจังหวะลง"
+      ]
+    }
+  },
+  {
+    "id": "close_grip_bench_press",
+    "name": {
+      "en": "Close-grip Bench Press",
+      "th": "เบนช์เพรสจับแคบ"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "triceps_lateral",
+      "triceps_medial"
+    ],
+    "secondary": [
+      "pec_major_sternocostal",
+      "deltoid_anterior",
+      "triceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Lie on the bench with your eyes under the bar and feet flat on the floor.",
+        "Grip the bar about shoulder width apart and unrack it over your shoulders.",
+        "Lower the bar under control to your lower chest, keeping your elbows tucked close to your sides.",
+        "Press the bar back up until your elbows are fully locked out."
+      ],
+      "th": [
+        "นอนบนม้านั่งให้สายตาอยู่ใต้บาร์ วางเท้าราบกับพื้น",
+        "จับบาร์กว้างประมาณไหล่ แล้วยกบาร์ออกจากแร็คมาไว้เหนือไหล่",
+        "ลดบาร์ลงช้าๆ แตะอกส่วนล่าง โดยหุบศอกให้ชิดลำตัว",
+        "ดันบาร์ขึ้นจนศอกเหยียดล็อกสุด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Tucking your elbows and finishing each rep at full lockout puts more of the press on the triceps.",
+        "Keep your shoulder blades set on the bench, as you would on a regular bench press."
+      ],
+      "th": [
+        "การหุบศอกและดันจนเหยียดล็อกสุดทุกเรพช่วยให้ไตรเซ็ปส์รับงานในการดันมากขึ้น",
+        "ล็อกสะบักแนบม้านั่งเหมือนตอนเล่นเบนช์เพรส"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid gripping much narrower than your shoulders — it strains the wrists without adding triceps work.",
+        "Don't let your elbows flare out; the chest and shoulders take over.",
+        "Don't train heavy without a spotter or safety arms."
+      ],
+      "th": [
+        "อย่าจับแคบกว่าไหล่มาก เพราะข้อมือรับแรงเกินโดยไม่ได้ทำให้ไตรเซ็ปส์ทำงานมากขึ้น",
+        "อย่ากางศอกออก เพราะอกและไหล่จะรับงานแทน",
+        "อย่าเล่นหนักโดยไม่มีคนสปอตหรือไม่ตั้งเซฟตี้บาร์"
+      ]
+    }
+  },
+  {
+    "id": "overhead_triceps_extension",
+    "name": {
+      "en": "Overhead Dumbbell Triceps Extension",
+      "th": "ดัมเบลโอเวอร์เฮดไตรเซ็ปส์เอ็กซ์เทนชัน"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "triceps_long"
+    ],
+    "secondary": [
+      "triceps_lateral",
+      "triceps_medial"
+    ],
+    "steps": {
+      "en": [
+        "Sit or stand holding one dumbbell with both hands under the top plate, arms straight overhead.",
+        "Brace your core so your lower back doesn't arch.",
+        "Bend your elbows to lower the dumbbell slowly behind your head, upper arms pointing up.",
+        "Extend your elbows to press the dumbbell back overhead."
+      ],
+      "th": [
+        "นั่งหรือยืน ใช้สองมือประคองใต้แผ่นบนของดัมเบลหนึ่งลูก ยกแขนเหยียดตรงเหนือศีรษะ",
+        "เกร็งแกนกลางลำตัวไม่ให้หลังล่างแอ่น",
+        "งอศอกลดดัมเบลลงช้าๆ ไปด้านหลังศีรษะ โดยให้ต้นแขนชี้ขึ้น",
+        "เหยียดศอกดันดัมเบลกลับขึ้นเหนือศีรษะ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Raising the arms overhead stretches the long head, which is why overhead work trains it so well.",
+        "Lower into a deep stretch only as far as your elbows stay comfortable, and start light to find that range."
+      ],
+      "th": [
+        "การยกแขนเหนือศีรษะทำให้ไตรเซ็ปส์หัวยาวถูกยืด ท่าเหนือศีรษะจึงฝึกหัวยาวได้ดี",
+        "ลดลงให้ยืดลึกเท่าที่ข้อศอกยังรู้สึกสบาย และเริ่มจากน้ำหนักเบาเพื่อหาช่วงที่เหมาะ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid bouncing out of the bottom — it loads the elbow joint at its most stretched point.",
+        "Don't let your elbows flare wide; it shifts load off the triceps and onto the elbow and shoulder joints.",
+        "Don't arch your lower back to get the weight overhead."
+      ],
+      "th": [
+        "อย่าเด้งจากจังหวะล่าง เพราะข้อศอกรับแรงในตำแหน่งที่ถูกยืดมากที่สุด",
+        "อย่าปล่อยศอกกางออกกว้าง เพราะแรงจะย้ายจากไตรเซ็ปส์ไปลงที่ข้อศอกและข้อไหล่",
+        "อย่าแอ่นหลังล่างเพื่อดันน้ำหนักขึ้น"
+      ]
+    }
+  },
+  {
+    "id": "triceps_pushdown",
+    "name": {
+      "en": "Cable Triceps Pushdown",
+      "th": "ไตรเซ็ปส์พุชดาวน์"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "triceps_lateral"
+    ],
+    "secondary": [
+      "triceps_medial",
+      "triceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Attach a rope or straight bar to a high cable pulley and grip it.",
+        "Stand close, lean forward slightly, and pin your elbows to your sides.",
+        "Push the handle down until your elbows are fully straight.",
+        "Let your forearms rise slowly until they are just past parallel to the floor."
+      ],
+      "th": [
+        "ใส่เชือกหรือบาร์ตรงที่รอกเคเบิลตำแหน่งสูง แล้วจับไว้",
+        "ยืนใกล้เครื่อง โน้มตัวไปข้างหน้าเล็กน้อย และแนบศอกไว้ข้างลำตัว",
+        "กดด้ามจับลงจนศอกเหยียดตรงสุด",
+        "ปล่อยปลายแขนขึ้นช้าๆ จนเลยแนวขนานพื้นเล็กน้อย"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your upper arms still so only the elbows move — that keeps the work on the triceps.",
+        "Fully straighten your elbows at the bottom of every rep."
+      ],
+      "th": [
+        "ให้ต้นแขนอยู่นิ่ง ขยับเฉพาะข้อศอก เพื่อให้ไตรเซ็ปส์เป็นตัวทำงาน",
+        "เหยียดศอกให้สุดในจังหวะล่างของทุกเรพ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid letting your elbows drift forward and back — it turns the move into a press with the shoulders and lats.",
+        "Don't lean your bodyweight over the handle to push it down."
+      ],
+      "th": [
+        "อย่าปล่อยศอกเลื่อนไปมาหน้า-หลัง เพราะจะกลายเป็นการดันด้วยไหล่และหลัง",
+        "อย่าทิ้งน้ำหนักตัวลงไปที่ด้ามเพื่อกดลง"
+      ]
+    }
+  },
+  {
+    "id": "skull_crusher",
+    "name": {
+      "en": "Skull Crusher",
+      "th": "สกัลครัชเชอร์"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "triceps_long",
+      "triceps_lateral"
+    ],
+    "secondary": [
+      "triceps_medial"
+    ],
+    "steps": {
+      "en": [
+        "Lie on a flat bench holding an EZ-bar with arms straight over your shoulders, hands about shoulder width apart.",
+        "Tilt your upper arms slightly back toward your head.",
+        "Bend your elbows to lower the bar slowly to just behind the top of your head.",
+        "Extend your elbows to bring the bar back to the start."
+      ],
+      "th": [
+        "นอนบนม้านั่งราบ ถือบาร์ EZ เหยียดแขนตรงเหนือไหล่ มือกว้างประมาณไหล่",
+        "เอียงต้นแขนไปทางศีรษะเล็กน้อย",
+        "งอศอกลดบาร์ลงช้าๆ ไปอยู่หลังศีรษะเล็กน้อย",
+        "เหยียดศอกยกบาร์กลับสู่ท่าเริ่มต้น"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Lowering the bar behind your head rather than to your forehead gives the long head more stretch and is usually easier on the elbows.",
+        "Use an EZ-bar and moderate reps (around 8–15); heavy low-rep sets are hard on the elbows."
+      ],
+      "th": [
+        "การลดบาร์ไปหลังศีรษะแทนการลงที่หน้าผากช่วยยืดไตรเซ็ปส์หัวยาวได้มากขึ้น และมักสบายข้อศอกกว่า",
+        "ใช้บาร์ EZ และเล่นเรพปานกลางราว 8–15 เรพ เพราะการเล่นหนักเรพต่ำทำให้ข้อศอกรับแรงมาก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid dropping the bar quickly toward your face — control every rep and lift with a spotter if it gets heavy.",
+        "Don't flare your elbows out wide; it shifts stress onto the elbow joint.",
+        "Don't push through elbow pain — switch to a lighter load or a cable version."
+      ],
+      "th": [
+        "อย่าปล่อยบาร์ลงเร็วเข้าหาหน้า ควบคุมทุกเรพและให้คนสปอตเมื่อน้ำหนักเริ่มหนัก",
+        "อย่ากางศอกออกกว้าง เพราะข้อศอกจะรับแรงมากขึ้น",
+        "อย่าฝืนเล่นต่อเมื่อเจ็บข้อศอก ให้ลดน้ำหนักหรือเปลี่ยนไปใช้เคเบิล"
+      ]
+    }
+  },
+  {
+    "id": "bench_dip",
+    "name": {
+      "en": "Bench Dip",
+      "th": "เบนช์ดิปส์"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "triceps_lateral",
+      "triceps_medial"
+    ],
+    "secondary": [
+      "deltoid_anterior",
+      "pec_major_sternocostal"
+    ],
+    "steps": {
+      "en": [
+        "Sit on the edge of a bench, hands beside your hips with fingers pointing forward.",
+        "Slide your hips off the bench with knees bent and feet flat on the floor.",
+        "Bend your elbows to lower your hips until your upper arms are about parallel to the floor.",
+        "Press through your palms until your arms are straight."
+      ],
+      "th": [
+        "นั่งที่ขอบม้านั่ง วางมือข้างสะโพก ให้นิ้วชี้ไปด้านหน้า",
+        "เลื่อนสะโพกออกจากม้านั่ง งอเข่า วางเท้าราบกับพื้น",
+        "งอศอกลดสะโพกลงจนต้นแขนขนานกับพื้นโดยประมาณ",
+        "ดันฝ่ามือกับม้านั่งจนแขนเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your back close to the bench and your elbows pointing straight back so the triceps do the pressing.",
+        "Keep your chest up and shoulders pulled down and back throughout.",
+        "Bend your knees more to make it easier, or straighten your legs to make it harder."
+      ],
+      "th": [
+        "ให้หลังอยู่ชิดม้านั่งและชี้ศอกไปด้านหลังตรงๆ เพื่อให้ไตรเซ็ปส์เป็นตัวดัน",
+        "ยกอกและกดไหล่ลงไปด้านหลังตลอดการเคลื่อนไหว",
+        "งอเข่ามากขึ้นเพื่อให้ง่ายขึ้น หรือเหยียดขาให้ตรงเพื่อเพิ่มความยาก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid going deeper than your upper arms parallel — very deep bench dips put heavy strain on the front of the shoulder.",
+        "Don't let your shoulders roll forward or shrug toward your ears at the bottom.",
+        "Don't let your elbows flare out to the sides; it takes work off the triceps and loads the shoulders."
+      ],
+      "th": [
+        "อย่าลงลึกเกินกว่าต้นแขนขนานพื้น เพราะการลงลึกมากทำให้ไหล่ด้านหน้ารับแรงหนัก",
+        "อย่าปล่อยไหล่ห่อไปข้างหน้าหรือยักขึ้นหาหูในจังหวะล่าง",
+        "อย่าปล่อยศอกกางออกด้านข้าง เพราะไตรเซ็ปส์ทำงานน้อยลงและไหล่รับแรงแทน"
+      ]
+    }
+  },
+  {
+    "id": "cable_overhead_extension",
+    "name": {
+      "en": "Cable Overhead Triceps Extension",
+      "th": "เคเบิลโอเวอร์เฮดไตรเซ็ปส์เอ็กซ์เทนชัน"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "triceps_long"
+    ],
+    "secondary": [
+      "triceps_lateral"
+    ],
+    "steps": {
+      "en": [
+        "Attach a rope to a cable pulley at about chest height and grip it with both hands.",
+        "Turn away from the machine, step forward into a staggered stance, and bring the rope behind your head with elbows pointing forward.",
+        "Extend your elbows to push the rope forward and up until your arms are straight.",
+        "Let the rope pull your hands slowly back behind your head."
+      ],
+      "th": [
+        "ใส่เชือกที่รอกเคเบิลระดับอกโดยประมาณ แล้วจับด้วยสองมือ",
+        "หันหลังให้เครื่อง ก้าวเท้าหน้า-หลัง แล้วพาเชือกไปไว้หลังศีรษะ โดยชี้ศอกไปด้านหน้า",
+        "เหยียดศอกดันเชือกไปข้างหน้าและขึ้นด้านบนจนแขนเหยียดตรง",
+        "ปล่อยให้เชือกดึงมือกลับไปหลังศีรษะช้าๆ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Let your hands travel well behind your head for a full long-head stretch — the cable keeps tension there.",
+        "Keep your upper arms close to your head and still; only the elbows move."
+      ],
+      "th": [
+        "ปล่อยมือกลับไปหลังศีรษะให้สุดเพื่อยืดไตรเซ็ปส์หัวยาวเต็มที่ โดยเคเบิลยังคงแรงตึงไว้ในช่วงนั้น",
+        "ให้ต้นแขนชิดศีรษะและอยู่นิ่ง ขยับเฉพาะข้อศอก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid flaring your elbows out to the sides.",
+        "Don't rock your torso forward to move the weight — the triceps do less and the lower back takes over."
+      ],
+      "th": [
+        "อย่าปล่อยศอกกางออกด้านข้าง",
+        "อย่าโยกลำตัวไปข้างหน้าเพื่อช่วยดัน เพราะไตรเซ็ปส์ทำงานน้อยลงและหลังล่างรับแรงแทน"
+      ]
+    }
+  },
+  {
+    "id": "wrist_curl",
+    "name": {
+      "en": "Dumbbell Wrist Curl",
+      "th": "ดัมเบลริสต์เคิร์ล"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "forearm_flexors"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Sit holding a light dumbbell and rest your forearm on your thigh or a bench, palm up, wrist just past the edge.",
+        "Let the dumbbell lower slowly by bending your wrist back.",
+        "Curl your wrist up as far as you can without lifting your forearm.",
+        "Lower slowly and repeat, then switch hands."
+      ],
+      "th": [
+        "นั่งถือดัมเบลน้ำหนักเบา วางปลายแขนบนต้นขาหรือม้านั่ง หงายฝ่ามือ ให้ข้อมือยื่นพ้นขอบ",
+        "ลดดัมเบลลงช้าๆ โดยพับข้อมือไปด้านหลัง",
+        "งอข้อมือยกดัมเบลขึ้นให้สุด โดยไม่ยกปลายแขน",
+        "ลดลงช้าๆ แล้วทำซ้ำ ครบเซ็ตแล้วเปลี่ยนข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Let the dumbbell roll down to your fingertips at the bottom, then close your hand before curling — this also works the finger flexors.",
+        "Use higher reps (around 15–20) with a slow, full range of motion."
+      ],
+      "th": [
+        "ในจังหวะล่าง ปล่อยดัมเบลกลิ้งลงมาที่ปลายนิ้ว แล้วกำกลับก่อนงอข้อมือขึ้น วิธีนี้ช่วยฝึกกล้ามงอนิ้วไปด้วย",
+        "เล่นเรพสูงราว 15–20 เรพ ช้าๆ และเต็มช่วง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid lifting your forearm off the support; the wrist should be the only joint moving.",
+        "Don't bounce at the bottom — it strains the wrist instead of working the forearm."
+      ],
+      "th": [
+        "อย่ายกปลายแขนขึ้นจากที่วาง ให้ข้อมือเป็นข้อต่อเดียวที่ขยับ",
+        "อย่าเด้งในจังหวะล่าง เพราะข้อมือรับแรงกระแทกแทนที่กล้ามปลายแขนจะทำงาน"
+      ]
+    }
+  },
+  {
+    "id": "reverse_wrist_curl",
+    "name": {
+      "en": "Reverse Wrist Curl",
+      "th": "รีเวิร์สริสต์เคิร์ล"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "forearm_extensors"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Sit holding a light dumbbell and rest your forearm on your thigh or a bench, palm down, wrist just past the edge.",
+        "Let your hand drop slowly toward the floor.",
+        "Raise the back of your hand as high as you can without lifting your forearm.",
+        "Lower slowly and repeat, then switch hands."
+      ],
+      "th": [
+        "นั่งถือดัมเบลน้ำหนักเบา วางปลายแขนบนต้นขาหรือม้านั่ง คว่ำฝ่ามือ ให้ข้อมือยื่นพ้นขอบ",
+        "ปล่อยมือลงช้าๆ ไปทางพื้น",
+        "ยกหลังมือขึ้นให้สูงที่สุด โดยไม่ยกปลายแขน",
+        "ลดลงช้าๆ แล้วทำซ้ำ ครบเซ็ตแล้วเปลี่ยนข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Use a much lighter dumbbell than for wrist curls — the extensors are smaller and weaker.",
+        "Pause briefly at the top of each rep to keep the extensors working."
+      ],
+      "th": [
+        "ใช้ดัมเบลเบากว่าท่าดัมเบลริสต์เคิร์ลมาก เพราะกล้ามเหยียดข้อมือเล็กและแรงน้อยกว่า",
+        "ค้างสั้นๆ ในจังหวะบนของทุกเรพ เพื่อให้กล้ามเหยียดข้อมือทำงานต่อเนื่อง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid going so heavy that your elbow or forearm lifts to help.",
+        "Don't rush the lowering phase; let the extensors control it."
+      ],
+      "th": [
+        "อย่าใช้น้ำหนักมากจนต้องยกศอกหรือปลายแขนขึ้นช่วย",
+        "อย่ารีบลดน้ำหนักลง ให้กล้ามเหยียดข้อมือควบคุมจังหวะลง"
+      ]
+    }
+  },
+  {
+    "id": "farmers_walk",
+    "name": {
+      "en": "Farmer's Walk",
+      "th": "ฟาร์มเมอร์วอล์ก"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "forearm_flexors"
+    ],
+    "secondary": [
+      "trapezius_upper",
+      "forearm_extensors",
+      "external_oblique"
+    ],
+    "steps": {
+      "en": [
+        "Place a heavy dumbbell on each side of your feet.",
+        "Squat down with a flat back, grip the handles, and stand up tall.",
+        "Walk forward with short, steady steps, shoulders back and core braced.",
+        "Walk for a set distance or time, then squat down and set the dumbbells on the floor."
+      ],
+      "th": [
+        "วางดัมเบลหนักไว้ข้างเท้าข้างละลูก",
+        "ย่อตัวลงโดยหลังตรง จับด้ามดัมเบล แล้วยืนขึ้นตัวตรง",
+        "เดินไปข้างหน้าด้วยก้าวสั้นและมั่นคง ไหล่ไม่ห่อ เกร็งแกนกลางลำตัว",
+        "เดินจนครบระยะหรือเวลาที่กำหนด แล้วย่อตัววางดัมเบลลงพื้น"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Hold each dumbbell in the middle of the handle and squeeze as hard as you can the whole walk.",
+        "Skip lifting straps — the point of this exercise is to train your grip."
+      ],
+      "th": [
+        "จับตรงกลางด้ามดัมเบลและกำให้แน่นที่สุดตลอดการเดิน",
+        "ไม่ต้องใช้สแตรป เพราะจุดประสงค์ของท่านี้คือฝึกแรงบีบมือ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid picking the dumbbells up with a rounded back — it strains the lower back.",
+        "Don't lean or sway to one side as you walk; stay tall and even."
+      ],
+      "th": [
+        "อย่าก้มหลังงอตอนยกดัมเบลขึ้น เพราะหลังล่างรับแรงเกิน",
+        "อย่าเอียงหรือโยกตัวไปข้างใดข้างหนึ่งขณะเดิน ให้ยืนตรงและสมดุล"
+      ]
+    }
+  },
+  {
+    "id": "dead_hang",
+    "name": {
+      "en": "Dead Hang",
+      "th": "เดดแฮง"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "forearm_flexors"
+    ],
+    "secondary": [
+      "latissimus_dorsi",
+      "teres_major"
+    ],
+    "steps": {
+      "en": [
+        "Step onto a box under a pull-up bar and grip it overhand, about shoulder width apart.",
+        "Step off the box and hang with your arms straight.",
+        "Hold the hang for as long as you can keep a firm grip.",
+        "Step back onto the box to finish instead of dropping."
+      ],
+      "th": [
+        "ขึ้นยืนบนกล่องใต้บาร์โหน จับบาร์แบบคว่ำมือกว้างประมาณไหล่",
+        "ก้าวลงจากกล่อง ปล่อยตัวห้อยโดยให้แขนเหยียดตรง",
+        "ห้อยค้างไว้นานเท่าที่ยังกำบาร์ได้แน่น",
+        "จบเซ็ตด้วยการก้าวกลับขึ้นกล่อง แทนการปล่อยตัวตกลงพื้น"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Wrap your thumb around the bar and squeeze it hard rather than hanging loosely — active gripping is what works the forearm flexors.",
+        "Add time gradually from session to session to build grip endurance."
+      ],
+      "th": [
+        "ใช้นิ้วโป้งรวบรอบบาร์และบีบให้แน่น แทนการห้อยแบบหลวมๆ เพราะการบีบบาร์คือสิ่งที่ทำให้กล้ามงอข้อมือทำงาน",
+        "ค่อยๆ เพิ่มเวลาในแต่ละครั้งที่ฝึก เพื่อสร้างความอึดของแรงบีบมือ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid swinging or kicking during the hang.",
+        "Don't drop off the bar suddenly — landing hard can jar your knees and ankles."
+      ],
+      "th": [
+        "อย่าแกว่งตัวหรือเตะขาระหว่างห้อย",
+        "อย่าปล่อยมือจากบาร์กะทันหัน เพราะการลงพื้นแรงอาจกระแทกเข่าและข้อเท้า"
+      ]
+    }
+  },
+  {
+    "id": "band_finger_extension",
+    "name": {
+      "en": "Band Finger Extension",
+      "th": "กางนิ้วต้านยางยืด"
+    },
+    "equipment": "band",
+    "difficulty": "beginner",
+    "primary": [
+      "forearm_extensors"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Loop a small rubber band around your fingers and thumb, just below the fingertips.",
+        "Start with your fingertips touching each other.",
+        "Spread your fingers and thumb apart as wide as you can against the band.",
+        "Return slowly and repeat for high reps."
+      ],
+      "th": [
+        "คล้องยางยืดเส้นเล็กรอบนิ้วมือและนิ้วโป้ง ใต้ปลายนิ้วเล็กน้อย",
+        "เริ่มจากให้ปลายนิ้วทุกนิ้วแตะกัน",
+        "กางนิ้วมือและนิ้วโป้งออกให้กว้างที่สุดต้านแรงยาง",
+        "หุบกลับช้าๆ แล้วทำซ้ำหลายเรพ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Open your hand fully on every rep to work the finger extensors through their whole range.",
+        "It is a useful balance for heavy gripping work like deadlifts and pull-ups."
+      ],
+      "th": [
+        "กางมือให้สุดทุกเรพ เพื่อให้กล้ามเหยียดนิ้วทำงานเต็มช่วง",
+        "ท่านี้ช่วยสร้างสมดุลให้มือที่ใช้กำของหนักบ่อย เช่น เดดลิฟต์และพูลอัพ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid snapping your fingers closed; control the return.",
+        "Don't use a band so strong that you can't fully open your hand."
+      ],
+      "th": [
+        "อย่าปล่อยนิ้วหุบกลับเร็ว ให้ควบคุมจังหวะกลับ",
+        "อย่าใช้ยางที่แข็งจนกางมือได้ไม่สุด"
+      ]
+    }
+  },
+  {
+    "id": "zottman_curl",
+    "name": {
+      "en": "Zottman Curl",
+      "th": "ซอตต์แมนเคิร์ล"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "brachioradialis",
+      "biceps_short"
+    ],
+    "secondary": [
+      "brachialis",
+      "biceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Stand holding a dumbbell in each hand at your sides, palms facing forward.",
+        "Curl the dumbbells up with palms up, keeping your elbows at your sides.",
+        "At the top, rotate your wrists so your palms face down.",
+        "Lower slowly with palms down, then rotate back to palms up at the bottom."
+      ],
+      "th": [
+        "ยืนถือดัมเบลข้างละลูกไว้ข้างลำตัว หันฝ่ามือไปด้านหน้า",
+        "งอศอกยกดัมเบลขึ้นแบบหงายมือ โดยแนบศอกไว้ข้างลำตัว",
+        "เมื่อถึงจังหวะบน หมุนข้อมือให้ฝ่ามือคว่ำลง",
+        "ลดดัมเบลลงช้าๆ แบบคว่ำมือ แล้วหมุนกลับเป็นหงายมือในจังหวะล่าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "The palms-up lift trains the biceps, and the slow palms-down lowering loads the brachioradialis.",
+        "Take about three seconds to lower each rep."
+      ],
+      "th": [
+        "จังหวะยกแบบหงายมือฝึกไบเซ็ปส์ ส่วนจังหวะลดลงช้าๆ แบบคว่ำมือทำให้เบรคิโอเรเดียลิสรับแรง",
+        "ใช้เวลาลดลงประมาณ 3 วินาทีในทุกเรพ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't pick the weight based on the curl up — you are weaker palms-down, so use a weight you can still lower slowly.",
+        "Don't rotate your wrists halfway through the lift; turn them only at the top and bottom."
+      ],
+      "th": [
+        "อย่าเลือกน้ำหนักตามจังหวะยกขึ้น เพราะแรงตอนคว่ำมือน้อยกว่า ให้ใช้น้ำหนักที่ยังลดลงช้าๆ ได้",
+        "อย่าหมุนข้อมือระหว่างทาง ให้หมุนเฉพาะในจังหวะบนและล่าง"
+      ]
+    }
+  },
+  {
+    "id": "diamond_push_up",
+    "name": {
+      "en": "Diamond Push-up",
+      "th": "ไดมอนด์พุชอัพ"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "intermediate",
+    "primary": [
+      "triceps_lateral",
+      "triceps_medial"
+    ],
+    "secondary": [
+      "pec_major_sternocostal",
+      "deltoid_anterior",
+      "triceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Get into a push-up position with your hands together under your chest, thumbs and index fingers forming a diamond.",
+        "Brace your core and glutes so your body forms a straight line.",
+        "Bend your elbows to lower your chest toward your hands, elbows tracking back close to your sides.",
+        "Press back up until your elbows are fully straight."
+      ],
+      "th": [
+        "ตั้งท่าวิดพื้น วางมือชิดกันใต้อก ให้นิ้วโป้งและนิ้วชี้ประกบกันเป็นรูปข้าวหลามตัด",
+        "เกร็งแกนกลางลำตัวและก้นให้ลำตัวเป็นเส้นตรง",
+        "งอศอกลดอกลงหามือ โดยให้ศอกเคลื่อนไปด้านหลังชิดลำตัว",
+        "ดันตัวขึ้นจนศอกเหยียดตรงสุด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "The narrow hand position and tucked elbows shift more of the press from the chest to the triceps.",
+        "If you can't do controlled reps yet, put your knees down or hands on a bench, as you would to scale a regular push-up."
+      ],
+      "th": [
+        "การวางมือแคบและหุบศอกช่วยย้ายงานในการดันจากอกมาที่ไตรเซ็ปส์มากขึ้น",
+        "ถ้ายังทำแบบควบคุมไม่ได้ ให้วางเข่าลงพื้นหรือวางมือบนม้านั่ง แบบเดียวกับการปรับวิดพื้นให้ง่ายขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid flaring your elbows out to the sides — the chest takes over and the elbows and wrists take extra strain.",
+        "Don't let your hips sag or pike up; keep a straight line from head to heels."
+      ],
+      "th": [
+        "อย่ากางศอกออกด้านข้าง เพราะอกจะรับงานแทน และข้อศอกกับข้อมือรับแรงมากขึ้น",
+        "อย่าปล่อยสะโพกตกหรือโด่งขึ้น ให้ลำตัวเป็นเส้นตรงจากหัวถึงส้นเท้า"
+      ]
+    }
   }
 ]
