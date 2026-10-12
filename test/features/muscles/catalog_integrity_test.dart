@@ -7,7 +7,7 @@ import 'package:food_diary/models/muscle.dart';
 
 /// Groups whose exercise content is complete. Extended as content tasks land;
 /// removed (checking every group) once all content exists.
-const authoredGroups = <String>{};
+const authoredGroups = <String>{'chest', 'shoulders', 'back', 'neck'};
 
 void main() {
   final catalog = MuscleCatalog.fromJsonStrings(

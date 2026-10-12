@@ -1,1 +1,2487 @@
-[]
+[
+  {
+    "id": "barbell_bench_press",
+    "name": {
+      "en": "Barbell Bench Press",
+      "th": "เบนช์เพรส"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "pec_major_sternocostal"
+    ],
+    "secondary": [
+      "pec_major_clavicular",
+      "deltoid_anterior",
+      "triceps_lateral",
+      "triceps_long",
+      "triceps_medial"
+    ],
+    "steps": {
+      "en": [
+        "Lie on the bench with your eyes under the bar and feet flat on the floor.",
+        "Grip the bar slightly wider than shoulder width, pull your shoulder blades back and down, and unrack it over your shoulders.",
+        "Lower the bar under control to your mid-chest, elbows about 45–70° from your torso.",
+        "Press the bar back up and slightly back until your arms are straight over your shoulders."
+      ],
+      "th": [
+        "นอนบนม้านั่งให้สายตาอยู่ใต้บาร์ วางเท้าราบกับพื้น",
+        "จับบาร์กว้างกว่าไหล่เล็กน้อย บีบสะบักไปด้านหลังและลงล่าง แล้วยกบาร์ออกจากแร็คมาไว้เหนือไหล่",
+        "ลดบาร์ลงช้าๆ แตะกลางอก ให้ข้อศอกทำมุมราว 45–70 องศากับลำตัว",
+        "ดันบาร์ขึ้นเฉียงกลับไปทางหัวเล็กน้อยจนแขนเหยียดตรงเหนือไหล่"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your shoulder blades pinned to the bench for the whole set so the chest does the pressing.",
+        "Drive your feet into the floor to stay stable without lifting your hips."
+      ],
+      "th": [
+        "ล็อกสะบักแนบม้านั่งตลอดเซ็ต เพื่อให้อกเป็นตัวหลักในการดัน",
+        "ถีบเท้ากับพื้นเพื่อให้ตัวมั่นคง แต่อย่ายกก้นขึ้นจากม้านั่ง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid bouncing the bar off your chest — it takes tension off the muscle and risks rib or shoulder strain.",
+        "Don't flare your elbows straight out to 90°; it loads the front of the shoulder joint.",
+        "Don't train heavy without a spotter or safety arms."
+      ],
+      "th": [
+        "อย่ากระแทกบาร์เด้งจากอก เพราะกล้ามเสียแรงตึงและเสี่ยงเจ็บซี่โครงหรือไหล่",
+        "อย่ากางศอกออก 90 องศาเต็มที่ เพราะทำให้ข้อไหล่ด้านหน้ารับแรงมากเกินไป",
+        "อย่าเล่นหนักโดยไม่มีคนสปอตหรือไม่ตั้งเซฟตี้บาร์"
+      ]
+    }
+  },
+  {
+    "id": "incline_barbell_press",
+    "name": {
+      "en": "Incline Barbell Press",
+      "th": "อินไคลน์บาร์เบลเพรส"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "pec_major_clavicular"
+    ],
+    "secondary": [
+      "deltoid_anterior",
+      "triceps_lateral",
+      "triceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Set the bench to about 30° and lie back with your eyes under the bar.",
+        "Grip slightly wider than shoulder width, set your shoulder blades back and down, and unrack.",
+        "Lower the bar under control to your upper chest, just below the collarbone.",
+        "Press back up until your arms are straight over your shoulders."
+      ],
+      "th": [
+        "ปรับม้านั่งเอียงประมาณ 30 องศา นอนลงให้สายตาอยู่ใต้บาร์",
+        "จับบาร์กว้างกว่าไหล่เล็กน้อย บีบสะบักลงล่างและไปด้านหลัง แล้วยกบาร์ออกจากแร็ค",
+        "ลดบาร์ลงช้าๆ แตะอกส่วนบนใต้ไหปลาร้า",
+        "ดันบาร์ขึ้นจนแขนเหยียดตรงเหนือไหล่"
+      ]
+    },
+    "tips": {
+      "en": [
+        "A moderate incline (around 30°) puts more work on the upper chest; steeper angles shift it to the front delts.",
+        "Keep your chest up and shoulder blades set as you press."
+      ],
+      "th": [
+        "ความชันปานกลางราว 30 องศาช่วยให้อกบนทำงานมากขึ้น ถ้าชันกว่านี้ไหล่หน้าจะรับงานแทน",
+        "ยกอกค้างไว้และล็อกสะบักตลอดการดัน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid arching so much that your torso becomes flat — it turns the lift into a regular bench press.",
+        "Don't let the bar drift down to your mid-chest; keep the path over the upper chest."
+      ],
+      "th": [
+        "อย่าแอ่นหลังมากจนลำตัวเกือบราบ เพราะจะกลายเป็นเบนช์เพรสธรรมดา",
+        "อย่าปล่อยให้บาร์ไหลลงไปกลางอก ให้ลงที่อกส่วนบน"
+      ]
+    }
+  },
+  {
+    "id": "incline_dumbbell_press",
+    "name": {
+      "en": "Incline Dumbbell Press",
+      "th": "อินไคลน์ดัมเบลเพรส"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "pec_major_clavicular"
+    ],
+    "secondary": [
+      "deltoid_anterior",
+      "triceps_lateral",
+      "triceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Set the bench to about 30° and sit back with a dumbbell on each thigh.",
+        "Kick the dumbbells up as you lie back and hold them over your upper chest, palms facing forward.",
+        "Lower them under control to the sides of your upper chest until you feel a stretch.",
+        "Press them back up and slightly together over your shoulders."
+      ],
+      "th": [
+        "ปรับม้านั่งเอียงราว 30 องศา นั่งพิงโดยวางดัมเบลไว้บนต้นขาข้างละลูก",
+        "ใช้เข่าดันดัมเบลขึ้นพร้อมเอนตัวลง แล้วถือไว้เหนืออกบน หันฝ่ามือไปทางปลายเท้า",
+        "ลดดัมเบลลงช้าๆ ข้างอกส่วนบนจนรู้สึกตึงที่อก",
+        "ดันดัมเบลขึ้นและเข้าหากันเล็กน้อยจนอยู่เหนือไหล่"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Use the extra range dumbbells allow — lower until the chest is stretched, not further than your shoulders are comfortable.",
+        "Keep your shoulder blades set back against the bench."
+      ],
+      "th": [
+        "ใช้ระยะการเคลื่อนไหวที่ได้มากกว่าบาร์เบล ลดลงจนอกตึง แต่ไม่เกินระยะที่ไหล่รู้สึกสบาย",
+        "ล็อกสะบักแนบพนักพิงตลอดเซ็ต"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid clanging the dumbbells together at the top; it takes tension off the chest.",
+        "Don't drop the dumbbells to the floor with straight arms after the set — bring them back to your thighs first."
+      ],
+      "th": [
+        "อย่าชนดัมเบลกันด้านบน เพราะอกจะหมดแรงตึง",
+        "จบเซ็ตแล้วอย่าโยนดัมเบลลงข้างตัวขณะแขนเหยียด ให้นำกลับมาวางบนต้นขาก่อน"
+      ]
+    }
+  },
+  {
+    "id": "dumbbell_bench_press",
+    "name": {
+      "en": "Dumbbell Bench Press",
+      "th": "ดัมเบลเบนช์เพรส"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "pec_major_sternocostal"
+    ],
+    "secondary": [
+      "pec_major_clavicular",
+      "deltoid_anterior",
+      "triceps_lateral"
+    ],
+    "steps": {
+      "en": [
+        "Sit on a flat bench with a dumbbell on each thigh, then lie back and bring them over your chest.",
+        "Set your shoulder blades back and down with feet flat on the floor.",
+        "Lower the dumbbells under control to the sides of your mid-chest.",
+        "Press them back up over your chest until your arms are straight."
+      ],
+      "th": [
+        "นั่งบนม้านั่งราบ วางดัมเบลบนต้นขา แล้วเอนตัวลงพร้อมยกดัมเบลมาไว้เหนืออก",
+        "บีบสะบักลงล่างและไปด้านหลัง วางเท้าราบกับพื้น",
+        "ลดดัมเบลลงช้าๆ มาข้างอกช่วงกลาง",
+        "ดันดัมเบลขึ้นเหนืออกจนแขนเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your forearms roughly vertical at the bottom so the chest, not the arms, moves the weight.",
+        "Control the lowering for about two seconds."
+      ],
+      "th": [
+        "ให้แขนท่อนล่างตั้งตรงในจังหวะล่างสุด เพื่อให้อกเป็นตัวออกแรงหลัก",
+        "ลดลงช้าๆ ประมาณ 2 วินาที"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid letting the dumbbells drift toward your face or belly — the press becomes unstable.",
+        "Don't flare your elbows straight out to 90°; it stresses the shoulder joint."
+      ],
+      "th": [
+        "อย่าให้ดัมเบลไหลไปทางหน้าหรือท้อง เพราะจะคุมน้ำหนักไม่อยู่",
+        "อย่ากางศอก 90 องศาเต็มที่ เพราะข้อไหล่รับแรงมากเกินไป"
+      ]
+    }
+  },
+  {
+    "id": "decline_bench_press",
+    "name": {
+      "en": "Decline Bench Press",
+      "th": "ดีไคลน์เบนช์เพรส"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "pec_major_sternocostal"
+    ],
+    "secondary": [
+      "triceps_lateral",
+      "triceps_medial"
+    ],
+    "steps": {
+      "en": [
+        "Lock your legs under the pads of a decline bench and lie back with your eyes under the bar.",
+        "Grip slightly wider than shoulder width and unrack with a spotter or carefully on your own.",
+        "Lower the bar under control to your lower chest.",
+        "Press back up until your arms are straight."
+      ],
+      "th": [
+        "ล็อกขาไว้ใต้เบาะของม้านั่งดีไคลน์ แล้วนอนลงให้สายตาอยู่ใต้บาร์",
+        "จับบาร์กว้างกว่าไหล่เล็กน้อย ยกบาร์ออกจากแร็คโดยมีคนช่วยหรือทำอย่างระมัดระวัง",
+        "ลดบาร์ลงช้าๆ แตะอกส่วนล่าง",
+        "ดันบาร์ขึ้นจนแขนเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "A slight decline is enough; it shortens the range and lets the lower chest fibers work hard.",
+        "Keep your shoulder blades set throughout."
+      ],
+      "th": [
+        "เอียงลงเล็กน้อยก็พอ ช่วยให้กล้ามอกส่วนล่างรับงานได้เต็มที่",
+        "ล็อกสะบักไว้ตลอดเซ็ต"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't sit up quickly after the set — head-down positions can make you dizzy.",
+        "Avoid lowering the bar to your neck; keep it on the lower chest.",
+        "Don't go heavy without a spotter; the bar is hard to rack from this angle."
+      ],
+      "th": [
+        "จบเซ็ตแล้วอย่าลุกพรวดพราด เพราะท่าหัวต่ำอาจทำให้เวียนหัว",
+        "อย่าลดบาร์ไปทางคอ ให้ลงที่อกส่วนล่าง",
+        "อย่าเล่นหนักโดยไม่มีคนสปอต เพราะการเก็บบาร์ในมุมนี้ทำได้ยาก"
+      ]
+    }
+  },
+  {
+    "id": "push_up",
+    "name": {
+      "en": "Push-up",
+      "th": "วิดพื้น"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "pec_major_sternocostal"
+    ],
+    "secondary": [
+      "pec_major_clavicular",
+      "deltoid_anterior",
+      "triceps_lateral",
+      "serratus_anterior",
+      "rectus_abdominis"
+    ],
+    "steps": {
+      "en": [
+        "Place your hands slightly wider than shoulder width and step your feet back into a straight-body plank.",
+        "Brace your abs and glutes so your body stays in one line from head to heels.",
+        "Bend your elbows to lower your chest toward the floor, elbows angled back about 45°.",
+        "Push the floor away until your arms are straight."
+      ],
+      "th": [
+        "วางมือกว้างกว่าไหล่เล็กน้อย ถอยเท้าไปด้านหลังจนลำตัวตรงแบบท่าแพลงก์",
+        "เกร็งท้องและก้นให้ลำตัวเป็นเส้นตรงตั้งแต่หัวถึงส้นเท้า",
+        "งอศอกลดอกลงหาพื้น ให้ศอกชี้ไปด้านหลังราว 45 องศา",
+        "ดันพื้นออกจนแขนเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Lower until your chest is close to the floor for the full chest stretch.",
+        "Make it easier with hands on a bench, or harder with feet elevated or a pause at the bottom."
+      ],
+      "th": [
+        "ลดตัวลงจนอกเกือบแตะพื้นเพื่อให้อกยืดเต็มที่",
+        "ถ้ายังหนักไปให้วางมือบนม้านั่ง ถ้าเบาไปให้ยกเท้าสูงหรือค้างจังหวะล่าง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid letting your hips sag or pike up — it strains the lower back and cuts the range.",
+        "Don't do half reps by only bending the elbows a little."
+      ],
+      "th": [
+        "อย่าปล่อยสะโพกตกหรือโด่งขึ้น เพราะหลังล่างรับแรงและระยะการเคลื่อนไหวสั้นลง",
+        "อย่างอศอกนิดเดียวแบบครึ่งเรพ"
+      ]
+    }
+  },
+  {
+    "id": "chest_dip",
+    "name": {
+      "en": "Chest Dip",
+      "th": "ดิปส์เน้นอก"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "intermediate",
+    "primary": [
+      "pec_major_sternocostal",
+      "pec_minor"
+    ],
+    "secondary": [
+      "triceps_lateral",
+      "triceps_long",
+      "deltoid_anterior"
+    ],
+    "steps": {
+      "en": [
+        "Grip the parallel bars and press up until your arms are straight, shoulders down away from your ears.",
+        "Lean your torso forward slightly and let your legs hang or bend behind you.",
+        "Bend your elbows to lower yourself until your upper arms are about parallel to the floor or you feel a chest stretch.",
+        "Press back up until your arms are straight."
+      ],
+      "th": [
+        "จับบาร์คู่ขนานแล้วดันตัวขึ้นจนแขนเหยียด กดไหล่ลงให้ห่างจากหู",
+        "โน้มลำตัวไปข้างหน้าเล็กน้อย ปล่อยขาห้อยหรืองอไว้ด้านหลัง",
+        "งอศอกลดตัวลงจนต้นแขนขนานพื้นหรือรู้สึกตึงที่อก",
+        "ดันตัวกลับขึ้นจนแขนเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "A forward lean shifts more of the work to the chest; staying upright makes it more triceps-focused.",
+        "Use an assisted dip machine or a band if you can't do controlled reps yet."
+      ],
+      "th": [
+        "การโน้มตัวไปข้างหน้าทำให้อกรับงานมากขึ้น ถ้าตัวตั้งตรงจะเน้นไตรเซ็ปส์มากกว่า",
+        "ถ้ายังทำแบบควบคุมไม่ได้ ให้ใช้เครื่องช่วยดิปส์หรือยางยืดช่วย"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Don't drop deeper than your shoulders tolerate — very deep dips can irritate the front of the shoulder.",
+        "Avoid letting your shoulders shrug up toward your ears at the bottom."
+      ],
+      "th": [
+        "อย่าลงลึกเกินกว่าที่ไหล่รับได้ เพราะการลงลึกมากอาจทำให้ไหล่ด้านหน้าเจ็บ",
+        "อย่าปล่อยไหล่ยักขึ้นไปหาหูในจังหวะล่าง"
+      ]
+    }
+  },
+  {
+    "id": "cable_fly_low_to_high",
+    "name": {
+      "en": "Low-to-High Cable Fly",
+      "th": "เคเบิลฟลายจากล่างขึ้นบน"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "pec_major_clavicular"
+    ],
+    "secondary": [
+      "deltoid_anterior"
+    ],
+    "steps": {
+      "en": [
+        "Set both pulleys at the lowest position and take a handle in each hand.",
+        "Step forward into a split stance with a slight bend in your elbows, hands low by your hips.",
+        "Sweep your hands up and together to about chin height in an arc.",
+        "Lower slowly back along the same arc until you feel a stretch across the upper chest."
+      ],
+      "th": [
+        "ตั้งรอกทั้งสองข้างไว้ต่ำสุด จับมือจับข้างละอัน",
+        "ก้าวไปข้างหน้ายืนเท้าหน้า-หลัง งอศอกเล็กน้อย มืออยู่ต่ำข้างสะโพก",
+        "กวาดมือขึ้นเป็นแนวโค้งมาบรรจบกันระดับคาง",
+        "ลดมือกลับช้าๆ ตามแนวเดิมจนรู้สึกตึงที่อกบน"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep the elbow bend fixed so the movement comes from the shoulder, not the arms.",
+        "The upward path lines up with the upper chest fibers — keep the arc going up and in."
+      ],
+      "th": [
+        "ล็อกมุมศอกให้คงที่ ให้การเคลื่อนไหวมาจากหัวไหล่ ไม่ใช่การงอเหยียดแขน",
+        "แนวกวาดขึ้นตรงกับทิศของเส้นใยอกบน ให้มือเคลื่อนขึ้นและเข้าหากัน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid turning it into a front raise by lifting straight up instead of bringing your hands together.",
+        "Don't use so much weight that you have to bend and straighten your elbows to move it."
+      ],
+      "th": [
+        "อย่ายกตรงขึ้นด้านหน้าโดยไม่หุบมือเข้าหากัน เพราะไหล่หน้าจะรับงานแทนอก",
+        "อย่าใช้น้ำหนักมากจนต้องงอเหยียดศอกช่วย"
+      ]
+    }
+  },
+  {
+    "id": "cable_fly_high_to_low",
+    "name": {
+      "en": "High-to-Low Cable Fly",
+      "th": "เคเบิลฟลายจากบนลงล่าง"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "pec_major_sternocostal"
+    ],
+    "secondary": [
+      "pec_minor"
+    ],
+    "steps": {
+      "en": [
+        "Set both pulleys above head height and take a handle in each hand.",
+        "Step forward into a split stance, lean slightly forward and keep a soft bend in your elbows.",
+        "Pull your hands down and together in an arc to meet in front of your lower chest or hips.",
+        "Let your arms return slowly along the same arc until you feel a chest stretch."
+      ],
+      "th": [
+        "ตั้งรอกทั้งสองข้างไว้สูงกว่าศีรษะ จับมือจับข้างละอัน",
+        "ก้าวไปข้างหน้ายืนเท้าหน้า-หลัง โน้มตัวเล็กน้อย งอศอกนิดๆ",
+        "ดึงมือลงเป็นแนวโค้งมาบรรจบกันหน้าอกส่วนล่างหรือหน้าสะโพก",
+        "ปล่อยแขนกลับช้าๆ ตามแนวเดิมจนรู้สึกตึงที่อก"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Think of hugging a big tree — the motion is at the shoulder, with a fixed elbow angle.",
+        "Pause briefly when your hands meet before returning under control."
+      ],
+      "th": [
+        "นึกภาพกอดต้นไม้ใหญ่ ให้ขยับที่หัวไหล่และล็อกมุมศอกไว้",
+        "ค้างสั้นๆ ตอนมือบรรจบกัน แล้วค่อยปล่อยกลับอย่างควบคุม"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid letting the cables yank your arms back past a comfortable stretch.",
+        "Don't hunch your shoulders forward to finish the rep."
+      ],
+      "th": [
+        "อย่าปล่อยให้สายเคเบิลกระชากแขนไปด้านหลังเกินระยะที่ยืดสบาย",
+        "อย่าห่อไหล่ไปข้างหน้าเพื่อให้มือมาชนกัน"
+      ]
+    }
+  },
+  {
+    "id": "pec_deck",
+    "name": {
+      "en": "Pec Deck",
+      "th": "เพ็คเด็ค"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "pec_major_sternocostal"
+    ],
+    "secondary": [
+      "pec_major_clavicular"
+    ],
+    "steps": {
+      "en": [
+        "Adjust the seat so the handles are at mid-chest height and sit with your back against the pad.",
+        "Grip the handles (or place forearms on the pads) with a slight bend in your elbows.",
+        "Bring your arms together in front of your chest in a smooth arc.",
+        "Return slowly until you feel a stretch across your chest."
+      ],
+      "th": [
+        "ปรับเบาะให้มือจับอยู่ระดับกลางอก นั่งหลังพิงพนัก",
+        "จับมือจับ (หรือวางแขนท่อนล่างบนเบาะ) งอศอกเล็กน้อย",
+        "หุบแขนเข้าหากันหน้าอกเป็นแนวโค้งอย่างนุ่มนวล",
+        "ปล่อยกลับช้าๆ จนรู้สึกตึงทั่วอก"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your chest up and shoulder blades against the pad as your arms close.",
+        "Control the return; the stretched position is where the chest works hard."
+      ],
+      "th": [
+        "ยกอกค้างไว้และให้สะบักแนบพนักขณะหุบแขน",
+        "คุมจังหวะปล่อยกลับ เพราะช่วงที่อกยืดคือช่วงที่กล้ามทำงานหนัก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid letting the weight stack slam or pulling your arms back beyond a comfortable stretch.",
+        "Don't roll your shoulders forward off the pad to finish the rep."
+      ],
+      "th": [
+        "อย่าปล่อยตุ้มน้ำหนักกระแทก หรือดึงแขนไปด้านหลังเกินระยะที่ยืดสบาย",
+        "อย่าห่อไหล่ออกจากพนักเพื่อให้แขนหุบสุด"
+      ]
+    }
+  },
+  {
+    "id": "dumbbell_fly",
+    "name": {
+      "en": "Dumbbell Fly",
+      "th": "ดัมเบลฟลาย"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "pec_major_sternocostal"
+    ],
+    "secondary": [
+      "pec_major_clavicular",
+      "deltoid_anterior"
+    ],
+    "steps": {
+      "en": [
+        "Lie on a flat bench holding dumbbells over your chest, palms facing each other.",
+        "Bend your elbows slightly and keep that angle fixed.",
+        "Open your arms in a wide arc until the dumbbells are about level with your chest and you feel a stretch.",
+        "Bring them back up along the same arc until they're over your chest."
+      ],
+      "th": [
+        "นอนบนม้านั่งราบ ถือดัมเบลไว้เหนืออก หันฝ่ามือเข้าหากัน",
+        "งอศอกเล็กน้อยและล็อกมุมนั้นไว้",
+        "กางแขนออกเป็นแนวโค้งกว้างจนดัมเบลอยู่ระดับอกและรู้สึกตึงที่อก",
+        "ยกกลับขึ้นตามแนวโค้งเดิมจนดัมเบลอยู่เหนืออก"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Use lighter weights than for pressing; the long lever makes the stretch demanding.",
+        "Stop the top just before the dumbbells touch, where the chest still has tension."
+      ],
+      "th": [
+        "ใช้น้ำหนักเบากว่าท่าเพรส เพราะแขนที่กางยาวทำให้ช่วงยืดหนักมาก",
+        "หยุดด้านบนก่อนดัมเบลชนกัน ซึ่งอกยังมีแรงตึงอยู่"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid straightening your arms fully — it puts heavy strain on the elbows and shoulders.",
+        "Don't lower past the point where your shoulders feel comfortable."
+      ],
+      "th": [
+        "อย่าเหยียดแขนตึงสุด เพราะศอกและไหล่จะรับแรงมาก",
+        "อย่าลดแขนลงเกินระยะที่ไหล่รู้สึกสบาย"
+      ]
+    }
+  },
+  {
+    "id": "landmine_press",
+    "name": {
+      "en": "Landmine Press",
+      "th": "แลนด์ไมน์เพรส"
+    },
+    "equipment": "barbell",
+    "difficulty": "beginner",
+    "primary": [
+      "pec_major_clavicular",
+      "deltoid_anterior"
+    ],
+    "secondary": [
+      "triceps_lateral",
+      "serratus_anterior"
+    ],
+    "steps": {
+      "en": [
+        "Anchor one end of a barbell in a landmine or corner and hold the other end at shoulder height.",
+        "Stand in a staggered stance and brace your core.",
+        "Press the bar up and forward until your arm is straight.",
+        "Lower it back to your shoulder under control."
+      ],
+      "th": [
+        "ยึดปลายบาร์เบลข้างหนึ่งไว้กับแลนด์ไมน์หรือมุมห้อง แล้วถือปลายอีกข้างไว้ระดับไหล่",
+        "ยืนเท้าหน้า-หลังและเกร็งแกนกลางลำตัว",
+        "ดันบาร์ขึ้นและไปข้างหน้าจนแขนเหยียดตรง",
+        "ลดบาร์กลับมาที่ไหล่อย่างควบคุม"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Let your shoulder blade move forward around your ribs at the top of the press.",
+        "The angled path is often more comfortable for shoulders that don't like straight overhead pressing."
+      ],
+      "th": [
+        "ปล่อยให้สะบักเลื่อนไปข้างหน้ารอบซี่โครงในจังหวะบนสุด",
+        "แนวดันแบบเฉียงมักสบายไหล่กว่า สำหรับคนที่ดันตรงเหนือหัวแล้วไม่สบายไหล่"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid leaning back to push the bar up — it shifts stress to the lower back.",
+        "Don't let your elbow flare straight out to the side."
+      ],
+      "th": [
+        "อย่าเอนตัวไปด้านหลังเพื่อดันบาร์ เพราะหลังล่างจะรับแรงแทน",
+        "อย่ากางศอกออกด้านข้างตรงๆ"
+      ]
+    }
+  },
+  {
+    "id": "band_serratus_punch",
+    "name": {
+      "en": "Band Serratus Punch",
+      "th": "เซอร์ราตัสพันช์ด้วยยางยืด"
+    },
+    "equipment": "band",
+    "difficulty": "beginner",
+    "primary": [
+      "serratus_anterior"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Anchor a light band behind you at chest height and hold the end in one hand, arm straight in front.",
+        "Keeping your elbow straight, reach your fist forward by sliding your shoulder blade around your ribs.",
+        "Hold the reach for a moment.",
+        "Let your shoulder blade slide back without bending your elbow, then repeat and switch sides."
+      ],
+      "th": [
+        "ผูกยางยืดเบาๆ ไว้ด้านหลังระดับอก จับปลายยางด้วยมือข้างเดียว เหยียดแขนไปข้างหน้า",
+        "ล็อกศอกให้ตรง แล้วยื่นกำปั้นไปข้างหน้าโดยให้สะบักเลื่อนอ้อมซี่โครง",
+        "ค้างไว้ครู่หนึ่ง",
+        "ปล่อยสะบักกลับโดยไม่งอศอก ทำซ้ำแล้วสลับข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "The movement is small — the reach comes from the shoulder blade, not the arm.",
+        "Keep your shoulder down away from your ear while reaching."
+      ],
+      "th": [
+        "ระยะการเคลื่อนไหวสั้น แรงยื่นต้องมาจากสะบัก ไม่ใช่จากแขน",
+        "กดไหล่ลงให้ห่างหูขณะยื่นแขน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid bending and straightening your elbow — that turns it into a chest press.",
+        "Don't twist your torso to reach further."
+      ],
+      "th": [
+        "อย่างอเหยียดศอก เพราะจะกลายเป็นท่าดันอกแทน",
+        "อย่าบิดลำตัวเพื่อให้ยื่นได้ไกลขึ้น"
+      ]
+    }
+  },
+  {
+    "id": "scapular_push_up",
+    "name": {
+      "en": "Scapular Push-up",
+      "th": "สแคปพูลาร์พุชอัพ"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "serratus_anterior"
+    ],
+    "secondary": [
+      "pec_minor"
+    ],
+    "steps": {
+      "en": [
+        "Set up in a high plank with hands under your shoulders and arms straight.",
+        "Keeping your elbows locked, let your chest sink so your shoulder blades come together.",
+        "Push the floor away so your upper back rounds slightly and your shoulder blades spread apart.",
+        "Return slowly to the start and repeat."
+      ],
+      "th": [
+        "ตั้งท่าแพลงก์แขนตรง มือตรงกับไหล่",
+        "ล็อกศอกไว้ แล้วปล่อยอกยุบลงให้สะบักเข้าหากัน",
+        "ดันพื้นออกจนหลังส่วนบนโค้งขึ้นเล็กน้อยและสะบักกางออก",
+        "กลับสู่ท่าเริ่มช้าๆ แล้วทำซ้ำ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Hold the top position for a second to feel the muscles along your ribs working.",
+        "Do it from your knees or against a wall if a full plank is too hard."
+      ],
+      "th": [
+        "ค้างจังหวะบนหนึ่งวินาทีเพื่อให้รู้สึกกล้ามข้างซี่โครงทำงาน",
+        "ถ้าแพลงก์เต็มยังยาก ให้ทำบนเข่าหรือดันกำแพง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid bending your elbows — the arms stay straight the whole time.",
+        "Don't let your hips sag while your shoulders move."
+      ],
+      "th": [
+        "อย่างอศอก แขนต้องเหยียดตรงตลอด",
+        "อย่าปล่อยสะโพกตกขณะขยับสะบัก"
+      ]
+    }
+  },
+  {
+    "id": "wall_slide",
+    "name": {
+      "en": "Wall Slide",
+      "th": "วอลล์สไลด์"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "serratus_anterior",
+      "trapezius_lower"
+    ],
+    "secondary": [
+      "trapezius_middle"
+    ],
+    "steps": {
+      "en": [
+        "Stand with your back or forearms against a wall, elbows bent at about 90° at shoulder height.",
+        "Brace your ribs down so your lower back doesn't arch off the wall.",
+        "Slide your arms up the wall as high as you can while keeping contact.",
+        "Slide back down slowly to the start position."
+      ],
+      "th": [
+        "ยืนหันหลังหรือหันหน้าวางแขนท่อนล่างแนบกำแพง งอศอกราว 90 องศาระดับไหล่",
+        "เกร็งท้องกดซี่โครงลงไม่ให้หลังล่างแอ่นออกจากกำแพง",
+        "เลื่อนแขนขึ้นตามกำแพงให้สูงที่สุดโดยยังแนบกำแพงอยู่",
+        "เลื่อนแขนกลับลงช้าๆ สู่ท่าเริ่มต้น"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Let your shoulder blades rotate upward and around your ribs as your arms rise.",
+        "Move slowly and only as high as you can go without shrugging."
+      ],
+      "th": [
+        "ปล่อยให้สะบักหมุนขึ้นและเลื่อนอ้อมซี่โครงขณะยกแขน",
+        "เคลื่อนไหวช้าๆ ยกสูงได้เท่าที่ไม่ต้องยักไหล่"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid shrugging your shoulders toward your ears as you slide up.",
+        "Don't arch your lower back to get your arms higher."
+      ],
+      "th": [
+        "อย่ายักไหล่ขึ้นหาหูขณะเลื่อนแขนขึ้น",
+        "อย่าแอ่นหลังล่างเพื่อให้ยกแขนได้สูงขึ้น"
+      ]
+    }
+  },
+  {
+    "id": "overhead_press",
+    "name": {
+      "en": "Overhead Press",
+      "th": "โอเวอร์เฮดเพรส"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "deltoid_anterior"
+    ],
+    "secondary": [
+      "deltoid_lateral",
+      "triceps_lateral",
+      "triceps_long",
+      "trapezius_upper",
+      "serratus_anterior"
+    ],
+    "steps": {
+      "en": [
+        "Stand with the bar on your front shoulders, hands just outside shoulder width, feet hip-width apart.",
+        "Squeeze your glutes and brace your abs so your ribs stay down.",
+        "Press the bar straight up, moving your head back slightly to clear it, then bring your head through once the bar passes your forehead.",
+        "Lock out with the bar over your mid-foot, then lower it under control to your shoulders."
+      ],
+      "th": [
+        "ยืนเท้ากว้างเท่าสะโพก วางบาร์บนไหล่ด้านหน้า จับบาร์กว้างกว่าไหล่เล็กน้อย",
+        "เกร็งก้นและท้องให้ซี่โครงไม่บานออก",
+        "ดันบาร์ขึ้นตรงๆ ถอยหัวเล็กน้อยให้บาร์ผ่าน แล้วยื่นหัวกลับเมื่อบาร์พ้นหน้าผาก",
+        "ล็อกแขนให้บาร์อยู่เหนือกลางเท้า แล้วลดบาร์กลับมาที่ไหล่อย่างควบคุม"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your forearms vertical under the bar for the most efficient press.",
+        "Shrug up slightly at lockout so the shoulder blades rotate with the arms."
+      ],
+      "th": [
+        "ให้แขนท่อนล่างตั้งตรงใต้บาร์เพื่อให้ดันได้มีประสิทธิภาพที่สุด",
+        "ยักไหล่ขึ้นเล็กน้อยตอนล็อกแขน เพื่อให้สะบักหมุนตามแขน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid leaning far back to press — it turns the lift into an incline press and loads the lower back.",
+        "Don't press the bar out in front of your face; keep it close to a straight vertical line."
+      ],
+      "th": [
+        "อย่าเอนตัวไปด้านหลังมากเพื่อดัน เพราะจะกลายเป็นท่าดันเอียงและหลังล่างรับแรง",
+        "อย่าดันบาร์ออกไปข้างหน้าห่างจากใบหน้า ให้บาร์ขึ้นเป็นแนวตรงที่สุด"
+      ]
+    }
+  },
+  {
+    "id": "seated_dumbbell_press",
+    "name": {
+      "en": "Seated Dumbbell Shoulder Press",
+      "th": "ดัมเบลชอลเดอร์เพรสแบบนั่ง"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "deltoid_anterior"
+    ],
+    "secondary": [
+      "deltoid_lateral",
+      "triceps_lateral"
+    ],
+    "steps": {
+      "en": [
+        "Set a bench upright (or nearly upright) and sit with your back against it.",
+        "Bring the dumbbells to shoulder height, palms facing forward and elbows slightly in front of your body.",
+        "Press the dumbbells up until your arms are straight overhead.",
+        "Lower them under control back to shoulder height."
+      ],
+      "th": [
+        "ปรับพนักม้านั่งตั้งตรงหรือเกือบตรง นั่งให้หลังพิงพนัก",
+        "ยกดัมเบลมาระดับไหล่ หันฝ่ามือไปข้างหน้า ศอกอยู่หน้าลำตัวเล็กน้อย",
+        "ดันดัมเบลขึ้นจนแขนเหยียดตรงเหนือศีรษะ",
+        "ลดดัมเบลลงกลับมาระดับไหล่อย่างควบคุม"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your elbows slightly forward rather than flared straight out — it's usually easier on the shoulders.",
+        "Keep your back on the pad without a big arch."
+      ],
+      "th": [
+        "ให้ศอกอยู่หน้าลำตัวเล็กน้อยแทนการกางออกตรงๆ มักจะสบายไหล่กว่า",
+        "ให้หลังแนบพนักโดยไม่แอ่นหลังมาก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid cutting the range short at the bottom — lower to about ear or shoulder level.",
+        "Don't bang the dumbbells together overhead."
+      ],
+      "th": [
+        "อย่าลดลงแค่ครึ่งทาง ให้ลดลงถึงระดับหูหรือไหล่",
+        "อย่าชนดัมเบลกันเหนือศีรษะ"
+      ]
+    }
+  },
+  {
+    "id": "arnold_press",
+    "name": {
+      "en": "Arnold Press",
+      "th": "อาร์โนลด์เพรส"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "deltoid_anterior"
+    ],
+    "secondary": [
+      "deltoid_lateral",
+      "triceps_lateral"
+    ],
+    "steps": {
+      "en": [
+        "Sit on an upright bench holding dumbbells in front of your shoulders, palms facing you.",
+        "Start pressing up while rotating your palms to face forward.",
+        "Finish with your arms straight overhead, palms forward.",
+        "Reverse the rotation as you lower back to the start."
+      ],
+      "th": [
+        "นั่งบนม้านั่งพนักตั้ง ถือดัมเบลไว้หน้าไหล่ หันฝ่ามือเข้าหาตัว",
+        "เริ่มดันขึ้นพร้อมหมุนฝ่ามือไปข้างหน้า",
+        "จบที่แขนเหยียดตรงเหนือศีรษะ ฝ่ามือหันไปข้างหน้า",
+        "หมุนกลับทางเดิมขณะลดดัมเบลลงสู่ท่าเริ่มต้น"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Make the rotation smooth and continuous through the whole press.",
+        "Use a little less weight than a regular dumbbell press."
+      ],
+      "th": [
+        "หมุนข้อมืออย่างต่อเนื่องและนุ่มนวลตลอดการดัน",
+        "ใช้น้ำหนักเบากว่าดัมเบลเพรสปกติเล็กน้อย"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid rushing the rotation at the bottom; control it to protect the shoulder.",
+        "Don't arch your lower back to finish the press."
+      ],
+      "th": [
+        "อย่ารีบหมุนในจังหวะล่าง ให้ควบคุมเพื่อถนอมข้อไหล่",
+        "อย่าแอ่นหลังล่างเพื่อดันให้สุด"
+      ]
+    }
+  },
+  {
+    "id": "front_raise",
+    "name": {
+      "en": "Dumbbell Front Raise",
+      "th": "ดัมเบลฟรอนต์เรส"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "deltoid_anterior"
+    ],
+    "secondary": [
+      "pec_major_clavicular"
+    ],
+    "steps": {
+      "en": [
+        "Stand tall holding dumbbells in front of your thighs, palms facing your body.",
+        "Brace your core and keep a slight bend in your elbows.",
+        "Raise the dumbbells forward to about shoulder height.",
+        "Lower them slowly back to your thighs."
+      ],
+      "th": [
+        "ยืนตัวตรง ถือดัมเบลไว้หน้าต้นขา หันฝ่ามือเข้าหาตัว",
+        "เกร็งแกนกลางลำตัว งอศอกเล็กน้อย",
+        "ยกดัมเบลขึ้นด้านหน้าจนถึงระดับไหล่",
+        "ลดดัมเบลลงช้าๆ กลับมาหน้าต้นขา"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Use light weights and a steady tempo; the front delts already get a lot of work from pressing.",
+        "Stop at shoulder height to keep tension on the front delts."
+      ],
+      "th": [
+        "ใช้น้ำหนักเบาและจังหวะสม่ำเสมอ เพราะไหล่หน้าได้งานจากท่าดันอยู่แล้ว",
+        "หยุดที่ระดับไหล่เพื่อให้ไหล่หน้ารับแรงต่อเนื่อง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid swinging your torso to lift the weights.",
+        "Don't shrug your shoulders up as you raise."
+      ],
+      "th": [
+        "อย่าโยกลำตัวเพื่อเหวี่ยงน้ำหนักขึ้น",
+        "อย่ายักไหล่ขึ้นขณะยก"
+      ]
+    }
+  },
+  {
+    "id": "lateral_raise",
+    "name": {
+      "en": "Dumbbell Lateral Raise",
+      "th": "ดัมเบลแลทเทอรัลเรส"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "deltoid_lateral"
+    ],
+    "secondary": [
+      "supraspinatus",
+      "trapezius_upper"
+    ],
+    "steps": {
+      "en": [
+        "Stand holding dumbbells at your sides with a slight bend in your elbows.",
+        "Lean your torso forward slightly and brace your core.",
+        "Raise the dumbbells out to the sides until your arms are about parallel to the floor.",
+        "Lower them slowly back to your sides."
+      ],
+      "th": [
+        "ยืนถือดัมเบลไว้ข้างลำตัว งอศอกเล็กน้อย",
+        "โน้มลำตัวไปข้างหน้าเล็กน้อยและเกร็งแกนกลางลำตัว",
+        "ยกดัมเบลออกด้านข้างจนแขนขนานกับพื้น",
+        "ลดดัมเบลลงช้าๆ กลับมาข้างลำตัว"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Lead with your elbows and think of pushing the dumbbells out wide, not up.",
+        "Light weight with strict form works better than heavy swinging reps."
+      ],
+      "th": [
+        "ให้ศอกนำ และคิดว่ากำลังดันดัมเบลออกด้านข้างให้กว้าง ไม่ใช่ยกขึ้น",
+        "น้ำหนักเบาแต่ฟอร์มนิ่งได้ผลดีกว่าน้ำหนักมากแต่ต้องเหวี่ยง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid swinging the weights up with your hips or back.",
+        "Don't shrug — if your neck takes over, the weight is too heavy."
+      ],
+      "th": [
+        "อย่าใช้สะโพกหรือหลังเหวี่ยงน้ำหนักขึ้น",
+        "อย่ายักไหล่ ถ้าคอและบ่าเกร็งแทน แปลว่าน้ำหนักมากเกินไป"
+      ]
+    }
+  },
+  {
+    "id": "cable_lateral_raise",
+    "name": {
+      "en": "Cable Lateral Raise",
+      "th": "เคเบิลแลทเทอรัลเรส"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "deltoid_lateral"
+    ],
+    "secondary": [
+      "supraspinatus"
+    ],
+    "steps": {
+      "en": [
+        "Set a pulley at the lowest position and stand side-on to it.",
+        "Hold the handle with the hand farther from the machine so the cable crosses in front of your body.",
+        "Raise your arm out to the side until it's about parallel to the floor.",
+        "Lower slowly, keeping tension on the cable, then switch sides."
+      ],
+      "th": [
+        "ตั้งรอกไว้ต่ำสุด ยืนหันข้างให้เครื่อง",
+        "จับมือจับด้วยมือข้างที่ไกลเครื่อง ให้สายเคเบิลพาดผ่านหน้าลำตัว",
+        "ยกแขนออกด้านข้างจนขนานกับพื้น",
+        "ลดแขนลงช้าๆ โดยให้สายยังตึงอยู่ แล้วสลับข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "The cable keeps tension at the bottom, where dumbbells feel light — don't rush that part.",
+        "Hold the machine with your free hand to stay steady."
+      ],
+      "th": [
+        "เคเบิลให้แรงตึงตลอดแม้ในช่วงล่างที่ดัมเบลรู้สึกเบา อย่ารีบช่วงนี้",
+        "ใช้มืออีกข้างจับเครื่องไว้เพื่อให้ตัวนิ่ง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid leaning away from the machine to swing the handle up.",
+        "Don't lift above shoulder height by shrugging."
+      ],
+      "th": [
+        "อย่าเอนตัวออกจากเครื่องเพื่อเหวี่ยงแขนขึ้น",
+        "อย่ายักไหล่เพื่อยกแขนให้สูงกว่าระดับไหล่"
+      ]
+    }
+  },
+  {
+    "id": "upright_row",
+    "name": {
+      "en": "Upright Row",
+      "th": "อัพไรท์โรว์"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "deltoid_lateral",
+      "trapezius_upper"
+    ],
+    "secondary": [
+      "biceps_long",
+      "brachialis"
+    ],
+    "steps": {
+      "en": [
+        "Stand holding a barbell in front of your thighs with a grip about shoulder width or wider.",
+        "Pull the bar up along your body, leading with your elbows.",
+        "Stop when your upper arms are about parallel to the floor.",
+        "Lower the bar slowly back to your thighs."
+      ],
+      "th": [
+        "ยืนถือบาร์เบลไว้หน้าต้นขา จับกว้างประมาณไหล่หรือกว้างกว่า",
+        "ดึงบาร์ขึ้นชิดลำตัวโดยให้ศอกนำ",
+        "หยุดเมื่อต้นแขนขนานกับพื้น",
+        "ลดบาร์ลงช้าๆ กลับมาหน้าต้นขา"
+      ]
+    },
+    "tips": {
+      "en": [
+        "A grip at shoulder width or wider is usually more comfortable for the shoulders than a narrow grip.",
+        "Keep your elbows higher than your hands throughout."
+      ],
+      "th": [
+        "การจับกว้างเท่าไหล่หรือกว้างกว่ามักสบายไหล่กว่าการจับแคบ",
+        "ให้ศอกอยู่สูงกว่ามือตลอดการดึง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid pulling the bar up to your chin with a narrow grip — it can pinch the shoulders.",
+        "Don't use momentum from your hips to heave the bar up.",
+        "Stop the exercise if you feel pinching in the front or top of the shoulder."
+      ],
+      "th": [
+        "อย่าจับแคบแล้วดึงบาร์ขึ้นถึงคาง เพราะอาจทำให้ไหล่ถูกบีบจนเจ็บ",
+        "อย่าใช้แรงเหวี่ยงจากสะโพกดึงบาร์ขึ้น",
+        "หยุดเล่นทันทีถ้ารู้สึกเจ็บแปลบด้านหน้าหรือด้านบนของไหล่"
+      ]
+    }
+  },
+  {
+    "id": "machine_lateral_raise",
+    "name": {
+      "en": "Machine Lateral Raise",
+      "th": "แมชชีนแลทเทอรัลเรส"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "deltoid_lateral"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Adjust the seat so your shoulders line up with the machine's pivot points.",
+        "Sit with your chest against the pad and the arm pads against the outside of your upper arms.",
+        "Raise your arms out to the sides until they're about parallel to the floor.",
+        "Lower slowly without letting the weight stack touch down."
+      ],
+      "th": [
+        "ปรับเบาะให้ไหล่อยู่ตรงกับจุดหมุนของเครื่อง",
+        "นั่งให้อกแนบเบาะ วางเบาะแขนไว้ด้านนอกของต้นแขน",
+        "ยกแขนออกด้านข้างจนขนานกับพื้น",
+        "ลดแขนลงช้าๆ โดยไม่ให้ตุ้มน้ำหนักแตะกัน"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Push through your elbows, not your hands.",
+        "Pause briefly at the top before lowering."
+      ],
+      "th": [
+        "ออกแรงดันผ่านศอก ไม่ใช่มือ",
+        "ค้างสั้นๆ ที่จังหวะบนก่อนลดลง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid shrugging your shoulders up as you lift.",
+        "Don't let the weight drop quickly on the way down."
+      ],
+      "th": [
+        "อย่ายักไหล่ขณะยก",
+        "อย่าปล่อยน้ำหนักตกเร็วในจังหวะลง"
+      ]
+    }
+  },
+  {
+    "id": "reverse_pec_deck",
+    "name": {
+      "en": "Reverse Pec Deck",
+      "th": "รีเวิร์สเพ็คเด็ค"
+    },
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "primary": [
+      "deltoid_posterior"
+    ],
+    "secondary": [
+      "trapezius_middle",
+      "rhomboids",
+      "infraspinatus"
+    ],
+    "steps": {
+      "en": [
+        "Sit facing the pec deck with your chest against the pad and handles set to the rear position.",
+        "Grip the handles at shoulder height with a slight bend in your elbows.",
+        "Sweep your arms out and back in a wide arc until they're in line with your body.",
+        "Return slowly until your hands are in front of you."
+      ],
+      "th": [
+        "นั่งหันหน้าเข้าเครื่องเพ็คเด็ค ให้อกแนบเบาะ ปรับมือจับไปตำแหน่งด้านหลัง",
+        "จับมือจับระดับไหล่ งอศอกเล็กน้อย",
+        "กางแขนออกไปด้านหลังเป็นแนวโค้งกว้างจนแขนอยู่แนวเดียวกับลำตัว",
+        "ปล่อยกลับช้าๆ จนมืออยู่หน้าลำตัว"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Think of pushing your hands out wide to the walls rather than squeezing your shoulder blades hard.",
+        "Keep your chest on the pad the whole set."
+      ],
+      "th": [
+        "คิดว่ากำลังดันมือออกไปหากำแพงสองข้าง แทนการบีบสะบักแรงๆ",
+        "ให้อกแนบเบาะตลอดเซ็ต"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid jerking the weight with your torso.",
+        "Don't bend and straighten your elbows during the rep."
+      ],
+      "th": [
+        "อย่ากระชากน้ำหนักด้วยลำตัว",
+        "อย่างอเหยียดศอกระหว่างเรพ"
+      ]
+    }
+  },
+  {
+    "id": "face_pull",
+    "name": {
+      "en": "Face Pull",
+      "th": "เฟซพูล"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "deltoid_posterior",
+      "infraspinatus",
+      "teres_minor"
+    ],
+    "secondary": [
+      "trapezius_middle",
+      "rhomboids"
+    ],
+    "steps": {
+      "en": [
+        "Set a rope on a cable pulley at about face height and grip both ends, thumbs pointing back.",
+        "Step back until your arms are straight and stand tall.",
+        "Pull the rope toward your face, splitting the ends apart and turning your hands back so your knuckles end beside your ears.",
+        "Return slowly until your arms are straight."
+      ],
+      "th": [
+        "ติดเชือกที่รอกระดับใบหน้า จับปลายเชือกสองข้างให้นิ้วโป้งชี้ไปด้านหลัง",
+        "ถอยหลังจนแขนเหยียดตรงและยืนตัวตรง",
+        "ดึงเชือกเข้าหาใบหน้า แยกปลายเชือกออกและหมุนมือไปด้านหลังจนกำปั้นอยู่ข้างหู",
+        "ปล่อยกลับช้าๆ จนแขนเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Finish each rep with your hands rotating back — that's what works the rotator cuff.",
+        "Use light-to-moderate weight and controlled reps."
+      ],
+      "th": [
+        "จบทุกเรพด้วยการหมุนมือไปด้านหลัง ซึ่งเป็นจังหวะที่กล้ามหมุนไหล่ทำงาน",
+        "ใช้น้ำหนักเบาถึงปานกลางและทำอย่างควบคุม"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid leaning back to pull heavy weight.",
+        "Don't pull the rope down to your chest; it turns into a row."
+      ],
+      "th": [
+        "อย่าเอนตัวไปด้านหลังเพื่อดึงน้ำหนักมาก",
+        "อย่าดึงเชือกลงมาที่อก เพราะจะกลายเป็นท่าโรว์"
+      ]
+    }
+  },
+  {
+    "id": "bent_over_reverse_fly",
+    "name": {
+      "en": "Bent-over Reverse Fly",
+      "th": "เบนท์โอเวอร์รีเวิร์สฟลาย"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "deltoid_posterior"
+    ],
+    "secondary": [
+      "trapezius_middle",
+      "rhomboids",
+      "infraspinatus"
+    ],
+    "steps": {
+      "en": [
+        "Hold light dumbbells and hinge at the hips until your torso is close to parallel with the floor, back flat.",
+        "Let the dumbbells hang under your chest with a slight bend in your elbows.",
+        "Raise the dumbbells out to the sides until your arms are in line with your body.",
+        "Lower them slowly back under your chest."
+      ],
+      "th": [
+        "ถือดัมเบลเบาๆ แล้วพับสะโพกจนลำตัวเกือบขนานพื้น หลังตรง",
+        "ปล่อยดัมเบลห้อยใต้อก งอศอกเล็กน้อย",
+        "กางแขนยกดัมเบลออกด้านข้างจนแขนอยู่แนวเดียวกับลำตัว",
+        "ลดดัมเบลลงช้าๆ กลับมาใต้อก"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Lead with the backs of your hands and think of reaching wide.",
+        "Rest your forehead on an incline bench if your lower back tires before your shoulders."
+      ],
+      "th": [
+        "ให้หลังมือนำ คิดว่ากำลังเอื้อมออกด้านข้างให้กว้าง",
+        "ถ้าหลังล่างล้าก่อนไหล่ ให้วางหน้าผากพักไว้บนม้านั่งเอียง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid swinging your torso up to lift the weights.",
+        "Don't round your lower back while you're bent over."
+      ],
+      "th": [
+        "อย่ายกลำตัวขึ้นเพื่อเหวี่ยงน้ำหนัก",
+        "อย่าปล่อยหลังล่างงอขณะโน้มตัว"
+      ]
+    }
+  },
+  {
+    "id": "cable_external_rotation",
+    "name": {
+      "en": "Cable External Rotation",
+      "th": "เคเบิลเอ็กซ์เทอร์นัลโรเทชัน"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "infraspinatus",
+      "teres_minor"
+    ],
+    "secondary": [
+      "deltoid_posterior"
+    ],
+    "steps": {
+      "en": [
+        "Set a cable handle at elbow height and stand side-on, holding it with the hand farther from the machine.",
+        "Keep your elbow bent to 90° and tucked against your side (a rolled towel under the arm helps).",
+        "Rotate your forearm out away from your body as far as is comfortable.",
+        "Return slowly to the start, then switch sides."
+      ],
+      "th": [
+        "ตั้งมือจับเคเบิลไว้ระดับศอก ยืนหันข้างให้เครื่อง จับด้วยมือข้างที่ไกลเครื่อง",
+        "งอศอก 90 องศาและหนีบศอกแนบลำตัว (หนีบผ้าขนหนูม้วนไว้ใต้แขนจะช่วยได้)",
+        "หมุนแขนท่อนล่างออกจากลำตัวเท่าที่สบาย",
+        "หมุนกลับช้าๆ สู่ท่าเริ่ม แล้วสลับข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Use light weight — the rotator cuff muscles are small.",
+        "Move slowly and keep your elbow pinned in place."
+      ],
+      "th": [
+        "ใช้น้ำหนักเบา เพราะกล้ามหมุนไหล่เป็นกล้ามมัดเล็ก",
+        "เคลื่อนไหวช้าๆ และล็อกศอกให้อยู่กับที่"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid letting your elbow drift away from your side.",
+        "Don't twist your torso to move the handle."
+      ],
+      "th": [
+        "อย่าปล่อยศอกหลุดออกจากลำตัว",
+        "อย่าบิดลำตัวเพื่อช่วยดึง"
+      ]
+    }
+  },
+  {
+    "id": "side_lying_external_rotation",
+    "name": {
+      "en": "Side-lying External Rotation",
+      "th": "เอ็กซ์เทอร์นัลโรเทชันแบบนอนตะแคง"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "infraspinatus",
+      "teres_minor"
+    ],
+    "secondary": [
+      "deltoid_posterior"
+    ],
+    "steps": {
+      "en": [
+        "Lie on your side holding a light dumbbell in your top hand, elbow bent to 90° and resting on your side.",
+        "Let the dumbbell rest in front of your stomach.",
+        "Rotate your forearm up toward the ceiling, keeping your elbow against your side.",
+        "Lower slowly back to your stomach, then switch sides."
+      ],
+      "th": [
+        "นอนตะแคง ถือดัมเบลเบาๆ ด้วยมือข้างบน งอศอก 90 องศาวางแนบลำตัว",
+        "ให้ดัมเบลอยู่หน้าท้อง",
+        "หมุนแขนท่อนล่างขึ้นหาเพดาน โดยศอกยังแนบลำตัว",
+        "ลดลงช้าๆ กลับมาหน้าท้อง แล้วสลับข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "A small rolled towel between your elbow and side helps keep the arm in place.",
+        "Stop at the point where your shoulder starts to roll backward."
+      ],
+      "th": [
+        "หนีบผ้าขนหนูม้วนเล็กๆ ไว้ระหว่างศอกกับลำตัวเพื่อให้แขนอยู่กับที่",
+        "หยุดเมื่อไหล่เริ่มบิดไปด้านหลัง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid rolling your body backward to lift the weight higher.",
+        "Don't go heavy; strict form with light weight works the cuff better."
+      ],
+      "th": [
+        "อย่าพลิกตัวไปด้านหลังเพื่อยกดัมเบลให้สูงขึ้น",
+        "อย่าใช้น้ำหนักมาก ฟอร์มนิ่งกับน้ำหนักเบาฝึกกล้ามหมุนไหล่ได้ดีกว่า"
+      ]
+    }
+  },
+  {
+    "id": "cable_internal_rotation",
+    "name": {
+      "en": "Cable Internal Rotation",
+      "th": "เคเบิลอินเทอร์นัลโรเทชัน"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "subscapularis"
+    ],
+    "secondary": [
+      "pec_major_sternocostal",
+      "teres_major"
+    ],
+    "steps": {
+      "en": [
+        "Set a cable handle at elbow height and stand side-on, holding it with the hand closer to the machine.",
+        "Keep your elbow bent to 90° and tucked against your side.",
+        "Rotate your forearm in across your stomach.",
+        "Return slowly to the start, then switch sides."
+      ],
+      "th": [
+        "ตั้งมือจับเคเบิลไว้ระดับศอก ยืนหันข้างให้เครื่อง จับด้วยมือข้างที่ใกล้เครื่อง",
+        "งอศอก 90 องศาและหนีบศอกแนบลำตัว",
+        "หมุนแขนท่อนล่างเข้ามาผ่านหน้าท้อง",
+        "หมุนกลับช้าๆ สู่ท่าเริ่ม แล้วสลับข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep the weight light and the tempo slow.",
+        "Stand tall with your shoulder back, not rolled forward."
+      ],
+      "th": [
+        "ใช้น้ำหนักเบาและจังหวะช้า",
+        "ยืนตัวตรง ไหล่อยู่ในแนวปกติ ไม่ห่อไปข้างหน้า"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid letting your elbow lift away from your side.",
+        "Don't rotate your torso to pull the handle across."
+      ],
+      "th": [
+        "อย่าปล่อยศอกหลุดออกจากลำตัว",
+        "อย่าบิดลำตัวเพื่อดึงมือจับเข้ามา"
+      ]
+    }
+  },
+  {
+    "id": "full_can_raise",
+    "name": {
+      "en": "Full Can Raise",
+      "th": "ฟูลแคนเรส"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "supraspinatus"
+    ],
+    "secondary": [
+      "deltoid_lateral",
+      "deltoid_anterior"
+    ],
+    "steps": {
+      "en": [
+        "Stand holding light dumbbells at your sides, thumbs pointing up.",
+        "Angle your arms about 30° forward from your sides (in line with your shoulder blades).",
+        "Raise the dumbbells to about shoulder height, keeping your thumbs up.",
+        "Lower them slowly back down."
+      ],
+      "th": [
+        "ยืนถือดัมเบลเบาๆ ไว้ข้างลำตัว ให้นิ้วโป้งชี้ขึ้น",
+        "เปิดแขนไปข้างหน้าราว 30 องศาจากด้านข้าง (แนวเดียวกับสะบัก)",
+        "ยกดัมเบลขึ้นถึงระดับไหล่ โดยนิ้วโป้งยังชี้ขึ้น",
+        "ลดดัมเบลลงช้าๆ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Use very light weight and smooth reps — this is about control, not load.",
+        "Keep your shoulders down and relaxed."
+      ],
+      "th": [
+        "ใช้น้ำหนักเบามากและทำอย่างนุ่มนวล ท่านี้เน้นการควบคุม ไม่ใช่น้ำหนัก",
+        "กดไหล่ลงและผ่อนคลาย"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid lifting above shoulder height or shrugging.",
+        "Don't turn your thumbs down (the \"empty can\" position), which can irritate the shoulder."
+      ],
+      "th": [
+        "อย่ายกสูงเกินระดับไหล่หรือยักไหล่",
+        "อย่าหมุนนิ้วโป้งลง เพราะท่านั้นอาจทำให้ไหล่ระคายเคือง"
+      ]
+    }
+  },
+  {
+    "id": "straight_arm_pulldown",
+    "name": {
+      "en": "Straight-arm Pulldown",
+      "th": "สเตรทอาร์มพูลดาวน์"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "latissimus_dorsi",
+      "teres_major"
+    ],
+    "secondary": [
+      "triceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Attach a straight bar or rope to a high pulley and grip it with arms straight.",
+        "Step back, hinge slightly at the hips and keep your back flat.",
+        "With arms nearly straight, pull the bar down in an arc to your thighs.",
+        "Let it rise slowly back to about head height."
+      ],
+      "th": [
+        "ติดบาร์ตรงหรือเชือกที่รอกสูง จับด้วยแขนเหยียด",
+        "ถอยหลังหนึ่งก้าว พับสะโพกเล็กน้อยและหลังตรง",
+        "แขนเกือบเหยียดตรง ดึงบาร์ลงเป็นแนวโค้งมาที่ต้นขา",
+        "ปล่อยบาร์ขึ้นช้าๆ กลับไประดับศีรษะ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Think of pulling with your elbows and armpits, not your hands.",
+        "Keep your shoulders down away from your ears at the top."
+      ],
+      "th": [
+        "คิดว่ากำลังดึงด้วยศอกและรักแร้ ไม่ใช่ด้วยมือ",
+        "กดไหล่ลงให้ห่างหูในจังหวะบน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid bending your elbows to push the bar down like a triceps pushdown.",
+        "Don't bob your torso up and down to move the weight."
+      ],
+      "th": [
+        "อย่างอศอกกดบาร์ลงแบบท่าไตรเซ็ปส์",
+        "อย่าโยกลำตัวขึ้นลงเพื่อช่วยดึงน้ำหนัก"
+      ]
+    }
+  },
+  {
+    "id": "pull_up",
+    "name": {
+      "en": "Pull-up",
+      "th": "พูลอัพ"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "intermediate",
+    "primary": [
+      "latissimus_dorsi",
+      "teres_major"
+    ],
+    "secondary": [
+      "biceps_long",
+      "biceps_short",
+      "brachialis",
+      "trapezius_lower",
+      "rhomboids"
+    ],
+    "steps": {
+      "en": [
+        "Hang from a bar with an overhand grip slightly wider than shoulder width, arms straight.",
+        "Pull your shoulders down away from your ears and brace your core.",
+        "Pull yourself up by driving your elbows down until your chin clears the bar.",
+        "Lower yourself under control to a full hang."
+      ],
+      "th": [
+        "โหนบาร์แบบคว่ำมือ จับกว้างกว่าไหล่เล็กน้อย แขนเหยียดตรง",
+        "กดไหล่ลงให้ห่างหูและเกร็งแกนกลางลำตัว",
+        "ดึงตัวขึ้นโดยคิดว่ากดศอกลงหาสะโพก จนคางพ้นบาร์",
+        "ลดตัวลงอย่างควบคุมจนแขนเหยียดสุด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Use bands or an assisted pull-up machine to build up to full reps.",
+        "Start each rep from a full hang to train the whole range."
+      ],
+      "th": [
+        "ใช้ยางยืดหรือเครื่องช่วยพูลอัพเพื่อพัฒนาจนทำเต็มเรพได้",
+        "เริ่มทุกเรพจากท่าห้อยแขนตึงเพื่อฝึกเต็มระยะ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid kipping or swinging to get your chin over the bar.",
+        "Don't cut the bottom short — half reps miss the stretched range."
+      ],
+      "th": [
+        "อย่าเหวี่ยงตัวหรือโยกขาเพื่อให้คางพ้นบาร์",
+        "อย่าลงแค่ครึ่งทาง เพราะจะเสียช่วงที่กล้ามยืดเต็มที่"
+      ]
+    }
+  },
+  {
+    "id": "chin_up",
+    "name": {
+      "en": "Chin-up",
+      "th": "ชินอัพ"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "intermediate",
+    "primary": [
+      "latissimus_dorsi"
+    ],
+    "secondary": [
+      "biceps_short",
+      "biceps_long",
+      "brachialis",
+      "teres_major"
+    ],
+    "steps": {
+      "en": [
+        "Hang from a bar with an underhand grip about shoulder width apart.",
+        "Set your shoulders down and brace your core.",
+        "Pull yourself up until your chin clears the bar, keeping your elbows in front of your body.",
+        "Lower yourself slowly to a full hang."
+      ],
+      "th": [
+        "โหนบาร์แบบหงายมือ จับกว้างประมาณไหล่",
+        "กดไหล่ลงและเกร็งแกนกลางลำตัว",
+        "ดึงตัวขึ้นจนคางพ้นบาร์ โดยให้ศอกอยู่หน้าลำตัว",
+        "ลดตัวลงช้าๆ จนแขนเหยียดสุด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "The underhand grip brings the biceps in more, so most people can do a few more reps than pull-ups.",
+        "Pull your chest toward the bar rather than reaching with your chin."
+      ],
+      "th": [
+        "การจับหงายมือทำให้ไบเซ็ปส์ช่วยมากขึ้น คนส่วนใหญ่จึงทำได้หลายเรพกว่าพูลอัพ",
+        "ดึงอกเข้าหาบาร์ แทนการยื่นคางขึ้นไป"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid craning your neck up to get your chin over the bar.",
+        "Don't drop quickly to the bottom; control the descent."
+      ],
+      "th": [
+        "อย่ายืดคอเพื่อให้คางพ้นบาร์",
+        "อย่าปล่อยตัวลงเร็ว ให้ควบคุมจังหวะลง"
+      ]
+    }
+  },
+  {
+    "id": "lat_pulldown",
+    "name": {
+      "en": "Lat Pulldown",
+      "th": "แลตพูลดาวน์"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "latissimus_dorsi",
+      "teres_major"
+    ],
+    "secondary": [
+      "biceps_long",
+      "brachialis",
+      "trapezius_lower"
+    ],
+    "steps": {
+      "en": [
+        "Sit at the pulldown machine with your thighs under the pads and grip the bar slightly wider than shoulder width.",
+        "Lean back slightly and set your shoulders down.",
+        "Pull the bar down to your upper chest by driving your elbows down and back.",
+        "Let the bar rise slowly until your arms are straight."
+      ],
+      "th": [
+        "นั่งที่เครื่อง สอดต้นขาไว้ใต้เบาะ จับบาร์กว้างกว่าไหล่เล็กน้อย",
+        "เอนตัวไปด้านหลังเล็กน้อยและกดไหล่ลง",
+        "ดึงบาร์ลงมาที่อกบนโดยคิดว่ากดศอกลงและไปด้านหลัง",
+        "ปล่อยบาร์ขึ้นช้าๆ จนแขนเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Think of your hands as hooks and pull with your elbows.",
+        "Let your arms straighten fully at the top for a good lat stretch."
+      ],
+      "th": [
+        "คิดว่ามือเป็นแค่ตะขอ แล้วดึงด้วยศอก",
+        "ปล่อยแขนเหยียดสุดด้านบนเพื่อให้แลตยืดเต็มที่"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid leaning far back and swinging to pull the bar down.",
+        "Don't pull the bar behind your neck — it stresses the shoulders and neck."
+      ],
+      "th": [
+        "อย่าเอนตัวไปด้านหลังมากและเหวี่ยงตัวดึงบาร์",
+        "อย่าดึงบาร์ลงหลังคอ เพราะไหล่และคอจะรับแรงมาก"
+      ]
+    }
+  },
+  {
+    "id": "barbell_row",
+    "name": {
+      "en": "Barbell Row",
+      "th": "บาร์เบลโรว์"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "latissimus_dorsi",
+      "trapezius_middle"
+    ],
+    "secondary": [
+      "rhomboids",
+      "deltoid_posterior",
+      "biceps_long",
+      "erector_spinae"
+    ],
+    "steps": {
+      "en": [
+        "Stand with feet hip-width apart, grip the bar just outside your knees and hinge at the hips until your torso is about 45° or lower.",
+        "Brace your core hard and keep your back flat from hips to head.",
+        "Pull the bar to your lower ribs or upper stomach, driving your elbows back.",
+        "Lower the bar under control until your arms are straight, keeping the same torso angle."
+      ],
+      "th": [
+        "ยืนเท้ากว้างเท่าสะโพก จับบาร์กว้างกว่าเข่าเล็กน้อย พับสะโพกจนลำตัวทำมุมราว 45 องศาหรือต่ำกว่า",
+        "เกร็งแกนกลางลำตัวให้แน่น หลังตรงตั้งแต่สะโพกถึงศีรษะ",
+        "ดึงบาร์เข้าหาซี่โครงล่างหรือท้องส่วนบน โดยดันศอกไปด้านหลัง",
+        "ลดบาร์ลงอย่างควบคุมจนแขนเหยียด โดยรักษามุมลำตัวเดิม"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Keep your torso angle fixed so the back, not body English, moves the bar.",
+        "Squeeze your shoulder blades together at the top of each rep."
+      ],
+      "th": [
+        "รักษามุมลำตัวให้คงที่ เพื่อให้หลังเป็นตัวดึงบาร์ ไม่ใช่การโยกตัว",
+        "บีบสะบักเข้าหากันในจังหวะบนของทุกเรพ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid rounding your lower back — it puts the spine under heavy load in a weak position.",
+        "Don't stand up more with each rep to heave heavier weight.",
+        "Reduce the weight or stop if you feel lower-back pain."
+      ],
+      "th": [
+        "อย่าปล่อยหลังล่างงอ เพราะกระดูกสันหลังจะรับน้ำหนักมากในท่าที่ไม่มั่นคง",
+        "อย่ายืดตัวขึ้นทีละนิดในแต่ละเรพเพื่อเหวี่ยงน้ำหนักที่มากขึ้น",
+        "ลดน้ำหนักหรือหยุดเล่นทันทีถ้ารู้สึกเจ็บหลังล่าง"
+      ]
+    }
+  },
+  {
+    "id": "one_arm_dumbbell_row",
+    "name": {
+      "en": "One-arm Dumbbell Row",
+      "th": "ดัมเบลโรว์แขนเดียว"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "latissimus_dorsi"
+    ],
+    "secondary": [
+      "teres_major",
+      "trapezius_middle",
+      "rhomboids",
+      "deltoid_posterior",
+      "biceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Place one knee and the same-side hand on a flat bench, back flat, holding a dumbbell in the other hand.",
+        "Let the dumbbell hang straight down below your shoulder.",
+        "Pull the dumbbell up toward your hip, keeping your elbow close to your body.",
+        "Lower it slowly until your arm is straight, then switch sides."
+      ],
+      "th": [
+        "วางเข่าและมือข้างเดียวกันบนม้านั่งราบ หลังตรง ถือดัมเบลด้วยมืออีกข้าง",
+        "ปล่อยดัมเบลห้อยตรงลงใต้ไหล่",
+        "ดึงดัมเบลขึ้นเข้าหาสะโพก โดยให้ศอกชิดลำตัว",
+        "ลดดัมเบลลงช้าๆ จนแขนเหยียด แล้วสลับข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Pull toward your hip rather than straight up to your chest to work the lats more.",
+        "Let your shoulder blade stretch forward at the bottom of each rep."
+      ],
+      "th": [
+        "ดึงเข้าหาสะโพกแทนการดึงตรงขึ้นมาที่อก เพื่อให้แลตทำงานมากขึ้น",
+        "ปล่อยให้สะบักยืดไปข้างหน้าในจังหวะล่างของทุกเรพ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid twisting your torso open to lift the weight.",
+        "Don't round your back or let it sag."
+      ],
+      "th": [
+        "อย่าบิดลำตัวเปิดออกเพื่อช่วยยกน้ำหนัก",
+        "อย่าปล่อยหลังงอหรือแอ่นตก"
+      ]
+    }
+  },
+  {
+    "id": "seated_cable_row",
+    "name": {
+      "en": "Seated Cable Row",
+      "th": "เคเบิลโรว์แบบนั่ง"
+    },
+    "equipment": "cable",
+    "difficulty": "beginner",
+    "primary": [
+      "trapezius_middle",
+      "rhomboids"
+    ],
+    "secondary": [
+      "latissimus_dorsi",
+      "deltoid_posterior",
+      "biceps_long"
+    ],
+    "steps": {
+      "en": [
+        "Sit at the cable row with feet on the platform, knees slightly bent, and grab the handle.",
+        "Sit tall with your chest up and arms straight.",
+        "Pull the handle to your stomach, driving your elbows back and squeezing your shoulder blades together.",
+        "Let the handle return slowly until your arms are straight and your shoulder blades spread."
+      ],
+      "th": [
+        "นั่งที่เครื่องเคเบิลโรว์ วางเท้าบนแป้น งอเข่าเล็กน้อย แล้วจับมือจับ",
+        "นั่งตัวตรง ยกอก แขนเหยียดตรง",
+        "ดึงมือจับเข้าหาท้อง ดันศอกไปด้านหลังและบีบสะบักเข้าหากัน",
+        "ปล่อยมือจับกลับช้าๆ จนแขนเหยียดและสะบักกางออก"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Start each pull by drawing your shoulder blades back, then bend the elbows.",
+        "Pause for a second with your shoulder blades squeezed."
+      ],
+      "th": [
+        "เริ่มดึงทุกครั้งด้วยการดึงสะบักไปด้านหลังก่อน แล้วค่อยงอศอก",
+        "ค้างหนึ่งวินาทีขณะบีบสะบัก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid rocking your torso far back and forth to move the weight.",
+        "Don't shrug your shoulders up toward your ears as you pull."
+      ],
+      "th": [
+        "อย่าโยกลำตัวไปมามากเพื่อช่วยดึงน้ำหนัก",
+        "อย่ายักไหล่ขึ้นหาหูขณะดึง"
+      ]
+    }
+  },
+  {
+    "id": "chest_supported_row",
+    "name": {
+      "en": "Chest-supported Dumbbell Row",
+      "th": "ดัมเบลโรว์แบบอกพิงเบาะ"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "trapezius_middle",
+      "rhomboids"
+    ],
+    "secondary": [
+      "deltoid_posterior",
+      "latissimus_dorsi"
+    ],
+    "steps": {
+      "en": [
+        "Set a bench to a low incline and lie face down with your chest on the pad, a dumbbell in each hand.",
+        "Let your arms hang straight down.",
+        "Row the dumbbells up, driving your elbows back and squeezing your shoulder blades together.",
+        "Lower them slowly until your arms are straight."
+      ],
+      "th": [
+        "ปรับม้านั่งเอียงเล็กน้อย นอนคว่ำให้อกแนบเบาะ ถือดัมเบลข้างละลูก",
+        "ปล่อยแขนห้อยตรงลงพื้น",
+        "ดึงดัมเบลขึ้น ดันศอกไปด้านหลังและบีบสะบักเข้าหากัน",
+        "ลดดัมเบลลงช้าๆ จนแขนเหยียดตรง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Because the bench supports your chest, you can focus on your upper back without lower-back fatigue.",
+        "Let your elbows flare out a little to bring in more of the mid-back."
+      ],
+      "th": [
+        "เพราะมีเบาะรองอก จึงโฟกัสหลังส่วนบนได้เต็มที่โดยหลังล่างไม่ล้า",
+        "กางศอกออกเล็กน้อยเพื่อให้หลังช่วงกลางทำงานมากขึ้น"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid lifting your chest off the pad to heave the weight.",
+        "Don't crane your neck up; keep it in line with your spine."
+      ],
+      "th": [
+        "อย่ายกอกออกจากเบาะเพื่อเหวี่ยงน้ำหนัก",
+        "อย่าเงยคอขึ้น ให้คออยู่แนวเดียวกับกระดูกสันหลัง"
+      ]
+    }
+  },
+  {
+    "id": "barbell_shrug",
+    "name": {
+      "en": "Barbell Shrug",
+      "th": "บาร์เบลชรัก"
+    },
+    "equipment": "barbell",
+    "difficulty": "beginner",
+    "primary": [
+      "trapezius_upper"
+    ],
+    "secondary": [
+      "forearm_flexors"
+    ],
+    "steps": {
+      "en": [
+        "Stand tall holding a barbell in front of your thighs, hands just outside your hips.",
+        "Keep your arms straight and your core braced.",
+        "Shrug your shoulders straight up toward your ears.",
+        "Hold briefly, then lower slowly."
+      ],
+      "th": [
+        "ยืนตัวตรงถือบาร์เบลไว้หน้าต้นขา มือกว้างกว่าสะโพกเล็กน้อย",
+        "แขนเหยียดตรงและเกร็งแกนกลางลำตัว",
+        "ยักไหล่ขึ้นตรงๆ หาหู",
+        "ค้างสั้นๆ แล้วลดไหล่ลงช้าๆ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Pause at the top for a second instead of bouncing.",
+        "Use straps if your grip gives out before your traps."
+      ],
+      "th": [
+        "ค้างจังหวะบนหนึ่งวินาทีแทนการเด้ง",
+        "ใช้สายรัดข้อมือถ้ามือหลุดก่อนบ่าล้า"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid rolling your shoulders in circles — it adds nothing and can irritate the shoulder.",
+        "Don't bend your elbows to pull the bar up."
+      ],
+      "th": [
+        "อย่าหมุนไหล่เป็นวงกลม เพราะไม่ได้ช่วยอะไรและอาจทำให้ไหล่ระคายเคือง",
+        "อย่างอศอกดึงบาร์ขึ้น"
+      ]
+    }
+  },
+  {
+    "id": "dumbbell_shrug",
+    "name": {
+      "en": "Dumbbell Shrug",
+      "th": "ดัมเบลชรัก"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "trapezius_upper"
+    ],
+    "secondary": [
+      "forearm_flexors"
+    ],
+    "steps": {
+      "en": [
+        "Stand tall holding a dumbbell in each hand at your sides.",
+        "Keep your arms straight and your chest up.",
+        "Shrug your shoulders straight up toward your ears.",
+        "Hold briefly, then lower slowly to a full stretch."
+      ],
+      "th": [
+        "ยืนตัวตรง ถือดัมเบลข้างละลูกไว้ข้างลำตัว",
+        "แขนเหยียดตรงและยกอก",
+        "ยักไหล่ขึ้นตรงๆ หาหู",
+        "ค้างสั้นๆ แล้วลดไหล่ลงช้าๆ จนยืดสุด"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Holding dumbbells at your sides lets you shrug straight up without the bar hitting your thighs.",
+        "Let your shoulders drop fully at the bottom of each rep."
+      ],
+      "th": [
+        "การถือดัมเบลข้างลำตัวช่วยให้ยักไหล่ขึ้นตรงๆ ได้โดยไม่มีบาร์ขวางต้นขา",
+        "ปล่อยไหล่ลงสุดในจังหวะล่างของทุกเรพ"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid jutting your head forward as you shrug.",
+        "Don't use weight so heavy that the movement becomes a tiny twitch."
+      ],
+      "th": [
+        "อย่ายื่นหัวไปข้างหน้าขณะยักไหล่",
+        "อย่าใช้น้ำหนักมากจนยักไหล่ได้แค่นิดเดียว"
+      ]
+    }
+  },
+  {
+    "id": "prone_y_raise",
+    "name": {
+      "en": "Prone Y Raise",
+      "th": "วายเรสแบบนอนคว่ำ"
+    },
+    "equipment": "dumbbell",
+    "difficulty": "beginner",
+    "primary": [
+      "trapezius_lower"
+    ],
+    "secondary": [
+      "deltoid_posterior",
+      "trapezius_middle"
+    ],
+    "steps": {
+      "en": [
+        "Lie face down on an incline bench holding very light dumbbells, arms hanging down.",
+        "Turn your thumbs up and set your shoulder blades down and back.",
+        "Raise your arms up and forward in a \"Y\" shape until they're in line with your body.",
+        "Lower slowly back to the start."
+      ],
+      "th": [
+        "นอนคว่ำบนม้านั่งเอียง ถือดัมเบลเบามาก ปล่อยแขนห้อยลง",
+        "หันนิ้วโป้งขึ้น กดสะบักลงและไปด้านหลัง",
+        "ยกแขนขึ้นไปข้างหน้าเป็นรูปตัว Y จนแขนอยู่แนวเดียวกับลำตัว",
+        "ลดแขนลงช้าๆ กลับสู่ท่าเริ่ม"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Start with no weight or very light dumbbells; this position is hard.",
+        "Think of drawing your shoulder blades down toward your back pockets as you lift."
+      ],
+      "th": [
+        "เริ่มจากมือเปล่าหรือดัมเบลเบามาก เพราะท่านี้ยากกว่าที่คิด",
+        "ขณะยกแขน คิดว่ากำลังดึงสะบักลงไปหากระเป๋ากางเกงด้านหลัง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid shrugging your shoulders toward your ears as you raise.",
+        "Don't lift your chest off the bench to get the arms higher."
+      ],
+      "th": [
+        "อย่ายักไหล่ขึ้นหาหูขณะยกแขน",
+        "อย่ายกอกออกจากเบาะเพื่อให้ยกแขนได้สูงขึ้น"
+      ]
+    }
+  },
+  {
+    "id": "scapular_pull_up",
+    "name": {
+      "en": "Scapular Pull-up",
+      "th": "สแคปพูลาร์พูลอัพ"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "trapezius_lower"
+    ],
+    "secondary": [
+      "latissimus_dorsi"
+    ],
+    "steps": {
+      "en": [
+        "Hang from a pull-up bar with an overhand grip and straight arms.",
+        "Keeping your elbows straight, pull your shoulder blades down so your body rises a few centimeters.",
+        "Hold the top for a moment.",
+        "Lower slowly back to a full hang."
+      ],
+      "th": [
+        "โหนบาร์แบบคว่ำมือ แขนเหยียดตรง",
+        "ล็อกศอกไว้ แล้วกดสะบักลงจนตัวลอยขึ้นไม่กี่เซนติเมตร",
+        "ค้างจังหวะบนครู่หนึ่ง",
+        "ลดตัวลงช้าๆ กลับสู่ท่าห้อยแขนตึง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "It's a small movement — focus on your shoulders moving away from your ears.",
+        "Use a band or keep your feet on a box if a full hang is too hard."
+      ],
+      "th": [
+        "ระยะการเคลื่อนไหวสั้น ให้โฟกัสที่การดึงไหล่ลงห่างจากหู",
+        "ถ้าห้อยตัวเต็มยังยาก ให้ใช้ยางยืดช่วยหรือวางเท้าบนกล่อง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid bending your elbows; that turns it into a partial pull-up.",
+        "Don't swing your legs to create momentum."
+      ],
+      "th": [
+        "อย่างอศอก เพราะจะกลายเป็นพูลอัพครึ่งเรพ",
+        "อย่าเหวี่ยงขาเพื่อสร้างแรงส่ง"
+      ]
+    }
+  },
+  {
+    "id": "deadlift",
+    "name": {
+      "en": "Deadlift",
+      "th": "เดดลิฟต์"
+    },
+    "equipment": "barbell",
+    "difficulty": "advanced",
+    "primary": [
+      "erector_spinae",
+      "gluteus_maximus"
+    ],
+    "secondary": [
+      "biceps_femoris",
+      "semitendinosus",
+      "semimembranosus",
+      "trapezius_upper",
+      "forearm_flexors",
+      "hip_adductors"
+    ],
+    "steps": {
+      "en": [
+        "Stand with mid-foot under the bar, feet hip-width apart, and grip the bar just outside your legs.",
+        "Bend your knees until your shins touch the bar, then lift your chest so your back is flat.",
+        "Brace your core hard, then push the floor away and drive your hips forward to stand up with the bar close to your legs.",
+        "Stand tall at the top without leaning back.",
+        "Lower the bar by pushing your hips back first, then bending your knees once it passes them."
+      ],
+      "th": [
+        "ยืนให้บาร์อยู่เหนือกลางเท้า เท้ากว้างเท่าสะโพก จับบาร์กว้างกว่าขาเล็กน้อย",
+        "งอเข่าจนหน้าแข้งแตะบาร์ แล้วยกอกขึ้นให้หลังตรง",
+        "เกร็งแกนกลางลำตัวให้แน่น จากนั้นถีบพื้นและดันสะโพกไปข้างหน้าเพื่อยืนขึ้น โดยให้บาร์ชิดขา",
+        "ยืนตัวตรงในจังหวะบนโดยไม่เอนไปด้านหลัง",
+        "ลดบาร์ลงโดยดันสะโพกไปด้านหลังก่อน แล้วค่อยงอเข่าเมื่อบาร์ผ่านเข่า"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Take a big breath and brace before every rep, and keep your back flat from start to finish.",
+        "Keep the bar in contact with or very close to your legs the whole way.",
+        "Build weight gradually and learn the movement with light loads first."
+      ],
+      "th": [
+        "หายใจเข้าลึกและเกร็งท้องก่อนทุกเรพ รักษาหลังตรงตั้งแต่ต้นจนจบ",
+        "ให้บาร์แนบหรือชิดขามากที่สุดตลอดการยก",
+        "เพิ่มน้ำหนักทีละน้อย และฝึกท่าให้คล่องด้วยน้ำหนักเบาก่อน"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid rounding your lower back — it shifts heavy load onto the spine in a vulnerable position.",
+        "Don't jerk the bar off the floor; take the slack out of the bar first.",
+        "Stop the set if you feel sharp back pain."
+      ],
+      "th": [
+        "อย่าปล่อยหลังล่างงอ เพราะกระดูกสันหลังจะรับน้ำหนักมากในท่าที่เสี่ยงบาดเจ็บ",
+        "อย่ากระชากบาร์ขึ้นจากพื้น ให้ดึงบาร์จนตึงก่อนออกแรงยก",
+        "หยุดเซ็ตทันทีถ้ารู้สึกเจ็บแปลบที่หลัง"
+      ]
+    }
+  },
+  {
+    "id": "back_extension",
+    "name": {
+      "en": "Back Extension",
+      "th": "แบ็คเอ็กซ์เทนชัน"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "erector_spinae"
+    ],
+    "secondary": [
+      "gluteus_maximus",
+      "biceps_femoris"
+    ],
+    "steps": {
+      "en": [
+        "Set the pad of a 45° back extension bench just below your hip bones and hook your feet under the rollers.",
+        "Cross your arms over your chest and keep your body straight.",
+        "Lower your torso by bending at the hips until you feel a stretch in your hamstrings.",
+        "Raise your torso until your body is in a straight line again."
+      ],
+      "th": [
+        "ปรับเบาะเครื่องแบ็คเอ็กซ์เทนชัน 45 องศาให้อยู่ใต้กระดูกสะโพกเล็กน้อย แล้วล็อกเท้าไว้ใต้ลูกกลิ้ง",
+        "ไขว้แขนไว้บนอก ลำตัวตรง",
+        "พับสะโพกลดลำตัวลงจนรู้สึกตึงหลังต้นขา",
+        "ยกลำตัวกลับขึ้นจนลำตัวเป็นเส้นตรงอีกครั้ง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Move in a smooth, controlled tempo.",
+        "Hold a weight plate against your chest once bodyweight reps get easy."
+      ],
+      "th": [
+        "เคลื่อนไหวอย่างนุ่มนวลและควบคุมจังหวะ",
+        "เมื่อทำด้วยน้ำหนักตัวได้ง่ายแล้ว ให้กอดแผ่นน้ำหนักไว้ที่อก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid swinging up past a straight line into a big arch — it compresses the lower back.",
+        "Don't bounce out of the bottom."
+      ],
+      "th": [
+        "อย่ายกตัวเกินแนวตรงจนแอ่นหลังมาก เพราะหลังล่างจะถูกกด",
+        "อย่าเด้งตัวขึ้นจากจังหวะล่าง"
+      ]
+    }
+  },
+  {
+    "id": "good_morning",
+    "name": {
+      "en": "Good Morning",
+      "th": "กู๊ดมอร์นิ่ง"
+    },
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "primary": [
+      "erector_spinae",
+      "biceps_femoris"
+    ],
+    "secondary": [
+      "gluteus_maximus",
+      "semitendinosus"
+    ],
+    "steps": {
+      "en": [
+        "Set a light barbell across your upper back as for a squat, feet hip-width apart.",
+        "Brace your core and unlock your knees slightly.",
+        "Push your hips back and lower your torso, keeping your back flat, until you feel a strong hamstring stretch.",
+        "Drive your hips forward to return to standing."
+      ],
+      "th": [
+        "วางบาร์เบลน้ำหนักเบาไว้บนหลังส่วนบนเหมือนท่าสควอท ยืนเท้ากว้างเท่าสะโพก",
+        "เกร็งแกนกลางลำตัวและงอเข่าเล็กน้อย",
+        "ดันสะโพกไปด้านหลังพร้อมโน้มลำตัวลง โดยหลังตรง จนรู้สึกตึงหลังต้นขามาก",
+        "ดันสะโพกไปข้างหน้าเพื่อกลับสู่ท่ายืน"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Start light; the long lever makes even modest weights challenging.",
+        "Only go as low as you can while keeping your back flat."
+      ],
+      "th": [
+        "เริ่มจากน้ำหนักเบา เพราะคันโยกที่ยาวทำให้แม้น้ำหนักไม่มากก็หนักแล้ว",
+        "ลงต่ำได้เท่าที่ยังรักษาหลังให้ตรงได้"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid rounding your back as you lower — the load sits on your spine.",
+        "Don't go heavy until the hip hinge is solid with light weight.",
+        "Stop if you feel pain in your lower back."
+      ],
+      "th": [
+        "อย่าปล่อยหลังงอขณะโน้มตัวลง เพราะน้ำหนักกดอยู่บนกระดูกสันหลัง",
+        "อย่าเพิ่มน้ำหนักมากจนกว่าจะพับสะโพกได้มั่นคงด้วยน้ำหนักเบา",
+        "หยุดทันทีถ้ารู้สึกเจ็บหลังล่าง"
+      ]
+    }
+  },
+  {
+    "id": "bird_dog",
+    "name": {
+      "en": "Bird Dog",
+      "th": "เบิร์ดด็อก"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "erector_spinae"
+    ],
+    "secondary": [
+      "gluteus_maximus",
+      "rectus_abdominis"
+    ],
+    "steps": {
+      "en": [
+        "Start on your hands and knees, hands under shoulders and knees under hips.",
+        "Brace your core so your back stays flat.",
+        "Reach one arm forward and the opposite leg back until both are in line with your body.",
+        "Hold for a moment, return, then switch sides."
+      ],
+      "th": [
+        "เริ่มในท่าคลาน มืออยู่ใต้ไหล่ เข่าอยู่ใต้สะโพก",
+        "เกร็งแกนกลางลำตัวให้หลังราบ",
+        "เหยียดแขนข้างหนึ่งไปข้างหน้าและขาฝั่งตรงข้ามไปด้านหลังจนอยู่แนวเดียวกับลำตัว",
+        "ค้างไว้ครู่หนึ่ง กลับสู่ท่าเริ่ม แล้วสลับข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Move slowly — imagine balancing a glass of water on your lower back.",
+        "Reach long rather than high."
+      ],
+      "th": [
+        "เคลื่อนไหวช้าๆ นึกภาพว่ามีแก้วน้ำวางอยู่บนหลังล่าง",
+        "เหยียดแขนขาให้ยาวออกไป ไม่ใช่ยกสูง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Avoid lifting the leg so high that your lower back arches.",
+        "Don't let your hips tip or rotate to the side."
+      ],
+      "th": [
+        "อย่ายกขาสูงจนหลังล่างแอ่น",
+        "อย่าปล่อยสะโพกเอียงหรือบิดไปด้านข้าง"
+      ]
+    }
+  },
+  {
+    "id": "lying_neck_flexion",
+    "name": {
+      "en": "Lying Neck Flexion",
+      "th": "ก้มคอแบบนอนหงาย"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "sternocleidomastoid"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Lie on your back on a bench with your head and neck just off the end, supported by your hands at first if needed.",
+        "Tuck your chin slightly.",
+        "Slowly curl your head up, bringing your chin toward your chest.",
+        "Lower your head slowly back to a neutral position, not into a deep backward bend."
+      ],
+      "th": [
+        "นอนหงายบนม้านั่งให้ศีรษะและคอยื่นพ้นขอบ ช่วงแรกใช้มือประคองศีรษะไว้ได้",
+        "เก็บคางเล็กน้อย",
+        "ค่อยๆ ยกศีรษะขึ้นโดยนำคางเข้าหาอก",
+        "ลดศีรษะลงช้าๆ กลับสู่แนวปกติ ไม่เงยไปด้านหลังมาก"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Start with your head's weight only; add a light plate on your forehead (on a towel) only after weeks of easy sets.",
+        "Use slow, controlled reps with no jerking."
+      ],
+      "th": [
+        "เริ่มจากน้ำหนักศีรษะอย่างเดียว เพิ่มแผ่นน้ำหนักเบาๆ วางบนหน้าผาก (รองผ้า) ได้ก็ต่อเมื่อทำได้สบายติดต่อกันหลายสัปดาห์",
+        "ทำช้าๆ อย่างควบคุม ห้ามกระตุก"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Stop immediately if you feel pain, numbness, tingling or dizziness.",
+        "Avoid fast or bouncing reps — the neck is not built for momentum."
+      ],
+      "th": [
+        "หยุดทันทีถ้ารู้สึกเจ็บ ชา เสียวแปลบ หรือเวียนหัว",
+        "อย่าทำเร็วหรือเด้ง เพราะคอไม่เหมาะกับการใช้แรงเหวี่ยง"
+      ]
+    }
+  },
+  {
+    "id": "band_neck_flexion",
+    "name": {
+      "en": "Band Neck Flexion",
+      "th": "ก้มคอต้านยางยืด"
+    },
+    "equipment": "band",
+    "difficulty": "beginner",
+    "primary": [
+      "sternocleidomastoid"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Anchor a light band behind you at head height and loop it across your forehead, with a towel for comfort.",
+        "Step forward until the band has light tension and stand tall.",
+        "Slowly nod your head forward, bringing your chin toward your chest.",
+        "Return slowly to a neutral head position."
+      ],
+      "th": [
+        "ผูกยางยืดเบาๆ ไว้ด้านหลังระดับศีรษะ คล้องยางไว้ที่หน้าผากโดยรองผ้าเพื่อไม่ให้เจ็บ",
+        "ก้าวไปข้างหน้าจนยางตึงเล็กน้อย แล้วยืนตัวตรง",
+        "ค่อยๆ ก้มศีรษะไปข้างหน้า นำคางเข้าหาอก",
+        "เงยกลับช้าๆ สู่แนวศีรษะปกติ"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Use the lightest band and build up gradually over weeks.",
+        "Keep the motion at the neck; your torso stays still."
+      ],
+      "th": [
+        "ใช้ยางยืดที่เบาที่สุด แล้วค่อยๆ เพิ่มความหนักในหลายสัปดาห์",
+        "ให้การเคลื่อนไหวอยู่ที่คอ ลำตัวต้องนิ่ง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Stop immediately if you feel pain, numbness, tingling or dizziness.",
+        "Avoid letting the band snap your head backward on the return."
+      ],
+      "th": [
+        "หยุดทันทีถ้ารู้สึกเจ็บ ชา เสียวแปลบ หรือเวียนหัว",
+        "อย่าปล่อยให้ยางยืดดึงศีรษะกลับไปด้านหลังเร็วๆ"
+      ]
+    }
+  },
+  {
+    "id": "isometric_neck_rotation",
+    "name": {
+      "en": "Isometric Neck Rotation",
+      "th": "เกร็งต้านการหมุนคอ"
+    },
+    "equipment": "bodyweight",
+    "difficulty": "beginner",
+    "primary": [
+      "sternocleidomastoid"
+    ],
+    "secondary": [],
+    "steps": {
+      "en": [
+        "Sit or stand tall with your head in a neutral position.",
+        "Place one palm against the side of your head, near your temple.",
+        "Gently try to turn your head toward your hand while your hand stops any movement; hold for 5–10 seconds.",
+        "Relax slowly, then repeat on the other side."
+      ],
+      "th": [
+        "นั่งหรือยืนตัวตรง ศีรษะอยู่ในแนวปกติ",
+        "วางฝ่ามือข้างหนึ่งไว้ข้างศีรษะบริเวณขมับ",
+        "ค่อยๆ ออกแรงหมุนศีรษะเข้าหามือ ขณะที่มือต้านไว้ไม่ให้ศีรษะขยับ ค้าง 5–10 วินาที",
+        "ค่อยๆ คลายแรง แล้วทำอีกข้าง"
+      ]
+    },
+    "tips": {
+      "en": [
+        "Push gently — around a third of your maximum effort is plenty.",
+        "Build and release the pressure gradually; breathe normally during the hold."
+      ],
+      "th": [
+        "ออกแรงเบาๆ ประมาณหนึ่งในสามของแรงเต็มก็เพียงพอ",
+        "ค่อยๆ เพิ่มและผ่อนแรงต้าน หายใจตามปกติขณะค้าง"
+      ]
+    },
+    "mistakes": {
+      "en": [
+        "Stop immediately if you feel pain, numbness, tingling or dizziness.",
+        "Avoid pushing hard suddenly or holding your breath."
+      ],
+      "th": [
+        "หยุดทันทีถ้ารู้สึกเจ็บ ชา เสียวแปลบ หรือเวียนหัว",
+        "อย่าออกแรงหนักทันทีหรือกลั้นหายใจ"
+      ]
+    }
+  }
+]
