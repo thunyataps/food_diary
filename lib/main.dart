@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -10,6 +11,8 @@ import 'features/analyze/capture_screen.dart';
 import 'features/diary/diary_repository.dart';
 import 'features/diary/diary_screen.dart';
 import 'features/diary/weight_repository.dart';
+import 'features/muscles/muscle_catalog.dart';
+import 'features/muscles/muscle_map_screen.dart';
 import 'features/profile/profile_repository.dart';
 import 'features/profile/profile_screen.dart';
 import 'features/settings/goals_repository.dart';
@@ -192,6 +195,7 @@ class _HomeShellState extends State<_HomeShell> {
   late Future<WeightLog?> _latestWeightFuture;
   late Future<List<WeightLog>> _recentWeightsFuture;
   late Future<String> _versionFuture;
+  late Future<MuscleCatalog> _muscleCatalogFuture;
 
   @override
   void initState() {
@@ -200,6 +204,7 @@ class _HomeShellState extends State<_HomeShell> {
     _latestWeightFuture = widget.weightRepository.fetchLatestWeight();
     _recentWeightsFuture = widget.weightRepository.fetchRecentWeights();
     _versionFuture = PackageInfo.fromPlatform().then((info) => info.version);
+    _muscleCatalogFuture = MuscleCatalog.load(rootBundle);
   }
 
   Future<void> _openGoals() async {
@@ -236,6 +241,16 @@ class _HomeShellState extends State<_HomeShell> {
                 : null,
           );
           if (mounted) setState(() => _tab = 0);
+        },
+      ),
+      FutureBuilder<MuscleCatalog>(
+        future: _muscleCatalogFuture,
+        builder: (context, snapshot) {
+          final catalog = snapshot.data;
+          if (catalog == null) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          return MuscleMapScreen(catalog: catalog);
         },
       ),
       FutureBuilder<UserProfile?>(
@@ -297,6 +312,10 @@ class _HomeShellState extends State<_HomeShell> {
           NavigationDestination(
             icon: const Icon(Icons.camera_alt),
             label: AppLocalizations.of(context).captureAppBarTitle,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.accessibility_new),
+            label: AppLocalizations.of(context).musclesAppBarTitle,
           ),
           NavigationDestination(
             icon: const Icon(Icons.person_outline),
