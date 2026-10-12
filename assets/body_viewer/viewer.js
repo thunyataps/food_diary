@@ -87,9 +87,10 @@ window.addEventListener('resize', () => {
 const muscleMeshes = new Map(); // muscleId -> Mesh[]
 const pickables = [];
 let homeDistance = 0;
+let modelLoaded = false;
 
 // GLTFLoader names unnamed meshes `mesh_<index>`; those are not muscle ids.
-const LOADER_MESH_NAME = /^mesh_\d+$/;
+const LOADER_MESH_NAME = /^mesh_\d+(_\d+)*$/; // also createUniqueName suffixes: mesh_5_1
 
 function resolveId(obj) {
   for (let n = obj; n; n = n.parent) {
@@ -130,6 +131,8 @@ loader.load('./body.glb', (gltf) => {
   controls.minDistance = homeDistance * 0.25;
   controls.maxDistance = homeDistance * 1.6;
   setView('front', false);
+  modelLoaded = true;
+  applyColors(); // re-apply select/highlight state set before load finished
   post({ type: 'ready' });
 }, undefined, (err) => post({ type: 'error', message: String(err?.message ?? err) }));
 
@@ -183,7 +186,9 @@ let primary = new Set();
 let secondary = new Set();
 
 function applyColors() {
-  const active = primary.size + secondary.size > 0;
+  // Only ids that exist in the model count; deep/unknown ids must not dim anything.
+  const known = (set) => [...set].some((id) => muscleMeshes.has(id));
+  const active = known(primary) || known(secondary);
   for (const [id, meshes] of muscleMeshes) {
     const hex = primary.has(id) ? COLORS.primary : secondary.has(id) ? COLORS.secondary : COLORS.muscle;
     for (const m of meshes) {
@@ -194,16 +199,23 @@ function applyColors() {
   requestRender();
 }
 
+const idList = (v) => (Array.isArray(v) ? v.filter((x) => typeof x === 'string') : []);
+
 function select(id) {
+  if (typeof id !== 'string' || (modelLoaded && !muscleMeshes.has(id))) {
+    clear();
+    return;
+  }
   primary = new Set([id]);
   secondary = new Set();
   applyColors();
   focus(id);
 }
 
-function highlight({ primary: p = [], secondary: s = [] } = {}) {
-  primary = new Set(p);
-  secondary = new Set(s.filter((id) => !primary.has(id)));
+function highlight(arg) {
+  const { primary: p, secondary: s } = arg ?? {};
+  primary = new Set(idList(p));
+  secondary = new Set(idList(s).filter((id) => !primary.has(id)));
   applyColors();
 }
 
