@@ -1,0 +1,647 @@
+[
+  {
+    "id": "pec_major_clavicular",
+    "group": "chest",
+    "name": {
+      "en": "Upper chest",
+      "th": "อกบน"
+    },
+    "anatomical": "Pectoralis major, clavicular head",
+    "description": {
+      "en": "The upper part of your chest, running from the collarbone to the upper arm. It pushes your arms forward and upward, as in incline presses.",
+      "th": "กล้ามอกส่วนบนที่เกาะจากไหปลาร้าไปยังต้นแขน ทำหน้าที่ดันแขนไปข้างหน้าและเฉียงขึ้น เน้นได้ดีด้วยท่าอินไคลน์เพรส"
+    }
+  },
+  {
+    "id": "pec_major_sternocostal",
+    "group": "chest",
+    "name": {
+      "en": "Mid & lower chest",
+      "th": "อกกลางและล่าง"
+    },
+    "anatomical": "Pectoralis major, sternocostal head",
+    "description": {
+      "en": "The main mass of the chest, from the breastbone and ribs to the upper arm. It drives pressing and pulls your arms across your body, as in bench presses, dips and flyes.",
+      "th": "มัดใหญ่ของกล้ามอกที่เกาะจากกระดูกหน้าอกและซี่โครงไปยังต้นแขน เป็นตัวหลักในการดันและหุบแขนเข้าหาลำตัว เช่น ท่าเบนช์เพรส ดิปส์ และฟลาย"
+    }
+  },
+  {
+    "id": "pec_minor",
+    "group": "chest",
+    "deep": true,
+    "name": {
+      "en": "Pec minor",
+      "th": "กล้ามอกเล็ก"
+    },
+    "anatomical": "Pectoralis minor",
+    "description": {
+      "en": "A small, thin muscle under the pec major, attached to the front of the shoulder blade. It pulls the shoulder blade forward and down and assists in pushes and dips.",
+      "th": "กล้ามเล็กบางๆ ที่อยู่ใต้กล้ามอกใหญ่ เกาะกับสะบักด้านหน้า ทำหน้าที่ดึงสะบักลงและไปข้างหน้า ช่วยออกแรงตอนดันหรือทำดิปส์"
+    }
+  },
+  {
+    "id": "serratus_anterior",
+    "group": "chest",
+    "name": {
+      "en": "Serratus anterior",
+      "th": "กล้ามซี่โครงข้าง (เซอร์ราตัส)"
+    },
+    "anatomical": "Serratus anterior",
+    "description": {
+      "en": "The finger-like muscle on the side of your ribs, below the armpit. It moves the shoulder blade forward around the ribcage and keeps it flat against your back when you push or reach overhead.",
+      "th": "กล้ามเป็นแฉกคล้ายนิ้วมือที่ซี่โครงด้านข้างใต้รักแร้ ทำหน้าที่ดันสะบักไปข้างหน้าและยึดสะบักให้แนบลำตัวตอนดันหรือยกแขนเหนือหัว"
+    }
+  },
+  {
+    "id": "deltoid_anterior",
+    "group": "shoulders",
+    "name": {
+      "en": "Front delt",
+      "th": "ไหล่หน้า"
+    },
+    "anatomical": "Deltoid, clavicular part",
+    "description": {
+      "en": "The front of the shoulder cap. It raises your arm forward and works hard in overhead and bench presses.",
+      "th": "กล้ามไหล่ส่วนหน้า ทำหน้าที่ยกแขนไปข้างหน้า และทำงานหนักในท่าดันเหนือหัวและเบนช์เพรส"
+    }
+  },
+  {
+    "id": "deltoid_lateral",
+    "group": "shoulders",
+    "name": {
+      "en": "Side delt",
+      "th": "ไหล่ข้าง"
+    },
+    "anatomical": "Deltoid, acromial part",
+    "description": {
+      "en": "The side of the shoulder cap that gives your shoulders their width. It lifts your arm out to the side, as in lateral raises.",
+      "th": "กล้ามไหล่ส่วนข้างที่ทำให้ไหล่ดูกว้าง ทำหน้าที่กางแขนออกด้านข้าง เช่น ท่ายกดัมเบลออกข้าง (Lateral Raise)"
+    }
+  },
+  {
+    "id": "deltoid_posterior",
+    "group": "shoulders",
+    "name": {
+      "en": "Rear delt",
+      "th": "ไหล่หลัง"
+    },
+    "anatomical": "Deltoid, spinal part",
+    "description": {
+      "en": "The back of the shoulder cap. It pulls your arm backward and outward, as in reverse flyes and face pulls, balancing out all the pressing you do.",
+      "th": "กล้ามไหล่ส่วนหลัง ทำหน้าที่ดึงแขนไปด้านหลังและกางออก เช่น ท่ารีเวิร์สฟลายและเฟซพูล ช่วยบาลานซ์กับท่าดันต่างๆ"
+    }
+  },
+  {
+    "id": "supraspinatus",
+    "group": "shoulders",
+    "deep": true,
+    "name": {
+      "en": "Supraspinatus",
+      "th": "ซูปราสไปนาตัส (เอ็นหมุนไหล่)"
+    },
+    "anatomical": "Supraspinatus",
+    "description": {
+      "en": "A rotator cuff muscle that sits above the ridge of the shoulder blade. It starts lifting your arm out to the side and holds the ball of the shoulder in its socket.",
+      "th": "หนึ่งในกลุ่มกล้ามเอ็นหมุนไหล่ (rotator cuff) อยู่เหนือสันกระดูกสะบัก ช่วยเริ่มกางแขนออกด้านข้างและยึดหัวกระดูกต้นแขนให้อยู่ในเบ้าไหล่"
+    }
+  },
+  {
+    "id": "infraspinatus",
+    "group": "shoulders",
+    "name": {
+      "en": "Infraspinatus",
+      "th": "อินฟราสไปนาตัส (เอ็นหมุนไหล่)"
+    },
+    "anatomical": "Infraspinatus",
+    "description": {
+      "en": "A rotator cuff muscle covering most of the back of the shoulder blade. It rotates your arm outward and keeps the shoulder joint stable during presses and pulls.",
+      "th": "กล้ามเอ็นหมุนไหล่ที่คลุมสะบักด้านหลังเกือบทั้งแผ่น ทำหน้าที่หมุนแขนออกด้านนอก และช่วยให้ข้อไหล่มั่นคงตอนดันหรือดึง"
+    }
+  },
+  {
+    "id": "teres_minor",
+    "group": "shoulders",
+    "name": {
+      "en": "Teres minor",
+      "th": "เทเรสไมเนอร์ (เอ็นหมุนไหล่)"
+    },
+    "anatomical": "Teres minor",
+    "description": {
+      "en": "A small rotator cuff muscle along the outer edge of the shoulder blade. It works with the infraspinatus to rotate your arm outward and protect the shoulder.",
+      "th": "กล้ามเอ็นหมุนไหล่มัดเล็กตามขอบนอกของสะบัก ทำงานคู่กับอินฟราสไปนาตัสในการหมุนแขนออกด้านนอกและปกป้องข้อไหล่"
+    }
+  },
+  {
+    "id": "subscapularis",
+    "group": "shoulders",
+    "deep": true,
+    "name": {
+      "en": "Subscapularis",
+      "th": "ซับสแคปพูลาริส (เอ็นหมุนไหล่)"
+    },
+    "anatomical": "Subscapularis",
+    "description": {
+      "en": "The largest rotator cuff muscle, on the underside of the shoulder blade facing the ribs. It rotates your arm inward and keeps the front of the shoulder stable.",
+      "th": "กล้ามเอ็นหมุนไหล่มัดใหญ่ที่สุด อยู่ใต้สะบักฝั่งที่แนบซี่โครง ทำหน้าที่หมุนแขนเข้าด้านใน และช่วยให้ไหล่ด้านหน้ามั่นคง"
+    }
+  },
+  {
+    "id": "teres_major",
+    "group": "shoulders",
+    "name": {
+      "en": "Teres major",
+      "th": "เทเรสเมเจอร์"
+    },
+    "anatomical": "Teres major",
+    "description": {
+      "en": "A thick muscle at the lower outer corner of the shoulder blade. It works alongside the lats to pull your arm down and back, as in rows and pull-ups.",
+      "th": "กล้ามมัดหนาที่มุมล่างด้านนอกของสะบัก ทำงานคู่กับปีก (แลต) ในการดึงแขนลงและไปด้านหลัง เช่น ท่าโรว์และพูลอัพ"
+    }
+  },
+  {
+    "id": "trapezius_upper",
+    "group": "back",
+    "name": {
+      "en": "Upper traps",
+      "th": "บ่า (ทราปส์บน)"
+    },
+    "anatomical": "Trapezius, descending part",
+    "description": {
+      "en": "Runs from the base of your skull and neck out to the top of the shoulders. It shrugs your shoulders up and helps rotate the shoulder blades when you raise your arms overhead.",
+      "th": "กล้ามบ่าที่ลากจากฐานกะโหลกและต้นคอมาถึงหัวไหล่ ทำหน้าที่ยักไหล่ขึ้น และช่วยหมุนสะบักตอนยกแขนเหนือหัว"
+    }
+  },
+  {
+    "id": "trapezius_middle",
+    "group": "back",
+    "name": {
+      "en": "Middle traps",
+      "th": "ทราปส์กลาง"
+    },
+    "anatomical": "Trapezius, transverse part",
+    "description": {
+      "en": "Spans the upper back between the shoulder blades. It squeezes the shoulder blades together, as in rows.",
+      "th": "ทราปส์ส่วนกลาง อยู่หลังส่วนบนระหว่างสะบักสองข้าง ทำหน้าที่บีบสะบักเข้าหากัน เช่น ตอนทำท่าโรว์"
+    }
+  },
+  {
+    "id": "trapezius_lower",
+    "group": "back",
+    "name": {
+      "en": "Lower traps",
+      "th": "ทราปส์ล่าง"
+    },
+    "anatomical": "Trapezius, ascending part",
+    "description": {
+      "en": "Forms a V down the middle of the back, below the shoulder blades. It pulls the shoulder blades down and keeps your shoulders working well when you reach overhead.",
+      "th": "ทราปส์ส่วนล่าง เป็นรูปตัววีลงมากลางหลังใต้สะบัก ทำหน้าที่ดึงสะบักลง และช่วยให้ไหล่ทำงานได้ดีตอนยกแขนเหนือหัว"
+    }
+  },
+  {
+    "id": "rhomboids",
+    "group": "back",
+    "deep": true,
+    "name": {
+      "en": "Rhomboids",
+      "th": "รอมบอยด์"
+    },
+    "anatomical": "Rhomboid major and minor",
+    "description": {
+      "en": "Sit between your spine and shoulder blades, underneath the traps. They pull the shoulder blades together, supporting good posture and solid rows.",
+      "th": "กล้ามระหว่างกระดูกสันหลังกับสะบัก อยู่ใต้ทราปส์ ทำหน้าที่ดึงสะบักเข้าหากัน ช่วยให้หลังตั้งตรงและทำท่าโรว์ได้มั่นคง"
+    }
+  },
+  {
+    "id": "latissimus_dorsi",
+    "group": "back",
+    "name": {
+      "en": "Lats",
+      "th": "ปีก (แลต)"
+    },
+    "anatomical": "Latissimus dorsi",
+    "description": {
+      "en": "The broad, wing-shaped muscle on each side of the back, from the lower spine and pelvis up to the upper arm. It pulls your arms down and back, powering pull-ups, pulldowns and rows.",
+      "th": "กล้ามแผ่นใหญ่สองข้างลำตัวที่ทำให้หลังดูกว้างเป็นทรงวี เกาะจากหลังล่างและเชิงกรานไปยังต้นแขน ทำหน้าที่ดึงแขนลงและไปด้านหลัง เป็นตัวหลักในท่าพูลอัพ แลตพูลดาวน์ และโรว์"
+    }
+  },
+  {
+    "id": "erector_spinae",
+    "group": "back",
+    "name": {
+      "en": "Spinal erectors",
+      "th": "กล้ามหลังล่าง (อีเรคเตอร์)"
+    },
+    "anatomical": "Erector spinae",
+    "description": {
+      "en": "Two thick columns of muscle running along either side of the spine. They straighten and support your back, holding it neutral in deadlifts, squats and rows.",
+      "th": "กล้ามสองแนวที่ขนานไปตามกระดูกสันหลัง ทำหน้าที่เหยียดหลังและพยุงหลังให้ตรงตอนเดดลิฟต์ สควอท และโรว์"
+    }
+  },
+  {
+    "id": "biceps_long",
+    "group": "arms",
+    "name": {
+      "en": "Biceps long head",
+      "th": "ไบเซ็ปส์หัวยาว"
+    },
+    "anatomical": "Biceps brachii, long head",
+    "description": {
+      "en": "The outer head of the biceps on the front of the upper arm. It bends the elbow and turns the palm up, and builds the biceps peak.",
+      "th": "ไบเซ็ปส์ส่วนด้านนอกที่ต้นแขนด้านหน้า ทำหน้าที่งอศอกและหมุนฝ่ามือขึ้น เป็นส่วนที่ทำให้ไบเซ็ปส์มียอดนูนสวย"
+    }
+  },
+  {
+    "id": "biceps_short",
+    "group": "arms",
+    "name": {
+      "en": "Biceps short head",
+      "th": "ไบเซ็ปส์หัวสั้น"
+    },
+    "anatomical": "Biceps brachii, short head",
+    "description": {
+      "en": "The inner head of the biceps on the front of the upper arm. It bends the elbow and turns the palm up, adding thickness to the inner arm.",
+      "th": "ไบเซ็ปส์ส่วนด้านในที่ต้นแขนด้านหน้า ทำหน้าที่งอศอกและหมุนฝ่ามือขึ้น ช่วยให้แขนด้านในดูหนาขึ้น"
+    }
+  },
+  {
+    "id": "brachialis",
+    "group": "arms",
+    "name": {
+      "en": "Brachialis",
+      "th": "เบรเคียลิส"
+    },
+    "anatomical": "Brachialis",
+    "description": {
+      "en": "Lies under the biceps on the lower half of the upper arm. It is a pure elbow flexor and works hardest in hammer and reverse curls.",
+      "th": "กล้ามที่อยู่ใต้ไบเซ็ปส์ช่วงครึ่งล่างของต้นแขน ทำหน้าที่งอศอกโดยตรง ทำงานหนักที่สุดในท่าแฮมเมอร์เคิร์ลและรีเวิร์สเคิร์ล"
+    }
+  },
+  {
+    "id": "brachioradialis",
+    "group": "arms",
+    "name": {
+      "en": "Brachioradialis",
+      "th": "เบรคิโอเรเดียลิส"
+    },
+    "anatomical": "Brachioradialis",
+    "description": {
+      "en": "The large muscle on the thumb side of the forearm, just below the elbow. It bends the elbow, especially with a neutral (thumbs-up) grip.",
+      "th": "กล้ามมัดใหญ่ที่ปลายแขนฝั่งนิ้วโป้ง ใต้ข้อศอกลงมา ทำหน้าที่งอศอก โดยเฉพาะตอนจับแบบหันนิ้วโป้งขึ้น เช่น ท่าแฮมเมอร์เคิร์ล"
+    }
+  },
+  {
+    "id": "triceps_long",
+    "group": "arms",
+    "name": {
+      "en": "Triceps long head",
+      "th": "ไตรเซ็ปส์หัวยาว"
+    },
+    "anatomical": "Triceps brachii, long head",
+    "description": {
+      "en": "The largest triceps head, on the inner back of the upper arm, and the only one that crosses the shoulder. It straightens the elbow, helps draw the arm back, and works hardest in overhead extensions.",
+      "th": "ไตรเซ็ปส์หัวที่ใหญ่ที่สุด อยู่หลังต้นแขนด้านใน และเป็นหัวเดียวที่พาดข้ามข้อไหล่ ทำหน้าที่เหยียดศอกและช่วยดึงแขนไปด้านหลัง ทำงานหนักที่สุดในท่าเหยียดแขนเหนือหัว"
+    }
+  },
+  {
+    "id": "triceps_lateral",
+    "group": "arms",
+    "name": {
+      "en": "Triceps lateral head",
+      "th": "ไตรเซ็ปส์หัวด้านนอก"
+    },
+    "anatomical": "Triceps brachii, lateral head",
+    "description": {
+      "en": "The outer head on the back of the upper arm that shapes the triceps horseshoe. It straightens the elbow, as in pushdowns and close-grip presses.",
+      "th": "ไตรเซ็ปส์ส่วนด้านนอกหลังต้นแขน ที่ทำให้เห็นทรงเกือกม้า ทำหน้าที่เหยียดศอก เช่น ท่าพุชดาวน์และเบนช์เพรสจับแคบ"
+    }
+  },
+  {
+    "id": "triceps_medial",
+    "group": "arms",
+    "name": {
+      "en": "Triceps medial head",
+      "th": "ไตรเซ็ปส์หัวด้านใน"
+    },
+    "anatomical": "Triceps brachii, medial head",
+    "description": {
+      "en": "Lies mostly beneath the other two heads, near the elbow on the back of the upper arm. It straightens the elbow in every pressing and extension movement.",
+      "th": "ไตรเซ็ปส์หัวที่ส่วนใหญ่อยู่ลึกใต้อีกสองหัว ใกล้ข้อศอกด้านหลังต้นแขน ทำหน้าที่เหยียดศอกในทุกท่าดันและท่าเหยียดแขน"
+    }
+  },
+  {
+    "id": "forearm_flexors",
+    "group": "arms",
+    "name": {
+      "en": "Forearm flexors",
+      "th": "กล้ามงอข้อมือ"
+    },
+    "anatomical": "Wrist and finger flexors",
+    "description": {
+      "en": "The muscles on the palm side of the forearm. They bend the wrist and fingers, giving you the grip strength for deadlifts, rows and hangs.",
+      "th": "กลุ่มกล้ามที่ปลายแขนฝั่งฝ่ามือ ทำหน้าที่งอข้อมือและนิ้ว เป็นแหล่งแรงกำมือสำหรับเดดลิฟต์ โรว์ และการห้อยบาร์"
+    }
+  },
+  {
+    "id": "forearm_extensors",
+    "group": "arms",
+    "name": {
+      "en": "Forearm extensors",
+      "th": "กล้ามเหยียดข้อมือ"
+    },
+    "anatomical": "Wrist and finger extensors",
+    "description": {
+      "en": "The muscles on the back of the forearm. They extend the wrist and fingers and keep the wrist steady when you grip and curl.",
+      "th": "กลุ่มกล้ามที่ปลายแขนฝั่งหลังมือ ทำหน้าที่กระดกข้อมือขึ้นและเหยียดนิ้ว ช่วยล็อกข้อมือให้นิ่งตอนจับบาร์หรือทำเคิร์ล"
+    }
+  },
+  {
+    "id": "rectus_abdominis",
+    "group": "core",
+    "name": {
+      "en": "Abs",
+      "th": "กล้ามหน้าท้อง (ซิกซ์แพ็ก)"
+    },
+    "anatomical": "Rectus abdominis",
+    "description": {
+      "en": "The six-pack muscle running down the front of the belly from the ribs to the pelvis. It curls your trunk forward and braces your core during heavy lifts.",
+      "th": "กล้ามซิกซ์แพ็กที่หน้าท้อง ลากจากซี่โครงลงไปถึงกระดูกเชิงกราน ทำหน้าที่งอลำตัวไปข้างหน้า และช่วยเกร็งแกนกลางลำตัวตอนยกหนัก"
+    }
+  },
+  {
+    "id": "external_oblique",
+    "group": "core",
+    "name": {
+      "en": "External obliques",
+      "th": "กล้ามเอวด้านนอก"
+    },
+    "anatomical": "External abdominal oblique",
+    "description": {
+      "en": "The outermost muscle on the sides of your waist. It twists and side-bends your trunk and resists unwanted rotation, as in woodchops and side planks.",
+      "th": "กล้ามชั้นนอกสุดที่เอวด้านข้าง ทำหน้าที่บิดลำตัวและเอียงตัวด้านข้าง รวมถึงต้านไม่ให้ลำตัวบิด เช่น ท่าวู้ดช็อปและไซด์แพลงก์"
+    }
+  },
+  {
+    "id": "internal_oblique",
+    "group": "core",
+    "deep": true,
+    "name": {
+      "en": "Internal obliques",
+      "th": "กล้ามเอวด้านใน"
+    },
+    "anatomical": "Internal abdominal oblique",
+    "description": {
+      "en": "Sits beneath the external obliques on the sides of your waist. It works with them to twist and side-bend the trunk and helps brace your core.",
+      "th": "อยู่ใต้กล้ามเอวด้านนอก ทำงานร่วมกันในการบิดและเอียงลำตัว และช่วยเกร็งแกนกลางลำตัวให้มั่นคง"
+    }
+  },
+  {
+    "id": "transversus_abdominis",
+    "group": "core",
+    "deep": true,
+    "name": {
+      "en": "Transverse abdominis",
+      "th": "กล้ามท้องชั้นลึก"
+    },
+    "anatomical": "Transversus abdominis",
+    "description": {
+      "en": "The deepest abdominal layer, wrapping around your waist like a belt. It draws the belly in and stabilizes the spine when you brace before a lift.",
+      "th": "กล้ามท้องชั้นในสุดที่พันรอบเอวเหมือนเข็มขัด ทำหน้าที่แขม่วท้องและล็อกกระดูกสันหลังให้มั่นคง เป็นตัวหลักตอนเกร็งท้อง (bracing) ก่อนยก"
+    }
+  },
+  {
+    "id": "gluteus_maximus",
+    "group": "hips",
+    "name": {
+      "en": "Glutes",
+      "th": "ก้น (กลูตแม็กซ์)"
+    },
+    "anatomical": "Gluteus maximus",
+    "description": {
+      "en": "The large muscle that makes up most of your buttocks. It extends the hip and drives you up in squats, deadlifts and hip thrusts.",
+      "th": "กล้ามมัดใหญ่ที่เป็นเนื้อก้นส่วนใหญ่ ทำหน้าที่เหยียดสะโพก เป็นตัวหลักในการดันตัวขึ้นในท่าสควอท เดดลิฟต์ และฮิปทรัสต์"
+    }
+  },
+  {
+    "id": "gluteus_medius",
+    "group": "hips",
+    "name": {
+      "en": "Glute medius",
+      "th": "ก้นด้านข้าง (กลูตมีเดียส)"
+    },
+    "anatomical": "Gluteus medius",
+    "description": {
+      "en": "On the upper outer hip, partly under the glute max. It moves your leg out to the side and keeps your pelvis level when you stand on one leg, walk or lunge.",
+      "th": "อยู่ที่สะโพกด้านบนค่อนไปทางข้าง บางส่วนอยู่ใต้กลูตแม็กซ์ ทำหน้าที่กางขาออกด้านข้าง และช่วยไม่ให้เชิงกรานเอียงตอนยืนขาเดียว เดิน หรือทำลันจ์"
+    }
+  },
+  {
+    "id": "gluteus_minimus",
+    "group": "hips",
+    "deep": true,
+    "name": {
+      "en": "Glute minimus",
+      "th": "กลูตมินิมัส"
+    },
+    "anatomical": "Gluteus minimus",
+    "description": {
+      "en": "The smallest and deepest glute, under the glute medius. It helps lift your leg to the side and keeps the hip stable on one leg.",
+      "th": "กล้ามก้นมัดเล็กสุดและอยู่ลึกสุด อยู่ใต้กลูตมีเดียส ช่วยกางขาออกด้านข้าง และทำให้สะโพกมั่นคงตอนยืนขาเดียว"
+    }
+  },
+  {
+    "id": "hip_adductors",
+    "group": "hips",
+    "name": {
+      "en": "Inner thigh",
+      "th": "ต้นขาด้านใน (แอดดักเตอร์)"
+    },
+    "anatomical": "Adductor group",
+    "description": {
+      "en": "The group of muscles on the inside of the thigh. They pull your legs together and help stabilize the hips in squats and lunges.",
+      "th": "กลุ่มกล้ามที่ต้นขาด้านใน ทำหน้าที่หุบขาเข้าหากัน และช่วยให้สะโพกมั่นคงในท่าสควอทและลันจ์"
+    }
+  },
+  {
+    "id": "iliopsoas",
+    "group": "hips",
+    "name": {
+      "en": "Hip flexors",
+      "th": "กล้ามงอสะโพก (อิลิโอโซแอส)"
+    },
+    "anatomical": "Iliopsoas",
+    "description": {
+      "en": "The main hip flexor, running from the lower spine and inner pelvis to the top of the thigh. It lifts your knee toward your chest, as in leg raises and sprinting.",
+      "th": "กล้ามงอสะโพกหลัก ลากจากกระดูกสันหลังส่วนล่างและด้านในเชิงกรานมาถึงต้นขาด้านบน ทำหน้าที่ยกเข่าขึ้นหาอก เช่น ท่ายกขาและการวิ่งสปรินต์"
+    }
+  },
+  {
+    "id": "tensor_fasciae_latae",
+    "group": "hips",
+    "name": {
+      "en": "TFL",
+      "th": "เทนเซอร์ฟาสเซียลาตา"
+    },
+    "anatomical": "Tensor fasciae latae",
+    "description": {
+      "en": "A small muscle on the front outer edge of the hip. It helps lift your leg forward and out to the side and tightens the IT band to steady the knee.",
+      "th": "กล้ามมัดเล็กที่สะโพกด้านหน้าค่อนไปทางข้าง ช่วยยกขาไปข้างหน้าและกางขาออก และดึงแถบพังผืดข้างต้นขา (IT band) ให้ตึงเพื่อช่วยให้เข่ามั่นคง"
+    }
+  },
+  {
+    "id": "rectus_femoris",
+    "group": "thighs",
+    "name": {
+      "en": "Rectus femoris",
+      "th": "ต้นขาหน้าแนวกลาง"
+    },
+    "anatomical": "Rectus femoris",
+    "description": {
+      "en": "The quad running straight down the middle of the front thigh, from hip to knee. It straightens the knee and also helps lift the thigh.",
+      "th": "กล้ามต้นขาหน้า (ควอดส์) มัดกลางที่ลากตรงจากสะโพกลงมาถึงเข่า ทำหน้าที่เหยียดเข่า และช่วยยกต้นขาขึ้น"
+    }
+  },
+  {
+    "id": "vastus_lateralis",
+    "group": "thighs",
+    "name": {
+      "en": "Outer quad",
+      "th": "ต้นขาหน้าด้านนอก"
+    },
+    "anatomical": "Vastus lateralis",
+    "description": {
+      "en": "The largest quad, on the outer side of the front thigh. It straightens the knee and builds the outer sweep of the thigh.",
+      "th": "ควอดส์มัดใหญ่ที่สุด อยู่ต้นขาหน้าด้านนอก ทำหน้าที่เหยียดเข่า และทำให้ต้นขาด้านนอกดูโค้งเต็ม"
+    }
+  },
+  {
+    "id": "vastus_medialis",
+    "group": "thighs",
+    "name": {
+      "en": "Inner quad (teardrop)",
+      "th": "ต้นขาหน้าด้านใน (หยดน้ำ)"
+    },
+    "anatomical": "Vastus medialis",
+    "description": {
+      "en": "The teardrop-shaped quad just above the inside of the knee. It straightens the knee, especially near full extension, and helps the kneecap track straight.",
+      "th": "ควอดส์ทรงหยดน้ำเหนือเข่าด้านใน ทำหน้าที่เหยียดเข่า โดยเฉพาะช่วงท้ายที่เหยียดเกือบสุด และช่วยให้ลูกสะบ้าเคลื่อนตรงแนว"
+    }
+  },
+  {
+    "id": "vastus_intermedius",
+    "group": "thighs",
+    "deep": true,
+    "name": {
+      "en": "Vastus intermedius",
+      "th": "ต้นขาหน้าชั้นลึก"
+    },
+    "anatomical": "Vastus intermedius",
+    "description": {
+      "en": "A quad lying deep under the rectus femoris, along the front of the thighbone. It straightens the knee together with the other quads.",
+      "th": "ควอดส์ชั้นลึกที่อยู่ใต้ต้นขาหน้าแนวกลาง แนบไปกับกระดูกต้นขาด้านหน้า ทำหน้าที่เหยียดเข่าร่วมกับควอดส์มัดอื่นๆ"
+    }
+  },
+  {
+    "id": "biceps_femoris",
+    "group": "thighs",
+    "name": {
+      "en": "Outer hamstring",
+      "th": "แฮมสตริงด้านนอก"
+    },
+    "anatomical": "Biceps femoris",
+    "description": {
+      "en": "The outer hamstring on the back of the thigh. It bends the knee and extends the hip, as in leg curls and Romanian deadlifts.",
+      "th": "แฮมสตริงด้านนอกที่ต้นขาหลัง ทำหน้าที่งอเข่าและเหยียดสะโพก เช่น ท่าเลกเคิร์ลและโรมาเนียนเดดลิฟต์"
+    }
+  },
+  {
+    "id": "semitendinosus",
+    "group": "thighs",
+    "name": {
+      "en": "Semitendinosus",
+      "th": "แฮมสตริงด้านใน (เซมิเทนดิโนซัส)"
+    },
+    "anatomical": "Semitendinosus",
+    "description": {
+      "en": "An inner hamstring on the back of the thigh, ending in a long tendon below the knee. It bends the knee and extends the hip.",
+      "th": "แฮมสตริงด้านในที่ต้นขาหลัง ปลายเป็นเอ็นยาวไปเกาะใต้เข่า ทำหน้าที่งอเข่าและเหยียดสะโพก"
+    }
+  },
+  {
+    "id": "semimembranosus",
+    "group": "thighs",
+    "name": {
+      "en": "Semimembranosus",
+      "th": "แฮมสตริงด้านใน (เซมิเมมบราโนซัส)"
+    },
+    "anatomical": "Semimembranosus",
+    "description": {
+      "en": "The deeper inner hamstring, under the semitendinosus. It bends the knee and extends the hip together with the other hamstrings.",
+      "th": "แฮมสตริงด้านในชั้นลึก อยู่ใต้เซมิเทนดิโนซัส ทำหน้าที่งอเข่าและเหยียดสะโพกร่วมกับแฮมสตริงมัดอื่นๆ"
+    }
+  },
+  {
+    "id": "gastrocnemius_medial",
+    "group": "lower_legs",
+    "name": {
+      "en": "Inner calf",
+      "th": "น่องด้านใน"
+    },
+    "anatomical": "Gastrocnemius, medial head",
+    "description": {
+      "en": "The inner head of the calf and its bigger bulge. It points your foot down and helps bend the knee, working hardest in straight-leg calf raises.",
+      "th": "น่องส่วนด้านในซึ่งเป็นมัดที่นูนกว่า ทำหน้าที่เขย่งปลายเท้าและช่วยงอเข่า ทำงานหนักที่สุดในท่าเขย่งเท้าแบบเข่าตึง (Calf Raise)"
+    }
+  },
+  {
+    "id": "gastrocnemius_lateral",
+    "group": "lower_legs",
+    "name": {
+      "en": "Outer calf",
+      "th": "น่องด้านนอก"
+    },
+    "anatomical": "Gastrocnemius, lateral head",
+    "description": {
+      "en": "The outer head of the calf on the back of the lower leg. It points your foot down and helps bend the knee, as in standing calf raises.",
+      "th": "น่องส่วนด้านนอกที่ขาท่อนล่างด้านหลัง ทำหน้าที่เขย่งปลายเท้าและช่วยงอเข่า เช่น ท่ายืนเขย่งเท้า (Standing Calf Raise)"
+    }
+  },
+  {
+    "id": "soleus",
+    "group": "lower_legs",
+    "name": {
+      "en": "Soleus",
+      "th": "น่องชั้นล่าง (โซเลียส)"
+    },
+    "anatomical": "Soleus",
+    "description": {
+      "en": "A flat calf muscle beneath the gastrocnemius. It points your foot down and takes over when the knee is bent, as in seated calf raises.",
+      "th": "กล้ามน่องแผ่นแบนที่อยู่ใต้น่องมัดนอก ทำหน้าที่เขย่งปลายเท้า และทำงานเด่นที่สุดตอนงอเข่า เช่น ท่านั่งเขย่งเท้า (Seated Calf Raise)"
+    }
+  },
+  {
+    "id": "tibialis_anterior",
+    "group": "lower_legs",
+    "name": {
+      "en": "Shin",
+      "th": "หน้าแข้ง"
+    },
+    "anatomical": "Tibialis anterior",
+    "description": {
+      "en": "The muscle running down the outside of the shinbone. It lifts your toes and the front of your foot and controls the foot as it lands when you walk or run.",
+      "th": "กล้ามที่วิ่งตามแนวกระดูกหน้าแข้งด้านนอก ทำหน้าที่กระดกปลายเท้าขึ้น และคุมเท้าตอนลงพื้นขณะเดินหรือวิ่ง"
+    }
+  },
+  {
+    "id": "sternocleidomastoid",
+    "group": "neck",
+    "name": {
+      "en": "Side neck (SCM)",
+      "th": "กล้ามคอด้านข้าง"
+    },
+    "anatomical": "Sternocleidomastoid",
+    "description": {
+      "en": "The rope-like muscle on each side of the neck, running from behind the ear to the breastbone and collarbone. It turns and tilts your head and tucks your chin toward your chest.",
+      "th": "กล้ามทรงเชือกสองข้างลำคอ ลากจากหลังใบหูลงมาที่กระดูกหน้าอกและไหปลาร้า ทำหน้าที่หันศีรษะ เอียงศีรษะ และก้มคางลงหาอก"
+    }
+  }
+]

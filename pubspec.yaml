@@ -76,6 +76,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/google_logo.svg
+    - assets/muscles/
+    - assets/body_viewer/
+    - assets/body_viewer/vendor/
+    - assets/body_viewer/vendor/addons/loaders/
+    - assets/body_viewer/vendor/addons/utils/
+    - assets/body_viewer/vendor/addons/controls/
+    - assets/body_viewer/vendor/addons/libs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
