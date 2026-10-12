@@ -41,7 +41,9 @@ void main() {
     expect(find.text('Tap a muscle to see exercises'), findsOneWidget);
   });
 
-  testWidgets('tapping a muscle opens its sheet and selects it', (tester) async {
+  testWidgets('tapping a muscle opens its sheet and selects it', (
+    tester,
+  ) async {
     await pumpScreen(tester);
     await ready(tester);
 
@@ -64,22 +66,34 @@ void main() {
     expect(viewer.calls, isEmpty);
   });
 
-  testWidgets('expanding an exercise highlights its muscles; collapsing reselects', (tester) async {
-    await pumpScreen(tester);
-    await ready(tester);
-    viewer.emit(const MuscleTapped('pec_major_clavicular'));
-    await tester.pumpAndSettle();
+  testWidgets(
+    'expanding an exercise highlights its muscles; collapsing reselects',
+    (tester) async {
+      await pumpScreen(tester);
+      await ready(tester);
+      viewer.emit(const MuscleTapped('pec_major_clavicular'));
+      await tester.pumpAndSettle();
 
-    await tester.tap(find.byKey(const Key('exercise_incline_dumbbell_press')));
-    await tester.pumpAndSettle();
-    expect(viewer.calls.last, 'highlight:pec_major_clavicular|deltoid_anterior');
+      await tester.tap(
+        find.byKey(const Key('exercise_incline_dumbbell_press')),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        viewer.calls.last,
+        'highlight:pec_major_clavicular|deltoid_anterior',
+      );
 
-    await tester.tap(find.byKey(const Key('exercise_incline_dumbbell_press')));
-    await tester.pumpAndSettle();
-    expect(viewer.calls.last, 'select:pec_major_clavicular');
-  });
+      await tester.tap(
+        find.byKey(const Key('exercise_incline_dumbbell_press')),
+      );
+      await tester.pumpAndSettle();
+      expect(viewer.calls.last, 'select:pec_major_clavicular');
+    },
+  );
 
-  testWidgets('background tap and close button clear the selection', (tester) async {
+  testWidgets('background tap and close button clear the selection', (
+    tester,
+  ) async {
     await pumpScreen(tester);
     await ready(tester);
     viewer.emit(const MuscleTapped('deltoid_anterior'));
@@ -154,6 +168,78 @@ void main() {
 
     expect(find.text('Subscapularis'), findsOneWidget);
     expect(viewer.calls, contains('select:subscapularis'));
+  });
+
+  testWidgets(
+    'a muscle opened from the list before ready is selected once ready',
+    (tester) async {
+      final catalog = testCatalog();
+      await pumpScreen(
+        tester,
+        openMuscleList: (_) async => catalog.muscleById('subscapularis'),
+      );
+      await tester.tap(find.byKey(const Key('muscles_list_button')));
+      await tester.pumpAndSettle();
+      viewer.calls.clear();
+
+      await ready(tester);
+      expect(viewer.calls, ['select:subscapularis']);
+    },
+  );
+
+  testWidgets('retry replays the expanded exercise highlight once ready', (
+    tester,
+  ) async {
+    await pumpScreen(tester);
+    await ready(tester);
+    viewer.emit(const MuscleTapped('pec_major_clavicular'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('exercise_incline_dumbbell_press')));
+    await tester.pumpAndSettle();
+
+    viewer.emit(const ViewerFailed('boom'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('muscles_retry')));
+    await tester.pump();
+    viewer.calls.clear();
+
+    await ready(tester);
+    expect(viewer.calls, ['highlight:pec_major_clavicular|deltoid_anterior']);
+  });
+
+  testWidgets('nothing is replayed after the selection was cleared', (
+    tester,
+  ) async {
+    await pumpScreen(tester);
+    await ready(tester);
+    viewer.emit(const MuscleTapped('deltoid_anterior'));
+    await tester.pumpAndSettle();
+    viewer.emit(const BackgroundTapped());
+    await tester.pumpAndSettle();
+
+    viewer.emit(const ViewerFailed('boom'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('muscles_retry')));
+    await tester.pump();
+    viewer.calls.clear();
+
+    await ready(tester);
+    expect(viewer.calls, isEmpty);
+  });
+
+  testWidgets('system back closes the open sheet instead of leaving', (
+    tester,
+  ) async {
+    await pumpScreen(tester);
+    await ready(tester);
+    viewer.emit(const MuscleTapped('deltoid_anterior'));
+    await tester.pumpAndSettle();
+
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+
+    expect(find.byKey(const Key('muscle_sheet')), findsNothing);
+    expect(viewer.calls.last, 'clear');
   });
 
   testWidgets('credits button shows the Z-Anatomy credit', (tester) async {

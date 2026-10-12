@@ -42,6 +42,11 @@ class _MuscleMapScreenState extends State<MuscleMapScreen> {
   _ViewerStatus _status = _ViewerStatus.loading;
   Muscle? _selected;
 
+  /// The last command sent to the viewer (null after a clear). Replayed on
+  /// [ViewerReady] because the page drops commands issued before it is ready
+  /// and a reload loses the highlight.
+  Future<void> Function()? _lastCommand;
+
   @override
   void initState() {
     super.initState();
@@ -73,6 +78,7 @@ class _MuscleMapScreenState extends State<MuscleMapScreen> {
       case ViewerReady():
         _timeout?.cancel();
         setState(() => _status = _ViewerStatus.ready);
+        _lastCommand?.call();
       case MuscleTapped(:final muscleId):
         _openMuscle(muscleId);
       case BackgroundTapped():
@@ -87,11 +93,12 @@ class _MuscleMapScreenState extends State<MuscleMapScreen> {
     final muscle = widget.catalog.muscleById(id);
     if (muscle == null) return;
     setState(() => _selected = muscle);
-    _viewer.select(id);
+    _send(() => _viewer.select(id));
   }
 
   void _closeMuscle() {
     setState(() => _selected = null);
+    _lastCommand = null;
     _viewer.clear();
   }
 
@@ -99,13 +106,20 @@ class _MuscleMapScreenState extends State<MuscleMapScreen> {
     final selected = _selected;
     if (selected == null) return;
     if (exercise == null) {
-      _viewer.select(selected.id);
+      _send(() => _viewer.select(selected.id));
     } else {
-      _viewer.highlight(
-        primary: exercise.primary,
-        secondary: exercise.secondary,
+      _send(
+        () => _viewer.highlight(
+          primary: exercise.primary,
+          secondary: exercise.secondary,
+        ),
       );
     }
+  }
+
+  void _send(Future<void> Function() command) {
+    _lastCommand = command;
+    command();
   }
 
   void _retry() {
@@ -145,107 +159,113 @@ class _MuscleMapScreenState extends State<MuscleMapScreen> {
     final locale = Localizations.localeOf(context);
     final selected = _selected;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.musclesAppBarTitle),
-        actions: [
-          IconButton(
-            key: const Key('muscles_list_button'),
-            icon: const Icon(Icons.list),
-            tooltip: l10n.musclesListTooltip,
-            onPressed: _openList,
-          ),
-          IconButton(
-            key: const Key('muscles_credits_button'),
-            icon: const Icon(Icons.info_outline),
-            tooltip: l10n.musclesCreditsTooltip,
-            onPressed: _showCredits,
-          ),
-        ],
-      ),
-      body: Stack(
-        children: [
-          Positioned.fill(child: _view),
-          if (_status == _ViewerStatus.loading)
-            const Center(
-              child: CircularProgressIndicator(key: Key('muscles_loading')),
+    return PopScope(
+      canPop: _selected == null,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _closeMuscle();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(l10n.musclesAppBarTitle),
+          actions: [
+            IconButton(
+              key: const Key('muscles_list_button'),
+              icon: const Icon(Icons.list),
+              tooltip: l10n.musclesListTooltip,
+              onPressed: _openList,
             ),
-          if (_status == _ViewerStatus.failed)
-            Center(
-              child: Card(
-                key: const Key('muscles_error'),
-                margin: const EdgeInsets.all(24),
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(l10n.musclesLoadError),
-                      const SizedBox(height: 12),
-                      FilledButton(
-                        key: const Key('muscles_retry'),
-                        onPressed: _retry,
-                        child: Text(l10n.musclesRetry),
-                      ),
-                      TextButton(
-                        key: const Key('muscles_error_open_list'),
-                        onPressed: _openList,
-                        child: Text(l10n.musclesOpenList),
-                      ),
-                    ],
+            IconButton(
+              key: const Key('muscles_credits_button'),
+              icon: const Icon(Icons.info_outline),
+              tooltip: l10n.musclesCreditsTooltip,
+              onPressed: _showCredits,
+            ),
+          ],
+        ),
+        body: Stack(
+          children: [
+            Positioned.fill(child: _view),
+            if (_status == _ViewerStatus.loading)
+              const Center(
+                child: CircularProgressIndicator(key: Key('muscles_loading')),
+              ),
+            if (_status == _ViewerStatus.failed)
+              Center(
+                child: Card(
+                  key: const Key('muscles_error'),
+                  margin: const EdgeInsets.all(24),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(l10n.musclesLoadError),
+                        const SizedBox(height: 12),
+                        FilledButton(
+                          key: const Key('muscles_retry'),
+                          onPressed: _retry,
+                          child: Text(l10n.musclesRetry),
+                        ),
+                        TextButton(
+                          key: const Key('muscles_error_open_list'),
+                          onPressed: _openList,
+                          child: Text(l10n.musclesOpenList),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          if (_status == _ViewerStatus.ready && selected == null) ...[
-            Positioned(
-              top: 12,
-              left: 16,
-              right: 16,
-              child: Text(
-                l10n.musclesTapHint,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyMedium,
+            if (_status == _ViewerStatus.ready && selected == null) ...[
+              Positioned(
+                top: 12,
+                left: 16,
+                right: 16,
+                child: Text(
+                  l10n.musclesTapHint,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ),
-            ),
-            Positioned(
-              bottom: 16,
-              left: 16,
-              right: 16,
-              child: Wrap(
-                alignment: WrapAlignment.center,
-                spacing: 8,
-                children: [
-                  OutlinedButton(
-                    key: const Key('muscles_view_front'),
-                    onPressed: () => _viewer.setView(BodyView.front),
-                    child: Text(l10n.musclesViewFront),
-                  ),
-                  OutlinedButton(
-                    key: const Key('muscles_view_back'),
-                    onPressed: () => _viewer.setView(BodyView.back),
-                    child: Text(l10n.musclesViewBack),
-                  ),
-                  OutlinedButton(
-                    key: const Key('muscles_view_reset'),
-                    onPressed: _viewer.resetView,
-                    child: Text(l10n.musclesResetView),
-                  ),
-                ],
+              Positioned(
+                bottom: 16,
+                left: 16,
+                right: 16,
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: 8,
+                  children: [
+                    OutlinedButton(
+                      key: const Key('muscles_view_front'),
+                      onPressed: () => _viewer.setView(BodyView.front),
+                      child: Text(l10n.musclesViewFront),
+                    ),
+                    OutlinedButton(
+                      key: const Key('muscles_view_back'),
+                      onPressed: () => _viewer.setView(BodyView.back),
+                      child: Text(l10n.musclesViewBack),
+                    ),
+                    OutlinedButton(
+                      key: const Key('muscles_view_reset'),
+                      onPressed: _viewer.resetView,
+                      child: Text(l10n.musclesResetView),
+                    ),
+                  ],
+                ),
               ),
-            ),
+            ],
+            if (selected != null)
+              MuscleSheet(
+                key: ValueKey(selected.id),
+                muscle: selected,
+                exercises: widget.catalog.exercisesFor(selected.id),
+                muscleNameOf: (id) =>
+                    widget.catalog.muscleById(id)?.name.resolve(locale) ?? id,
+                onExerciseExpanded: _onExerciseExpanded,
+                onClose: _closeMuscle,
+              ),
           ],
-          if (selected != null)
-            MuscleSheet(
-              key: ValueKey(selected.id),
-              muscle: selected,
-              exercises: widget.catalog.exercisesFor(selected.id),
-              muscleNameOf: (id) =>
-                  widget.catalog.muscleById(id)?.name.resolve(locale) ?? id,
-              onExerciseExpanded: _onExerciseExpanded,
-              onClose: _closeMuscle,
-            ),
-        ],
+        ),
       ),
     );
   }
