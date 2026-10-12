@@ -47,7 +47,9 @@ dependencies:
   intl: ^0.20.3
   shared_preferences: ^2.5.5
   flutter_svg: ^2.3.0
-  flutter_inappwebview: ^6.2.0-beta.3
+  # Pinned exactly: 6.1.5's Android plugin fails R8 (proguard-android.txt).
+  # Revisit at 6.2.0 stable.
+  flutter_inappwebview: 6.2.0-beta.3
 
 dev_dependencies:
   flutter_test:
