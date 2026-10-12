@@ -18,6 +18,10 @@ const DIM_TOWARD = new THREE.Color(0xd9d2cb);
 const DIM_AMOUNT = 0.6;
 const FOCUS_ZOOM = 0.6;
 const TWEEN_MS = 450;
+// The Front/Back/Reset buttons overlay the bottom of the view (~72 dp) and the tap hint
+// sits at the top, so the body is framed inside the strip between these insets (CSS px).
+const BOTTOM_INSET = 96;
+const TOP_INSET = 24;
 // Context geometry within this distance (model units = metres, so 1.5 cm) in front of a
 // muscle does not block a tap on it.
 const PICK_TOLERANCE = 0.015;
@@ -80,9 +84,19 @@ function requestRender() {
 }
 controls.addEventListener('change', requestRender);
 
+// Shifts the rendered image up by half the inset difference (picking follows the
+// projection matrix, so taps stay aligned).
+function applyFrameOffset() {
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  camera.setViewOffset(w, h, 0, (BOTTOM_INSET - TOP_INSET) / 2, w, h);
+}
+applyFrameOffset();
+
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
+  applyFrameOffset();
   renderer.setSize(window.innerWidth, window.innerHeight);
   requestRender();
 });
@@ -135,7 +149,9 @@ loader.load('./body.glb', (gltf) => {
   });
 
   const halfFov = THREE.MathUtils.degToRad(camera.fov / 2);
-  homeDistance = (size.y / 2 / Math.tan(halfFov)) * 1.15;
+  // Fit the body height into the viewport minus the insets.
+  const usable = Math.max(window.innerHeight - BOTTOM_INSET - TOP_INSET, window.innerHeight * 0.5);
+  homeDistance = (size.y / 2 / Math.tan(halfFov)) * (window.innerHeight / usable);
   controls.minDistance = homeDistance * 0.25;
   controls.maxDistance = homeDistance * 1.6;
   setView('front', false);
