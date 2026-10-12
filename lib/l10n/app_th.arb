@@ -133,7 +133,7 @@
   "musclesResetView": "รีเซ็ต",
   "musclesListTooltip": "รายการกล้ามเนื้อ",
   "musclesCreditsTooltip": "เครดิต",
-  "musclesCreditsBody": "โมเดลกายวิภาค 3D ดัดแปลงจาก Z-Anatomy (z-anatomy.com) สัญญาอนุญาต CC BY-SA 4.0 โมเดลที่ดัดแปลงเผยแพร่ภายใต้สัญญาอนุญาตเดียวกัน",
+  "musclesCreditsBody": "โมเดลกายวิภาค 3D ดัดแปลงจาก Z-Anatomy (z-anatomy.com) สัญญาอนุญาต CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/) โมเดลที่ดัดแปลงเผยแพร่ภายใต้สัญญาอนุญาตเดียวกัน",
   "musclesLoadError": "โหลดร่างกาย 3D ไม่สำเร็จ",
   "musclesRetry": "ลองใหม่",
   "musclesOpenList": "เปิดรายการกล้ามเนื้อ",
