@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   muscleIdFromName, isTap, TapTracker, facingAngle, orbitPosition, lerpAngle,
+  accumulateOutward, mergeOutward, facingFromOutward,
 } from '../../assets/body_viewer/viewer_core.js';
 
 test('muscleIdFromName strips the side suffix', () => {
@@ -83,4 +84,42 @@ test('lerpAngle between opposite sides never collapses to the target', () => {
     const [x, , z] = orbitPosition(ang, [0, 0, 0], 3);
     assert.ok(Math.abs(Math.hypot(x, z) - 3) < 1e-9);
   }
+});
+
+// A vertical "bone" line at x, z=0 sampled along y.
+const bone = (x) => {
+  const pts = [];
+  for (let y = 0; y <= 1; y += 0.1) pts.push(x, y, 0);
+  return pts;
+};
+// A "muscle" blob (closed: points both in front of and behind its centre) at (x, z).
+const blob = (x, z) => [x, 0.5, z - 0.01, x, 0.5, z + 0.01, x, 0.4, z, x, 0.6, z];
+
+test('front muscle (in front of the bone) faces the front', () => {
+  const o = accumulateOutward(blob(0, 0.05), bone(0));
+  assert.ok(Math.abs(facingFromOutward(o)) < 1e-9);
+});
+
+test('back muscle (behind the bone) faces the back', () => {
+  const o = accumulateOutward(blob(0, -0.05), bone(0));
+  assert.ok(Math.abs(Math.abs(facingFromOutward(o)) - Math.PI) < 1e-9);
+});
+
+test('left/right pair on the sides cancels to null', () => {
+  const l = accumulateOutward(blob(0.1, 0), bone(0.05));
+  const r = accumulateOutward(blob(-0.1, 0), bone(-0.05));
+  assert.equal(facingFromOutward(mergeOutward([l, r])), null);
+  // Each side alone is clearly sideways.
+  assert.ok(Math.abs(facingFromOutward(l) - Math.PI / 2) < 1e-9);
+});
+
+test('mirrored front pair still faces the front', () => {
+  const l = accumulateOutward(blob(0.1, 0.04), bone(0.1));
+  const r = accumulateOutward(blob(-0.1, 0.04), bone(-0.1));
+  assert.ok(Math.abs(facingFromOutward(mergeOutward([l, r]))) < 1e-9);
+});
+
+test('facingFromOutward is null with no data', () => {
+  assert.equal(facingFromOutward(accumulateOutward([], bone(0))), null);
+  assert.equal(facingFromOutward(accumulateOutward(blob(0, 0.05), [])), null);
 });

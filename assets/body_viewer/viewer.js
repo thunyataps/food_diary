@@ -3,7 +3,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import {
-  CONTEXT_PREFIX, muscleIdFromName, TapTracker, facingAngle, orbitPosition, lerpAngle,
+  CONTEXT_PREFIX, muscleIdFromName, TapTracker, orbitPosition, lerpAngle,
+  accumulateOutward, mergeOutward, facingFromOutward,
 } from './viewer_core.js';
 
 const COLORS = {
@@ -88,6 +89,7 @@ const muscleMeshes = new Map(); // muscleId -> Mesh[]
 const pickables = [];
 let homeDistance = 0;
 let modelLoaded = false;
+const skeletonMeshes = [];
 
 // GLTFLoader names unnamed meshes `mesh_<index>`; those are not muscle ids.
 const LOADER_MESH_NAME = /^mesh_\d+(_\d+)*$/; // also createUniqueName suffixes: mesh_5_1
@@ -119,6 +121,9 @@ loader.load('./body.glb', (gltf) => {
       color: id ? COLORS.muscle : COLORS.context, roughness: 0.85, metalness: 0,
     });
     pickables.push(o);
+    for (let n = o; n; n = n.parent) {
+      if (n.name === `${CONTEXT_PREFIX}skeleton`) { skeletonMeshes.push(o); break; }
+    }
     if (id) {
       o.userData.muscleId = id;
       if (!muscleMeshes.has(id)) muscleMeshes.set(id, []);
@@ -182,6 +187,32 @@ function setView(view, animate = true) {
   moveCamera(angle, [0, 0, 0], homeDistance, animate);
 }
 
+// World-space vertices of a mesh as a flat [x,y,z,...] array (keeps every `step`-th).
+function worldPoints(mesh, step = 1) {
+  mesh.updateMatrixWorld(true);
+  const pos = mesh.geometry.attributes.position;
+  const v = new THREE.Vector3();
+  const out = [];
+  for (let i = 0; i < pos.count; i += step) {
+    v.fromBufferAttribute(pos, i).applyMatrix4(mesh.matrixWorld);
+    out.push(v.x, v.y, v.z);
+  }
+  return out;
+}
+
+// Azimuth of the side a muscle is on (0 front, PI back), or null if ambiguous
+// (e.g. lateral deltoid, whose L/R halves point opposite ways). Computed lazily, cached.
+let skeletonPoints = null;
+const facingCache = new Map();
+function muscleFacing(id) {
+  if (facingCache.has(id)) return facingCache.get(id);
+  if (!skeletonPoints) skeletonPoints = skeletonMeshes.flatMap((m) => worldPoints(m, 4));
+  const sums = muscleMeshes.get(id).map((m) => accumulateOutward(worldPoints(m), skeletonPoints));
+  const angle = facingFromOutward(mergeOutward(sums));
+  facingCache.set(id, angle);
+  return angle;
+}
+
 function focus(id) {
   const meshes = muscleMeshes.get(id);
   if (!meshes || !homeDistance) return;
@@ -189,7 +220,10 @@ function focus(id) {
   meshes.forEach((m) => box.expandByObject(m));
   const c = box.getCenter(new THREE.Vector3());
   const target = [0, c.y, 0];
-  moveCamera(facingAngle(c.x, c.z), target, homeDistance * FOCUS_ZOOM, true);
+  // Ambiguous facing keeps the current azimuth (only height/zoom change).
+  const angle = muscleFacing(id)
+    ?? Math.atan2(camera.position.x - controls.target.x, camera.position.z - controls.target.z);
+  moveCamera(angle, target, homeDistance * FOCUS_ZOOM, true);
 }
 
 // ---------- highlight ----------
@@ -267,3 +301,6 @@ window.viewer = {
   setView: (view) => setView(view, true),
   resetView: () => setView('front', true),
 };
+
+// Debug hooks for headless checks; never exposed inside the app.
+if (standalone) window.__dbg = { camera, controls, muscleMeshes, pickables, raycaster, THREE, scene };

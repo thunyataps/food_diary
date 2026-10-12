@@ -61,3 +61,40 @@ export function lerpAngle(from, to, t) {
   const delta = Math.atan2(Math.sin(to - from), Math.cos(to - from));
   return from + delta * t;
 }
+
+// Which side of the body a muscle is on, from the offset of its vertices to the
+// nearest point of the underlying skeleton (outward = away from the bone).
+// Muscle meshes are closed, so summed face normals cancel; offsets from the bone
+// do not. `points`/`refs` are flat [x,y,z,...] arrays (world space).
+export function accumulateOutward(points, refs, maxSamples = 200) {
+  const out = { x: 0, z: 0, abs: 0 };
+  const n = Math.floor(points.length / 3);
+  const m = Math.floor(refs.length / 3);
+  if (n === 0 || m === 0) return out;
+  const stride = Math.max(1, Math.ceil(n / maxSamples));
+  for (let i = 0; i < n; i += stride) {
+    const px = points[i * 3], py = points[i * 3 + 1], pz = points[i * 3 + 2];
+    let best = Infinity, bx = 0, bz = 0;
+    for (let j = 0; j < m; j++) {
+      const dx = px - refs[j * 3], dy = py - refs[j * 3 + 1], dz = pz - refs[j * 3 + 2];
+      const d = dx * dx + dy * dy + dz * dz;
+      if (d < best) { best = d; bx = dx; bz = dz; }
+    }
+    out.x += bx;
+    out.z += bz;
+    out.abs += Math.hypot(bx, bz);
+  }
+  return out;
+}
+
+export function mergeOutward(list) {
+  return list.reduce((a, o) => ({ x: a.x + o.x, z: a.z + o.z, abs: a.abs + o.abs }),
+    { x: 0, z: 0, abs: 0 });
+}
+
+// Azimuth (0 = front +Z, PI = back) of the dominant outward direction, or null
+// when it is ambiguous (sideways pair cancelling, or a muscle wrapping the limb).
+export function facingFromOutward({ x, z, abs }, minRatio = 0.3) {
+  if (!(abs > 0) || Math.hypot(x, z) / abs < minRatio) return null;
+  return Math.atan2(x, z);
+}
