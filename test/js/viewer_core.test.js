@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  muscleIdFromName, isTap, TapTracker, facingAngle, orbitPosition,
+  muscleIdFromName, isTap, TapTracker, facingAngle, orbitPosition, lerpAngle,
 } from '../../assets/body_viewer/viewer_core.js';
 
 test('muscleIdFromName strips the side suffix', () => {
@@ -64,4 +64,23 @@ test('orbitPosition places the camera around the target', () => {
   assert.deepEqual([x, y, z].map((v) => Math.round(v * 1e6) / 1e6), [0, 1, 5]);
   const back = orbitPosition(Math.PI, [0, 0, 0], 2);
   assert.ok(Math.abs(back[2] + 2) < 1e-9);
+});
+
+test('lerpAngle takes the shortest arc', () => {
+  assert.ok(Math.abs(lerpAngle(0, Math.PI / 2, 0.5) - Math.PI / 4) < 1e-9);
+  // 350deg -> 10deg crosses 0, not 180.
+  const a = (350 * Math.PI) / 180;
+  const b = (10 * Math.PI) / 180;
+  const mid = lerpAngle(a, b, 0.5);
+  assert.ok(Math.abs(Math.sin(mid)) < 1e-9 && Math.cos(mid) > 0);
+  assert.ok(Math.abs(lerpAngle(a, b, 1) - b) < 1e-9 || Math.abs(Math.sin(lerpAngle(a, b, 1) - b)) < 1e-9);
+  assert.equal(lerpAngle(1, 2, 0), 1);
+});
+
+test('lerpAngle between opposite sides never collapses to the target', () => {
+  for (let i = 0; i <= 10; i++) {
+    const ang = lerpAngle(0, Math.PI, i / 10);
+    const [x, , z] = orbitPosition(ang, [0, 0, 0], 3);
+    assert.ok(Math.abs(Math.hypot(x, z) - 3) < 1e-9);
+  }
 });

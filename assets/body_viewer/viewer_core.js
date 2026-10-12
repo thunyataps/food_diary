@@ -55,3 +55,9 @@ export function orbitPosition(angle, target, distance) {
     target[2] + distance * Math.cos(angle),
   ];
 }
+
+// Interpolates between two angles along the shortest arc.
+export function lerpAngle(from, to, t) {
+  const delta = Math.atan2(Math.sin(to - from), Math.cos(to - from));
+  return from + delta * t;
+}

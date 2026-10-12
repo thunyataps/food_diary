@@ -3,7 +3,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import {
-  CONTEXT_PREFIX, muscleIdFromName, TapTracker, facingAngle, orbitPosition,
+  CONTEXT_PREFIX, muscleIdFromName, TapTracker, facingAngle, orbitPosition, lerpAngle,
 } from './viewer_core.js';
 
 const COLORS = {
@@ -138,26 +138,37 @@ loader.load('./body.glb', (gltf) => {
 
 // ---------- camera ----------
 let tweenId = 0;
-function moveCamera(position, target, animate) {
+function moveCamera(angle, target, distance, animate) {
   const id = ++tweenId;
-  const toPos = new THREE.Vector3(...position);
   const toTarget = new THREE.Vector3(...target);
   if (!animate) {
-    camera.position.copy(toPos);
+    camera.position.set(...orbitPosition(angle, target, distance));
     controls.target.copy(toTarget);
     controls.update();
     requestRender();
     return;
   }
-  const fromPos = camera.position.clone();
+  // Tween in orbit space (azimuth along the shortest arc, distance and target
+  // linearly) so front<->back swings around the body instead of through it.
   const fromTarget = controls.target.clone();
+  const offset = camera.position.clone().sub(fromTarget);
+  const fromAngle = Math.atan2(offset.x, offset.z);
+  const fromRadius = Math.hypot(offset.x, offset.z);
+  const fromHeight = offset.y;
   const start = performance.now();
   const step = (now) => {
     if (id !== tweenId) return;
     const t = Math.min((now - start) / TWEEN_MS, 1);
     const e = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-    camera.position.lerpVectors(fromPos, toPos, e);
     controls.target.lerpVectors(fromTarget, toTarget, e);
+    const a = lerpAngle(fromAngle, angle, e);
+    const r = fromRadius + (distance - fromRadius) * e;
+    const h = fromHeight * (1 - e);
+    camera.position.set(
+      controls.target.x + r * Math.sin(a),
+      controls.target.y + h,
+      controls.target.z + r * Math.cos(a),
+    );
     controls.update();
     requestRender();
     if (t < 1) requestAnimationFrame(step);
@@ -168,7 +179,7 @@ function moveCamera(position, target, animate) {
 function setView(view, animate = true) {
   if (!homeDistance) return;
   const angle = view === 'back' ? Math.PI : 0;
-  moveCamera(orbitPosition(angle, [0, 0, 0], homeDistance), [0, 0, 0], animate);
+  moveCamera(angle, [0, 0, 0], homeDistance, animate);
 }
 
 function focus(id) {
@@ -178,7 +189,7 @@ function focus(id) {
   meshes.forEach((m) => box.expandByObject(m));
   const c = box.getCenter(new THREE.Vector3());
   const target = [0, c.y, 0];
-  moveCamera(orbitPosition(facingAngle(c.x, c.z), target, homeDistance * FOCUS_ZOOM), target, true);
+  moveCamera(facingAngle(c.x, c.z), target, homeDistance * FOCUS_ZOOM, true);
 }
 
 // ---------- highlight ----------
