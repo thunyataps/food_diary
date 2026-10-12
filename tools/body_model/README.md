@@ -70,4 +70,35 @@ Separately, the insertion markers (`Deltoid muscle.el`, `.ol/.or/.er`; 705 meshe
     This is the main risk for the "skin-head" context group.
 
 ## Rebuild
-(filled in Task 2)
+1. `/Applications/Blender.app/Contents/MacOS/Blender -b ~/Z-Anatomy/template/Z-Anatomy/Startup.blend -P tools/body_model/build_glb.py -- tools/body_model/out/body_raw.glb`
+   (prints `build_glb: N objects, T triangles (...)` plus per-object triangle counts)
+2. `gltfpack -i tools/body_model/out/body_raw.glb -o assets/body_viewer/body.glb -cc -kn -km`
+3. `flutter test test/features/muscles/body_model_test.dart`
+
+Current output: 85 objects (41 muscles x L/R + `_ctx_head`, `_ctx_skeleton`, `_ctx_muscles`),
+158,063 triangles (103k tappable, 55k context); `body.glb` 693 KB after gltfpack.
+
+`mesh_map.json`:
+- `muscles[id].sources`: exact Z-Anatomy object names. `.l`/`.r` objects keep their side (`__L`/`__R`);
+  unsuffixed objects are cut at x = 0 if they cross the midline. Optional `split` planes (left-side coordinates,
+  mirrored for the right) are supported but unused: every target head is already a separate object.
+- A muscle with several Z-Anatomy parts maps all of them (e.g. `erector_spinae` = 9 iliocostalis/longissimus/spinalis
+  parts, `forearm_flexors` = FCR, FCU, FDS, FDP, FPL, palmaris longus, pronator teres), so no part leaks into context.
+- Decimation per output object: `decimate` (explicit ratio) wins, else `tris` (target triangles per muscle side or per
+  context group), else top-level `muscle_tris` (muscles) / `decimate` (context).
+- `context` groups (built in order; an object goes to the first group that takes it): `collections` + name `patterns`,
+  minus `exclude` regexes. `head` = skull bones, teeth, nasal cartilages, sclera/cornea/iris. `skeleton` = rest of
+  `1: Skeletal system` minus `.i/.j/.g` markers, ear ossicles, ethmoid/sinuses, larynx cartilages. `muscles` = every
+  unmapped mesh in `Muscles` (face, hands, feet, tendons, deep ids) minus internal ones (diaphragm, larynx, tongue,
+  pharynx, eye, pelvic floor, inner intercostals, transversospinales, suboccipitals) and `Platysma` (it hides the SCM).
+  Nerves, vessels, organs, bursae, fascia, tendon sheaths and region markers are never included.
+
+`gltfpack` (quantization) puts each mesh in an unnamed child node under the named node, so the viewer must read the
+name from the hit object's parent.
+
+Deep muscles (no mesh): gluteus_minimus, internal_oblique, pec_minor, rhomboids, subscapularis, supraspinatus,
+transversus_abdominis, vastus_intermedius.
+`iliopsoas` and `triceps_medial` (spec `*` candidates) are tappable: Z-Anatomy shows the iliopsoas in the groin
+between sartorius and pectineus and the medial triceps head along the distal medial upper arm. The other candidates
+are covered from every side (internal oblique shows only as specks in the lumbar triangle); their geometry goes to
+`_ctx_muscles`.

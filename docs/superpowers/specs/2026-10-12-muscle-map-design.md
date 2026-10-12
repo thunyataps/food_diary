@@ -140,23 +140,24 @@ Profile: label "Muscles" / "กล้ามเนื้อ", icon `Icons.accessi
   `kettlebell` | `band`.
 - `difficulty`: `beginner` | `intermediate` | `advanced`.
 
-### Muscle list (49; `*` = `deep` candidate)
+### Muscle list (49; `*` = `deep`)
 
 | Group | Muscles |
 |---|---|
 | chest | `pec_major_clavicular`, `pec_major_sternocostal`, `pec_minor`*, `serratus_anterior` |
 | shoulders | `deltoid_anterior`, `deltoid_lateral`, `deltoid_posterior`, `supraspinatus`*, `infraspinatus`, `teres_minor`, `subscapularis`*, `teres_major` |
 | back | `trapezius_upper`, `trapezius_middle`, `trapezius_lower`, `rhomboids`*, `latissimus_dorsi`, `erector_spinae` |
-| arms | `biceps_long`, `biceps_short`, `brachialis`, `brachioradialis`, `triceps_long`, `triceps_lateral`, `triceps_medial`*, `forearm_flexors`, `forearm_extensors` |
+| arms | `biceps_long`, `biceps_short`, `brachialis`, `brachioradialis`, `triceps_long`, `triceps_lateral`, `triceps_medial`, `forearm_flexors`, `forearm_extensors` |
 | core | `rectus_abdominis`, `external_oblique`, `internal_oblique`*, `transversus_abdominis`* |
-| hips | `gluteus_maximus`, `gluteus_medius`, `gluteus_minimus`*, `hip_adductors`, `iliopsoas`*, `tensor_fasciae_latae` |
+| hips | `gluteus_maximus`, `gluteus_medius`, `gluteus_minimus`*, `hip_adductors`, `iliopsoas`, `tensor_fasciae_latae` |
 | thighs | `rectus_femoris`, `vastus_lateralis`, `vastus_medialis`, `vastus_intermedius`*, `biceps_femoris`, `semitendinosus`, `semimembranosus` |
 | lower_legs | `gastrocnemius_medial`, `gastrocnemius_lateral`, `soleus`, `tibialis_anterior` |
 | neck | `sternocleidomastoid` |
 
-Final `deep` flags are decided in milestone 1 after inspecting the model. A
-`deep` candidate that is partly visible from outside (e.g. rhomboids under a
-translucent trapezius) may be made tappable instead.
+`deep` flags are final (milestone 1, after inspecting the model; source of
+truth: `tools/body_model/mesh_map.json`). `triceps_medial` and `iliopsoas`
+were candidates but are tappable: Z-Anatomy shows them from outside (distal
+medial upper arm; groin).
 
 ### Content rules
 

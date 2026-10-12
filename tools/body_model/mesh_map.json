@@ -1,0 +1,417 @@
+{
+  "decimate": 0.1,
+  "muscle_tris": 1000,
+  "muscles": {
+    "pec_major_clavicular": {
+      "sources": [
+        "Clavicular head of pectoralis major muscle.l",
+        "Clavicular head of pectoralis major muscle.r"
+      ]
+    },
+    "pec_major_sternocostal": {
+      "sources": [
+        "Sternocostal head of pectoralis major muscle.l",
+        "Sternocostal head of pectoralis major muscle.r",
+        "(Abdominal part of pectoralis major muscle).l",
+        "(Abdominal part of pectoralis major muscle).r"
+      ],
+      "tris": 1600
+    },
+    "pec_minor": {
+      "deep": true
+    },
+    "serratus_anterior": {
+      "sources": [
+        "Serratus anterior muscle.l",
+        "Serratus anterior muscle.r"
+      ],
+      "tris": 1600
+    },
+    "deltoid_anterior": {
+      "sources": [
+        "Clavicular part of deltoid muscle.l",
+        "Clavicular part of deltoid muscle.r"
+      ]
+    },
+    "deltoid_lateral": {
+      "sources": [
+        "Acromial part of deltoid muscle.l",
+        "Acromial part of deltoid muscle.r"
+      ]
+    },
+    "deltoid_posterior": {
+      "sources": [
+        "Scapular spinal part of deltoid muscle.l",
+        "Scapular spinal part of deltoid muscle.r"
+      ]
+    },
+    "supraspinatus": {
+      "deep": true
+    },
+    "infraspinatus": {
+      "sources": [
+        "Infraspinatus muscle.l",
+        "Infraspinatus muscle.r"
+      ]
+    },
+    "teres_minor": {
+      "sources": [
+        "Teres minor muscle.l",
+        "Teres minor muscle.r"
+      ]
+    },
+    "subscapularis": {
+      "deep": true
+    },
+    "teres_major": {
+      "sources": [
+        "Teres major muscle.l",
+        "Teres major muscle.r"
+      ]
+    },
+    "trapezius_upper": {
+      "sources": [
+        "Descending part of trapezius muscle.l",
+        "Descending part of trapezius muscle.r"
+      ],
+      "tris": 1300
+    },
+    "trapezius_middle": {
+      "sources": [
+        "Transverse part of trapezius muscle.l",
+        "Transverse part of trapezius muscle.r"
+      ],
+      "tris": 1300
+    },
+    "trapezius_lower": {
+      "sources": [
+        "Ascending part of trapezius muscle.l",
+        "Ascending part of trapezius muscle.r"
+      ],
+      "tris": 1300
+    },
+    "rhomboids": {
+      "deep": true
+    },
+    "latissimus_dorsi": {
+      "sources": [
+        "Latissimus dorsi muscle.l",
+        "Latissimus dorsi muscle.r"
+      ],
+      "tris": 2000
+    },
+    "erector_spinae": {
+      "sources": [
+        "Iliocostalis colli muscle.r",
+        "Iliocostalis colli muscle",
+        "Iliocostalis thoracis muscle.l",
+        "Iliocostalis thoracis muscle.r",
+        "Iliocostalis lumborum muscle.l",
+        "Iliocostalis lumborum muscle.r",
+        "Longissimus capitis muscle.l",
+        "Longissimus capitis muscle.r",
+        "Longissimus colli muscle.l",
+        "Longissimus colli muscle.r",
+        "Longissimus thoracis muscle.l",
+        "Longissimus thoracis muscle.r",
+        "Spinalis capitis muscle.l",
+        "Spinalis capitis muscle.r",
+        "Spinalis colli muscle.l",
+        "Spinalis colli muscle.r",
+        "Spinalis thoracis muscle.l",
+        "Spinalis thoracis muscle.r"
+      ],
+      "tris": 2000
+    },
+    "biceps_long": {
+      "sources": [
+        "Long head of biceps brachii.l",
+        "Long head of biceps brachii.r"
+      ]
+    },
+    "biceps_short": {
+      "sources": [
+        "Short head of biceps brachii.l",
+        "Short head of biceps brachii.r"
+      ]
+    },
+    "brachialis": {
+      "sources": [
+        "Brachialis muscle.l",
+        "Brachialis muscle.r"
+      ]
+    },
+    "brachioradialis": {
+      "sources": [
+        "Brachioradialis muscle.l",
+        "Brachioradialis muscle.r"
+      ]
+    },
+    "triceps_long": {
+      "sources": [
+        "Long head of triceps brachii.l",
+        "Long head of triceps brachii.r"
+      ]
+    },
+    "triceps_lateral": {
+      "sources": [
+        "Lateral head of triceps brachii.l",
+        "Lateral head of triceps brachii.r"
+      ]
+    },
+    "triceps_medial": {
+      "sources": [
+        "Medial head of triceps brachii.l",
+        "Medial head of triceps brachii.r"
+      ]
+    },
+    "forearm_flexors": {
+      "sources": [
+        "Flexor carpi radialis.l",
+        "Flexor carpi radialis.r",
+        "Humeral head of flexor carpi ulnaris.l",
+        "Humeral head of flexor carpi ulnaris.r",
+        "Ulnar head of flexor carpi ulnaris.l",
+        "Ulnar head of flexor carpi ulnaris.r",
+        "Humero-ulnar head of flexor digitorum superficialis.l",
+        "Humero-ulnar head of flexor digitorum superficialis.r",
+        "Radial head of flexor digitorum superficialis.l",
+        "Radial head of flexor digitorum superficialis.r",
+        "Flexor digitorum profundus.l",
+        "Flexor digitorum profundus.r",
+        "Flexor pollicis longus.l",
+        "Flexor pollicis longus.r",
+        "Palmaris longus muscle.l",
+        "Palmaris longus muscle.r",
+        "Superficial head of pronator teres.l",
+        "Superficial head of pronator teres.r",
+        "Deep head of pronator teres.l",
+        "Deep head of pronator teres.r"
+      ],
+      "tris": 2000
+    },
+    "forearm_extensors": {
+      "sources": [
+        "Extensor carpi radialis longus.l",
+        "Extensor carpi radialis longus.r",
+        "Extensor carpi radialis brevis.l",
+        "Extensor carpi radialis brevis.r",
+        "Extensor digitorum.l",
+        "Extensor digitorum.r",
+        "Extensor digiti minimi.l",
+        "Extensor digiti minimi.r",
+        "Humeral head of extensor carpi ulnaris.l",
+        "Humeral head of extensor carpi ulnaris.r",
+        "Ulnar head of extensor carpi ulnaris.l",
+        "Ulnar head of extensor carpi ulnaris.r"
+      ],
+      "tris": 1600
+    },
+    "rectus_abdominis": {
+      "sources": [
+        "Rectus abdominis muscle.l",
+        "Rectus abdominis muscle.r"
+      ],
+      "tris": 1600
+    },
+    "external_oblique": {
+      "sources": [
+        "External abdominal oblique muscle.l",
+        "External abdominal oblique muscle.r"
+      ],
+      "tris": 2000
+    },
+    "internal_oblique": {
+      "deep": true
+    },
+    "transversus_abdominis": {
+      "deep": true
+    },
+    "gluteus_maximus": {
+      "sources": [
+        "Gluteus maximus muscle.l",
+        "Gluteus maximus muscle.r"
+      ],
+      "tris": 2000
+    },
+    "gluteus_medius": {
+      "sources": [
+        "Gluteus medius muscle.l",
+        "Gluteus medius muscle.r"
+      ],
+      "tris": 1200
+    },
+    "gluteus_minimus": {
+      "deep": true
+    },
+    "hip_adductors": {
+      "sources": [
+        "Adductor longus.l",
+        "Adductor longus.r",
+        "Adductor brevis.l",
+        "Adductor brevis.r",
+        "Adductor magnus.l",
+        "Adductor magnus.r",
+        "(Adductor minimus).l",
+        "(Adductor minimus).r",
+        "Gracilis muscle.l",
+        "Gracilis muscle.r",
+        "Pectineus muscle.l",
+        "Pectineus muscle.r"
+      ],
+      "tris": 2000
+    },
+    "iliopsoas": {
+      "sources": [
+        "Iliacus muscle.l",
+        "Iliacus muscle.r",
+        "Psoas major.l",
+        "Psoas major.r"
+      ]
+    },
+    "tensor_fasciae_latae": {
+      "sources": [
+        "Tensor fasciae latae.l",
+        "Tensor fasciae latae.r"
+      ]
+    },
+    "rectus_femoris": {
+      "sources": [
+        "Rectus femoris muscle.l",
+        "Rectus femoris muscle.r"
+      ],
+      "tris": 1200
+    },
+    "vastus_lateralis": {
+      "sources": [
+        "Vastus lateralis muscle.l",
+        "Vastus lateralis muscle.r"
+      ],
+      "tris": 1200
+    },
+    "vastus_medialis": {
+      "sources": [
+        "Vastus medialis muscle.l",
+        "Vastus medialis muscle.r"
+      ],
+      "tris": 1200
+    },
+    "vastus_intermedius": {
+      "deep": true
+    },
+    "biceps_femoris": {
+      "sources": [
+        "Long head of biceps femoris.l",
+        "Long head of biceps femoris.r",
+        "Short head of biceps femoris.l",
+        "Short head of biceps femoris.r"
+      ],
+      "tris": 1200
+    },
+    "semitendinosus": {
+      "sources": [
+        "Semitendinosus muscle.l",
+        "Semitendinosus muscle.r"
+      ]
+    },
+    "semimembranosus": {
+      "sources": [
+        "Semimembranosus muscle.l",
+        "Semimembranosus muscle.r"
+      ],
+      "tris": 1200
+    },
+    "gastrocnemius_medial": {
+      "sources": [
+        "Medial head of gastrocnemius.l",
+        "Medial head of gastrocnemius.r"
+      ]
+    },
+    "gastrocnemius_lateral": {
+      "sources": [
+        "Lateral head of gastrocnemius.l",
+        "Lateral head of gastrocnemius.r"
+      ]
+    },
+    "soleus": {
+      "sources": [
+        "Soleus muscle.l",
+        "Soleus muscle.r"
+      ],
+      "tris": 1200
+    },
+    "tibialis_anterior": {
+      "sources": [
+        "Tibialis anterior muscle.l",
+        "Tibialis anterior muscle.r"
+      ]
+    },
+    "sternocleidomastoid": {
+      "sources": [
+        "Sternocleidomastoid muscle.l",
+        "Sternocleidomastoid muscle.r"
+      ]
+    }
+  },
+  "context": {
+    "head": {
+      "patterns": [
+        "^(Frontal bone|Occipital bone|Parietal bone\\.[lr]|Temporal bone\\.[lr]|Sphenoid bone|Mandible|Maxilla\\.[lr]|Zygomatic bone\\.[lr]|Nasal bone\\.[lr]|Lacrimal bone\\.[lr]|Vomer|Inferior nasal concha bone\\.[lr]|Hyoid bone|Palatine bone\\.[lr])$",
+        "^(Upper|Lower) .*(incisor|canine|premolar|molar tooth)\\.[lr]$",
+        "^(Major alar cartilage|Lateral process of nasal septal cartilage)\\.[lr]$",
+        "^Nasal septal cartilage$",
+        "^(Sclera|Cornea|Iris)\\.[lr]$"
+      ],
+      "tris": 7000
+    },
+    "skeleton": {
+      "collections": [
+        "1: Skeletal system"
+      ],
+      "exclude": [
+        "\\.(j|i|g)$",
+        "^(Malleus|Incus|Stapes)\\.[lr]$",
+        "^Ethmoid bone$",
+        "cells of ethmoid bone",
+        "^Sinus of ",
+        "^(Arytenoid|Corniculate|Cricoid|Thyroid) cartilage"
+      ],
+      "tris": 22000
+    },
+    "muscles": {
+      "collections": [
+        "Muscles"
+      ],
+      "exclude": [
+        "^Diaphragm$",
+        "arytenoid",
+        "crico",
+        "glossus",
+        "pharyngeal constrictor",
+        "^(Palatopharyngeus|Stylopharyngeus) muscle",
+        "^(Inferior|Lateral|Medial|Superior) rectus muscle",
+        "^(Inferior|Superior) oblique muscle",
+        "^Trochlea of superior oblique",
+        "^Common tendinous ring",
+        "^Levator palpebrae",
+        "^(Superior|Inferior) tarsus",
+        "^(Coccygeus|Iliococcygeus|Pubococcygeus|Pubo-analis) muscle",
+        "^Tendinous arch of levator ani",
+        "^External anal sphincter",
+        "^(Innermost|Internal) intercostal",
+        "^Transversus thoracis",
+        "^Rotatores",
+        "^Multifidus",
+        "^Interspinales",
+        "intertransversarii",
+        "^Levatores",
+        "^(Rectus (anterior|lateralis|posterior major|posterior minor) capitis|Obliquus (inferior|superior) capitis) muscle$",
+        "^Semispinalis ",
+        "^Longus (colli|capitis)",
+        "^Quadratus lumborum",
+        "^Platysma"
+      ],
+      "tris": 26000
+    }
+  }
+}
